@@ -1,38 +1,63 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
 export async function fetchCourses() {
-  const res = await fetch(`${API_URL}/api/courses`, { next: { revalidate: 60 } });
-  if (!res.ok) throw new Error('Failed to fetch courses');
-  const data = await res.json();
-  return data.data;
+  try {
+    const res = await fetch(`${API_URL}/api/courses`, { next: { revalidate: 60 } });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.data;
+  } catch (e) {
+    console.error('fetchCourses error:', e.message, 'API_URL:', API_URL);
+    return [];
+  }
 }
 
 export async function fetchCourse(courseId) {
-  const res = await fetch(`${API_URL}/api/courses/${courseId}`, { next: { revalidate: 60 } });
-  if (!res.ok) return null;
-  const data = await res.json();
-  return data.data;
+  try {
+    const res = await fetch(`${API_URL}/api/courses/${courseId}`, { next: { revalidate: 60 } });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.data;
+  } catch (e) {
+    console.error('fetchCourse error:', e.message, 'API_URL:', API_URL);
+    return null;
+  }
 }
 
 export async function fetchModules(courseId) {
-  const res = await fetch(`${API_URL}/api/modules/${courseId}`, { next: { revalidate: 60 } });
-  if (!res.ok) return [];
-  const data = await res.json();
-  return data.data;
+  try {
+    const res = await fetch(`${API_URL}/api/modules/${courseId}`, { next: { revalidate: 60 } });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.data;
+  } catch (e) {
+    console.error('fetchModules error:', e.message, 'API_URL:', API_URL);
+    return [];
+  }
 }
 
 export async function fetchModule(courseId, moduleId) {
-  const res = await fetch(`${API_URL}/api/modules/${courseId}/${moduleId}`, { next: { revalidate: 60 } });
-  if (!res.ok) return null;
-  const data = await res.json();
-  return data.data;
+  try {
+    const res = await fetch(`${API_URL}/api/modules/${courseId}/${moduleId}`, { next: { revalidate: 60 } });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.data;
+  } catch (e) {
+    console.error('fetchModule error:', e.message);
+    return null;
+  }
 }
 
 export async function fetchQuiz(courseId) {
-  const res = await fetch(`${API_URL}/api/quiz/${courseId}`, { cache: 'no-store' });
-  if (!res.ok) return [];
-  const data = await res.json();
-  return data.data;
+  try {
+    const res = await fetch(`${API_URL}/api/quiz/${courseId}`, { cache: 'no-store' });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.data;
+  } catch (e) {
+    console.error('fetchQuiz error:', e.message);
+    return [];
+  }
 }
 
 export async function submitQuiz(courseId, answers, userId) {
@@ -55,8 +80,12 @@ export async function completeModule(userId, courseId, moduleId) {
 }
 
 export async function fetchProgress(userId) {
-  const res = await fetch(`${API_URL}/api/progress/${userId}`, { cache: 'no-store' });
-  if (!res.ok) return {};
-  const data = await res.json();
-  return data.data;
+  try {
+    const res = await fetch(`${API_URL}/api/progress/${userId}`, { cache: 'no-store' });
+    if (!res.ok) return {};
+    const data = await res.json();
+    return data.data;
+  } catch (e) {
+    return {};
+  }
 }

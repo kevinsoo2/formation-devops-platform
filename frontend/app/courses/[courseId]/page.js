@@ -6,7 +6,13 @@ export default async function CourseDetailPage({ params }) {
   const [course, modules] = await Promise.all([fetchCourse(courseId), fetchModules(courseId)]);
 
   if (!course) {
-    return <div className="text-center py-20"><h2 className="text-2xl">Formation non trouvée</h2><Link href="/courses" className="text-purple-400 mt-4 inline-block">Retour</Link></div>;
+    return (
+      <div className="text-center py-20">
+        <h2 className="text-2xl mb-4">Formation non trouvée</h2>
+        <p className="text-gray-400 mb-4">Le backend est peut-être en train de démarrer (plan gratuit Render). Rechargez la page dans 30 secondes.</p>
+        <Link href="/courses" className="text-purple-400">← Retour aux formations</Link>
+      </div>
+    );
   }
 
   return (
