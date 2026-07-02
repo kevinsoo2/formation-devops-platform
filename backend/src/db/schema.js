@@ -32,7 +32,7 @@ export const modules = sqliteTable('modules', {
 export const quizQuestions = sqliteTable('quiz_questions', {
   id: text('id').primaryKey(),
   courseId: text('course_id').notNull().references(() => courses.id),
-  moduleId: text('module_id').notNull().references(() => modules.id),
+  moduleId: text('module_id'),
   question: text('question').notNull(),
   options: text('options').notNull(), // JSON string
   correctIndex: integer('correct_index').notNull(),

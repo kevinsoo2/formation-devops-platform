@@ -12,9 +12,12 @@ router.get('/:secret', async (req, res) => {
   }
   try {
     // Créer les tables si elles n'existent pas
+    await db.run(sql`DROP TABLE IF EXISTS quiz_questions`);
+    await db.run(sql`DROP TABLE IF EXISTS modules`);
+    await db.run(sql`DROP TABLE IF EXISTS courses`);
     await db.run(sql`CREATE TABLE IF NOT EXISTS courses (id TEXT PRIMARY KEY, title TEXT NOT NULL, subtitle TEXT NOT NULL, description TEXT NOT NULL, icon TEXT NOT NULL, color TEXT NOT NULL, duration TEXT NOT NULL, level TEXT NOT NULL, category TEXT NOT NULL, prerequisites TEXT NOT NULL, objectives TEXT NOT NULL, created_at TEXT NOT NULL DEFAULT (datetime('now')))`);
     await db.run(sql`CREATE TABLE IF NOT EXISTS modules (id TEXT PRIMARY KEY, course_id TEXT NOT NULL, title TEXT NOT NULL, duration TEXT NOT NULL, order_index INTEGER NOT NULL, theory_content TEXT NOT NULL, practice_content TEXT NOT NULL, key_points TEXT NOT NULL)`);
-    await db.run(sql`CREATE TABLE IF NOT EXISTS quiz_questions (id TEXT PRIMARY KEY, course_id TEXT NOT NULL, module_id TEXT NOT NULL, question TEXT NOT NULL, options TEXT NOT NULL, correct_index INTEGER NOT NULL, explanation TEXT NOT NULL)`);
+    await db.run(sql`CREATE TABLE IF NOT EXISTS quiz_questions (id TEXT PRIMARY KEY, course_id TEXT NOT NULL, module_id TEXT, question TEXT NOT NULL, options TEXT NOT NULL, correct_index INTEGER NOT NULL, explanation TEXT NOT NULL)`);
     await db.run(sql`CREATE TABLE IF NOT EXISTS user_progress (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, course_id TEXT NOT NULL, module_id TEXT NOT NULL, completed_at TEXT NOT NULL DEFAULT (datetime('now')))`);
     await db.run(sql`CREATE TABLE IF NOT EXISTS quiz_scores (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, course_id TEXT NOT NULL, score REAL NOT NULL, total_questions INTEGER NOT NULL, correct_answers INTEGER NOT NULL, passed INTEGER NOT NULL, completed_at TEXT NOT NULL DEFAULT (datetime('now')))`);
 
@@ -25,7 +28,15 @@ router.get('/:secret', async (req, res) => {
       await db.insert(schema.modules).values(mod).onConflictDoNothing();
     }
     for (const q of seedData.quizQuestions) {
-      await db.insert(schema.quizQuestions).values(q).onConflictDoNothing();
+      await db.insert(schema.quizQuestions).values({
+        id: q.id,
+        courseId: q.courseId,
+        moduleId: q.moduleId || null,
+        question: q.question,
+        options: q.options,
+        correctIndex: q.correctAnswer !== undefined ? q.correctAnswer : q.correctIndex,
+        explanation: q.explanation,
+      }).onConflictDoNothing();
     }
     res.json({ success: true, message: 'Base de données initialisée !', counts: {
       courses: seedData.courses.length, modules: seedData.modules.length, quizQuestions: seedData.quizQuestions.length
