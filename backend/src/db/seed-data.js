@@ -4,43 +4,43 @@ export const seedData = {
       id: 'artifactory', title: 'JFrog Artifactory', subtitle: 'Gestionnaire de dépôts universels',
       description: 'Maîtrisez Artifactory, le gestionnaire de dépôts d\'artefacts universel. Apprenez à gérer vos binaires, conteneurs et packages dans un référentiel centralisé.',
       icon: '📦', color: '#41BF47', duration: '12 heures', level: 'Intermédiaire', category: 'Gestion des artefacts',
-      prerequisites: JSON.stringify(['Connaissances de base en CI/CD', 'Familiarité avec Maven/Gradle/npm']),
-      objectives: JSON.stringify(['Installer et configurer Artifactory', 'Gérer des dépôts locaux, distants et virtuels', 'Intégrer dans un pipeline CI/CD', 'Gérer les permissions', 'Utiliser promotion et rétention']),
+      prerequisites: JSON.stringify(['Connaissances de base en CI/CD', 'Familiarité avec Maven/Gradle/npm', 'Notions de Docker']),
+      objectives: JSON.stringify(['Installer et configurer Artifactory', 'Gérer des dépôts locaux, distants et virtuels', 'Intégrer dans un pipeline CI/CD', 'Gérer les permissions et tokens', 'Utiliser promotion et rétention', 'Maîtriser l\'API REST et AQL']),
     },
     {
       id: 'sonarqube', title: 'SonarQube', subtitle: 'Analyse de qualité de code',
       description: 'Apprenez à utiliser SonarQube pour analyser la qualité de votre code, détecter bugs, vulnérabilités et code smells.',
       icon: '🔍', color: '#4E9BCD', duration: '10 heures', level: 'Intermédiaire', category: 'Qualité du code',
-      prerequisites: JSON.stringify(['Connaissances en programmation', 'Notions de CI/CD']),
-      objectives: JSON.stringify(['Installer et configurer SonarQube', 'Analyser avec SonarScanner', 'Comprendre les métriques', 'Configurer Quality Gates', 'Intégrer dans Jenkins/GitLab CI']),
+      prerequisites: JSON.stringify(['Connaissances en programmation', 'Notions de CI/CD', 'Familiarité avec Git']),
+      objectives: JSON.stringify(['Installer et configurer SonarQube', 'Analyser avec SonarScanner', 'Comprendre les métriques', 'Configurer Quality Gates', 'Intégrer dans Jenkins/GitLab CI', 'Utiliser SonarLint en Connected Mode']),
     },
     {
       id: 'doors', title: 'IBM DOORS', subtitle: 'Gestion des exigences',
       description: 'Maîtrisez IBM DOORS pour la gestion des exigences dans les projets complexes. Traçabilité, liens et analyse d\'impact.',
       icon: '📋', color: '#054ADA', duration: '15 heures', level: 'Avancé', category: 'Gestion des exigences',
-      prerequisites: JSON.stringify(['Notions d\'ingénierie système', 'Gestion de projet']),
-      objectives: JSON.stringify(['Naviguer dans DOORS', 'Créer des modules d\'exigences', 'Établir la traçabilité', 'Utiliser vues et filtres', 'Générer rapports', 'Administrer projets']),
+      prerequisites: JSON.stringify(['Notions d\'ingénierie système', 'Gestion de projet', 'Connaissance des cycles de développement V ou agile']),
+      objectives: JSON.stringify(['Naviguer dans DOORS', 'Créer des modules d\'exigences', 'Établir la traçabilité', 'Utiliser vues et filtres', 'Programmer en DXL', 'Générer rapports', 'Administrer projets']),
     },
     {
       id: 'clearcase', title: 'IBM ClearCase', subtitle: 'Gestion de configuration logicielle',
       description: 'Apprenez IBM Rational ClearCase pour la gestion de configuration. Versionnement, branches, vues dynamiques et UCM.',
       icon: '🌿', color: '#1F70C1', duration: '14 heures', level: 'Avancé', category: 'Gestion de configuration',
-      prerequisites: JSON.stringify(['Expérience avec un SCM (Git, SVN)', 'Connaissances système']),
-      objectives: JSON.stringify(['Architecture VOB/View', 'Vues dynamiques et snapshot', 'Branching et merging', 'UCM', 'Administration VOBs', 'Migration vers Git']),
+      prerequisites: JSON.stringify(['Expérience avec un SCM (Git, SVN)', 'Connaissances système Linux/Unix', 'Notions de réseau']),
+      objectives: JSON.stringify(['Architecture VOB/View', 'Vues dynamiques et snapshot', 'Branching et merging', 'UCM workflow complet', 'Administration VOBs', 'Triggers et automatisation', 'Migration vers Git']),
     },
     {
       id: 'klocwork', title: 'Klocwork', subtitle: 'Analyse statique de code',
       description: 'Découvrez Klocwork pour l\'analyse statique C, C++, Java, C#. Défauts critiques, vulnérabilités et conformité aux standards.',
       icon: '🛡️', color: '#E74C3C', duration: '11 heures', level: 'Intermédiaire', category: 'Analyse statique',
-      prerequisites: JSON.stringify(['Programmation C/C++ ou Java', 'Notions de sécurité logicielle']),
-      objectives: JSON.stringify(['Installer Klocwork', 'Lancer des analyses', 'Interpréter les résultats', 'Configurer checkers', 'Intégrer dans CI/CD', 'Standards MISRA et CERT']),
+      prerequisites: JSON.stringify(['Programmation C/C++ ou Java', 'Notions de sécurité logicielle', 'Familiarité avec les outils de build (Make, CMake)']),
+      objectives: JSON.stringify(['Installer Klocwork', 'Lancer des analyses locales et serveur', 'Interpréter les résultats', 'Configurer checkers MISRA et CERT', 'Intégrer dans CI/CD', 'Gérer les faux positifs', 'Générer des rapports de conformité']),
     },
     {
       id: 'jenkins', title: 'Jenkins', subtitle: 'Automatisation CI/CD',
       description: 'Maîtrisez Jenkins, le serveur d\'automatisation le plus populaire. Pipelines CI/CD, agents distribués, intégration outils.',
       icon: '🔧', color: '#D33833', duration: '16 heures', level: 'Débutant à Avancé', category: 'CI/CD',
-      prerequisites: JSON.stringify(['Connaissances Linux de base', 'Familiarité avec Git']),
-      objectives: JSON.stringify(['Installer Jenkins', 'Jobs Freestyle et Pipeline', 'Jenkinsfiles', 'Agents distribués', 'Plugins et sécurité', 'Docker et Kubernetes', 'Pipelines multibranches']),
+      prerequisites: JSON.stringify(['Connaissances Linux de base', 'Familiarité avec Git', 'Notions de Docker recommandées']),
+      objectives: JSON.stringify(['Installer Jenkins', 'Jobs Freestyle et Pipeline', 'Jenkinsfiles déclaratifs et scriptés', 'Agents distribués Docker et Kubernetes', 'Plugins et sécurité', 'Shared Libraries', 'JCasC et administration']),
     },
   ],
 
@@ -51,11 +51,9 @@ export const seedData = {
     { id: 'art-01', courseId: 'artifactory', title: 'Introduction à Artifactory', duration: '3h', orderIndex: 1,
       theoryContent: `## Introduction à JFrog Artifactory
 
-### Qu'est-ce que JFrog Artifactory ?
+### Présentation
 
 JFrog Artifactory est un **gestionnaire de dépôts d'artefacts universel** (Universal Artifact Repository Manager). C'est la solution leader du marché pour stocker, gérer et distribuer tous les artefacts logiciels générés pendant le cycle de développement : binaires compilés, packages, images Docker, fichiers Helm, etc.
-
-### Pourquoi un gestionnaire d'artefacts ?
 
 Dans le développement logiciel moderne, chaque build produit des **artefacts** : fichiers JAR, packages npm, images Docker, fichiers .deb/.rpm, etc. Sans gestionnaire d'artefacts centralisé, les équipes rencontrent ces problèmes :
 
@@ -65,89 +63,357 @@ Dans le développement logiciel moderne, chaque build produit des **artefacts** 
 - **Builds non reproductibles** : les dépendances externes peuvent disparaître ou changer
 - **Pas de promotion** : pas de workflow pour passer un artefact de dev à staging à production
 
-Artifactory résout tous ces problèmes en fournissant un **point central** pour tous les artefacts de l'entreprise.
+Artifactory résout tous ces problèmes en fournissant un **point central** pour tous les artefacts de l'entreprise. Il supporte plus de 30 formats de packages nativement et offre des fonctionnalités avancées de sécurité, de réplication et de haute disponibilité.
 
-### Les concepts fondamentaux
+### Installation sur Linux (Ubuntu/Debian)
 
-#### Types de dépôts
+#### Prérequis système
 
-Artifactory propose trois types de dépôts :
+\\\`\\\`\\\`bash
+# Vérifier les prérequis
+java -version          # Java 11+ requis (OpenJDK ou Oracle JDK)
+free -h                # Minimum 4 Go RAM recommandé
+df -h                  # Minimum 10 Go espace disque
 
-| Type | Description | Exemple d'usage |
-|------|-------------|-----------------|
-| **Local** | Stockage interne des artefacts produits | Vos JAR, vos images Docker |
-| **Remote** | Proxy/cache de dépôts externes | Cache de Maven Central, npm registry |
-| **Virtual** | Agrégation de plusieurs dépôts | Un seul URL pour local + remote |
+# Installer Java si nécessaire
+sudo apt update
+sudo apt install -y openjdk-17-jdk
 
-#### Architecture d'un dépôt virtuel
+# Vérifier
+java -version
+\\\`\\\`\\\`
 
-\`\`\`
-┌─────────────────────────────────────────┐
-│         Dépôt Virtuel "libs"            │
-│  (point d'entrée unique pour les devs)  │
-├─────────────────────────────────────────┤
-│                                         │
-│  ┌──────────┐  ┌───────────────────┐    │
-│  │  Local   │  │     Remote        │    │
-│  │ libs-    │  │  libs-remote      │    │
-│  │ release  │  │  (→Maven Central) │    │
-│  └──────────┘  └───────────────────┘    │
-│                                         │
-│  ┌──────────┐                           │
-│  │  Local   │                           │
-│  │ libs-    │                           │
-│  │ snapshot │                           │
-│  └──────────┘                           │
-└─────────────────────────────────────────┘
-\`\`\`
+#### Installation via Docker (Recommandée pour labs)
 
-### Formats supportés (Package Types)
+\\\`\\\`\\\`bash
+# Créer les répertoires de données
+sudo mkdir -p /opt/artifactory/data
+sudo mkdir -p /opt/artifactory/logs
+sudo mkdir -p /opt/artifactory/etc
+sudo chown -R 1030:1030 /opt/artifactory
 
-Artifactory supporte **plus de 30 formats** de packages natifs :
+# Lancer Artifactory OSS avec Docker
+docker run -d --name artifactory \\\\
+  -p 8081:8081 -p 8082:8082 \\\\
+  -v /opt/artifactory/data:/var/opt/jfrog/artifactory \\\\
+  -v /opt/artifactory/logs:/opt/jfrog/artifactory/var/log \\\\
+  --restart unless-stopped \\\\
+  releases-docker.jfrog.io/jfrog/artifactory-oss:latest
 
+# Vérifier que le conteneur est lancé
+docker ps | grep artifactory
+docker logs -f artifactory
+# Attendre "Artifactory successfully started"
+# L'interface est disponible sur http://localhost:8082/ui/
+\\\`\\\`\\\`
+
+#### Installation standalone (Production)
+
+\\\`\\\`\\\`bash
+# Télécharger la dernière version
+wget https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/[RELEASE]/jfrog-artifactory-oss-[RELEASE]-linux.tar.gz
+
+# Extraire
+sudo tar -xzf jfrog-artifactory-oss-*.tar.gz -C /opt/
+sudo ln -s /opt/artifactory-oss-* /opt/artifactory
+
+# Créer l'utilisateur système
+sudo useradd -r -m -U -d /opt/artifactory -s /bin/false artifactory
+sudo chown -R artifactory:artifactory /opt/artifactory
+
+# Configurer comme service systemd
+sudo cat > /etc/systemd/system/artifactory.service << 'EOF'
+[Unit]
+Description=JFrog Artifactory
+After=network.target
+
+[Service]
+Type=forking
+User=artifactory
+Group=artifactory
+ExecStart=/opt/artifactory/app/bin/artifactoryManage.sh start
+ExecStop=/opt/artifactory/app/bin/artifactoryManage.sh stop
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Activer et démarrer le service
+sudo systemctl daemon-reload
+sudo systemctl enable artifactory
+sudo systemctl start artifactory
+
+# Vérifier le statut
+sudo systemctl status artifactory
+# Attendre que le port 8082 soit accessible
+curl -s http://localhost:8082/router/api/v1/system/health
+\\\`\\\`\\\`
+
+#### Installation sur Linux (CentOS/RHEL)
+
+\\\`\\\`\\\`bash
+# Installer les prérequis
+sudo yum install -y java-17-openjdk java-17-openjdk-devel wget
+
+# Ajouter le dépôt JFrog
+sudo cat > /etc/yum.repos.d/artifactory.repo << 'EOF'
+[artifactory]
+name=JFrog Artifactory
+baseurl=https://releases.jfrog.io/artifactory/artifactory-rpms/
+gpgcheck=0
+enabled=1
+EOF
+
+# Installer via yum
+sudo yum install -y jfrog-artifactory-oss
+
+# Démarrer le service
+sudo systemctl start artifactory
+sudo systemctl enable artifactory
+sudo systemctl status artifactory
+\\\`\\\`\\\`
+
+#### Vérification de l'installation
+
+\\\`\\\`\\\`bash
+# Vérifier que les services sont actifs
+curl -s http://localhost:8082/router/api/v1/system/health | python3 -m json.tool
+# Doit retourner : {"router":{"state":"HEALTHY"...}}
+
+# Vérifier l'accès à l'API
+curl -s -u admin:password http://localhost:8082/artifactory/api/system/ping
+# Doit retourner : OK
+
+# Vérifier la version
+curl -s -u admin:password http://localhost:8082/artifactory/api/system/version
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────┐
+│                      ARTIFACTORY PLATFORM                        │
+│                                                                  │
+│  ┌──────────────┐  ┌──────────────┐  ┌───────────────────────┐  │
+│  │   Router     │  │  Access      │  │   Metadata            │  │
+│  │  (Nginx)     │  │  Service     │  │   Service             │  │
+│  │  Port 8082   │  │  (Auth/ACL)  │  │   (Properties/Stats)  │  │
+│  └──────────────┘  └──────────────┘  └───────────────────────┘  │
+│                                                                  │
+│  ┌──────────────┐  ┌──────────────┐  ┌───────────────────────┐  │
+│  │  Artifactory │  │   Event      │  │   JFrog Xray          │  │
+│  │  Service     │  │   Service    │  │   (Sécurité)          │  │
+│  │  Port 8081   │  │  (Webhooks)  │  │   (Pro/Enterprise)    │  │
+│  └──────────────┘  └──────────────┘  └───────────────────────┘  │
+│                                                                  │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │                    Storage Backend                          │  │
+│  │   Filesystem / S3 / Azure Blob / Google Cloud Storage      │  │
+│  └───────────────────────────────────────────────────────────┘  │
+│                                                                  │
+│  ┌───────────────────────────────────────────────────────────┐  │
+│  │                    Database Backend                         │  │
+│  │   Derby (dev) / PostgreSQL / MySQL / Oracle / MS SQL       │  │
+│  └───────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+**Composants principaux :**
+- **Router (Nginx)** : Point d'entrée unique, reverse proxy, TLS termination
+- **Access Service** : Authentification, autorisation, gestion des tokens
+- **Artifactory Service** : Gestion des dépôts, résolution des artefacts
+- **Metadata Service** : Propriétés, statistiques, recherche
+- **Event Service** : Webhooks, notifications, réplication
+
+### Commandes essentielles
+
+\\\`\\\`\\\`bash
+# === GESTION DU SERVICE ===
+sudo systemctl start artifactory      # Démarrer Artifactory
+sudo systemctl stop artifactory       # Arrêter Artifactory
+sudo systemctl restart artifactory    # Redémarrer
+sudo systemctl status artifactory     # Vérifier le statut
+journalctl -u artifactory -f          # Voir les logs en temps réel
+
+# === JFROG CLI - Installation ===
+curl -fL https://install-cli.jfrog.io | sh   # Installer jfrog CLI
+jf --version                                  # Vérifier la version
+jf config add my-server --url=http://localhost:8082 --user=admin --password=password  # Configurer
+jf config show                                # Afficher la configuration
+jf rt ping                                    # Tester la connexion
+
+# === JFROG CLI - Opérations sur les dépôts ===
+jf rt repo-create template.json               # Créer un dépôt depuis un template
+jf rt repo-delete libs-snapshot-local         # Supprimer un dépôt
+jf rt repo-list                               # Lister tous les dépôts
+
+# === JFROG CLI - Upload/Download ===
+jf rt upload "*.jar" libs-release-local/com/company/app/1.0/   # Upload
+jf rt download "libs-release-local/com/company/app/1.0/*.jar"  # Download
+jf rt upload "target/*.jar" libs-release-local/ --flat=false    # Upload avec arborescence
+jf rt copy libs-release-local/app.jar libs-prod-local/app.jar  # Copier
+jf rt move libs-staging/app.jar libs-prod/app.jar              # Déplacer
+jf rt delete "libs-snapshot-local/com/old/*"                   # Supprimer
+
+# === JFROG CLI - Propriétés ===
+jf rt set-props "libs-release-local/app-1.0.jar" "build.status=tested;qa.approved=true"
+jf rt search "libs-release-local/" --props="build.status=tested"
+
+# === JFROG CLI - Build Info ===
+jf rt build-collect-env my-build 1            # Collecter les variables d'environnement
+jf rt build-add-git my-build 1                # Ajouter les infos Git
+jf rt build-publish my-build 1                # Publier le Build Info
+jf rt build-promote my-build 1 libs-prod-local --status="Released"  # Promouvoir
+
+# === API REST - Opérations courantes ===
+# Ping
+curl -u admin:password http://localhost:8082/artifactory/api/system/ping
+
+# Lister les dépôts
+curl -u admin:password http://localhost:8082/artifactory/api/repositories
+
+# Infos sur un artefact
+curl -u admin:password http://localhost:8082/artifactory/api/storage/libs-release-local/com/app/1.0/app-1.0.jar
+
+# Déployer un fichier
+curl -u admin:password -T app-1.0.jar "http://localhost:8082/artifactory/libs-release-local/com/app/1.0/app-1.0.jar"
+
+# Recherche par propriété
+curl -u admin:password "http://localhost:8082/artifactory/api/search/prop?build.status=released"
+
+# Recherche AQL
+curl -u admin:password -X POST "http://localhost:8082/artifactory/api/search/aql" \\
+  -H "Content-Type: text/plain" \\
+  -d 'items.find({"repo":"libs-release-local","name":{"$match":"*.jar"}})'
+
+# Statistiques système
+curl -u admin:password http://localhost:8082/artifactory/api/system/storage
+
+# Créer un token d'accès
+curl -u admin:password -X POST "http://localhost:8082/access/api/v1/tokens" \\
+  -d "username=ci-user&scope=member-of-groups:readers&expires_in=3600"
+\\\`\\\`\\\`
+
+### Configuration
+
+#### Configuration système (system.yaml)
+
+\\\`\\\`\\\`yaml
+# /opt/artifactory/var/etc/system.yaml
+shared:
+  database:
+    type: postgresql
+    url: jdbc:postgresql://localhost:5432/artifactory
+    driver: org.postgresql.Driver
+    username: artifactory
+    password: password
+  node:
+    id: "node1"
+    ip: "192.168.1.100"
+  security:
+    joinKey: "your-join-key-here"
+
+artifactory:
+  port: 8081
+  tomcat:
+    connector:
+      maxThreads: 200
+      sendReasonPhrase: true
+  
+router:
+  entryPoints:
+    internalPort: 8046
+  externalPort: 8082
+\\\`\\\`\\\`
+
+#### Configuration Maven (settings.xml)
+
+\\\`\\\`\\\`xml
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <servers>
+    <server>
+      <id>artifactory</id>
+      <username>admin</username>
+      <password>your-encrypted-password</password>
+    </server>
+  </servers>
+  <mirrors>
+    <mirror>
+      <id>artifactory</id>
+      <mirrorOf>*</mirrorOf>
+      <url>http://localhost:8082/artifactory/maven-virtual/</url>
+    </mirror>
+  </mirrors>
+  <profiles>
+    <profile>
+      <id>artifactory</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>http://localhost:8082/artifactory/maven-virtual/</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+      </repositories>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+</settings>
+\\\`\\\`\\\`
+
+### Utilisation avancée
+
+#### Formats supportés (Package Types)
+
+Artifactory supporte nativement plus de 30 formats :
 - **Java** : Maven, Gradle, Ivy, SBT
-- **JavaScript** : npm, Yarn, Bower
+- **JavaScript** : npm, Yarn, Bower, pnpm
 - **Python** : PyPI, Conda
 - **Docker** : Docker Registry V2
 - **.NET** : NuGet
-- **Linux** : Debian (apt), RPM (yum)
-- **Go** : Go Modules
+- **Linux** : Debian (apt), RPM (yum), Alpine (apk)
+- **Go** : Go Modules, Go Registry
 - **Helm** : Charts Kubernetes
+- **Terraform** : Modules et Providers
+- **Rust** : Cargo/crates.io
+- **Ruby** : RubyGems
+- **PHP** : Composer/Packagist
 - **Generic** : tout fichier binaire
 
-### Métadonnées et propriétés
+#### Métadonnées et propriétés
 
 Chaque artefact dans Artifactory possède :
-- **Checksums** : MD5, SHA1, SHA256 pour l'intégrité
+- **Checksums** : MD5, SHA1, SHA256 pour vérifier l'intégrité
 - **Propriétés** : paires clé-valeur personnalisables (build.number, release.status, etc.)
-- **Build Info** : lien vers le build CI qui l'a produit
-- **Statistics** : nombre de téléchargements, date du dernier accès
+- **Build Info** : lien complet vers le build CI qui l'a produit
+- **Statistics** : nombre de téléchargements, date du dernier accès, taille
 
-### Cas d'usage en entreprise
+#### Architecture des dépôts
 
-1. **Cache de dépendances** : Éviter les téléchargements répétés depuis Internet, accélérer les builds
-2. **Stockage des livrables** : Centraliser tous les binaires produits par la CI
-3. **Distribution** : Distribuer les releases aux clients ou aux environnements de déploiement
-4. **Conformité** : Audit de toutes les dépendances utilisées (licences, vulnérabilités)
-5. **Air-gapped environments** : Fournir les dépendances dans des environnements sans accès Internet
+| Type | Description | Exemple d'usage |
+|------|-------------|-----------------|
+| **Local** | Stockage interne des artefacts produits | Vos JAR, images Docker, packages npm |
+| **Remote** | Proxy/cache de dépôts externes | Cache de Maven Central, npm registry, Docker Hub |
+| **Virtual** | Agrégation de plusieurs dépôts | Un seul URL pour local + remote |
+| **Federated** | Réplication multi-site (Enterprise+) | Synchronisation entre datacenters |
 
-### Artifactory vs alternatives
+### Bonnes pratiques
 
-| Fonctionnalité | Artifactory | Nexus | GitHub Packages |
-|----------------|-------------|-------|-----------------|
-| Formats supportés | 30+ | 20+ | ~10 |
-| Haute disponibilité | Oui (Enterprise) | Oui (Pro) | Oui |
-| Réplication | Multi-site | Limitée | Non |
-| Xray (sécurité) | Intégré | Non | Dependabot |
-| Build Info | Natif | Limité | Actions |
-| Coût | $$$ | $$ | Inclus |
-
-### Éditions d'Artifactory
-
-- **OSS** (Open Source) : Maven, Gradle, Ivy uniquement
-- **Pro** : Tous les formats, haute disponibilité, réplication
-- **Enterprise** : Multi-site, fédération, support premium
-- **Cloud** : SaaS managé par JFrog`,
+1. **Séparer releases et snapshots** dans des dépôts différents avec des politiques de rétention distinctes
+2. **Un remote par source externe** (Maven Central, npm registry, Docker Hub, PyPI)
+3. **Toujours utiliser des virtuels** pour les développeurs - un seul URL à configurer
+4. **Configurer la rétention** dès le départ pour éviter que le stockage explose
+5. **Utiliser des propriétés** pour le lifecycle management et la promotion
+6. **Access Tokens** plutôt que des mots de passe pour les services CI/CD
+7. **Sauvegarder la configuration** régulièrement (system.yaml, access, security)
+8. **Monitorer** l'espace disque, les connexions et la latence des remotes
+9. **Ne jamais déployer directement en production** - toujours passer par la promotion
+10. **Documenter la convention de nommage** et l'appliquer dès le début`,
 
       practiceContent: `### Travaux Pratiques : Découverte d'Artifactory
 
@@ -155,64 +421,104 @@ Chaque artefact dans Artifactory possède :
 - Docker et Docker Compose installés
 - Maven ou npm installé localement
 - Navigateur web
+- curl disponible en ligne de commande
 
 #### Étape 1 : Lancer Artifactory avec Docker
 
-\`\`\`bash
+\\\`\\\`\\\`bash
 # Créer un répertoire de travail
 mkdir -p ~/artifactory-tp && cd ~/artifactory-tp
 
+# Préparer les volumes
+mkdir -p data logs
+sudo chown -R 1030:1030 data logs
+
 # Lancer Artifactory OSS avec Docker
-docker run -d --name artifactory \\
-  -p 8081:8081 -p 8082:8082 \\
-  -v artifactory-data:/var/opt/jfrog/artifactory \\
+docker run -d --name artifactory \\\\
+  -p 8081:8081 -p 8082:8082 \\\\
+  -v $(pwd)/data:/var/opt/jfrog/artifactory \\\\
+  -v $(pwd)/logs:/opt/jfrog/artifactory/var/log \\\\
+  --restart unless-stopped \\\\
   releases-docker.jfrog.io/jfrog/artifactory-oss:latest
 
 # Vérifier que le conteneur est lancé
 docker logs -f artifactory
-# Attendre "Artifactory successfully started"
-\`\`\`
+# Attendre le message "Artifactory successfully started"
+# Cela peut prendre 1-2 minutes au premier lancement
+
+# Tester l'accès
+curl -s http://localhost:8082/router/api/v1/system/health
+\\\`\\\`\\\`
 
 #### Étape 2 : Configuration initiale
 
-1. Ouvrez http://localhost:8082/ui/
-2. Connectez-vous avec admin/password (identifiants par défaut)
+1. Ouvrez http://localhost:8082/ui/ dans votre navigateur
+2. Connectez-vous avec les identifiants par défaut : admin / password
 3. Suivez le wizard de configuration initiale :
-   - Changez le mot de passe admin
+   - Changez le mot de passe admin (notez-le !)
    - Configurez l'URL de base : http://localhost:8082
-   - Créez un dépôt Maven local : \`libs-release-local\`
-   - Créez un dépôt Maven remote : \`remote-maven-central\` pointant vers https://repo1.maven.org/maven2
+   - Sautez la configuration du proxy si pas nécessaire
+4. Créez vos premiers dépôts via l'UI :
+   - Local Maven : \\\`libs-release-local\\\`
+   - Local Maven : \\\`libs-snapshot-local\\\`
+   - Remote Maven : \\\`remote-maven-central\\\` → https://repo1.maven.org/maven2
+   - Virtual Maven : \\\`maven-virtual\\\` (agrège les trois précédents)
 
-#### Étape 3 : Configurer Maven pour utiliser Artifactory
+#### Étape 3 : Installer et configurer le JFrog CLI
 
-Éditez votre fichier \`~/.m2/settings.xml\` :
-\`\`\`xml
+\\\`\\\`\\\`bash
+# Installer le JFrog CLI
+curl -fL https://install-cli.jfrog.io | sh
+sudo mv jf /usr/local/bin/
+
+# Vérifier l'installation
+jf --version
+
+# Configurer la connexion au serveur
+jf config add local-artif \\\\
+  --url=http://localhost:8082 \\\\
+  --user=admin \\\\
+  --password=votre-nouveau-mdp \\\\
+  --interactive=false
+
+# Tester la connexion
+jf rt ping
+# Doit retourner "OK"
+
+# Lister les dépôts
+jf rt repo-list
+\\\`\\\`\\\`
+
+#### Étape 4 : Configurer Maven pour utiliser Artifactory
+
+\\\`\\\`\\\`bash
+# Créer le fichier settings.xml
+mkdir -p ~/.m2
+cat > ~/.m2/settings.xml << 'EOF'
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
   <servers>
     <server>
       <id>artifactory</id>
       <username>admin</username>
-      <password>votre-nouveau-mot-de-passe</password>
+      <password>votre-nouveau-mdp</password>
     </server>
   </servers>
   <mirrors>
     <mirror>
       <id>artifactory</id>
       <mirrorOf>*</mirrorOf>
-      <url>http://localhost:8082/artifactory/remote-maven-central</url>
+      <url>http://localhost:8082/artifactory/maven-virtual/</url>
     </mirror>
   </mirrors>
 </settings>
-\`\`\`
+EOF
 
-#### Étape 4 : Tester le cache de dépendances
-
-\`\`\`bash
 # Créer un projet Maven simple
-mvn archetype:generate -DgroupId=com.formation \\
-  -DartifactId=test-artifactory \\
-  -DarchetypeArtifactId=maven-archetype-quickstart \\
+mvn archetype:generate \\\\
+  -DgroupId=com.formation.tp \\\\
+  -DartifactId=test-artifactory \\\\
+  -DarchetypeArtifactId=maven-archetype-quickstart \\\\
   -DinteractiveMode=false
 
 cd test-artifactory
@@ -221,321 +527,566 @@ cd test-artifactory
 mvn clean package
 
 # Vérifier dans l'UI qu'Artifactory a mis en cache les dépendances
-# → Administration > Repositories > remote-maven-central > Tree Browser
-\`\`\`
+# → Artifacts > remote-maven-central > parcourir l'arborescence
+\\\`\\\`\\\`
 
-#### Étape 5 : Déployer un artefact
+#### Étape 5 : Déployer un artefact via l'API REST
 
-Ajoutez dans votre \`pom.xml\` :
-\`\`\`xml
-<distributionManagement>
-  <repository>
-    <id>artifactory</id>
-    <url>http://localhost:8082/artifactory/libs-release-local</url>
-  </repository>
-</distributionManagement>
-\`\`\`
+\\\`\\\`\\\`bash
+# Créer un JAR fictif pour le test
+echo "Formation Artifactory TP" > dummy.txt
+jar cf formation-tp-1.0.jar dummy.txt
 
-Puis déployez :
-\`\`\`bash
-mvn deploy
-\`\`\`
+# Calculer le checksum SHA256
+SHA256=$(sha256sum formation-tp-1.0.jar | cut -d' ' -f1)
 
-#### Étape 6 : Vérification
+# Déployer via curl avec checksum
+curl -u admin:votre-nouveau-mdp \\\\
+  -X PUT \\\\
+  -H "X-Checksum-Sha256:$SHA256" \\\\
+  -T formation-tp-1.0.jar \\\\
+  "http://localhost:8082/artifactory/libs-release-local/com/formation/tp/1.0/formation-tp-1.0.jar"
 
-1. Dans l'UI Artifactory, naviguez vers \`libs-release-local\`
-2. Vous devriez voir votre artefact avec :
-   - Le fichier JAR
-   - Le POM
-   - Les checksums (MD5, SHA1, SHA256)
-   - Les métadonnées Maven
+# Vérifier le déploiement
+curl -u admin:votre-nouveau-mdp \\\\
+  "http://localhost:8082/artifactory/api/storage/libs-release-local/com/formation/tp/1.0/formation-tp-1.0.jar" | python3 -m json.tool
+
+# Ajouter des propriétés
+curl -u admin:votre-nouveau-mdp \\\\
+  -X PUT \\\\
+  "http://localhost:8082/artifactory/api/storage/libs-release-local/com/formation/tp/1.0/formation-tp-1.0.jar?properties=build.number=1;build.status=tested;git.commit=abc123def"
+
+# Lire les propriétés
+curl -u admin:votre-nouveau-mdp \\\\
+  "http://localhost:8082/artifactory/api/storage/libs-release-local/com/formation/tp/1.0/formation-tp-1.0.jar?properties" | python3 -m json.tool
+\\\`\\\`\\\`
+
+#### Étape 6 : Utiliser le JFrog CLI pour les opérations courantes
+
+\\\`\\\`\\\`bash
+# Upload avec le CLI
+jf rt upload "formation-tp-1.0.jar" "libs-release-local/com/formation/tp/1.0/"
+
+# Rechercher des artefacts
+jf rt search "libs-release-local/com/formation/**"
+
+# Ajouter des propriétés via CLI
+jf rt set-props "libs-release-local/com/formation/tp/1.0/formation-tp-1.0.jar" "promoted=true;env=staging"
+
+# Télécharger un artefact
+jf rt download "libs-release-local/com/formation/tp/1.0/formation-tp-1.0.jar" ./downloaded/
+
+# Copier vers un autre dépôt (promotion)
+jf rt copy "libs-release-local/com/formation/tp/1.0/formation-tp-1.0.jar" "libs-prod-local/com/formation/tp/1.0/"
+\\\`\\\`\\\`
 
 #### Questions de vérification
-- Combien de fichiers ont été mis en cache dans le remote repository ?
-- Quelle est la taille totale du stockage utilisé ?
-- Quels checksums sont disponibles pour votre artefact déployé ?`,
+- Combien de fichiers ont été mis en cache dans le remote repository après le build Maven ?
+- Quelle est la taille totale du stockage utilisé (Administration > Monitoring > Storage) ?
+- Les checksums SHA256 correspondent-ils entre le fichier local et celui déployé ?
+- La recherche par propriété retourne-t-elle les résultats attendus ?`,
 
       keyPoints: JSON.stringify([
         'Artifactory est un gestionnaire universel supportant 30+ formats de packages',
+        'Installation possible via Docker, package système ou standalone avec systemd',
         'Trois types de dépôts : Local (stockage), Remote (proxy/cache), Virtual (agrégation)',
-        'Les métadonnées incluent checksums, propriétés, build info et statistiques',
-        'Le cache des dépendances accélère les builds et assure la reproductibilité',
-        'Les propriétés permettent de tracer le cycle de vie des artefacts',
-        'Artifactory est le standard de facto dans les environnements CI/CD enterprise'
+        'JFrog CLI (jf) pour les opérations courantes : upload, download, search, props',
+        'API REST complète pour l\'automatisation de toutes les opérations',
+        'Les métadonnées incluent checksums, propriétés personnalisables et build info'
       ]) },
+
 
 
     { id: 'art-02', courseId: 'artifactory', title: 'Gestion des dépôts', duration: '4h', orderIndex: 2,
       theoryContent: `## Gestion avancée des dépôts Artifactory
 
-### Stratégie de nommage des dépôts
+### Présentation
 
-Une bonne convention de nommage est essentielle pour la maintenabilité. La convention recommandée par JFrog est :
+La gestion des dépôts est au coeur de l'utilisation quotidienne d'Artifactory. Une bonne organisation des dépôts est essentielle pour la maintenabilité, la performance et la sécurité de votre infrastructure d'artefacts. Ce module couvre en détail les trois types de dépôts, les stratégies de nommage, la configuration avancée et les politiques de rétention.
 
-\`\`\`
+### Installation sur Linux (Ubuntu/Debian)
+
+L'installation d'Artifactory a été couverte dans le module précédent. Pour ce module, nous nous concentrons sur la configuration post-installation des dépôts. Voici comment vérifier que votre installation est prête :
+
+\\\`\\\`\\\`bash
+# Vérifier que le service est actif
+sudo systemctl status artifactory
+
+# Vérifier la connectivité API
+curl -s -u admin:password http://localhost:8082/artifactory/api/system/ping
+# Réponse attendue : OK
+
+# Vérifier l'espace disque disponible pour les dépôts
+df -h /var/opt/jfrog/artifactory
+# Recommandation : au moins 50 Go pour un environnement de production
+
+# Vérifier les dépôts existants
+curl -s -u admin:password http://localhost:8082/artifactory/api/repositories | python3 -m json.tool
+
+# Si vous utilisez Docker, vérifier le conteneur
+docker exec artifactory df -h /var/opt/jfrog/artifactory
+\\\`\\\`\\\`
+
+### Installation sur Linux (CentOS/RHEL)
+
+\\\`\\\`\\\`bash
+# Vérifier le service sur CentOS
+sudo systemctl status artifactory
+sudo journalctl -u artifactory --since "1 hour ago"
+
+# Vérifier les ports ouverts
+sudo ss -tlnp | grep -E "808[12]"
+# 8081 = Artifactory service
+# 8082 = Router (point d'entrée principal)
+
+# Configurer le firewall si nécessaire
+sudo firewall-cmd --permanent --add-port=8081/tcp
+sudo firewall-cmd --permanent --add-port=8082/tcp
+sudo firewall-cmd --reload
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+#### Stratégie de nommage des dépôts
+
+La convention recommandée par JFrog est :
+\\\`\\\`\\\`
 <équipe>-<technologie>-<type>-<maturité>
-\`\`\`
+\\\`\\\`\\\`
 
-Exemples :
-- \`team-backend-maven-release-local\`
-- \`team-frontend-npm-dev-local\`
-- \`team-devops-docker-prod-local\`
-- \`company-maven-remote\` (cache de Maven Central)
-- \`company-maven-virtual\` (agrégation)
+Exemples concrets :
+- \\\`backend-maven-release-local\\\` : releases Maven de l'équipe backend
+- \\\`frontend-npm-dev-local\\\` : packages npm de développement frontend
+- \\\`devops-docker-prod-local\\\` : images Docker de production
+- \\\`company-maven-remote\\\` : cache de Maven Central (partagé)
+- \\\`company-npm-virtual\\\` : agrégation npm (point d'entrée unique)
 
-### Dépôts locaux en détail
+#### Architecture d'un dépôt virtuel
 
-Un dépôt local est un espace de stockage **interne** à Artifactory. C'est là que vous déployez vos propres artefacts.
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────┐
+│            Dépôt Virtuel "maven-virtual"                 │
+│     (point d'entrée unique pour les développeurs)        │
+│     URL: http://artif:8082/artifactory/maven-virtual/    │
+├─────────────────────────────────────────────────────────┤
+│                                                          │
+│  ┌─────────────────┐  ┌────────────────────────────┐    │
+│  │     Local        │  │        Remote              │    │
+│  │ libs-release-    │  │  maven-central-remote      │    │
+│  │ local            │  │  (→repo1.maven.org/maven2) │    │
+│  │ (priorité 1)    │  │  (priorité 3)              │    │
+│  └─────────────────┘  └────────────────────────────┘    │
+│                                                          │
+│  ┌─────────────────┐  ┌────────────────────────────┐    │
+│  │     Local        │  │        Remote              │    │
+│  │ libs-snapshot-   │  │  jcenter-remote            │    │
+│  │ local            │  │  (→jcenter.bintray.com)    │    │
+│  │ (priorité 2)    │  │  (priorité 4)              │    │
+│  └─────────────────┘  └────────────────────────────┘    │
+│                                                          │
+└─────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
 
-#### Configuration d'un dépôt local Maven
+### Commandes essentielles
 
-\`\`\`yaml
-# Via l'API REST
-PUT /api/repositories/libs-release-local
-{
-  "key": "libs-release-local",
-  "rclass": "local",
-  "packageType": "maven",
-  "description": "Dépôt pour les releases Maven internes",
-  "handleReleases": true,
-  "handleSnapshots": false,
-  "checksumPolicyType": "client-checksums",
-  "maxUniqueSnapshots": 0,
-  "snapshotVersionBehavior": "unique",
-  "suppressPomConsistencyChecks": false,
-  "propertySets": ["artifactory"],
-  "includesPattern": "**/*",
-  "excludesPattern": ""
-}
-\`\`\`
+\\\`\\\`\\\`bash
+# === GESTION DES DÉPÔTS VIA API REST ===
 
-#### Layouts de dépôt
+# Lister tous les dépôts
+curl -u admin:password http://localhost:8082/artifactory/api/repositories
 
-Le layout définit comment les artefacts sont organisés dans l'arborescence :
+# Lister par type
+curl -u admin:password "http://localhost:8082/artifactory/api/repositories?type=local"
+curl -u admin:password "http://localhost:8082/artifactory/api/repositories?type=remote"
+curl -u admin:password "http://localhost:8082/artifactory/api/repositories?type=virtual"
 
-| Format | Layout | Exemple de chemin |
-|--------|--------|-------------------|
-| Maven | groupId/artifactId/version/ | com/company/app/1.0/app-1.0.jar |
-| npm | package/version/ | express/-/express-4.18.2.tgz |
-| Docker | repository/image/tag/ | library/nginx/latest |
-| PyPI | packages/source/p/package/ | packages/source/r/requests/requests-2.28.tar.gz |
-| Generic | libre | builds/2023/sprint-12/app.zip |
-
-### Dépôts distants (Remote)
-
-Un dépôt remote est un **proxy avec cache** vers un dépôt externe. Avantages :
-
-1. **Performance** : cache local, pas besoin de retélécharger
-2. **Disponibilité** : si le dépôt externe tombe, le cache reste accessible
-3. **Sécurité** : contrôle de ce qui entre dans votre réseau
-4. **Audit** : traçabilité de toutes les dépendances tierces
-
-#### Configuration avancée d'un remote
-
-\`\`\`json
-{
-  "key": "npmjs-remote",
-  "rclass": "remote",
-  "packageType": "npm",
-  "url": "https://registry.npmjs.org",
-  "username": "",
-  "password": "",
-  "proxy": "corporate-proxy",
-  "storeArtifactsLocally": true,
-  "retrievalCachePeriodSecs": 7200,
-  "missedRetrievalCachePeriodSecs": 1800,
-  "unusedArtifactsCleanupPeriodHours": 0,
-  "excludesPattern": "*.snapshot*",
-  "enableCookieManagement": false,
-  "socketTimeoutMillis": 15000,
-  "allowAnyHostAuth": false,
-  "blockMismatchingMimeTypes": true
-}
-\`\`\`
-
-#### Paramètres clés des remotes
-
-| Paramètre | Description | Recommandation |
-|-----------|-------------|----------------|
-| retrievalCachePeriodSecs | Durée avant re-vérification | 7200 (2h) pour releases, 0 pour snapshots |
-| missedRetrievalCachePeriodSecs | Cache des "404" | 1800 (30min) |
-| unusedArtifactsCleanupPeriodHours | Suppression si non utilisé | 0 (jamais) ou 720 (30 jours) |
-| storeArtifactsLocally | Garder une copie locale | true (toujours) |
-
-### Dépôts virtuels
-
-Le dépôt virtuel est une **vue unifiée** sur plusieurs dépôts. Le développeur n'a qu'un seul URL à configurer.
-
-#### Résolution des artefacts dans un virtuel
-
-L'ordre de résolution est important :
-
-\`\`\`
-Requête: GET /virtual-maven/com/company/app/1.0/app-1.0.jar
-
-1. Cherche dans libs-release-local     → trouvé ? → retourne
-2. Cherche dans libs-snapshot-local     → trouvé ? → retourne
-3. Cherche dans remote-maven-central    → trouvé ? → cache + retourne
-4. Cherche dans remote-jcenter          → trouvé ? → cache + retourne
-5. Pas trouvé → retourne 404
-\`\`\`
-
-#### Déploiement via un virtuel
-
-Vous pouvez configurer un **Default Deployment Repository** sur le virtuel. Les déploiements via le virtuel sont redirigés vers ce dépôt local.
-
-### Politiques de rétention (Cleanup)
-
-La rétention automatique évite que le stockage explose :
-
-\`\`\`bash
-# Supprimer les snapshots de plus de 30 jours
-# Via AQL (Artifactory Query Language)
-items.find({
-  "repo": "libs-snapshot-local",
-  "modified": {"$before": "30d"},
-  "type": "file"
-})
-
-# Script de cleanup via l'API
-curl -X POST "http://localhost:8082/artifactory/api/search/aql" \\
-  -H "Content-Type: text/plain" \\
-  -u admin:password \\
-  -d 'items.find({"repo":"libs-snapshot-local","modified":{"$before":"30d"}})'
-\`\`\`
-
-### Réplication de dépôts
-
-Pour les environnements multi-sites, la réplication maintient des copies synchronisées :
-
-- **Push replication** : le serveur source pousse vers la destination
-- **Pull replication** : le serveur destination tire depuis la source
-- **Event-based** : réplication à chaque déploiement (temps réel)
-- **Scheduled** : réplication périodique (cron)
-
-### Bonnes pratiques
-
-1. **Séparer releases et snapshots** dans des dépôts différents
-2. **Un remote par source externe** (Maven Central, npm, Docker Hub)
-3. **Toujours utiliser des virtuels** pour les développeurs
-4. **Configurer la rétention** dès le départ
-5. **Utiliser des propriétés** pour le lifecycle management
-6. **Sauvegarder régulièrement** la configuration (pas forcément les binaires si remote)`,
-
-      practiceContent: `### Travaux Pratiques : Gestion des dépôts
-
-#### TP 1 : Créer une topologie complète de dépôts
-
-1. Créez la structure suivante via l'API REST :
-
-\`\`\`bash
-# Variables
-ARTIF_URL="http://localhost:8082/artifactory"
-AUTH="-u admin:password"
-
-# Dépôt local pour les releases
-curl -X PUT "$ARTIF_URL/api/repositories/libs-release-local" \\
-  $AUTH -H "Content-Type: application/json" \\
+# Créer un dépôt local Maven
+curl -u admin:password -X PUT "http://localhost:8082/artifactory/api/repositories/libs-release-local" \\
+  -H "Content-Type: application/json" \\
   -d '{
     "key": "libs-release-local",
     "rclass": "local",
     "packageType": "maven",
+    "description": "Dépôt pour les releases Maven internes",
     "handleReleases": true,
-    "handleSnapshots": false
+    "handleSnapshots": false,
+    "checksumPolicyType": "client-checksums",
+    "snapshotVersionBehavior": "unique",
+    "maxUniqueSnapshots": 0,
+    "suppressPomConsistencyChecks": false,
+    "propertySets": ["artifactory"]
   }'
 
-# Dépôt local pour les snapshots
-curl -X PUT "$ARTIF_URL/api/repositories/libs-snapshot-local" \\
-  $AUTH -H "Content-Type: application/json" \\
-  -d '{
-    "key": "libs-snapshot-local",
-    "rclass": "local",
-    "packageType": "maven",
-    "handleReleases": false,
-    "handleSnapshots": true
-  }'
-
-# Dépôt remote vers Maven Central
-curl -X PUT "$ARTIF_URL/api/repositories/maven-central-remote" \\
-  $AUTH -H "Content-Type: application/json" \\
+# Créer un dépôt remote vers Maven Central
+curl -u admin:password -X PUT "http://localhost:8082/artifactory/api/repositories/maven-central-remote" \\
+  -H "Content-Type: application/json" \\
   -d '{
     "key": "maven-central-remote",
     "rclass": "remote",
     "packageType": "maven",
-    "url": "https://repo1.maven.org/maven2"
+    "url": "https://repo1.maven.org/maven2",
+    "description": "Proxy cache de Maven Central",
+    "storeArtifactsLocally": true,
+    "retrievalCachePeriodSecs": 7200,
+    "missedRetrievalCachePeriodSecs": 1800,
+    "unusedArtifactsCleanupPeriodHours": 720
   }'
 
-# Dépôt virtuel qui agrège tout
-curl -X PUT "$ARTIF_URL/api/repositories/maven-virtual" \\
-  $AUTH -H "Content-Type: application/json" \\
+# Créer un dépôt virtuel
+curl -u admin:password -X PUT "http://localhost:8082/artifactory/api/repositories/maven-virtual" \\
+  -H "Content-Type: application/json" \\
   -d '{
     "key": "maven-virtual",
     "rclass": "virtual",
     "packageType": "maven",
     "repositories": ["libs-release-local", "libs-snapshot-local", "maven-central-remote"],
-    "defaultDeploymentRepo": "libs-release-local"
+    "defaultDeploymentRepo": "libs-release-local",
+    "description": "Agrégation Maven (local + remote)"
   }'
-\`\`\`
 
-2. Vérifiez dans l'UI que tous les dépôts sont créés
+# Obtenir la configuration d'un dépôt
+curl -u admin:password "http://localhost:8082/artifactory/api/repositories/libs-release-local"
+
+# Modifier un dépôt existant
+curl -u admin:password -X POST "http://localhost:8082/artifactory/api/repositories/libs-release-local" \\
+  -H "Content-Type: application/json" \\
+  -d '{"description": "Description mise à jour", "maxUniqueSnapshots": 5}'
+
+# Supprimer un dépôt
+curl -u admin:password -X DELETE "http://localhost:8082/artifactory/api/repositories/old-repo-local"
+
+# === GESTION DES DÉPÔTS VIA JFROG CLI ===
+jf rt repo-create template-local.json     # Créer depuis un template JSON
+jf rt repo-delete old-repo                # Supprimer un dépôt
+jf rt repo-list                           # Lister tous les dépôts
+
+# === DÉPÔTS NPM ===
+curl -u admin:password -X PUT "http://localhost:8082/artifactory/api/repositories/npm-local" \\
+  -H "Content-Type: application/json" \\
+  -d '{"key":"npm-local","rclass":"local","packageType":"npm"}'
+
+curl -u admin:password -X PUT "http://localhost:8082/artifactory/api/repositories/npm-remote" \\
+  -H "Content-Type: application/json" \\
+  -d '{"key":"npm-remote","rclass":"remote","packageType":"npm","url":"https://registry.npmjs.org"}'
+
+# === DÉPÔTS DOCKER ===
+curl -u admin:password -X PUT "http://localhost:8082/artifactory/api/repositories/docker-local" \\
+  -H "Content-Type: application/json" \\
+  -d '{"key":"docker-local","rclass":"local","packageType":"docker"}'
+
+# === POLITIQUES DE RÉTENTION (AQL) ===
+# Trouver les snapshots de plus de 30 jours
+curl -u admin:password -X POST "http://localhost:8082/artifactory/api/search/aql" \\
+  -H "Content-Type: text/plain" \\
+  -d 'items.find({"repo":"libs-snapshot-local","modified":{"$before":"30d"},"type":"file"}).include("name","path","size","modified")'
+
+# Trouver les artefacts jamais téléchargés depuis 60 jours
+curl -u admin:password -X POST "http://localhost:8082/artifactory/api/search/aql" \\
+  -H "Content-Type: text/plain" \\
+  -d 'items.find({"repo":"libs-release-local","stat.downloaded":{"$before":"60d"}}).include("name","repo","path","size")'
+
+# Supprimer les résultats (après vérification !)
+# curl -u admin:password -X DELETE "http://localhost:8082/artifactory/libs-snapshot-local/path/to/old/artifact"
+
+# === RÉPLICATION ===
+# Configurer une push replication
+curl -u admin:password -X PUT "http://localhost:8082/artifactory/api/replications/libs-release-local" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "url": "http://remote-artif:8082/artifactory/libs-release-local",
+    "username": "replication-user",
+    "password": "replication-pass",
+    "enabled": true,
+    "cronExp": "0 0/5 * * * ?",
+    "syncDeletes": true,
+    "syncProperties": true
+  }'
+
+# === STATISTIQUES DE STOCKAGE ===
+curl -u admin:password http://localhost:8082/artifactory/api/storageinfo
+\\\`\\\`\\\`
+
+### Configuration
+
+#### Paramètres clés des dépôts Remote
+
+| Paramètre | Description | Valeur recommandée |
+|-----------|-------------|-------------------|
+| retrievalCachePeriodSecs | Durée de cache avant re-vérification | 7200 (releases), 0 (snapshots) |
+| missedRetrievalCachePeriodSecs | Cache des réponses 404 | 1800 (30 min) |
+| unusedArtifactsCleanupPeriodHours | Suppression si non utilisé | 0 (jamais) ou 720 (30j) |
+| storeArtifactsLocally | Garder une copie en cache | true (toujours) |
+| blockMismatchingMimeTypes | Bloquer les MIME types incorrects | true |
+| socketTimeoutMillis | Timeout de connexion | 15000 |
+
+#### Configuration Docker avec Artifactory
+
+\\\`\\\`\\\`bash
+# Configurer Docker pour utiliser Artifactory comme registry
+# Ajouter le registry insecure (pour les labs sans TLS)
+sudo cat > /etc/docker/daemon.json << 'EOF'
+{
+  "insecure-registries": ["localhost:8082"]
+}
+EOF
+sudo systemctl restart docker
+
+# Login au registry Artifactory
+docker login localhost:8082 -u admin -p password
+
+# Taguer et pousser une image
+docker tag myapp:latest localhost:8082/docker-local/myapp:1.0
+docker push localhost:8082/docker-local/myapp:1.0
+
+# Tirer une image depuis Artifactory
+docker pull localhost:8082/docker-local/myapp:1.0
+\\\`\\\`\\\`
+
+### Utilisation avancée
+
+#### Résolution des artefacts dans un virtuel
+
+L'ordre de résolution est configurable et important :
+1. Cherche dans le premier dépôt listé (local release)
+2. Cherche dans le deuxième dépôt (local snapshot)
+3. Cherche dans les remotes (avec cache)
+4. Si pas trouvé → retourne 404
+
+#### Promotion d'artefacts
+
+La promotion fait avancer un artefact dans le pipeline :
+\\\`\\\`\\\`
+libs-snapshot-local → libs-release-local → libs-staging-local → libs-prod-local
+\\\`\\\`\\\`
+
+### Bonnes pratiques
+
+1. **Séparer releases et snapshots** dans des dépôts différents
+2. **Un remote par source externe** (Maven Central, npm registry, Docker Hub)
+3. **Toujours utiliser des virtuels** pour les développeurs
+4. **Configurer la rétention** dès le départ (snapshots > 30j, unused > 60j)
+5. **Limiter les droits de déploiement** aux pipelines CI uniquement
+6. **Documenter la topologie** des dépôts et la maintenir à jour`,
+
+      practiceContent: `### Travaux Pratiques : Gestion des dépôts
+
+#### TP 1 : Créer une topologie complète de dépôts
+
+\\\`\\\`\\\`bash
+# Variables d'environnement
+export ARTIF_URL="http://localhost:8082/artifactory"
+export AUTH="-u admin:password"
+
+# Créer les dépôts Maven
+curl $AUTH -X PUT "$ARTIF_URL/api/repositories/libs-release-local" \\
+  -H "Content-Type: application/json" \\
+  -d '{"key":"libs-release-local","rclass":"local","packageType":"maven","handleReleases":true,"handleSnapshots":false}'
+
+curl $AUTH -X PUT "$ARTIF_URL/api/repositories/libs-snapshot-local" \\
+  -H "Content-Type: application/json" \\
+  -d '{"key":"libs-snapshot-local","rclass":"local","packageType":"maven","handleReleases":false,"handleSnapshots":true}'
+
+curl $AUTH -X PUT "$ARTIF_URL/api/repositories/maven-central-remote" \\
+  -H "Content-Type: application/json" \\
+  -d '{"key":"maven-central-remote","rclass":"remote","packageType":"maven","url":"https://repo1.maven.org/maven2"}'
+
+curl $AUTH -X PUT "$ARTIF_URL/api/repositories/maven-virtual" \\
+  -H "Content-Type: application/json" \\
+  -d '{"key":"maven-virtual","rclass":"virtual","packageType":"maven","repositories":["libs-release-local","libs-snapshot-local","maven-central-remote"],"defaultDeploymentRepo":"libs-release-local"}'
+
+# Créer les dépôts npm
+curl $AUTH -X PUT "$ARTIF_URL/api/repositories/npm-local" \\
+  -H "Content-Type: application/json" \\
+  -d '{"key":"npm-local","rclass":"local","packageType":"npm"}'
+
+curl $AUTH -X PUT "$ARTIF_URL/api/repositories/npm-remote" \\
+  -H "Content-Type: application/json" \\
+  -d '{"key":"npm-remote","rclass":"remote","packageType":"npm","url":"https://registry.npmjs.org"}'
+
+curl $AUTH -X PUT "$ARTIF_URL/api/repositories/npm-virtual" \\
+  -H "Content-Type: application/json" \\
+  -d '{"key":"npm-virtual","rclass":"virtual","packageType":"npm","repositories":["npm-local","npm-remote"],"defaultDeploymentRepo":"npm-local"}'
+
+# Vérifier la création
+curl $AUTH "$ARTIF_URL/api/repositories" | python3 -m json.tool | grep key
+\\\`\\\`\\\`
 
 #### TP 2 : Configurer npm avec Artifactory
 
-\`\`\`bash
-# Créer les dépôts npm
-curl -X PUT "$ARTIF_URL/api/repositories/npm-local" \\
-  $AUTH -H "Content-Type: application/json" \\
-  -d '{"key":"npm-local","rclass":"local","packageType":"npm"}'
-
-curl -X PUT "$ARTIF_URL/api/repositories/npm-remote" \\
-  $AUTH -H "Content-Type: application/json" \\
-  -d '{"key":"npm-remote","rclass":"remote","packageType":"npm","url":"https://registry.npmjs.org"}'
-
-curl -X PUT "$ARTIF_URL/api/repositories/npm-virtual" \\
-  $AUTH -H "Content-Type: application/json" \\
-  -d '{"key":"npm-virtual","rclass":"virtual","packageType":"npm","repositories":["npm-local","npm-remote"],"defaultDeploymentRepo":"npm-local"}'
-
-# Configurer npm pour utiliser Artifactory
+\\\`\\\`\\\`bash
+# Configurer npm pour utiliser le virtual
 npm config set registry http://localhost:8082/artifactory/api/npm/npm-virtual/
 
+# Authentification npm
+curl $AUTH -X PUT "$ARTIF_URL/api/npm/auth" > ~/.npmrc
+# Ou manuellement :
+npm config set //localhost:8082/artifactory/api/npm/npm-virtual/:_authToken "votre-token"
+
 # Tester l'installation d'un package
+mkdir test-npm && cd test-npm
+npm init -y
 npm install express
-# Vérifier que le package est caché dans Artifactory
-\`\`\`
+npm install lodash
+
+# Vérifier que les packages sont cachés dans Artifactory
+curl $AUTH "$ARTIF_URL/api/search/aql" \\
+  -H "Content-Type: text/plain" \\
+  -d 'items.find({"repo":"npm-remote"}).include("name","size").limit(10)'
+\\\`\\\`\\\`
 
 #### TP 3 : Tester la résolution via le virtuel
 
-1. Déployez un artefact dans libs-release-local
-2. Accédez-y via le dépôt virtuel
-3. Vérifiez les headers de réponse pour confirmer la source
+\\\`\\\`\\\`bash
+# Déployer un artefact dans le local
+echo "test" > test-file.txt
+jar cf test-resolve-1.0.jar test-file.txt
+curl $AUTH -T test-resolve-1.0.jar \\
+  "$ARTIF_URL/libs-release-local/com/formation/test-resolve/1.0/test-resolve-1.0.jar"
+
+# Accéder via le virtuel
+curl -I $AUTH "$ARTIF_URL/maven-virtual/com/formation/test-resolve/1.0/test-resolve-1.0.jar"
+# Vérifier le header X-Artifactory-Filename
+
+# Tester la résolution d'une dépendance externe via le virtuel
+curl -I $AUTH "$ARTIF_URL/maven-virtual/junit/junit/4.13.2/junit-4.13.2.jar"
+# La première requête sera plus lente (téléchargement depuis Maven Central)
+# La seconde sera instantanée (servie depuis le cache)
+\\\`\\\`\\\`
 
 #### TP 4 : Mettre en place une politique de rétention
 
-\`\`\`bash
+\\\`\\\`\\\`bash
 # Lister les artefacts non téléchargés depuis 7 jours
-curl -X POST "$ARTIF_URL/api/search/aql" \\
-  $AUTH -H "Content-Type: text/plain" \\
-  -d 'items.find({"repo":"libs-snapshot-local","stat.downloaded":{"$before":"7d"}}).include("name","path","size")'
-\`\`\``,
+curl $AUTH -X POST "$ARTIF_URL/api/search/aql" \\
+  -H "Content-Type: text/plain" \\
+  -d 'items.find({"repo":"libs-snapshot-local","stat.downloaded":{"$before":"7d"}}).include("name","path","size","stat.downloaded")'
+
+# Script de cleanup automatique
+cat > cleanup_snapshots.sh << 'SCRIPT'
+#!/bin/bash
+ARTIF_URL="http://localhost:8082/artifactory"
+AUTH="-u admin:password"
+DAYS_OLD=30
+
+echo "=== Cleanup des snapshots de plus de $DAYS_OLD jours ==="
+
+# Trouver les fichiers
+RESULTS=$(curl -s $AUTH -X POST "$ARTIF_URL/api/search/aql" \\
+  -H "Content-Type: text/plain" \\
+  -d "items.find({\"repo\":\"libs-snapshot-local\",\"modified\":{\"\$before\":\"\${DAYS_OLD}d\"},\"type\":\"file\"}).include(\"name\",\"repo\",\"path\",\"size\")")
+
+echo "$RESULTS" | python3 -c "
+import json, sys
+data = json.load(sys.stdin)
+total_size = 0
+for item in data.get('results', []):
+    path = f\"{item['repo']}/{item['path']}/{item['name']}\"
+    size = item.get('size', 0)
+    total_size += size
+    print(f'  {path} ({size} bytes)')
+print(f'\\nTotal: {len(data.get(\"results\", []))} fichiers, {total_size/1024/1024:.1f} Mo')
+"
+SCRIPT
+chmod +x cleanup_snapshots.sh
+./cleanup_snapshots.sh
+\\\`\\\`\\\`
+
+#### TP 5 : Configurer Docker avec Artifactory
+
+\\\`\\\`\\\`bash
+# Créer le dépôt Docker local
+curl $AUTH -X PUT "$ARTIF_URL/api/repositories/docker-local" \\
+  -H "Content-Type: application/json" \\
+  -d '{"key":"docker-local","rclass":"local","packageType":"docker","dockerApiVersion":"V2"}'
+
+# Créer le remote vers Docker Hub
+curl $AUTH -X PUT "$ARTIF_URL/api/repositories/docker-remote" \\
+  -H "Content-Type: application/json" \\
+  -d '{"key":"docker-remote","rclass":"remote","packageType":"docker","url":"https://registry-1.docker.io","externalDependenciesEnabled":true}'
+
+# Se connecter au registry
+docker login localhost:8082 -u admin -p password
+
+# Pousser une image
+docker pull alpine:latest
+docker tag alpine:latest localhost:8082/docker-local/alpine:latest
+docker push localhost:8082/docker-local/alpine:latest
+
+# Vérifier dans Artifactory
+curl $AUTH "$ARTIF_URL/api/docker/docker-local/v2/_catalog"
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
         'Convention de nommage : <équipe>-<techno>-<type>-<maturité>',
-        'Trois types : Local (stockage), Remote (proxy/cache), Virtual (agrégation)',
+        'Dépôts Local (stockage interne), Remote (proxy/cache), Virtual (agrégation)',
         'Les remotes cachent les dépendances et protègent contre les pannes externes',
-        'Les virtuels offrent un point d\'entrée unique aux développeurs',
-        'L\'ordre de résolution dans un virtuel est configurable et important',
-        'Toujours séparer releases et snapshots, toujours configurer la rétention'
+        'Les virtuels offrent un point d\'entrée unique avec ordre de résolution configurable',
+        'AQL permet des recherches avancées pour la rétention et le cleanup automatique',
+        'Docker, npm, Maven, PyPI - chaque format a ses spécificités de configuration'
       ]) },
+
 
 
     { id: 'art-03', courseId: 'artifactory', title: 'Intégration CI/CD et API', duration: '5h', orderIndex: 3,
       theoryContent: `## Intégration d'Artifactory dans les pipelines CI/CD
 
-### Artifactory et le pipeline de livraison
+### Présentation
 
-Artifactory est au centre du pipeline de livraison continue. À chaque étape, des artefacts sont produits, stockés, promus et finalement déployés :
+Artifactory est au centre du pipeline de livraison continue. À chaque étape du cycle de développement, des artefacts sont produits, stockés, promus et finalement déployés. L'intégration CI/CD permet d'automatiser entièrement ce processus, depuis le build jusqu'au déploiement en production, en passant par les validations de qualité et de sécurité.
 
-\`\`\`
+### Installation sur Linux (Ubuntu/Debian)
+
+Pour l'intégration CI/CD, nous avons besoin du JFrog CLI et des plugins appropriés pour votre outil CI :
+
+\\\`\\\`\\\`bash
+# Installer le JFrog CLI (si pas déjà fait)
+curl -fL https://install-cli.jfrog.io | sh
+sudo mv jf /usr/local/bin/
+jf --version
+
+# Configurer la connexion au serveur Artifactory
+jf config add prod-server \\\\
+  --url=http://artifactory.company.com:8082 \\\\
+  --user=ci-deployer \\\\
+  --password=ci-token \\\\
+  --interactive=false
+
+# Vérifier la connectivité
+jf rt ping
+
+# Pour Jenkins : installer le plugin Artifactory
+# Manage Jenkins > Plugins > Rechercher "Artifactory" > Installer
+# Puis : Manage Jenkins > System > JFrog > Add JFrog Platform Instance
+
+# Pour GitLab CI : le CLI est utilisé directement dans les scripts
+# Pour GitHub Actions : utiliser l'action jfrog/setup-jfrog-cli
+\\\`\\\`\\\`
+
+### Installation sur Linux (CentOS/RHEL)
+
+\\\`\\\`\\\`bash
+# Installer le JFrog CLI via RPM
+sudo yum install -y curl
+curl -fL https://install-cli.jfrog.io | sh
+sudo mv jf /usr/local/bin/
+jf --version
+
+# Alternative : installer depuis le dépôt YUM JFrog
+sudo cat > /etc/yum.repos.d/jfrog-cli.repo << 'EOF'
+[jfrog-cli]
+name=JFrog CLI
+baseurl=https://releases.jfrog.io/artifactory/jfrog-cli-rpms/
+gpgcheck=0
+enabled=1
+EOF
+sudo yum install -y jfrog-cli-v2
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+\\\`\\\`\\\`
+Pipeline de livraison avec Artifactory :
+
 Code → Build → Test → Package → Deploy
   │       │       │       │         │
   │       ▼       ▼       ▼         ▼
@@ -543,14 +1094,9 @@ Code → Build → Test → Package → Deploy
   │   → libs-   → test-  → libs-   → prod-
   │   snapshot   results  release   release
   │   -local    -local    -local    -local
-  └── Source ──────────────────────────────
-\`\`\`
+  └── Source ─────────────────────────────────
 
-### Build Info : la traçabilité complète
-
-Le **Build Info** est un fichier JSON qui documente tout ce qu'un build a produit et consommé :
-
-\`\`\`json
+Build Info JSON :
 {
   "version": "1.0.1",
   "name": "my-application",
@@ -559,76 +1105,123 @@ Le **Build Info** est un fichier JSON qui documente tout ce qu'un build a produi
   "buildAgent": { "name": "Jenkins", "version": "2.401" },
   "modules": [{
     "id": "com.company:my-app:1.2.0",
-    "artifacts": [
-      { "name": "my-app-1.2.0.jar", "sha256": "abc123..." }
-    ],
-    "dependencies": [
-      { "id": "org.springframework:spring-core:5.3.20", "sha256": "def456..." }
-    ]
+    "artifacts": [{ "name": "my-app-1.2.0.jar", "sha256": "abc..." }],
+    "dependencies": [{ "id": "org.springframework:spring-core:5.3.20" }]
   }],
-  "vcs": [{
-    "revision": "a1b2c3d4e5f6",
-    "branch": "refs/heads/main",
-    "url": "https://github.com/company/my-app.git"
-  }]
+  "vcs": [{ "revision": "a1b2c3d4e5f6", "branch": "main" }]
 }
-\`\`\`
+\\\`\\\`\\\`
 
-Le Build Info permet de répondre à ces questions critiques :
-- **Quel code source** a produit ce binaire ?
-- **Quelles dépendances** sont incluses ?
-- **Quel pipeline** l'a construit et quand ?
-- **Quels tests** ont été exécutés ?
+### Commandes essentielles
 
-### Intégration avec Jenkins
+\\\`\\\`\\\`bash
+# === JFROG CLI - BUILD INFO ===
+jf rt build-collect-env my-build 42           # Collecter variables d'environnement
+jf rt build-add-git my-build 42 .             # Ajouter infos Git (commit, branch)
+jf rt build-publish my-build 42               # Publier le Build Info sur Artifactory
+jf rt build-scan my-build 42                  # Scanner avec Xray (sécurité)
 
-#### Plugin Artifactory pour Jenkins
+# === JFROG CLI - PROMOTION ===
+jf rt build-promote my-build 42 libs-staging-local \\
+  --status="Staged" --comment="Promoted to staging" --copy
+jf rt build-promote my-build 42 libs-prod-local \\
+  --status="Released" --comment="Promoted to production"
 
-\`\`\`groovy
-// Jenkinsfile avec intégration Artifactory
+# === API REST - DÉPLOIEMENT ===
+# Déployer avec checksum
+SHA256=$(sha256sum app.jar | cut -d' ' -f1)
+curl -u ci-user:token -X PUT \\
+  -H "X-Checksum-Sha256:$SHA256" \\
+  -T app.jar \\
+  "http://artif:8082/artifactory/libs-release-local/com/app/1.0/app-1.0.jar"
+
+# Déployer avec propriétés en une seule requête
+curl -u ci-user:token -X PUT \\
+  -H "X-Checksum-Sha256:$SHA256" \\
+  -T app.jar \\
+  "http://artif:8082/artifactory/libs-release-local/com/app/1.0/app-1.0.jar;build.number=42;git.commit=abc123"
+
+# === API REST - COPIE/DÉPLACEMENT (PROMOTION) ===
+curl -u admin:pass -X POST \\
+  "http://artif:8082/artifactory/api/copy/libs-release-local/com/app/1.0/app-1.0.jar?to=/libs-prod-local/com/app/1.0/app-1.0.jar"
+
+curl -u admin:pass -X POST \\
+  "http://artif:8082/artifactory/api/move/libs-staging-local/com/app/1.0?to=/libs-prod-local/com/app/1.0"
+
+# === API REST - PROPRIÉTÉS ===
+curl -u admin:pass -X PUT \\
+  "http://artif:8082/artifactory/api/storage/libs-release-local/com/app/1.0/app-1.0.jar?properties=build.status=tested;qa.approved=true;deploy.env=staging"
+
+curl -u admin:pass \\
+  "http://artif:8082/artifactory/api/storage/libs-release-local/com/app/1.0/app-1.0.jar?properties"
+
+# === API REST - RECHERCHE ===
+curl -u admin:pass "http://artif:8082/artifactory/api/search/prop?build.status=released&repos=libs-release-local"
+
+# Recherche AQL avancée
+curl -u admin:pass -X POST "http://artif:8082/artifactory/api/search/aql" \\
+  -H "Content-Type: text/plain" \\
+  -d 'items.find({"repo":"libs-release-local","@build.status":"released","modified":{"$last":"7d"}}).include("name","repo","path","size","@build.number").sort({"$desc":["modified"]}).limit(20)'
+
+# === API REST - TOKENS ===
+# Créer un token pour le CI
+curl -u admin:pass -X POST "http://artif:8082/access/api/v1/tokens" \\
+  -d "username=jenkins-ci" \\
+  -d "scope=member-of-groups:ci-deployers" \\
+  -d "expires_in=31536000"
+
+# Révoquer un token
+curl -u admin:pass -X POST "http://artif:8082/access/api/v1/tokens/revoke" \\
+  -d "token=eyJ..."
+
+# === INTÉGRATION JENKINS (Jenkinsfile) ===
+# Exemple complet dans la section Configuration ci-dessous
+
+# === INTÉGRATION GITLAB CI ===
+# Voir la configuration dans la section pratique
+
+# === WEBHOOKS ===
+curl -u admin:pass -X PUT "http://artif:8082/artifactory/api/system/webhooks/deploy-notification" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "url": "http://jenkins:8080/generic-webhook-trigger/invoke?token=artif-deploy",
+    "events": ["storage.afterCreate"],
+    "repositories": ["libs-prod-local"]
+  }'
+\\\`\\\`\\\`
+
+### Configuration
+
+#### Jenkinsfile avec intégration Artifactory
+
+\\\`\\\`\\\`groovy
 pipeline {
     agent any
-    
     environment {
         ARTIFACTORY_SERVER = 'artifactory-prod'
     }
-    
     stages {
         stage('Build') {
             steps {
                 script {
                     def server = Artifactory.server(ARTIFACTORY_SERVER)
                     def rtMaven = Artifactory.newMavenBuild()
-                    
-                    rtMaven.resolver server: server,
-                        releaseRepo: 'maven-virtual',
-                        snapshotRepo: 'maven-virtual'
-                    
-                    rtMaven.deployer server: server,
-                        releaseRepo: 'libs-release-local',
-                        snapshotRepo: 'libs-snapshot-local'
-                    
-                    def buildInfo = rtMaven.run pom: 'pom.xml',
-                        goals: 'clean package -DskipTests'
-                    
-                    // Publier le Build Info
+                    rtMaven.resolver server: server, releaseRepo: 'maven-virtual', snapshotRepo: 'maven-virtual'
+                    rtMaven.deployer server: server, releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local'
+                    def buildInfo = rtMaven.run pom: 'pom.xml', goals: 'clean package'
                     server.publishBuildInfo buildInfo
                 }
             }
         }
-        
-        stage('Promote') {
-            when { branch 'main' }
+        stage('Promote to Staging') {
             steps {
                 script {
                     def server = Artifactory.server(ARTIFACTORY_SERVER)
                     def promotionConfig = [
                         buildName: env.JOB_NAME,
                         buildNumber: env.BUILD_NUMBER,
-                        targetRepo: 'libs-prod-local',
-                        sourceRepo: 'libs-release-local',
-                        status: 'Released',
-                        comment: 'Promoted to production',
+                        targetRepo: 'libs-staging-local',
+                        status: 'Staged',
                         copy: true
                     ]
                     server.promote promotionConfig
@@ -637,734 +1230,1051 @@ pipeline {
         }
     }
 }
-\`\`\`
+\\\`\\\`\\\`
 
-### L'API REST d'Artifactory
+#### GitLab CI avec Artifactory
 
-L'API REST est exhaustive et permet d'automatiser toutes les opérations :
+\\\`\\\`\\\`yaml
+variables:
+  JFROG_URL: "http://artifactory.company.com:8082"
 
-#### Opérations sur les artefacts
+build:
+  stage: build
+  script:
+    - curl -fL https://install-cli.jfrog.io | sh
+    - ./jf config add server --url=$JFROG_URL --access-token=$JFROG_TOKEN
+    - ./jf rt ping
+    - mvn clean package
+    - ./jf rt upload "target/*.jar" "libs-release-local/com/app/$CI_COMMIT_TAG/"
+    - ./jf rt build-collect-env $CI_PROJECT_NAME $CI_PIPELINE_ID
+    - ./jf rt build-add-git $CI_PROJECT_NAME $CI_PIPELINE_ID
+    - ./jf rt build-publish $CI_PROJECT_NAME $CI_PIPELINE_ID
+\\\`\\\`\\\`
 
-\`\`\`bash
-# Déployer un fichier
-curl -X PUT "http://artif:8082/artifactory/libs-release/com/app/1.0/app-1.0.jar" \\
-  -u admin:password \\
-  -T app-1.0.jar \\
-  -H "X-Checksum-Sha256:$(sha256sum app-1.0.jar | cut -d' ' -f1)"
+### Utilisation avancée
 
-# Télécharger un fichier
-curl -O "http://artif:8082/artifactory/libs-release/com/app/1.0/app-1.0.jar" \\
-  -u admin:password
-
-# Copier un artefact
-curl -X POST "http://artif:8082/artifactory/api/copy/libs-release/com/app/1.0/app-1.0.jar?to=/libs-prod/com/app/1.0/app-1.0.jar" \\
-  -u admin:password
-
-# Supprimer un artefact
-curl -X DELETE "http://artif:8082/artifactory/libs-snapshot/com/app/1.0-SNAPSHOT/" \\
-  -u admin:password
-\`\`\`
-
-#### Opérations sur les propriétés
-
-\`\`\`bash
-# Ajouter des propriétés à un artefact
-curl -X PUT "http://artif:8082/artifactory/api/storage/libs-release/com/app/1.0/app-1.0.jar?properties=build.status=tested;release.version=1.0;qa.approved=true" \\
-  -u admin:password
-
-# Lire les propriétés
-curl "http://artif:8082/artifactory/api/storage/libs-release/com/app/1.0/app-1.0.jar?properties" \\
-  -u admin:password
-
-# Rechercher par propriété
-curl "http://artif:8082/artifactory/api/search/prop?build.status=tested&repos=libs-release" \\
-  -u admin:password
-\`\`\`
-
-### AQL - Artifactory Query Language
+#### AQL - Artifactory Query Language
 
 AQL est un langage de requête puissant pour chercher des artefacts :
+\\\`\\\`\\\`
+// Syntaxe de base
+items.find({critères}).include("champs").sort({"$asc":["champ"]}).limit(N)
 
-\`\`\`
-// Trouver tous les JARs de plus de 10 Mo modifiés récemment
-items.find({
-  "repo": "libs-release-local",
-  "name": {"$match": "*.jar"},
-  "size": {"$gt": 10485760},
-  "modified": {"$last": "7d"}
-}).include("name", "repo", "path", "size", "modified")
-  .sort({"$desc": ["size"]})
-  .limit(20)
+// Opérateurs disponibles
+$eq, $ne, $gt, $gte, $lt, $lte, $match, $nmatch
+$before (dates), $last (période), $and, $or
 
-// Trouver les artefacts avec une propriété spécifique
-items.find({
-  "repo": "libs-release-local",
-  "@build.status": "released",
-  "@qa.approved": "true"
-})
-\`\`\`
+// Domaines interrogeables
+items (artefacts), builds, entries (archives), archive.entries
+\\\`\\\`\\\`
 
-### Promotion d'artefacts
+#### Sécurité et permissions
 
-La promotion est le mécanisme qui fait avancer un artefact dans le pipeline de livraison :
-
-\`\`\`
-libs-snapshot-local → libs-release-local → libs-staging-local → libs-prod-local
-     (dev)                (intégration)         (pré-prod)          (production)
-\`\`\`
-
-Chaque promotion :
-- Copie ou déplace l'artefact vers le dépôt cible
-- Met à jour les propriétés (status, date, promoteur)
-- Enregistre l'événement dans le Build Info
-- Peut déclencher des webhooks (notification, déploiement)
-
-### Sécurité et permissions
-
-#### Modèle de permissions
-
-\`\`\`
-Permission Target (quoi ?) + Group/User (qui ?) = Permission
-\`\`\`
-
-Types de permissions :
+Le modèle de permissions Artifactory :
 - **Read** : télécharger des artefacts
 - **Deploy/Cache** : déployer de nouveaux artefacts
 - **Annotate** : modifier les propriétés
 - **Delete** : supprimer des artefacts
 - **Manage** : administrer le dépôt
 
-#### Access Tokens
+### Bonnes pratiques
 
-\`\`\`bash
-# Créer un token d'accès pour un service CI
-curl -X POST "http://artif:8082/access/api/v1/tokens" \\
-  -u admin:password \\
-  -d "username=jenkins-ci" \\
-  -d "scope=member-of-groups:ci-deployers" \\
-  -d "expires_in=31536000"
-\`\`\``,
+1. **Utiliser des tokens** plutôt que des mots de passe pour les services CI
+2. **Publier le Build Info** à chaque build pour la traçabilité complète
+3. **Promouvoir, ne pas redéployer** : copier les artefacts entre dépôts
+4. **Propriétés pour le workflow** : build.status, qa.approved, deploy.env
+5. **Webhooks** pour les notifications et les déclenchements automatiques
+6. **AQL pour le reporting** : rapports de conformité, inventaire, cleanup`,
 
       practiceContent: `### Travaux Pratiques : Intégration CI/CD
 
-#### TP 1 : Déployer via l'API REST
+#### TP 1 : Déployer et promouvoir via l'API REST
 
-\`\`\`bash
-# Créer un fichier JAR de test
-mkdir -p com/formation/tp && echo "dummy" > com/formation/tp/app-1.0.jar
-cd com/formation/tp
+\\\`\\\`\\\`bash
+export ARTIF_URL="http://localhost:8082/artifactory"
+export AUTH="-u admin:password"
 
-# Déployer avec checksum
+# Créer les dépôts nécessaires
+for repo in libs-staging-local libs-prod-local; do
+  curl $AUTH -X PUT "$ARTIF_URL/api/repositories/$repo" \\
+    -H "Content-Type: application/json" \\
+    -d "{\"key\":\"$repo\",\"rclass\":\"local\",\"packageType\":\"maven\"}"
+done
+
+# Créer un artefact de test
+echo "Application v1.0 - Build #42" > app-content.txt
+jar cf app-1.0.jar app-content.txt
+
+# Déployer dans libs-release-local
 SHA256=$(sha256sum app-1.0.jar | cut -d' ' -f1)
-curl -X PUT "http://localhost:8082/artifactory/libs-release-local/com/formation/tp/1.0/app-1.0.jar" \\
-  -u admin:password \\
+curl $AUTH -X PUT \\
+  -H "X-Checksum-Sha256:$SHA256" \\
   -T app-1.0.jar \\
-  -H "X-Checksum-Sha256:$SHA256"
+  "$ARTIF_URL/libs-release-local/com/formation/app/1.0/app-1.0.jar;build.number=42;build.status=built"
 
-# Vérifier le déploiement
-curl "http://localhost:8082/artifactory/api/storage/libs-release-local/com/formation/tp/1.0/app-1.0.jar" \\
-  -u admin:password | python3 -m json.tool
-\`\`\`
+echo "✅ Artefact déployé dans libs-release-local"
 
-#### TP 2 : Gérer les propriétés
+# Promouvoir vers staging (copie)
+curl $AUTH -X POST \\
+  "$ARTIF_URL/api/copy/libs-release-local/com/formation/app/1.0/app-1.0.jar?to=/libs-staging-local/com/formation/app/1.0/app-1.0.jar"
 
-\`\`\`bash
-# Ajouter des propriétés de build
-curl -X PUT "http://localhost:8082/artifactory/api/storage/libs-release-local/com/formation/tp/1.0/app-1.0.jar?properties=build.number=42;build.status=tested;git.commit=abc123" \\
-  -u admin:password
+# Mettre à jour les propriétés
+curl $AUTH -X PUT \\
+  "$ARTIF_URL/api/storage/libs-staging-local/com/formation/app/1.0/app-1.0.jar?properties=build.status=staged;staged.date=$(date -I);staged.by=ci-pipeline"
 
-# Lire les propriétés
-curl "http://localhost:8082/artifactory/api/storage/libs-release-local/com/formation/tp/1.0/app-1.0.jar?properties" \\
-  -u admin:password
+echo "✅ Artefact promu vers libs-staging-local"
 
-# Rechercher par propriété
-curl "http://localhost:8082/artifactory/api/search/prop?build.status=tested" \\
-  -u admin:password
-\`\`\`
+# Promouvoir vers production
+curl $AUTH -X POST \\
+  "$ARTIF_URL/api/copy/libs-staging-local/com/formation/app/1.0/app-1.0.jar?to=/libs-prod-local/com/formation/app/1.0/app-1.0.jar"
 
-#### TP 3 : Promotion d'artefact
+curl $AUTH -X PUT \\
+  "$ARTIF_URL/api/storage/libs-prod-local/com/formation/app/1.0/app-1.0.jar?properties=build.status=released;released.date=$(date -I);released.by=release-manager"
 
-\`\`\`bash
-# Créer un dépôt de production
-curl -X PUT "http://localhost:8082/artifactory/api/repositories/libs-prod-local" \\
-  -u admin:password -H "Content-Type: application/json" \\
-  -d '{"key":"libs-prod-local","rclass":"local","packageType":"maven"}'
+echo "✅ Artefact promu vers libs-prod-local (production)"
+\\\`\\\`\\\`
 
-# Copier l'artefact vers la prod (promotion)
-curl -X POST "http://localhost:8082/artifactory/api/copy/libs-release-local/com/formation/tp/1.0/app-1.0.jar?to=/libs-prod-local/com/formation/tp/1.0/app-1.0.jar" \\
-  -u admin:password
+#### TP 2 : Utiliser le JFrog CLI avec Build Info
 
-# Mettre à jour le statut
-curl -X PUT "http://localhost:8082/artifactory/api/storage/libs-prod-local/com/formation/tp/1.0/app-1.0.jar?properties=build.status=production;promoted.date=$(date -I);promoted.by=admin" \\
-  -u admin:password
-\`\`\`
+\\\`\\\`\\\`bash
+# Configurer le CLI
+jf config add local --url=http://localhost:8082 --user=admin --password=password --interactive=false
 
-#### TP 4 : Requêtes AQL
+# Simuler un build complet avec Build Info
+BUILD_NAME="formation-app"
+BUILD_NUMBER="1"
 
-\`\`\`bash
+# Collecter l'environnement
+jf rt build-collect-env $BUILD_NAME $BUILD_NUMBER
+
+# Upload avec association au build
+jf rt upload "app-1.0.jar" "libs-release-local/com/formation/app/1.0/" \\
+  --build-name=$BUILD_NAME --build-number=$BUILD_NUMBER
+
+# Publier le Build Info
+jf rt build-publish $BUILD_NAME $BUILD_NUMBER
+
+# Vérifier le Build Info
+curl $AUTH "$ARTIF_URL/api/build/$BUILD_NAME/$BUILD_NUMBER" | python3 -m json.tool
+
+# Promouvoir le build
+jf rt build-promote $BUILD_NAME $BUILD_NUMBER libs-prod-local \\
+  --status="Released" --comment="Approved by QA team" --copy
+\\\`\\\`\\\`
+
+#### TP 3 : Requêtes AQL avancées
+
+\\\`\\\`\\\`bash
 # Trouver tous les artefacts déployés aujourd'hui
-curl -X POST "http://localhost:8082/artifactory/api/search/aql" \\
-  -u admin:password -H "Content-Type: text/plain" \\
-  -d 'items.find({"modified":{"$last":"1d"}}).include("name","repo","path","size")'
+curl $AUTH -X POST "$ARTIF_URL/api/search/aql" \\
+  -H "Content-Type: text/plain" \\
+  -d 'items.find({"modified":{"$last":"1d"}}).include("name","repo","path","size","modified")'
 
 # Trouver les artefacts promus en production
-curl -X POST "http://localhost:8082/artifactory/api/search/aql" \\
-  -u admin:password -H "Content-Type: text/plain" \\
-  -d 'items.find({"repo":"libs-prod-local","@build.status":"production"}).include("name","path","@build.number")'
-\`\`\`
+curl $AUTH -X POST "$ARTIF_URL/api/search/aql" \\
+  -H "Content-Type: text/plain" \\
+  -d 'items.find({"repo":"libs-prod-local","@build.status":"released"}).include("name","path","@build.number","@released.date")'
 
-#### Vérifications finales
-- L'artefact est-il présent dans libs-prod-local ?
-- Les propriétés de promotion sont-elles correctes ?
-- La requête AQL retourne-t-elle les résultats attendus ?`,
+# Trouver les gros artefacts (> 1 Mo)
+curl $AUTH -X POST "$ARTIF_URL/api/search/aql" \\
+  -H "Content-Type: text/plain" \\
+  -d 'items.find({"size":{"$gt":1048576}}).include("name","repo","size").sort({"$desc":["size"]}).limit(10)'
+
+# Statistiques par dépôt
+curl $AUTH "$ARTIF_URL/api/storageinfo" | python3 -m json.tool
+\\\`\\\`\\\`
+
+#### TP 4 : Créer un token d'accès pour le CI
+
+\\\`\\\`\\\`bash
+# Créer un groupe pour les services CI
+curl $AUTH -X PUT "$ARTIF_URL/api/security/groups/ci-deployers" \\
+  -H "Content-Type: application/json" \\
+  -d '{"name":"ci-deployers","description":"Groupe pour les pipelines CI","autoJoin":false}'
+
+# Créer un token scopé pour Jenkins
+TOKEN_RESPONSE=$(curl $AUTH -X POST "http://localhost:8082/access/api/v1/tokens" \\
+  -d "username=jenkins-ci" \\
+  -d "scope=member-of-groups:ci-deployers" \\
+  -d "expires_in=86400" \\
+  -d "description=Token CI Jenkins - expire dans 24h")
+
+echo "Token créé : $(echo $TOKEN_RESPONSE | python3 -c 'import sys,json; print(json.load(sys.stdin).get(\"access_token\",\"erreur\")[:20])...')"
+
+# Tester le token
+ACCESS_TOKEN=$(echo $TOKEN_RESPONSE | python3 -c "import sys,json; print(json.load(sys.stdin)['access_token'])")
+curl -H "Authorization: Bearer $ACCESS_TOKEN" "$ARTIF_URL/api/system/ping"
+\\\`\\\`\\\`
+
+#### TP 5 : Webhook de notification
+
+\\\`\\\`\\\`bash
+# Configurer un webhook qui notifie à chaque déploiement en prod
+curl $AUTH -X PUT "$ARTIF_URL/api/system/webhooks/prod-deploy-notify" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "url": "http://localhost:9999/webhook",
+    "events": ["storage.afterCreate"],
+    "repositories": ["libs-prod-local"],
+    "enabled": true
+  }'
+
+# Lancer un serveur de test pour recevoir les webhooks
+python3 -c "
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import json
+
+class Handler(BaseHTTPRequestHandler):
+    def do_POST(self):
+        length = int(self.headers['Content-Length'])
+        body = json.loads(self.rfile.read(length))
+        print(f'Webhook recu: {json.dumps(body, indent=2)[:200]}')
+        self.send_response(200)
+        self.end_headers()
+
+print('Webhook listener on port 9999...')
+HTTPServer(('', 9999), Handler).serve_forever()
+" &
+
+# Déployer quelque chose en prod pour déclencher le webhook
+curl $AUTH -T app-1.0.jar "$ARTIF_URL/libs-prod-local/com/test/webhook-test-1.0.jar"
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
-        'Le Build Info trace la relation entre code source, build et artefacts produits',
-        'Le plugin Jenkins Artifactory gère résolution, déploiement et promotion',
-        'L\'API REST permet d\'automatiser toutes les opérations (CRUD, propriétés, recherche)',
-        'AQL est le langage de requête pour des recherches complexes sur les artefacts',
-        'La promotion fait avancer les artefacts : dev → release → staging → prod',
-        'Les Access Tokens permettent une authentification sécurisée pour les services CI'
+        'Le Build Info trace la relation complète entre code source, build et artefacts',
+        'JFrog CLI : build-collect-env, build-add-git, build-publish, build-promote',
+        'API REST pour toutes les opérations : deploy, copy, move, props, search',
+        'AQL (Artifactory Query Language) pour des recherches complexes multi-critères',
+        'Promotion = copier/déplacer entre dépôts avec mise à jour des propriétés',
+        'Access Tokens avec scope et expiration pour les services CI (jamais de mots de passe)'
       ]) },
+
 
 
     // ==================== SONARQUBE ====================
     { id: 'sq-01', courseId: 'sonarqube', title: 'Introduction à SonarQube', duration: '2h30', orderIndex: 1,
       theoryContent: `## Introduction à SonarQube
 
-### Qu'est-ce que SonarQube ?
+### Présentation
 
-SonarQube est une plateforme open-source d'**inspection continue de la qualité du code**. Développée par SonarSource, elle analyse automatiquement le code source pour détecter des bugs, des vulnérabilités de sécurité et des "code smells" (mauvaises pratiques de programmation).
+SonarQube est une plateforme open-source d'**inspection continue de la qualité du code**. Développée par SonarSource, elle analyse automatiquement le code source pour détecter des bugs, des vulnérabilités de sécurité et des "code smells" (mauvaises pratiques). SonarQube évalue la qualité selon cinq dimensions : Fiabilité (bugs), Sécurité (vulnérabilités), Maintenabilité (code smells et dette technique), Couverture de tests et Duplications de code.
 
-### Les piliers de la qualité du code
+La philosophie centrale de SonarQube est **Clean as You Code** : plutôt que de corriger toute la dette technique existante d'un coup, on se concentre sur le nouveau code. Le Quality Gate vérifie que tout nouveau code est propre, et au fil du temps, l'ancien code est refactorisé naturellement.
 
-SonarQube évalue la qualité selon plusieurs dimensions :
+### Installation sur Linux (Ubuntu/Debian)
 
-#### 1. Fiabilité (Reliability)
-- **Bugs** : erreurs dans le code qui produiront un comportement incorrect
-- Exemples : null pointer dereference, division par zéro, conditions toujours vraies/fausses
-- Métrique : Rating de A (aucun bug) à E (bugs bloquants)
+#### Prérequis système
 
-#### 2. Sécurité (Security)
-- **Vulnérabilités** : failles exploitables par un attaquant
-- Exemples : SQL injection, XSS, hardcoded credentials, weak cryptography
-- Métrique : Rating de A à E
+\\\`\\\`\\\`bash
+# Vérifier les prérequis
+java -version                    # Java 17+ requis
+free -h                          # Minimum 4 Go RAM (8 Go recommandé)
+df -h                            # Minimum 10 Go disque
+sysctl vm.max_map_count          # Doit être >= 524288
 
-#### 3. Maintenabilité (Maintainability)
-- **Code Smells** : code qui fonctionne mais qui est difficile à maintenir
-- Exemples : fonctions trop longues, duplication, complexité excessive
-- Métrique : **Technical Debt** (temps estimé pour corriger tous les smells)
+# Installer Java 17
+sudo apt update
+sudo apt install -y openjdk-17-jdk
 
-#### 4. Couverture (Coverage)
-- Pourcentage du code couvert par les tests unitaires
-- Conditions couvertes (branch coverage)
-- Métrique : pourcentage global et sur le nouveau code
+# Configurer les limites système (requis par Elasticsearch)
+sudo sysctl -w vm.max_map_count=524288
+sudo sysctl -w fs.file-max=131072
+echo "vm.max_map_count=524288" | sudo tee -a /etc/sysctl.conf
+echo "fs.file-max=131072" | sudo tee -a /etc/sysctl.conf
 
-#### 5. Duplications
-- Blocs de code dupliqués (copier-coller)
-- Métrique : pourcentage de lignes dupliquées
+# Limites utilisateur
+sudo cat >> /etc/security/limits.conf << 'EOF'
+sonarqube   -   nofile   131072
+sonarqube   -   nproc    8192
+EOF
+\\\`\\\`\\\`
 
-### Architecture de SonarQube
+#### Installation via Docker (Recommandée pour labs)
 
-\`\`\`
-┌─────────────────────────────────────────────────────────────┐
-│                     DÉVELOPPEUR                              │
-│  IDE + SonarLint → Analyse en temps réel dans l'éditeur     │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-┌────────────────────────▼────────────────────────────────────┐
-│                   CI/CD PIPELINE                             │
-│  SonarScanner → Analyse complète à chaque push/PR           │
-│  Envoie les résultats au serveur SonarQube                  │
-└────────────────────────┬────────────────────────────────────┘
-                         │
-┌────────────────────────▼────────────────────────────────────┐
-│                  SERVEUR SONARQUBE                           │
-│  ┌──────────┐  ┌──────────────┐  ┌───────────────────┐     │
-│  │ Compute  │  │   Database   │  │   Elasticsearch   │     │
-│  │ Engine   │  │ (PostgreSQL) │  │   (recherche)     │     │
-│  └──────────┘  └──────────────┘  └───────────────────┘     │
-│                                                             │
-│  Dashboard Web : projets, métriques, issues, quality gates  │
-└─────────────────────────────────────────────────────────────┘
-\`\`\`
-
-### Le concept de "Clean as You Code"
-
-SonarQube applique la philosophie **Clean as You Code** :
-
-- On ne demande **pas** de corriger toute la dette technique existante d'un coup
-- On se concentre sur le **nouveau code** : tout nouveau code doit être propre
-- Au fil du temps, l'ancien code est refactorisé naturellement
-- Le **Quality Gate** vérifie uniquement les conditions sur le nouveau code
-
-### Quality Gate
-
-Un Quality Gate est un ensemble de **conditions** que le code doit respecter pour être considéré comme acceptable :
-
-| Condition (par défaut) | Seuil |
-|----------------------|-------|
-| Couverture sur nouveau code | ≥ 80% |
-| Duplication sur nouveau code | ≤ 3% |
-| Bugs rating sur nouveau code | A (aucun nouveau bug) |
-| Vulnérabilités sur nouveau code | A (aucune nouvelle vuln) |
-| Security Hotspots reviewed | 100% |
-| Maintainability rating | A |
-
-Si une condition n'est pas respectée, le Quality Gate est **FAILED** et le pipeline CI peut être bloqué.
-
-### Langages supportés
-
-SonarQube supporte plus de **30 langages** :
-- **Backend** : Java, C#, Python, Go, PHP, Ruby, Kotlin, Scala
-- **Frontend** : JavaScript, TypeScript, HTML, CSS
-- **Systèmes** : C, C++, Objective-C, Swift
-- **Infrastructure** : Terraform, CloudFormation, Kubernetes
-- **Autres** : COBOL, ABAP, PL/SQL, T-SQL, XML, JSON, YAML
-
-### Éditions de SonarQube
-
-| Édition | Langages | Fonctionnalités clés |
-|---------|----------|---------------------|
-| Community (gratuit) | 15 langages | Core features, Quality Gates |
-| Developer | +C/C++, Obj-C | Branch analysis, PR decoration |
-| Enterprise | +COBOL, ABAP, PL/SQL | Multi-ALM, portfolios, reporting |
-| Data Center | Tous | HA, clustering |
-
-### SonarQube vs SonarCloud
-
-- **SonarQube** : self-hosted, on-premise, vous gérez l'infrastructure
-- **SonarCloud** : SaaS, hébergé par SonarSource, pour projets cloud/GitHub/GitLab`,
-
-      practiceContent: `### Travaux Pratiques : Installation et première analyse
-
-#### Prérequis
-- Docker installé (4 Go RAM minimum pour SonarQube)
-- Java JDK 17+ ou un projet dans un langage supporté
-- Git installé
-
-#### Étape 1 : Lancer SonarQube avec Docker
-
-\`\`\`bash
-# Augmenter la mémoire virtuelle (requis par Elasticsearch)
+\\\`\\\`\\\`bash
+# Configurer la mémoire virtuelle pour Elasticsearch
 sudo sysctl -w vm.max_map_count=524288
 
-# Lancer SonarQube
-docker run -d --name sonarqube \\
-  -p 9000:9000 \\
-  -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true \\
-  -v sonarqube-data:/opt/sonarqube/data \\
-  -v sonarqube-extensions:/opt/sonarqube/extensions \\
-  sonarqube:lts-community
+# Lancer SonarQube Community Edition
+docker run -d --name sonarqube \\\\
+  -p 9000:9000 \\\\
+  -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true \\\\
+  -v sonarqube-data:/opt/sonarqube/data \\\\
+  -v sonarqube-extensions:/opt/sonarqube/extensions \\\\
+  -v sonarqube-logs:/opt/sonarqube/logs \\\\
+  --restart unless-stopped \\\\
+  sonarqube:10-community
 
 # Vérifier les logs
 docker logs -f sonarqube
 # Attendre "SonarQube is operational"
-\`\`\`
+
+# Accès : http://localhost:9000 (admin/admin)
+\\\`\\\`\\\`
+
+#### Installation avec PostgreSQL (Production)
+
+\\\`\\\`\\\`bash
+# Installer PostgreSQL
+sudo apt install -y postgresql postgresql-contrib
+
+# Créer la base de données
+sudo -u postgres psql << 'EOF'
+CREATE USER sonarqube WITH PASSWORD 'sonarqube_password';
+CREATE DATABASE sonarqube OWNER sonarqube;
+GRANT ALL PRIVILEGES ON DATABASE sonarqube TO sonarqube;
+EOF
+
+# Télécharger SonarQube
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.4.1.88267.zip
+sudo unzip sonarqube-*.zip -d /opt/
+sudo ln -s /opt/sonarqube-* /opt/sonarqube
+
+# Créer l'utilisateur système
+sudo useradd -r -s /bin/false sonarqube
+sudo chown -R sonarqube:sonarqube /opt/sonarqube
+
+# Configurer la connexion PostgreSQL
+sudo cat > /opt/sonarqube/conf/sonar.properties << 'EOF'
+sonar.jdbc.username=sonarqube
+sonar.jdbc.password=sonarqube_password
+sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonarqube
+sonar.web.host=0.0.0.0
+sonar.web.port=9000
+sonar.search.javaOpts=-Xmx512m -Xms512m
+sonar.web.javaOpts=-Xmx512m -Xms128m
+sonar.ce.javaOpts=-Xmx512m -Xms128m
+EOF
+
+# Service systemd
+sudo cat > /etc/systemd/system/sonarqube.service << 'EOF'
+[Unit]
+Description=SonarQube
+After=network.target postgresql.service
+
+[Service]
+Type=forking
+User=sonarqube
+Group=sonarqube
+ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
+ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+LimitNOFILE=131072
+LimitNPROC=8192
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable sonarqube
+sudo systemctl start sonarqube
+sudo systemctl status sonarqube
+\\\`\\\`\\\`
+
+### Installation sur Linux (CentOS/RHEL)
+
+\\\`\\\`\\\`bash
+# Prérequis
+sudo yum install -y java-17-openjdk java-17-openjdk-devel unzip wget
+
+# Configurer les limites système
+sudo sysctl -w vm.max_map_count=524288
+echo "vm.max_map_count=524288" | sudo tee -a /etc/sysctl.conf
+
+# PostgreSQL
+sudo yum install -y postgresql-server postgresql-contrib
+sudo postgresql-setup --initdb
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+
+# Le reste est identique à Ubuntu (téléchargement, configuration, service)
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────┐
+│                     DÉVELOPPEUR                              │
+│  IDE + SonarLint → Analyse en temps réel dans l'éditeur     │
+└────────────────────────┬────────────────────────────────────┘
+                         │ push
+┌────────────────────────▼────────────────────────────────────┐
+│                   CI/CD PIPELINE                             │
+│  SonarScanner CLI / Maven Plugin / Gradle Plugin            │
+│  → Analyse complète, envoie résultats au serveur            │
+└────────────────────────┬────────────────────────────────────┘
+                         │ HTTP/HTTPS
+┌────────────────────────▼────────────────────────────────────┐
+│                  SERVEUR SONARQUBE                           │
+│  ┌──────────────┐  ┌──────────────┐  ┌────────────────┐    │
+│  │  Web Server  │  │   Compute    │  │ Elasticsearch  │    │
+│  │  (Dashboard) │  │   Engine     │  │ (Recherche)    │    │
+│  │  Port 9000   │  │  (Analyses)  │  │ Port 9001      │    │
+│  └──────────────┘  └──────────────┘  └────────────────┘    │
+│                                                             │
+│  ┌────────────────────────────────────────────────────┐     │
+│  │              Database (PostgreSQL)                   │     │
+│  │     Projets, métriques, issues, quality gates       │     │
+│  └────────────────────────────────────────────────────┘     │
+└─────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+### Commandes essentielles
+
+\\\`\\\`\\\`bash
+# === INSTALLATION SONAR-SCANNER CLI ===
+wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+unzip sonar-scanner-cli-*.zip -d /opt/
+sudo ln -s /opt/sonar-scanner-*/bin/sonar-scanner /usr/local/bin/sonar-scanner
+sonar-scanner --version
+
+# === ANALYSE DE BASE ===
+sonar-scanner \\
+  -Dsonar.projectKey=my-project \\
+  -Dsonar.sources=src \\
+  -Dsonar.host.url=http://localhost:9000 \\
+  -Dsonar.token=sqa_xxxxxxxxxxxx
+
+# === ANALYSE MAVEN ===
+mvn clean verify sonar:sonar \\
+  -Dsonar.projectKey=my-java-project \\
+  -Dsonar.host.url=http://localhost:9000 \\
+  -Dsonar.token=sqa_xxxxxxxxxxxx
+
+# === ANALYSE GRADLE ===
+./gradlew sonar \\
+  -Dsonar.projectKey=my-gradle-project \\
+  -Dsonar.host.url=http://localhost:9000 \\
+  -Dsonar.token=sqa_xxxxxxxxxxxx
+
+# === OPTIONS SONAR-SCANNER ===
+sonar-scanner -Dsonar.projectKey=KEY         # Clé unique du projet
+sonar-scanner -Dsonar.sources=src/main       # Répertoires de code source
+sonar-scanner -Dsonar.tests=src/test         # Répertoires de tests
+sonar-scanner -Dsonar.java.binaries=target/classes  # Binaires Java compilés
+sonar-scanner -Dsonar.exclusions=**/*.min.js,**/vendor/**  # Fichiers à exclure
+sonar-scanner -Dsonar.inclusions=**/*.java   # Fichiers à inclure uniquement
+sonar-scanner -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+sonar-scanner -Dsonar.branch.name=feature/x  # Analyse de branche (Dev Edition+)
+sonar-scanner -Dsonar.qualitygate.wait=true  # Attendre le résultat du Quality Gate
+
+# === API REST SONARQUBE ===
+# Vérifier le statut du Quality Gate
+curl -u sqa_token: "http://localhost:9000/api/qualitygates/project_status?projectKey=my-project"
+
+# Lister les projets
+curl -u sqa_token: "http://localhost:9000/api/projects/search?ps=50"
+
+# Lister les issues d'un projet
+curl -u sqa_token: "http://localhost:9000/api/issues/search?componentKeys=my-project&types=BUG&severities=CRITICAL,BLOCKER"
+
+# Obtenir les métriques
+curl -u sqa_token: "http://localhost:9000/api/measures/component?component=my-project&metricKeys=bugs,vulnerabilities,code_smells,coverage,duplicated_lines_density"
+
+# Créer un projet via l'API
+curl -u sqa_token: -X POST "http://localhost:9000/api/projects/create?name=My+Project&project=my-project"
+
+# Générer un token
+curl -u admin:admin -X POST "http://localhost:9000/api/user_tokens/generate?name=ci-token"
+
+# Lister les Quality Profiles
+curl -u sqa_token: "http://localhost:9000/api/qualityprofiles/search?language=java"
+
+# Lister les règles actives
+curl -u sqa_token: "http://localhost:9000/api/rules/search?activation=true&qprofile=PROFILE_KEY&ps=500"
+
+# Webhooks
+curl -u sqa_token: -X POST "http://localhost:9000/api/webhooks/create?name=Jenkins&url=http://jenkins:8080/sonarqube-webhook/"
+\\\`\\\`\\\`
+
+### Configuration
+
+#### Fichier sonar-project.properties
+
+\\\`\\\`\\\`properties
+# Identification du projet
+sonar.projectKey=com.company:my-application
+sonar.projectName=My Application
+sonar.projectVersion=1.0.0
+
+# Répertoires source
+sonar.sources=src/main/java,src/main/resources
+sonar.tests=src/test/java
+sonar.java.binaries=target/classes
+sonar.java.libraries=target/dependency/*.jar
+sonar.java.test.binaries=target/test-classes
+sonar.java.test.libraries=target/dependency/*.jar
+
+# Couverture de code
+sonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+sonar.junit.reportsPath=target/surefire-reports
+
+# Exclusions
+sonar.exclusions=**/generated/**,**/vendor/**,**/*.min.js
+sonar.coverage.exclusions=**/config/**,**/dto/**,**/*Application.java
+sonar.cpd.exclusions=**/dto/**,**/entity/**
+
+# Encodage
+sonar.sourceEncoding=UTF-8
+
+# Serveur
+sonar.host.url=http://localhost:9000
+sonar.token=sqa_xxxxxxxxxxxx
+\\\`\\\`\\\`
+
+### Utilisation avancée
+
+#### Quality Gate par défaut (Sonar Way)
+- Coverage on New Code >= 80%
+- Duplicated Lines on New Code <= 3%
+- Reliability Rating on New Code = A
+- Security Rating on New Code = A
+- Security Hotspots Reviewed = 100%
+- Maintainability Rating on New Code = A
+
+#### Langages supportés (30+)
+Backend : Java, C#, Python, Go, PHP, Ruby, Kotlin, Scala
+Frontend : JavaScript, TypeScript, HTML, CSS
+Systèmes : C, C++, Objective-C, Swift
+Infrastructure : Terraform, CloudFormation, Kubernetes
+
+### Bonnes pratiques
+
+1. **Analyser à chaque push** : intégrer dans le pipeline CI/CD
+2. **Quality Gate strict** : ne jamais merger du code qui échoue
+3. **SonarLint** : feedback immédiat dans l'IDE avant même le push
+4. **Exclure le code généré** : pas d'analyse sur les fichiers auto-générés
+5. **Couverture réaliste** : 80% minimum sur le nouveau code
+6. **Reviewer les hotspots** : ne pas les ignorer, les marquer Safe/Fixed/Vulnerable
+7. **Profils personnalisés** : adapter les règles au contexte du projet
+8. **New Code Period** : utiliser "Previous Version" pour les projets avec releases`,
+
+      practiceContent: `### Travaux Pratiques : Installation et première analyse
+
+#### Étape 1 : Lancer SonarQube avec Docker
+
+\\\`\\\`\\\`bash
+# Configurer le système
+sudo sysctl -w vm.max_map_count=524288
+
+# Lancer SonarQube
+docker run -d --name sonarqube \\\\
+  -p 9000:9000 \\\\
+  -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true \\\\
+  -v sonarqube-data:/opt/sonarqube/data \\\\
+  -v sonarqube-extensions:/opt/sonarqube/extensions \\\\
+  sonarqube:10-community
+
+# Attendre le démarrage complet
+echo "Attente du démarrage de SonarQube..."
+until curl -s http://localhost:9000/api/system/status | grep -q "UP"; do
+  sleep 5
+  echo "En attente..."
+done
+echo "SonarQube est prêt !"
+\\\`\\\`\\\`
 
 #### Étape 2 : Configuration initiale
 
 1. Ouvrez http://localhost:9000
 2. Connectez-vous : admin / admin
 3. Changez le mot de passe immédiatement
-4. Allez dans Administration > Marketplace, installez le plugin pour votre langage si nécessaire
+4. Créez un token : My Account > Security > Generate Token
+   - Nom : ci-scanner
+   - Type : Global Analysis Token
+   - Copiez le token (sqa_xxxxx)
 
-#### Étape 3 : Créer un projet et un token
+#### Étape 3 : Installer SonarScanner CLI
 
-1. Cliquez sur "Create Project" > "Manually"
-2. Nom du projet : \`formation-test\`
-3. Clé du projet : \`formation-test\`
-4. Générez un token d'analyse : Administration > Security > Users > Tokens
-   - Nom : \`ci-scanner\`
-   - Copiez le token généré (ex: sqa_xxxxx)
-
-#### Étape 4 : Installer SonarScanner
-
-\`\`\`bash
-# Télécharger SonarScanner CLI
+\\\`\\\`\\\`bash
+# Télécharger et installer
 wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
-unzip sonar-scanner-cli-5.0.1.3006-linux.zip
-export PATH=$PATH:$(pwd)/sonar-scanner-5.0.1.3006-linux/bin
+unzip sonar-scanner-cli-*.zip -d ~/tools/
+export PATH=$PATH:~/tools/sonar-scanner-5.0.1.3006-linux/bin
 
-# Vérifier l'installation
+# Vérifier
 sonar-scanner --version
-\`\`\`
+\\\`\\\`\\\`
 
-#### Étape 5 : Analyser un projet
+#### Étape 4 : Créer un projet Java et l'analyser
 
-Créez un projet Java simple puis analysez-le :
-\`\`\`bash
-# Créer un fichier de configuration
-cat > sonar-project.properties << EOF
-sonar.projectKey=formation-test
-sonar.projectName=Formation Test
+\\\`\\\`\\\`bash
+# Créer un projet avec des bugs intentionnels
+mkdir -p ~/sonar-tp/src/main/java/com/formation
+cat > ~/sonar-tp/src/main/java/com/formation/App.java << 'EOF'
+package com.formation;
+
+import java.io.*;
+import java.sql.*;
+
+public class App {
+    // Bug : NullPointerException possible
+    public String getUserName(Object user) {
+        return user.toString().toUpperCase();
+    }
+
+    // Vulnérabilité : SQL Injection
+    public void findUser(Connection conn, String name) throws SQLException {
+        Statement stmt = conn.createStatement();
+        stmt.executeQuery("SELECT * FROM users WHERE name = '" + name + "'");
+    }
+
+    // Code Smell : fonction trop complexe
+    public String classify(int a, int b, int c) {
+        if (a > 0) { if (b > 0) { if (c > 0) { return "all positive"; }
+        else { return "c negative"; } } else { if (c > 0) { return "b neg"; }
+        else { return "bc neg"; } } } else { return "a negative"; }
+    }
+
+    // Resource leak
+    public void readFile(String path) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(path));
+        String line = reader.readLine();
+        System.out.println(line);
+        // reader never closed!
+    }
+}
+EOF
+
+# Créer sonar-project.properties
+cat > ~/sonar-tp/sonar-project.properties << EOF
+sonar.projectKey=formation-tp
+sonar.projectName=Formation TP SonarQube
 sonar.sources=src
-sonar.java.binaries=target/classes
+sonar.sourceEncoding=UTF-8
 sonar.host.url=http://localhost:9000
 sonar.token=sqa_VOTRE_TOKEN_ICI
+sonar.java.binaries=.
 EOF
 
 # Lancer l'analyse
+cd ~/sonar-tp
 sonar-scanner
+\\\`\\\`\\\`
 
-# Résultat attendu :
-# INFO: ANALYSIS SUCCESSFUL
-# INFO: SonarQube analysis report generated in xxx ms
-\`\`\`
+#### Étape 5 : Explorer les résultats
 
-#### Étape 6 : Explorer les résultats
+1. Ouvrez http://localhost:9000/dashboard?id=formation-tp
+2. Vérifiez le Quality Gate (devrait être FAILED)
+3. Explorez les issues par type :
+   - Bugs : NullPointerException, Resource Leak
+   - Vulnérabilités : SQL Injection
+   - Code Smells : complexité cognitive
+4. Cliquez sur chaque issue pour voir l'explication et la correction suggérée
 
-1. Retournez sur http://localhost:9000
-2. Ouvrez le projet \`formation-test\`
-3. Explorez :
-   - **Overview** : résumé global, Quality Gate status
-   - **Issues** : liste des bugs, vulnérabilités, code smells
-   - **Measures** : métriques détaillées
-   - **Code** : navigation dans le code avec annotations
+#### Étape 6 : Vérifier le Quality Gate via l'API
 
-#### Questions de vérification
-- Le Quality Gate est-il passé ou échoué ? Pourquoi ?
-- Combien de bugs, vulnérabilités et code smells sont détectés ?
-- Quelle est la dette technique estimée ?
-- Quel est le pourcentage de couverture (s'il y a des tests) ?`,
+\\\`\\\`\\\`bash
+# Récupérer le statut du Quality Gate
+curl -s -u sqa_VOTRE_TOKEN: \\
+  "http://localhost:9000/api/qualitygates/project_status?projectKey=formation-tp" \\
+  | python3 -m json.tool
+
+# Récupérer les métriques
+curl -s -u sqa_VOTRE_TOKEN: \\
+  "http://localhost:9000/api/measures/component?component=formation-tp&metricKeys=bugs,vulnerabilities,code_smells,coverage,ncloc" \\
+  | python3 -m json.tool
+
+# Script de vérification CI
+STATUS=$(curl -s -u sqa_VOTRE_TOKEN: \\
+  "http://localhost:9000/api/qualitygates/project_status?projectKey=formation-tp" \\
+  | python3 -c "import sys,json; print(json.load(sys.stdin)['projectStatus']['status'])")
+
+echo "Quality Gate: $STATUS"
+if [ "$STATUS" != "OK" ]; then
+  echo "❌ FAILED - Build bloqué"
+  exit 1
+fi
+echo "✅ PASSED"
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
         'SonarQube analyse bugs, vulnérabilités, code smells, couverture et duplications',
-        'Philosophie Clean as You Code : focus sur le nouveau code, pas la dette existante',
-        'Quality Gate : conditions minimales que le code doit respecter pour être accepté',
-        'Architecture : SonarScanner (client) → SonarQube Server → Database + Elasticsearch',
-        'Supporte 30+ langages et s\'intègre dans tous les pipelines CI/CD',
-        'SonarLint dans l\'IDE donne un feedback immédiat avant même le push'
+        'Installation : Docker (lab) ou standalone avec PostgreSQL (production) + Java 17',
+        'sonar-scanner CLI avec sonar-project.properties pour configurer l\'analyse',
+        'API REST complète : qualitygates, issues, measures, projects, webhooks',
+        'Philosophie Clean as You Code : Quality Gate vérifie uniquement le nouveau code',
+        'Supporte 30+ langages et s\'intègre dans tous les pipelines CI/CD'
       ]) },
-
 
     { id: 'sq-02', courseId: 'sonarqube', title: 'Métriques et Quality Gates', duration: '3h30', orderIndex: 2,
       theoryContent: `## Métriques et Quality Gates dans SonarQube
 
-### Comprendre les métriques
+### Présentation
 
-SonarQube calcule des dizaines de métriques pour évaluer la qualité du code. Ces métriques sont regroupées par domaine.
+SonarQube calcule des dizaines de métriques pour évaluer la qualité du code. Ces métriques sont regroupées en cinq domaines principaux : Fiabilité (bugs), Sécurité (vulnérabilités et hotspots), Maintenabilité (code smells et dette technique), Couverture de tests et Duplications. Comprendre ces métriques et configurer des Quality Gates appropriés est essentiel pour maintenir un niveau de qualité constant dans vos projets.
 
-### Métriques de fiabilité
+### Installation sur Linux (Ubuntu/Debian)
 
-#### Bugs
+L'installation de SonarQube a été couverte dans le module précédent. Pour ce module, assurez-vous que votre instance est opérationnelle :
 
-Un bug est un défaut qui causera un comportement incorrect à l'exécution. Exemples concrets :
+\\\`\\\`\\\`bash
+# Vérifier que SonarQube est actif
+curl -s http://localhost:9000/api/system/status | python3 -c "import sys,json; d=json.load(sys.stdin); print(f'Status: {d[\"status\"]}')"
 
-\`\`\`java
-// Bug : NullPointerException possible
-public String getUserName(User user) {
-    return user.getName().toUpperCase(); // user peut être null !
-}
+# Vérifier qu'un projet a été analysé
+curl -s -u admin:admin "http://localhost:9000/api/projects/search" | python3 -m json.tool
 
-// Bug : condition toujours fausse (code mort)
-int x = 5;
-if (x > 10) {  // Toujours faux !
-    doSomething();
-}
+# Si SonarQube n'est pas démarré
+docker start sonarqube
+# ou
+sudo systemctl start sonarqube
+\\\`\\\`\\\`
 
-// Bug : ressource non fermée
-public void readFile(String path) throws IOException {
-    BufferedReader reader = new BufferedReader(new FileReader(path));
-    String line = reader.readLine();
-    // reader n'est jamais fermé → fuite de ressource
-}
-\`\`\`
+### Architecture et composants
 
-#### Reliability Rating
-- **A** : 0 bugs
-- **B** : au moins 1 bug mineur
-- **C** : au moins 1 bug majeur
-- **D** : au moins 1 bug critique
-- **E** : au moins 1 bug bloquant
+#### Métriques de fiabilité (Reliability)
+- **Bugs** : défauts qui causeront un comportement incorrect (NPE, division par zéro, etc.)
+- **Reliability Rating** : A (0 bugs) à E (bugs bloquants)
 
-### Métriques de sécurité
+#### Métriques de sécurité (Security)
+- **Vulnérabilités** : failles exploitables (SQL injection, XSS, hardcoded credentials)
+- **Security Hotspots** : zones nécessitant une revue humaine
+- **Security Rating** : A (0 vulns) à E (vulns critiques)
 
-#### Vulnérabilités
+#### Métriques de maintenabilité (Maintainability)
+- **Code Smells** : code fonctionnel mais difficile à maintenir
+- **Technical Debt** : temps estimé pour corriger tous les smells
+- **Technical Debt Ratio** : dette / temps de développement
+- **Maintainability Rating** : A (TDR<=5%) à E (TDR>50%)
 
-Failles exploitables dans le code :
+#### Métriques de couverture (Coverage)
+- **Line Coverage** : % de lignes exécutées par les tests
+- **Branch Coverage** : % de conditions testées
+- **Coverage on New Code** : couverture sur le code nouvellement ajouté
 
-\`\`\`java
-// Vulnérabilité : SQL Injection
-String query = "SELECT * FROM users WHERE name = '" + userInput + "'";
-Statement stmt = connection.createStatement();
-ResultSet rs = stmt.executeQuery(query); // Injection possible !
+#### Métriques de duplication
+- **Duplicated Lines** : nombre de lignes dupliquées
+- **Duplicated Blocks** : nombre de blocs de code copiés
+- **Duplicated Lines Density** : % de lignes dupliquées
 
-// Correction : requête paramétrée
-PreparedStatement pstmt = connection.prepareStatement(
-    "SELECT * FROM users WHERE name = ?");
-pstmt.setString(1, userInput);
-ResultSet rs = pstmt.executeQuery();
-\`\`\`
+### Commandes essentielles
 
-#### Security Hotspots
+\\\`\\\`\\\`bash
+# === API REST - MÉTRIQUES ===
+# Obtenir toutes les métriques d'un projet
+curl -u token: "http://localhost:9000/api/measures/component?component=my-project&metricKeys=bugs,vulnerabilities,code_smells,coverage,duplicated_lines_density,ncloc,sqale_debt_ratio,reliability_rating,security_rating"
 
-Les hotspots sont des zones de code **potentiellement** vulnérables qui nécessitent une revue humaine :
-- Utilisation de cryptographie → l'algorithme est-il assez fort ?
-- Configuration de cookies → le flag Secure est-il activé ?
-- Écriture dans les logs → des données sensibles sont-elles loguées ?
+# Historique des métriques
+curl -u token: "http://localhost:9000/api/measures/search_history?component=my-project&metrics=bugs,coverage&ps=30"
 
-Le développeur doit les marquer comme **Safe**, **Fixed** ou confirmer comme **Vulnerable**.
+# Métriques par fichier
+curl -u token: "http://localhost:9000/api/measures/component_tree?component=my-project&metricKeys=bugs,code_smells&qualifiers=FIL&ps=100"
 
-### Métriques de maintenabilité
+# === API REST - QUALITY GATES ===
+# Lister les Quality Gates
+curl -u token: "http://localhost:9000/api/qualitygates/list"
 
-#### Code Smells
+# Obtenir les conditions d'un Quality Gate
+curl -u token: "http://localhost:9000/api/qualitygates/show?name=Sonar+way"
 
-Un code smell ne cause pas de bug mais rend le code difficile à maintenir :
+# Créer un Quality Gate personnalisé
+curl -u token: -X POST "http://localhost:9000/api/qualitygates/create?name=Strict+Gate"
 
-\`\`\`java
-// Smell : fonction trop longue (cognitive complexity élevée)
-public void processOrder(Order order) {
-    // 200 lignes de code avec des if/else imbriqués...
-}
+# Ajouter une condition au Quality Gate
+curl -u token: -X POST "http://localhost:9000/api/qualitygates/create_condition?gateId=2&metric=new_coverage&op=LT&error=90"
+curl -u token: -X POST "http://localhost:9000/api/qualitygates/create_condition?gateId=2&metric=new_duplicated_lines_density&op=GT&error=2"
+curl -u token: -X POST "http://localhost:9000/api/qualitygates/create_condition?gateId=2&metric=new_reliability_rating&op=GT&error=1"
 
-// Smell : code dupliqué (copier-coller)
-// Le même bloc apparaît dans 3 fichiers différents
+# Assigner un Quality Gate à un projet
+curl -u token: -X POST "http://localhost:9000/api/qualitygates/select?projectKey=my-project&gateId=2"
 
-// Smell : paramètre non utilisé
-public void calculate(int a, int b, int unusedParam) {
-    return a + b;
-}
-\`\`\`
+# Statut du Quality Gate pour un projet
+curl -u token: "http://localhost:9000/api/qualitygates/project_status?projectKey=my-project"
 
-#### Technical Debt (Dette technique)
+# === API REST - QUALITY PROFILES ===
+# Lister les profils
+curl -u token: "http://localhost:9000/api/qualityprofiles/search?language=java"
 
-La dette technique est exprimée en **temps de travail** estimé pour corriger tous les code smells :
-- 1 smell mineur = ~5 minutes
-- 1 smell majeur = ~30 minutes
-- 1 smell critique = ~1 heure
+# Exporter un profil
+curl -u token: "http://localhost:9000/api/qualityprofiles/export?qualityProfile=Sonar+way&language=java" > profile.xml
 
-SonarQube calcule aussi le **Technical Debt Ratio** :
-\`\`\`
-TDR = dette_technique / temps_développement_estimé × 100
-\`\`\`
+# Créer un profil personnalisé
+curl -u token: -X POST "http://localhost:9000/api/qualityprofiles/create?name=Custom+Java&language=java"
 
-Exemple : 4 jours de dette sur un projet estimé à 100 jours → TDR = 4%
+# Activer une règle dans un profil
+curl -u token: -X POST "http://localhost:9000/api/qualityprofiles/activate_rule?key=PROFILE_KEY&rule=java:S1135"
 
-#### Maintainability Rating
-- **A** : TDR ≤ 5% (excellent)
-- **B** : 6-10% (bon)
-- **C** : 11-20% (acceptable)
-- **D** : 21-50% (mauvais)
-- **E** : > 50% (très mauvais)
+# Assigner un profil à un projet
+curl -u token: -X POST "http://localhost:9000/api/qualityprofiles/add_project?project=my-project&qualityProfile=Custom+Java&language=java"
 
-### Complexité
+# === API REST - ISSUES ===
+# Rechercher les issues
+curl -u token: "http://localhost:9000/api/issues/search?componentKeys=my-project&types=BUG&severities=CRITICAL,BLOCKER&ps=100"
 
-#### Complexité cyclomatique
+# Filtrer par statut
+curl -u token: "http://localhost:9000/api/issues/search?componentKeys=my-project&statuses=OPEN,CONFIRMED&types=VULNERABILITY"
 
-Nombre de chemins linéairement indépendants dans le code :
-\`\`\`java
-// Complexité = 1 (linéaire)
-public int simple() { return 42; }
+# Assigner une issue
+curl -u token: -X POST "http://localhost:9000/api/issues/assign?issue=ISSUE_KEY&assignee=developer"
 
-// Complexité = 3 (1 + 2 conditions)
-public String classify(int score) {
-    if (score >= 90) return "A";      // +1
-    else if (score >= 70) return "B";  // +1
-    else return "C";
-}
-\`\`\`
+# Marquer comme faux positif
+curl -u token: -X POST "http://localhost:9000/api/issues/do_transition?issue=ISSUE_KEY&transition=falsepositive"
 
-#### Complexité cognitive
+# Bulk change
+curl -u token: -X POST "http://localhost:9000/api/issues/bulk_change?issues=KEY1,KEY2&assign.assignee=dev&set_severity.severity=MINOR"
+\\\`\\\`\\\`
 
-Mesure plus moderne qui évalue la **difficulté de compréhension** :
-- Les imbrications augmentent la complexité
-- Les breaks dans le flux (continue, break, goto) augmentent la complexité
-- Les structures récursives sont pénalisées
+### Configuration
 
-### Quality Gates en détail
-
-#### Quality Gate par défaut ("Sonar Way")
-
-Conditions sur le **nouveau code** (New Code Period) :
-- Coverage ≥ 80%
-- Duplicated Lines ≤ 3%
-- Reliability Rating = A
-- Security Rating = A
-- Security Hotspots Reviewed = 100%
-- Maintainability Rating = A
-
-#### Créer un Quality Gate personnalisé
-
-Vous pouvez ajouter des conditions supplémentaires :
+#### Quality Gate personnalisé recommandé
 
 | Condition | Opérateur | Seuil | Justification |
 |-----------|-----------|-------|---------------|
-| Coverage on New Code | > | 85% | Exigence projet |
-| Cognitive Complexity | < | 15 | Lisibilité |
-| Duplicated Lines | < | 2% | DRY principle |
-| Bugs | = | 0 | Zéro bug |
-| Code Smells on New Code | < | 10 | Propreté |
+| Coverage on New Code | >= | 80% | Minimum acceptable |
+| Duplicated Lines on New Code | <= | 3% | DRY principle |
+| Reliability Rating on New Code | = | A | Zero new bugs |
+| Security Rating on New Code | = | A | Zero new vulns |
+| Maintainability Rating on New Code | = | A | Clean code |
+| Security Hotspots Reviewed | = | 100% | Tout doit être revu |
 
-#### New Code Period
-
-Le "New Code Period" définit ce qui est considéré comme "nouveau code" :
+#### New Code Period options
 - **Previous Version** : depuis la dernière release (recommandé)
-- **Number of days** : les N derniers jours (ex: 30 jours)
-- **Specific date** : depuis une date précise
-- **Reference Branch** : différence avec une branche (main, develop)
+- **Number of days** : les N derniers jours
+- **Reference Branch** : différence avec main/develop
 
-### Profils de qualité (Quality Profiles)
+### Utilisation avancée
 
-Un Quality Profile est l'ensemble des règles activées pour un langage donné :
+#### Complexité cognitive vs cyclomatique
+- **Cyclomatique** : nombre de chemins dans le code (if, for, while = +1)
+- **Cognitive** : difficulté de compréhension (imbrications pénalisées)
+- SonarQube utilise principalement la complexité cognitive (plus moderne)
 
-- **Sonar Way** : profil par défaut, règles sélectionnées par SonarSource
-- **Sonar Way Recommended** : plus strict, inclut plus de règles
-- **Custom** : vous pouvez créer vos propres profils
+#### Gestion des faux positifs
+- Marquer l'issue comme "Won't Fix" ou "False Positive" dans l'UI
+- Utiliser des commentaires dans le code : // NOSONAR
+- Configurer des exclusions dans sonar-project.properties
 
-\`\`\`
-Exemple de personnalisation :
-- Partir de "Sonar Way" pour Java
-- Ajouter les règles OWASP Top 10
-- Désactiver les règles de style (géré par Checkstyle)
-- Augmenter la sévérité des règles de sécurité
-\`\`\``,
+### Bonnes pratiques
 
-      practiceContent: `### Travaux Pratiques : Configuration des Quality Gates
+1. **Quality Gate strict** sur le nouveau code uniquement
+2. **Ne jamais désactiver** le Quality Gate pour "avancer plus vite"
+3. **Reviewer tous les Security Hotspots** avant chaque release
+4. **Personnaliser les profils** selon le contexte du projet
+5. **Monitorer la tendance** : la dette doit diminuer dans le temps
+6. **Intégrer dans les PR** : feedback avant le merge`,
+
+      practiceContent: `### Travaux Pratiques : Quality Gates et Métriques
 
 #### TP 1 : Explorer les métriques d'un projet
 
-1. Dans votre SonarQube, analysez un projet Java avec au moins 10 fichiers
-2. Explorez le dashboard :
-   - Notez le nombre de bugs, vulnérabilités, code smells
-   - Identifiez la dette technique totale
-   - Vérifiez le pourcentage de couverture
-3. Naviguez dans l'onglet "Issues" :
-   - Filtrez par sévérité (Blocker, Critical, Major, Minor)
-   - Filtrez par type (Bug, Vulnerability, Code Smell)
-   - Assignez une issue à vous-même
+\\\`\\\`\\\`bash
+# Récupérer toutes les métriques du projet
+TOKEN="sqa_VOTRE_TOKEN"
+PROJECT="formation-tp"
+
+# Métriques principales
+curl -s -u $TOKEN: "http://localhost:9000/api/measures/component?component=$PROJECT&metricKeys=bugs,vulnerabilities,code_smells,coverage,duplicated_lines_density,ncloc,sqale_index,sqale_debt_ratio" | python3 -c "
+import json,sys
+data = json.load(sys.stdin)
+print('=== Métriques du projet ===')
+for m in data['component']['measures']:
+    print(f'  {m[\"metric\"]}: {m[\"value\"]}')
+"
+
+# Issues par sévérité
+for SEV in BLOCKER CRITICAL MAJOR MINOR INFO; do
+  COUNT=$(curl -s -u $TOKEN: "http://localhost:9000/api/issues/search?componentKeys=$PROJECT&severities=$SEV&ps=1" | python3 -c "import sys,json; print(json.load(sys.stdin)['total'])")
+  echo "$SEV: $COUNT"
+done
+\\\`\\\`\\\`
 
 #### TP 2 : Créer un Quality Gate personnalisé
 
-1. Allez dans Quality Gates > Create
-2. Nom : "Formation Strict Gate"
-3. Ajoutez les conditions suivantes :
-   - Coverage on New Code > 90%
-   - Duplicated Lines on New Code < 2%
-   - Reliability Rating on New Code = A
-   - Security Rating on New Code = A
-   - Maintainability Rating on New Code = A
-   - Cognitive Complexity < 20
-4. Appliquez ce Quality Gate à votre projet
-5. Relancez l'analyse et observez le résultat
+\\\`\\\`\\\`bash
+# Créer le Quality Gate
+QG_ID=$(curl -s -u $TOKEN: -X POST "http://localhost:9000/api/qualitygates/create?name=Formation+Strict" | python3 -c "import sys,json; print(json.load(sys.stdin)['id'])")
+echo "Quality Gate créé: ID=$QG_ID"
 
-#### TP 3 : Personnaliser un Quality Profile
+# Ajouter les conditions
+curl -s -u $TOKEN: -X POST "http://localhost:9000/api/qualitygates/create_condition?gateId=$QG_ID&metric=new_coverage&op=LT&error=85"
+curl -s -u $TOKEN: -X POST "http://localhost:9000/api/qualitygates/create_condition?gateId=$QG_ID&metric=new_duplicated_lines_density&op=GT&error=2"
+curl -s -u $TOKEN: -X POST "http://localhost:9000/api/qualitygates/create_condition?gateId=$QG_ID&metric=new_reliability_rating&op=GT&error=1"
+curl -s -u $TOKEN: -X POST "http://localhost:9000/api/qualitygates/create_condition?gateId=$QG_ID&metric=new_security_rating&op=GT&error=1"
+curl -s -u $TOKEN: -X POST "http://localhost:9000/api/qualitygates/create_condition?gateId=$QG_ID&metric=new_maintainability_rating&op=GT&error=1"
 
-\`\`\`bash
-# Exporter le profil actuel via l'API
-curl "http://localhost:9000/api/qualityprofiles/export?qualityProfile=Sonar%20way&language=java" \\
-  -u admin:password > sonar-way-java.xml
+# Assigner au projet
+curl -s -u $TOKEN: -X POST "http://localhost:9000/api/qualitygates/select?projectKey=$PROJECT&gateId=$QG_ID"
 
-# Lister les règles disponibles
-curl "http://localhost:9000/api/rules/search?languages=java&ps=500" \\
-  -u admin:password | python3 -m json.tool | head -100
-\`\`\`
+echo "Quality Gate 'Formation Strict' assigné au projet"
+\\\`\\\`\\\`
 
-1. Créez un nouveau profil basé sur "Sonar Way"
-2. Activez les règles OWASP Top 10
-3. Désactivez les règles qui ne s'appliquent pas à votre projet
-4. Assignez le profil à votre projet
+#### TP 3 : Vérification automatisée dans un script CI
 
-#### TP 4 : Analyser l'évolution
+\\\`\\\`\\\`bash
+#!/bin/bash
+# quality_gate_check.sh
+TOKEN="sqa_VOTRE_TOKEN"
+PROJECT="formation-tp"
+SONAR_URL="http://localhost:9000"
 
-1. Faites 3 analyses successives en modifiant le code entre chaque :
-   - Analyse 1 : code initial
-   - Analyse 2 : ajoutez du code dupliqué
-   - Analyse 3 : corrigez la duplication
-2. Observez les graphiques d'évolution dans le dashboard
-3. Vérifiez que le Quality Gate reflète les changements
+echo "=== Vérification du Quality Gate ==="
 
-#### TP 5 : Intégrer le Quality Gate dans un pipeline
+# Récupérer le statut
+RESPONSE=$(curl -s -u $TOKEN: "$SONAR_URL/api/qualitygates/project_status?projectKey=$PROJECT")
+STATUS=$(echo $RESPONSE | python3 -c "import sys,json; print(json.load(sys.stdin)['projectStatus']['status'])")
 
-\`\`\`bash
-# Après l'analyse, vérifier le Quality Gate
-STATUS=$(curl -s "http://localhost:9000/api/qualitygates/project_status?projectKey=formation-test" \\
-  -u admin:password | python3 -c "import sys,json; print(json.load(sys.stdin)['projectStatus']['status'])")
+echo "Statut: $STATUS"
 
-echo "Quality Gate Status: $STATUS"
-if [ "$STATUS" != "OK" ]; then
-  echo "ERREUR: Quality Gate FAILED - build bloqué"
-  exit 1
+# Afficher les conditions en échec
+echo $RESPONSE | python3 -c "
+import json,sys
+data = json.load(sys.stdin)
+conditions = data['projectStatus'].get('conditions', [])
+for c in conditions:
+    status_icon = '✅' if c['status'] == 'OK' else '❌'
+    print(f\"  {status_icon} {c['metricKey']}: {c.get('actualValue','N/A')} (seuil: {c.get('errorThreshold','N/A')})\")
+"
+
+if [ "$STATUS" = "OK" ]; then
+    echo "✅ Quality Gate PASSED"
+    exit 0
+else
+    echo "❌ Quality Gate FAILED"
+    exit 1
 fi
-echo "Quality Gate passé avec succès"
-\`\`\``,
+\\\`\\\`\\\`
+
+#### TP 4 : Analyser l'évolution des métriques
+
+\\\`\\\`\\\`bash
+# Obtenir l'historique sur les 10 dernières analyses
+curl -s -u $TOKEN: "http://localhost:9000/api/measures/search_history?component=$PROJECT&metrics=bugs,code_smells,coverage&ps=10" | python3 -c "
+import json,sys
+data = json.load(sys.stdin)
+print('=== Historique des métriques ===')
+for measure in data['measures']:
+    print(f'\\nMétrique: {measure[\"metric\"]}')
+    for h in measure['history'][-5:]:
+        print(f'  {h[\"date\"]}: {h[\"value\"]}')
+"
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
-        'Cinq dimensions : Fiabilité, Sécurité, Maintenabilité, Couverture, Duplications',
-        'Technical Debt = temps estimé pour corriger tous les code smells',
+        'Cinq domaines : Fiabilité, Sécurité, Maintenabilité, Couverture, Duplications',
+        'Technical Debt Ratio = dette / temps de développement - ratings de A à E',
         'Quality Gate vérifie les conditions sur le nouveau code (Clean as You Code)',
-        'Profils de qualité : ensemble de règles activées par langage',
-        'New Code Period : définit ce qui est considéré comme nouveau (version, jours, branche)',
-        'Security Hotspots nécessitent une revue humaine (pas automatiquement des vulnérabilités)'
+        'API REST pour créer/modifier Quality Gates et Quality Profiles programmatiquement',
+        'New Code Period : Previous Version recommandé pour les projets avec releases',
+        'Security Hotspots nécessitent une revue humaine - pas automatiquement des vulnérabilités'
       ]) },
-
 
     { id: 'sq-03', courseId: 'sonarqube', title: 'Intégration CI/CD et SonarLint', duration: '4h', orderIndex: 3,
       theoryContent: `## Intégration de SonarQube dans les pipelines CI/CD
 
-### Le flux d'analyse complet
+### Présentation
 
-L'intégration de SonarQube dans la CI/CD automatise l'analyse qualité à chaque changement de code :
+L'intégration de SonarQube dans la CI/CD automatise l'analyse qualité à chaque changement de code. Le flux typique est : Developer push → CI triggered → Build → Test → SonarScanner → SonarQube → Quality Gate → Deploy ou Block. SonarLint dans l'IDE complète ce workflow en offrant un feedback immédiat avant même le push.
 
-\`\`\`
-Developer push → CI triggered → Build → Test → SonarScanner → SonarQube
-                                                                    │
-                                                              Quality Gate
-                                                              ┌─────┴─────┐
-                                                              │           │
-                                                            PASS        FAIL
-                                                              │           │
-                                                           Deploy      Block
-                                                              │        + Notify
-                                                              ▼           │
-                                                           Staging        ▼
-                                                                     Fix code
-\`\`\`
+### Installation sur Linux (Ubuntu/Debian)
 
-### Intégration avec Jenkins
+Pour l'intégration CI/CD, vous avez besoin du SonarScanner et de la configuration de votre outil CI :
 
-#### Pipeline déclaratif avec SonarQube
+\\\`\\\`\\\`bash
+# Installer SonarScanner CLI
+wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+sudo unzip sonar-scanner-cli-*.zip -d /opt/
+sudo ln -s /opt/sonar-scanner-*/bin/sonar-scanner /usr/local/bin/sonar-scanner
+sonar-scanner --version
 
-\`\`\`groovy
+# Pour Maven (pas besoin d'installation séparée, plugin intégré)
+mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar --version
+
+# Pour Jenkins : installer le plugin SonarQube Scanner
+# Manage Jenkins > Plugins > Rechercher "SonarQube Scanner" > Installer
+# Puis : Manage Jenkins > System > SonarQube servers > Add
+
+# Pour GitLab CI : utiliser l'image Docker sonarsource/sonar-scanner-cli
+# Pour GitHub Actions : utiliser sonarsource/sonarqube-scan-action
+\\\`\\\`\\\`
+
+### Installation sur Linux (CentOS/RHEL)
+
+\\\`\\\`\\\`bash
+# Même procédure que Ubuntu pour le scanner CLI
+sudo yum install -y wget unzip
+wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+sudo unzip sonar-scanner-cli-*.zip -d /opt/
+sudo ln -s /opt/sonar-scanner-*/bin/sonar-scanner /usr/local/bin/sonar-scanner
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+\\\`\\\`\\\`
+Developer (SonarLint) ──push──→ CI Pipeline ──scanner──→ SonarQube Server
+     ↑                                                        │
+     │ Connected Mode (sync rules)                    Quality Gate
+     └────────────────────────────────────────── PASS ←──┤
+                                                          │
+                                                    FAIL → Block + Notify
+\\\`\\\`\\\`
+
+### Commandes essentielles
+
+\\\`\\\`\\\`bash
+# === JENKINS - Jenkinsfile complet ===
+# (Voir section Configuration ci-dessous)
+
+# === GITLAB CI - .gitlab-ci.yml ===
+# sonar-scanner -Dsonar.qualitygate.wait=true
+
+# === GITHUB ACTIONS ===
+# uses: sonarsource/sonarqube-scan-action@master
+
+# === SONAR-SCANNER OPTIONS CI/CD ===
+sonar-scanner -Dsonar.qualitygate.wait=true              # Attendre le Quality Gate
+sonar-scanner -Dsonar.qualitygate.timeout=300            # Timeout 5 min
+sonar-scanner -Dsonar.branch.name=feature/x              # Analyse de branche
+sonar-scanner -Dsonar.pullrequest.key=42                 # Analyse de PR
+sonar-scanner -Dsonar.pullrequest.branch=feature/x       # Branche source PR
+sonar-scanner -Dsonar.pullrequest.base=main              # Branche cible PR
+sonar-scanner -Dsonar.verbose=true                       # Mode debug
+
+# === WEBHOOKS ===
+# Créer un webhook pour notifier Jenkins
+curl -u token: -X POST "http://localhost:9000/api/webhooks/create" \\
+  -d "name=Jenkins" \\
+  -d "url=http://jenkins:8080/sonarqube-webhook/"
+
+# Lister les webhooks
+curl -u token: "http://localhost:9000/api/webhooks/list"
+
+# === SONARLINT CONNECTED MODE ===
+# Configuration VS Code (.vscode/settings.json) :
+# {
+#   "sonarlint.connectedMode.connections.sonarqube": [
+#     { "serverUrl": "http://localhost:9000", "token": "sqa_xxx" }
+#   ],
+#   "sonarlint.connectedMode.project": {
+#     "connectionId": "local-sq",
+#     "projectKey": "my-project"
+#   }
+# }
+\\\`\\\`\\\`
+
+### Configuration
+
+#### Jenkinsfile avec SonarQube
+
+\\\`\\\`\\\`groovy
 pipeline {
     agent any
-    
     environment {
         SONAR_TOKEN = credentials('sonarqube-token')
     }
-    
     stages {
-        stage('Build') {
+        stage('Build & Test') {
             steps {
-                sh 'mvn clean compile'
+                sh 'mvn clean verify'
             }
         }
-        
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-            post {
-                always {
-                    junit '**/target/surefire-reports/*.xml'
-                    jacoco execPattern: '**/target/jacoco.exec'
-                }
-            }
-        }
-        
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube-Server') {
-                    sh """
-                        mvn sonar:sonar \\
-                            -Dsonar.projectKey=my-project \\
-                            -Dsonar.projectName="My Project" \\
-                            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
-                    """
+                    sh 'mvn sonar:sonar -Dsonar.projectKey=my-project'
                 }
             }
         }
-        
         stage('Quality Gate') {
             steps {
                 timeout(time: 5, unit: 'MINUTES') {
@@ -1372,848 +2282,777 @@ pipeline {
                 }
             }
         }
-        
-        stage('Deploy') {
-            when {
-                expression { currentBuild.result == null || currentBuild.result == 'SUCCESS' }
-            }
-            steps {
-                sh 'mvn deploy -DskipTests'
-            }
-        }
     }
 }
-\`\`\`
+\\\`\\\`\\\`
 
-### Intégration avec GitLab CI
+#### GitLab CI avec SonarQube
 
-\`\`\`yaml
-# .gitlab-ci.yml
-variables:
-  SONAR_HOST_URL: "https://sonarqube.company.com"
-  SONAR_TOKEN: $SONAR_TOKEN
-
-stages:
-  - build
-  - test
-  - quality
-  - deploy
-
-build:
-  stage: build
-  script:
-    - mvn clean compile
-
-test:
-  stage: test
-  script:
-    - mvn test
-  artifacts:
-    reports:
-      junit: target/surefire-reports/*.xml
-    paths:
-      - target/jacoco.exec
-      - target/site/jacoco/jacoco.xml
-
+\\\`\\\`\\\`yaml
 sonarqube:
   stage: quality
   image: sonarsource/sonar-scanner-cli:latest
+  variables:
+    SONAR_HOST_URL: "http://sonarqube:9000"
+    SONAR_TOKEN: $SONAR_TOKEN
   script:
     - sonar-scanner
         -Dsonar.projectKey=$CI_PROJECT_NAME
-        -Dsonar.sources=src/main
-        -Dsonar.tests=src/test
-        -Dsonar.java.binaries=target/classes
-        -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+        -Dsonar.sources=src
         -Dsonar.qualitygate.wait=true
   allow_failure: false
-\`\`\`
+\\\`\\\`\\\`
 
-### Intégration avec GitHub Actions
+#### GitHub Actions avec SonarQube
 
-\`\`\`yaml
-# .github/workflows/sonar.yml
-name: SonarQube Analysis
-
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main]
-
+\\\`\\\`\\\`yaml
+name: SonarQube
+on: [push, pull_request]
 jobs:
   sonarqube:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Important pour l'analyse du nouveau code
-      
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          java-version: 17
-          distribution: temurin
-      
-      - name: Build and Test
-        run: mvn clean verify
-      
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
+          fetch-depth: 0
+      - uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: \${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: \${{ secrets.SONAR_HOST_URL }}
-      
-      - name: Quality Gate Check
-        uses: sonarsource/sonarqube-quality-gate-action@master
+      - uses: sonarsource/sonarqube-quality-gate-action@master
         timeout-minutes: 5
         env:
           SONAR_TOKEN: \${{ secrets.SONAR_TOKEN }}
-\`\`\`
+\\\`\\\`\\\`
 
-### Pull Request Decoration
+### Utilisation avancée
 
-SonarQube peut commenter directement les Pull Requests avec les résultats d'analyse :
+#### PR Decoration
+SonarQube commente directement les PRs avec les résultats : status check, commentaires inline sur les lignes problématiques, résumé des métriques.
 
-- **Status check** : Passed/Failed visible dans la PR
-- **Commentaires inline** : issues directement sur les lignes de code
-- **Résumé** : tableau récapitulatif des métriques
+#### SonarLint Connected Mode
+Synchronise les règles du serveur vers l'IDE. Avantages : mêmes règles localement qu'en CI, issues supprimées non affichées, profils personnalisés appliqués automatiquement.
 
-Configuration pour GitHub :
-1. Créez une GitHub App ou un Personal Access Token
-2. Configurez dans SonarQube : Administration > Configuration > GitHub
-3. Les résultats apparaissent automatiquement sur les PRs
+### Bonnes pratiques
 
-### SonarLint : l'analyse dans l'IDE
+1. **waitForQualityGate** dans Jenkins pour bloquer si qualité insuffisante
+2. **fetch-depth: 0** pour GitHub Actions (git blame nécessaire)
+3. **SonarLint Connected Mode** pour feedback avant le push
+4. **Analyse de branches** pour vérifier avant le merge
+5. **Webhooks** pour notifier Slack/Teams du résultat
+6. **Tokens dédiés** par service CI (pas le token admin)`,
 
-SonarLint est l'extension IDE qui fournit un feedback **immédiat** au développeur :
+      practiceContent: `### Travaux Pratiques : Intégration CI/CD
 
-#### Fonctionnalités
+#### TP 1 : Script d'analyse automatisée
 
-- Analyse en temps réel pendant que vous tapez
-- Mêmes règles que SonarQube (synchronisées via Connected Mode)
-- Pas besoin d'attendre le CI pour connaître les problèmes
-- Support : VS Code, IntelliJ IDEA, Eclipse, Visual Studio
+\\\`\\\`\\\`bash
+#!/bin/bash
+# analyze_and_check.sh - Script complet d'analyse CI
+set -e
 
-#### Connected Mode
+PROJECT_KEY="formation-ci-tp"
+SONAR_URL="http://localhost:9000"
+SONAR_TOKEN="sqa_VOTRE_TOKEN"
 
-Le Connected Mode synchronise les règles et les configurations depuis votre serveur SonarQube :
+echo "=== Étape 1: Analyse SonarQube ==="
+sonar-scanner \\
+  -Dsonar.projectKey=$PROJECT_KEY \\
+  -Dsonar.sources=src \\
+  -Dsonar.host.url=$SONAR_URL \\
+  -Dsonar.token=$SONAR_TOKEN \\
+  -Dsonar.qualitygate.wait=true
 
-\`\`\`json
+echo "=== Étape 2: Vérification Quality Gate ==="
+sleep 5  # Attendre le processing
+
+STATUS=$(curl -s -u $SONAR_TOKEN: "$SONAR_URL/api/qualitygates/project_status?projectKey=$PROJECT_KEY" \\
+  | python3 -c "import sys,json; print(json.load(sys.stdin)['projectStatus']['status'])")
+
+echo "Quality Gate: $STATUS"
+if [ "$STATUS" != "OK" ]; then
+    echo "❌ Quality Gate FAILED"
+    
+    # Afficher les issues nouvelles
+    echo "=== Nouvelles issues ==="
+    curl -s -u $SONAR_TOKEN: "$SONAR_URL/api/issues/search?componentKeys=$PROJECT_KEY&statuses=OPEN&types=BUG,VULNERABILITY&ps=10" \\
+      | python3 -c "
+import json,sys
+data = json.load(sys.stdin)
+for issue in data['issues'][:10]:
+    print(f\"  [{issue['severity']}] {issue['message']} ({issue['component'].split(':')[-1]}:{issue.get('line','?')})\")
+"
+    exit 1
+fi
+echo "✅ Quality Gate PASSED - Déploiement autorisé"
+\\\`\\\`\\\`
+
+#### TP 2 : Configurer SonarLint Connected Mode
+
+1. Installez l'extension SonarLint dans VS Code
+2. Configurez la connexion :
+\\\`\\\`\\\`json
 // .vscode/settings.json
 {
   "sonarlint.connectedMode.connections.sonarqube": [
     {
-      "serverUrl": "https://sonarqube.company.com",
-      "token": "sqa_xxxx"
+      "connectionId": "local-sq",
+      "serverUrl": "http://localhost:9000",
+      "token": "sqa_VOTRE_TOKEN"
     }
   ],
   "sonarlint.connectedMode.project": {
-    "connectionId": "company-sonarqube",
-    "projectKey": "my-project"
+    "connectionId": "local-sq",
+    "projectKey": "formation-tp"
   }
 }
-\`\`\`
-
-Avantages du Connected Mode :
-- Mêmes règles que le serveur (pas de surprise au CI)
-- Issues supprimées sur le serveur ne sont plus affichées localement
-- Profils personnalisés appliqués automatiquement
-- Notification des nouveaux issues détectés par le serveur
-
-### Webhooks et notifications
-
-SonarQube peut notifier des systèmes externes après chaque analyse :
-
-\`\`\`json
-// Payload envoyé par le webhook
-{
-  "serverUrl": "https://sonarqube.company.com",
-  "taskId": "AXoFPGr_e5s",
-  "status": "SUCCESS",
-  "analysedAt": "2024-01-15T14:30:00+0000",
-  "project": {
-    "key": "my-project",
-    "name": "My Project"
-  },
-  "qualityGate": {
-    "status": "ERROR",
-    "conditions": [
-      {
-        "metric": "coverage",
-        "operator": "LESS_THAN",
-        "value": "65.2",
-        "errorThreshold": "80",
-        "status": "ERROR"
-      }
-    ]
-  }
-}
-\`\`\`
-
-Cas d'usage des webhooks :
-- Notifier Slack/Teams du résultat du Quality Gate
-- Bloquer un merge si le Quality Gate est FAILED
-- Mettre à jour un dashboard de suivi
-- Déclencher une action de remédiation automatique`,
-
-      practiceContent: `### Travaux Pratiques : Intégration CI/CD
-
-#### TP 1 : Configurer l'analyse dans un Jenkinsfile
-
-1. Installez le plugin SonarQube Scanner dans Jenkins
-2. Configurez la connexion dans Jenkins > Manage Jenkins > Configure System
-3. Créez un pipeline avec le Jenkinsfile suivant et exécutez-le :
-
-\`\`\`groovy
-pipeline {
-    agent any
-    stages {
-        stage('Checkout') {
-            steps { checkout scm }
-        }
-        stage('Build & Test') {
-            steps { sh 'mvn clean verify' }
-        }
-        stage('SonarQube') {
-            steps {
-                withSonarQubeEnv('MySonarQube') {
-                    sh 'mvn sonar:sonar'
-                }
-            }
-        }
-        stage('Gate') {
-            steps {
-                timeout(time: 2, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
-    }
-}
-\`\`\`
-
-4. Vérifiez que le pipeline échoue si le Quality Gate est FAILED
-
-#### TP 2 : Configurer SonarLint en Connected Mode
-
-1. Installez SonarLint dans VS Code (ou votre IDE)
-2. Ajoutez la connexion au serveur SonarQube local
-3. Liez votre projet local au projet SonarQube
-4. Vérifiez que les mêmes règles s'appliquent en local
-5. Modifiez un fichier et observez les issues en temps réel
+\\\`\\\`\\\`
+3. Vérifiez que les issues apparaissent en temps réel dans l'éditeur
+4. Modifiez un fichier avec un bug et observez le diagnostic instantané
 
 #### TP 3 : Configurer un webhook
 
-\`\`\`bash
-# Créer un webhook dans SonarQube
-curl -X POST "http://localhost:9000/api/webhooks/create" \\
-  -u admin:password \\
-  -d "name=Jenkins Notification" \\
-  -d "url=http://jenkins:8080/sonarqube-webhook/"
+\\\`\\\`\\\`bash
+# Créer un webhook
+curl -u $SONAR_TOKEN: -X POST "$SONAR_URL/api/webhooks/create" \\
+  -d "name=CI+Notification" \\
+  -d "url=http://localhost:9999/sonar-webhook"
 
-# Vérifier les webhooks configurés
-curl "http://localhost:9000/api/webhooks/list" -u admin:password
-\`\`\`
+# Lancer un listener pour tester
+python3 -c "
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import json
+class H(BaseHTTPRequestHandler):
+    def do_POST(self):
+        data = json.loads(self.rfile.read(int(self.headers['Content-Length'])))
+        print(f'Quality Gate: {data[\"qualityGate\"][\"status\"]}')
+        print(f'Project: {data[\"project\"][\"key\"]}')
+        self.send_response(200)
+        self.end_headers()
+HTTPServer(('',9999), H).serve_forever()
+" &
 
-#### TP 4 : Analyse de branches et PR
+# Relancer une analyse pour déclencher le webhook
+sonar-scanner -Dsonar.projectKey=$PROJECT_KEY -Dsonar.sources=src -Dsonar.host.url=$SONAR_URL -Dsonar.token=$SONAR_TOKEN
+\\\`\\\`\\\`
 
-1. Créez une branche feature dans votre projet Git
-2. Ajoutez du code avec des issues intentionnelles
-3. Lancez l'analyse en spécifiant la branche :
-\`\`\`bash
+#### TP 4 : Analyse de branches
+
+\\\`\\\`\\\`bash
+# Créer une branche avec du code problématique
+git checkout -b feature/bad-code
+# Ajouter du code avec des bugs...
+
+# Analyser la branche
 sonar-scanner \\
-  -Dsonar.branch.name=feature/new-module \\
-  -Dsonar.branch.target=main
-\`\`\`
-4. Observez les résultats dans SonarQube (onglet Branches)
-5. Comparez les métriques entre la branche et main
+  -Dsonar.projectKey=$PROJECT_KEY \\
+  -Dsonar.sources=src \\
+  -Dsonar.host.url=$SONAR_URL \\
+  -Dsonar.token=$SONAR_TOKEN \\
+  -Dsonar.branch.name=feature/bad-code
 
-#### TP 5 : Script de vérification du Quality Gate
-
-\`\`\`bash
-#!/bin/bash
-# Script de vérification post-analyse
-PROJECT_KEY="formation-test"
-SONAR_URL="http://localhost:9000"
-SONAR_TOKEN="sqa_votre_token"
-
-# Attendre que l'analyse soit terminée
-sleep 10
-
-# Récupérer le statut du Quality Gate
-RESPONSE=$(curl -s "$SONAR_URL/api/qualitygates/project_status?projectKey=$PROJECT_KEY" \\
-  -H "Authorization: Bearer $SONAR_TOKEN")
-
-STATUS=$(echo $RESPONSE | python3 -c "import sys,json; print(json.load(sys.stdin)['projectStatus']['status'])")
-
-echo "Quality Gate: $STATUS"
-
-if [ "$STATUS" = "OK" ]; then
-    echo "✅ Qualité validée - déploiement autorisé"
-    exit 0
-else
-    echo "❌ Qualité insuffisante - corrections requises"
-    # Afficher les conditions en échec
-    echo $RESPONSE | python3 -m json.tool
-    exit 1
-fi
-\`\`\``,
+# Comparer avec main dans l'interface SonarQube
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
-        'waitForQualityGate dans Jenkins bloque le pipeline si la qualité est insuffisante',
-        'SonarLint en Connected Mode synchronise les règles du serveur vers l\'IDE',
+        'waitForQualityGate dans Jenkins bloque le pipeline si qualité insuffisante',
+        'SonarLint en Connected Mode synchronise les règles du serveur vers l IDE',
         'PR Decoration affiche les résultats directement dans les Pull Requests',
-        'fetch-depth: 0 est requis pour l\'analyse du nouveau code (git blame)',
-        'Les webhooks permettent de notifier des systèmes externes du résultat',
-        'L\'analyse de branches permet de vérifier la qualité avant le merge'
+        'fetch-depth: 0 est requis pour l analyse du nouveau code dans GitHub Actions',
+        'Les webhooks notifient des systèmes externes du résultat de l analyse',
+        'Analyse de branches permet de vérifier la qualité avant le merge'
       ]) },
-
 
     // ==================== DOORS ====================
     { id: 'doors-01', courseId: 'doors', title: 'Introduction à IBM DOORS', duration: '3h', orderIndex: 1,
       theoryContent: `## Introduction à IBM DOORS
 
-### Qu'est-ce que IBM DOORS ?
+### Présentation
 
-IBM DOORS (Dynamic Object-Oriented Requirements System) est un outil de **gestion des exigences** (Requirements Management) utilisé dans les industries à forte réglementation : aéronautique, défense, automobile, ferroviaire, médical et spatial.
+IBM DOORS (Dynamic Object-Oriented Requirements System) est un outil de **gestion des exigences** (Requirements Management) utilisé dans les industries à forte réglementation : aéronautique (DO-178C), défense, automobile (ISO 26262), ferroviaire (EN 50128), médical (IEC 62304) et spatial. DOORS permet de capturer les exigences de manière structurée, d'établir la traçabilité bidirectionnelle complète entre tous les niveaux (système, logiciel, test), d'analyser l'impact des changements et de vérifier la couverture des exigences.
 
-DOORS permet de :
-- **Capturer** les exigences de manière structurée
-- **Tracer** les liens entre exigences, conception, tests et code
-- **Analyser l'impact** d'un changement sur l'ensemble du système
-- **Vérifier la couverture** : chaque exigence est-elle testée ?
-- **Collaborer** entre les équipes (systèmes, logiciel, test, client)
+### Installation sur Linux
 
-### Pourquoi la gestion des exigences ?
+**Note importante** : IBM DOORS Classic (version 9.x) est un client Windows uniquement. Le serveur peut être installé sur Linux ou Windows. DOORS Next Generation (DNG) est une application web qui fonctionne sur n'importe quel OS via le navigateur.
 
-Dans un projet complexe (avion, voiture autonome, dispositif médical), une mauvaise gestion des exigences est la **première cause d'échec** :
+#### Installation du serveur DOORS sur Linux
 
-| Problème | Conséquence | Solution DOORS |
-|----------|-------------|----------------|
-| Exigences ambiguës | Interprétations différentes | Attributs et modèles structurés |
-| Exigences perdues | Fonctionnalités manquantes | Base de données centralisée |
-| Changements non tracés | Régressions | Historique et baseline |
-| Pas de traçabilité | Impossible de certifier | Liens et matrices |
-| Tests incomplets | Bugs en production | Couverture vérifiable |
+\\\`\\\`\\\`bash
+# Prérequis serveur (Red Hat/CentOS recommandé par IBM)
+sudo yum install -y glibc.i686 libstdc++.i686 libX11.i686 libXext.i686 libXi.i686 libXtst.i686
 
-### Concepts fondamentaux de DOORS
+# Créer l'utilisateur DOORS
+sudo useradd -m -d /opt/doors -s /bin/bash doorsadmin
+sudo passwd doorsadmin
 
-#### 1. Base de données DOORS
+# Monter le média d'installation IBM
+sudo mkdir -p /mnt/doors_install
+sudo mount -o loop DOORS_9.7_Linux_Server.iso /mnt/doors_install
 
-La base de données DOORS est organisée hiérarchiquement :
-\`\`\`
+# Lancer l'installation serveur
+cd /mnt/doors_install
+sudo ./setup.bin -i console
+
+# Suivre les prompts :
+# - Répertoire d'installation : /opt/ibm/doors
+# - Port serveur : 36677 (par défaut)
+# - Données : /opt/ibm/doors/data
+# - Licence : entrer la clé ou pointer vers le serveur FlexLM
+
+# Configurer comme service
+sudo cat > /etc/systemd/system/doors-server.service << 'EOF'
+[Unit]
+Description=IBM DOORS Server
+After=network.target
+
+[Service]
+Type=forking
+User=doorsadmin
+ExecStart=/opt/ibm/doors/bin/doorsd start
+ExecStop=/opt/ibm/doors/bin/doorsd stop
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable doors-server
+sudo systemctl start doors-server
+
+# Vérifier le service
+sudo systemctl status doors-server
+netstat -tlnp | grep 36677
+\\\`\\\`\\\`
+
+#### Installation du client DOORS (Windows)
+
+\\\`\\\`\\\`bash
+# Sur un poste Windows (PowerShell) :
+# 1. Monter le média d'installation
+# 2. Exécuter setup.exe
+# 3. Suivre l'assistant :
+#    - Type : Client
+#    - Serveur : doors-server.company.com:36677
+#    - Répertoire : C:\\Program Files\\IBM\\DOORS\\9.7
+
+# Configuration de la connexion
+# Fichier : C:\\Program Files\\IBM\\DOORS\\9.7\\etc\\doors.ini
+# [Server]
+# Hostname=doors-server.company.com
+# Port=36677
+# Database=DOORS_DB
+
+# Lancer le client
+# "C:\\Program Files\\IBM\\DOORS\\9.7\\bin\\doors.exe" -d DOORS_DB -s doors-server:36677
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+\\\`\\\`\\\`
+┌────────────────────────────────────────────────────────────┐
+│                    ARCHITECTURE DOORS                        │
+│                                                             │
+│  ┌──────────────┐  ┌──────────────┐  ┌────────────────┐   │
+│  │ Client DOORS │  │ Client DOORS │  │  DOORS Web     │   │
+│  │ (Windows)    │  │ (Windows)    │  │  Access        │   │
+│  │ Full GUI     │  │ Full GUI     │  │  (Read-only)   │   │
+│  └──────┬───────┘  └──────┬───────┘  └───────┬────────┘   │
+│         │                  │                   │            │
+│         └──────────────────┼───────────────────┘            │
+│                            │ TCP/IP (port 36677)            │
+│                            ▼                                │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │              DOORS DATABASE SERVER                    │   │
+│  │                                                      │   │
+│  │  Database → Projets → Dossiers → Modules → Objets   │   │
+│  │                                                      │   │
+│  │  Services : Authentication, Locking, Versioning      │   │
+│  │  Storage  : fichiers plats ou Oracle DB             │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                             │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │              FLEXLM LICENSE SERVER                    │   │
+│  │  Gestion des licences utilisateur (flottantes)       │   │
+│  └─────────────────────────────────────────────────────┘   │
+└────────────────────────────────────────────────────────────┘
+
+Structure de la base de données :
 Database (serveur)
-├── Project (projet)
-│   ├── Folder (dossier)
-│   │   ├── Formal Module (module d'exigences)
-│   │   ├── Formal Module
-│   │   └── Link Module (module de liens)
-│   └── Folder
-│       └── ...
-└── Project
+├── Project "Avionics_System"
+│   ├── Folder "01_System_Requirements"
+│   │   ├── Formal Module "SyRS" (exigences système)
+│   │   └── Link Module "SyRS_to_SRS" (liens de traçabilité)
+│   ├── Folder "02_Software_Requirements"
+│   │   ├── Formal Module "SRS" (exigences logiciel)
+│   │   └── Link Module "SRS_to_TC"
+│   └── Folder "03_Test_Cases"
+│       └── Formal Module "TC" (cas de test)
+└── Project "Another_Project"
     └── ...
-\`\`\`
+\\\`\\\`\\\`
 
-#### 2. Modules formels
+### Commandes essentielles
 
-Un module formel est un **document structuré** contenant des objets (exigences, texte, headings) :
+\\\`\\\`\\\`bash
+# === COMMANDES SERVEUR DOORS (Linux) ===
+/opt/ibm/doors/bin/doorsd start            # Démarrer le serveur
+/opt/ibm/doors/bin/doorsd stop             # Arrêter le serveur
+/opt/ibm/doors/bin/doorsd status           # Statut du serveur
+/opt/ibm/doors/bin/doorsd -backup /backup  # Sauvegarde de la base
 
-| Élément | Description | Exemple |
-|---------|-------------|---------|
-| Object | Unité de base (exigence, texte) | "Le système doit répondre en < 2s" |
-| Heading | Titre de section | "3.2 Exigences de performance" |
-| Attribute | Métadonnée d'un objet | Status: Approved, Priority: High |
-| Object ID | Identifiant unique absolu | MOD-REQ-00042 |
+# === COMMANDES CLIENT DOORS (Windows CMD) ===
+doors.exe -d DB_NAME -s server:port -u user -P password   # Lancer avec connexion
+doors.exe -batch script.dxl                                # Exécuter un script DXL
+doors.exe -W export_module.dxl                             # Exécuter sans interface
 
-#### 3. Attributs d'exigences
+# === OPÉRATIONS DXL DE BASE ===
+# Ouvrir un module
+# Module m = read("/Project/Folder/Module", true)
 
-Chaque exigence possède des attributs typés :
+# Parcourir les objets
+# Object o; for o in entire m do { print identifier(o) " " o."Object Text" }
 
-\`\`\`
-Attributs standards :
-- Object Identifier : identifiant unique (auto-généré)
-- Object Text : texte de l'exigence
-- Object Heading : titre (si c'est un heading)
-- Created By : auteur
-- Created On : date de création
-- Last Modified On : date de dernière modification
+# Créer un objet
+# Object newObj = create below(lastObj)
+# newObj."Object Text" = "Nouvelle exigence"
 
-Attributs personnalisés (exemples) :
-- Status : Draft, Under Review, Approved, Deleted
-- Priority : Must, Should, Could, Won't (MoSCoW)
-- Verification Method : Test, Analysis, Inspection, Demonstration
-- Allocated To : sous-système ou composant responsable
-- Rationale : justification de l'exigence
-- Compliance : Compliant, Non-Compliant, Partial, N/A
-\`\`\`
+# Modifier un attribut
+# o."Status" = "Approved"
 
-#### 4. Liens entre objets
+# Créer un lien
+# create(sourceObj, targetObj, linkModName)
 
-Les liens créent la **traçabilité** entre les niveaux d'exigences :
+# Exporter en CSV
+# Stream f = write("export.csv")
+# f << "ID,Text,Status\\n"
 
-\`\`\`
-Exigences Client (Stakeholder Requirements - StRS)
-        │ satisfiedBy
-        ▼
-Exigences Système (System Requirements - SyRS)
-        │ satisfiedBy
-        ▼
-Exigences Logiciel (Software Requirements - SRS)
-        │ satisfiedBy
-        ▼
-Exigences de Conception (Design - DD)
-        │ verifiedBy
-        ▼
-Cas de Tests (Test Cases - TC)
-\`\`\`
+# === OPÉRATIONS VIA DOORS WEB ACCESS (REST-like) ===
+# Consultation des modules en lecture seule via navigateur web
+# URL : http://doors-server:8080/dwa/
 
-Types de liens courants :
-- **satisfiedBy** : l'exigence de bas niveau satisfait celle de haut niveau
-- **verifiedBy** : le test vérifie l'exigence
-- **derivedFrom** : l'exigence dérive d'une autre
-- **implementedBy** : le code implémente l'exigence
-- **refines** : détaille une exigence de plus haut niveau
+# === IMPORT/EXPORT ===
+# Import depuis Word : File > Import > Microsoft Word
+# Import depuis Excel/CSV : File > Import > Spreadsheet
+# Export vers Word : File > Export > Microsoft Word
+# Export ReqIF : File > Export > ReqIF (standard d'échange)
 
-### DOORS classique vs DOORS Next Generation (DNG)
+# === BASELINES ===
+# Créer : File > Baseline > Create Baseline
+# Comparer : File > Baseline > Compare Baselines
+# Restaurer : File > Baseline > Set as Current
 
-| Critère | DOORS Classic (9.x) | DOORS Next (DNG) |
-|---------|-------------------|-------------------|
-| Architecture | Client lourd Windows | Web (Jazz/CLM) |
-| Collaboration | Fichiers lockés | Temps réel |
-| Versionnement | Baselines | Streams/Changesets |
-| Interface | Win32, DXL scripting | REST API, OSLC |
-| Liens | Link Modules | OSLC links |
-| Performance | Rapide localement | Dépend du réseau |
-| Maturité | 25+ ans, très stable | Plus récent, évolutif |
+# === DXL SCRIPTS UTILITAIRES ===
+# Lancer depuis : Tools > Edit DXL > Run
+# Ou en batch : doors.exe -batch myscript.dxl
+\\\`\\\`\\\`
 
-### Standards et certifications
+### Configuration
 
-DOORS est utilisé pour se conformer à :
-- **DO-178C** : logiciel aéronautique (niveaux A à E)
+#### Attributs d'exigences recommandés
+
+| Attribut | Type | Valeurs | Usage |
+|----------|------|---------|-------|
+| Status | Enum | Draft, Review, Approved, Deleted | Cycle de vie |
+| Priority | Enum | Must, Should, Could, Won't | MoSCoW |
+| Verification_Method | Enum | Test, Analysis, Inspection, Demo | DO-178C |
+| Allocated_To | String | Composant/équipe | Responsabilité |
+| Rationale | Text | Libre | Justification |
+| Source | String | Client, Standard, Derived | Origine |
+| Compliance | Enum | Compliant, Partial, N/A | Conformité |
+
+### Utilisation avancée
+
+#### Standards supportés
+- **DO-178C** : logiciel aéronautique (niveaux DAL A à E)
 - **ISO 26262** : sécurité fonctionnelle automobile (ASIL A à D)
 - **IEC 62304** : logiciel dispositifs médicaux
 - **EN 50128** : logiciel ferroviaire (SIL 0 à 4)
-- **MIL-STD-498** : logiciel militaire
 - **CMMI** : maturité des processus
 
-Ces standards exigent une traçabilité **bidirectionnelle complète** entre exigences, conception, code et tests.
+#### Traçabilité bidirectionnelle
+Exigences Client → Exigences Système → Exigences Logiciel → Tests
+Chaque niveau est lié au précédent par des Link Modules.
 
-### L'écosystème autour de DOORS
+### Bonnes pratiques
 
-- **DOORS** : gestion des exigences
-- **Rhapsody** : modélisation UML/SysML liée aux exigences
-- **Rational Team Concert (RTC)** : gestion des tâches et du code source
-- **Rational Quality Manager (RQM)** : gestion des tests
-- **OSLC** (Open Services for Lifecycle Collaboration) : interconnexion entre outils`,
+1. **Une exigence = une phrase testable** avec sujet, verbe (shall), complément
+2. **Attributs obligatoires** : Status, Priority, Verification_Method minimum
+3. **Baselines régulières** : à chaque revue formelle (PDR, CDR)
+4. **Audit des liens** : vérifier la couverture avant chaque milestone
+5. **DXL pour l'automatisation** : exports, statistiques, vérifications
+6. **Pas de mot ambigu** : éviter "should", "may", "might", "could"`,
 
       practiceContent: `### Travaux Pratiques : Prise en main de DOORS
 
-#### Prérequis
-- IBM DOORS 9.7 installé (ou accès à un serveur DOORS)
-- Licence utilisateur active
-- Connexion au serveur DOORS configurée
+#### TP 1 : Créer un projet et un module
 
-#### Étape 1 : Connexion et navigation
+1. Connectez-vous au serveur DOORS
+2. Créez un projet : File > New > Project : "Formation_DOORS_TP"
+3. Créez un dossier : "01_Requirements"
+4. Créez un module formel : "SRS - Software Requirements" (prefix: SRS)
 
-1. Lancez le client DOORS
-2. Connectez-vous au serveur :
-   - Host : doors-server.company.com
-   - Port : 36677 (par défaut)
-   - Username / Password
-3. Explorez la structure de la base :
-   - Ouvrez le Database Explorer
-   - Identifiez les projets existants
-   - Naviguez dans les dossiers et modules
+#### TP 2 : Configurer les attributs personnalisés
 
-#### Étape 2 : Créer un projet et un module
+Dans le module, Edit > Attributes > Define :
+\\\`\\\`\\\`
+Attribut: Status
+  Type: Enumeration
+  Valeurs: Draft, Under_Review, Approved, Deleted
+  Défaut: Draft
 
-1. Créez un nouveau projet : File > New > Project
-   - Nom : "Formation_DOORS_TP"
-2. Créez un dossier : clic droit > New > Folder
-   - Nom : "01_Requirements"
-3. Créez un module formel : clic droit > New > Formal Module
-   - Nom : "SRS - Software Requirements"
-   - Prefix : "SRS"
+Attribut: Priority
+  Type: Enumeration
+  Valeurs: Must, Should, Could, Wont
+  Défaut: Should
 
-#### Étape 3 : Configurer les attributs
+Attribut: Verification_Method
+  Type: Enumeration
+  Valeurs: Test, Analysis, Inspection, Demonstration
+  Défaut: Test
+\\\`\\\`\\\`
 
-1. Dans le module, allez dans Edit > Attributes > Define
-2. Créez les attributs personnalisés :
-\`\`\`
-Nom: Status
-Type: Enumeration
-Valeurs: Draft, Under Review, Approved, Deleted
-Défaut: Draft
+#### TP 3 : Saisir des exigences structurées
 
-Nom: Priority
-Type: Enumeration
-Valeurs: Must, Should, Could, Won't
-Défaut: Should
-
-Nom: Verification_Method
-Type: Enumeration
-Valeurs: Test, Analysis, Inspection, Demonstration
-Défaut: Test
-
-Nom: Allocated_To
-Type: String
-Défaut: (vide)
-\`\`\`
-
-#### Étape 4 : Saisir des exigences
-
-1. Créez la structure hiérarchique :
-\`\`\`
-1. Introduction
-   1.1 Purpose
-   1.2 Scope
-2. Functional Requirements
-   2.1 User Authentication
-       SRS-001: The system shall authenticate users via login/password
-       SRS-002: The system shall lock account after 3 failed attempts
-       SRS-003: The system shall support password reset via email
-   2.2 Data Management
-       SRS-004: The system shall store data in encrypted format
-       SRS-005: The system shall backup data every 24 hours
-3. Non-Functional Requirements
-   3.1 Performance
-       SRS-006: The system shall respond within 2 seconds for 95% of requests
+Créez la hiérarchie suivante :
+\\\`\\\`\\\`
+1. Introduction (heading)
+   1.1 Purpose (heading)
+2. Functional Requirements (heading)
+   2.1 User Authentication (heading)
+       SRS-001: The system shall authenticate users via username and password
+       SRS-002: The system shall lock the account after 3 consecutive failed login attempts
+       SRS-003: The system shall support password reset via registered email
+   2.2 Data Management (heading)
+       SRS-004: The system shall encrypt all stored data using AES-256
+       SRS-005: The system shall perform automated backup every 24 hours
+3. Non-Functional Requirements (heading)
+   3.1 Performance (heading)
+       SRS-006: The system shall respond to user requests within 2 seconds for 95th percentile
        SRS-007: The system shall support 1000 concurrent users
-   3.2 Security
-       SRS-008: The system shall encrypt all data in transit using TLS 1.3
-\`\`\`
+   3.2 Security (heading)
+       SRS-008: All data in transit shall be encrypted using TLS 1.3 or higher
+\\\`\\\`\\\`
 
-2. Pour chaque exigence, remplissez les attributs (Status, Priority, Verification Method)
+Pour chaque exigence, remplissez Status, Priority et Verification_Method.
 
-#### Étape 5 : Créer une vue personnalisée
+#### TP 4 : Créer des vues et filtres
 
-1. Insert > Column > Sélectionnez : Object Identifier, Object Text, Status, Priority
-2. Appliquez un filtre : Status != "Deleted"
-3. Sauvegardez la vue : View > Save Current View As > "Requirements Overview"
+1. Configurez une vue avec les colonnes : Object ID, Object Text, Status, Priority
+2. Appliquez un filtre : Status != "Deleted" AND Priority == "Must"
+3. Sauvegardez la vue : "Must_Requirements_View"
 
-#### Étape 6 : Créer une baseline
+#### TP 5 : Créer une baseline
 
 1. File > Baseline > Create
-2. Nom : "Baseline_V1.0"
-3. Description : "Première version approuvée des exigences"
-4. Vérifiez : la baseline est read-only, protégeant cette version
+2. Nom : "Baseline_V1.0_Initial"
+3. Description : "Première version approuvée des exigences SRS"
+4. Vérifiez que la baseline est en lecture seule
 
-#### Questions de vérification
-- Combien d'exigences avez-vous créées ?
-- Quel est l'identifiant de la dernière exigence ?
-- La baseline est-elle accessible en lecture seule ?
-- Pouvez-vous modifier un objet dans la baseline ?`,
+#### TP 6 : Script DXL de statistiques
+
+\\\`\\\`\\\`c
+// Exécuter dans Tools > Edit DXL
+Module m = current Module
+Object o
+int total = 0, must = 0, should = 0, approved = 0, draft = 0
+
+for o in entire m do {
+    if (!isHeading(o) and o."Object Text" != "") {
+        total++
+        string pri = o."Priority"
+        string sta = o."Status"
+        if (pri == "Must") must++
+        if (pri == "Should") should++
+        if (sta == "Approved") approved++
+        if (sta == "Draft") draft++
+    }
+}
+
+print "=== Statistiques du module ===\\n"
+print "Total exigences : " total "\\n"
+print "Must : " must " (" (must*100/total) "%)\\n"
+print "Should : " should " (" (should*100/total) "%)\\n"
+print "Approved : " approved "\\n"
+print "Draft : " draft "\\n"
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
-        'DOORS gère les exigences avec traçabilité complète dans les industries réglementées',
+        'DOORS gère les exigences avec traçabilité complète pour les industries réglementées',
+        'Serveur sur Linux, client sur Windows - DOORS Next Generation est full web',
         'Structure : Database > Project > Folder > Module > Object (exigence)',
-        'Chaque objet possède des attributs typés (Status, Priority, Verification Method)',
-        'Les liens entre modules créent la traçabilité bidirectionnelle (satisfiedBy, verifiedBy)',
-        'Les baselines protègent une version figée des exigences (non modifiable)',
-        'Conforme aux standards DO-178C, ISO 26262, IEC 62304, EN 50128'
+        'Attributs typés : Status, Priority, Verification_Method pour chaque exigence',
+        'Baselines figent une version du module (non modifiable, pour audit)',
+        'DXL scripting pour automatiser exports, statistiques et vérifications'
       ]) },
-
 
     { id: 'doors-02', courseId: 'doors', title: 'Traçabilité et liens', duration: '5h', orderIndex: 2,
       theoryContent: `## Traçabilité et liens dans DOORS
 
-### Le concept de traçabilité
+### Présentation
 
-La traçabilité des exigences est la capacité de **suivre la vie d'une exigence** dans les deux directions :
-- **Traçabilité amont (upstream)** : d'où vient cette exigence ? Quel besoin client la justifie ?
-- **Traçabilité aval (downstream)** : comment cette exigence est-elle implémentée et testée ?
+La traçabilité des exigences est la capacité de suivre la vie d'une exigence dans les deux directions : traçabilité amont (d'où vient cette exigence ?) et traçabilité aval (comment est-elle implémentée et testée ?). Dans DOORS, les liens entre objets sont stockés dans des Link Modules et permettent de construire des matrices de traçabilité, d'analyser l'impact des changements et de vérifier la couverture complète des exigences. Cette traçabilité bidirectionnelle est exigée par tous les standards de sécurité (DO-178C, ISO 26262, IEC 62304).
 
-### Pourquoi la traçabilité est-elle critique ?
+### Installation sur Linux
 
-#### Certification et conformité
+Même infrastructure que le module précédent. Vérifiez que le serveur DOORS est actif et que vous avez accès à vos modules.
 
-Les standards de sécurité exigent une traçabilité **complète et bidirectionnelle** :
+\\\`\\\`\\\`bash
+# Vérifier le serveur
+sudo systemctl status doors-server
+netstat -tlnp | grep 36677
 
-\`\`\`
-DO-178C (aéronautique) :
-- Chaque exigence HLR doit être tracée vers les exigences système
-- Chaque exigence LLR doit être tracée vers un HLR
-- Chaque test doit être tracé vers un LLR
-- Chaque LLR doit être vérifié par au moins un test
+# Vérifier les sauvegardes avant de travailler sur la traçabilité
+ls -la /opt/ibm/doors/backup/
+\\\`\\\`\\\`
 
-ISO 26262 (automobile) :
-- Traçabilité entre niveaux ASIL
-- Couverture complète des safety requirements
-- Analyse d'impact pour chaque modification
-\`\`\`
+### Architecture et composants
 
-#### Analyse d'impact
+\\\`\\\`\\\`
+Matrice de traçabilité :
 
-Quand une exigence change, la traçabilité permet d'identifier immédiatement :
-- Quelles exigences de niveau inférieur sont impactées ?
-- Quels composants logiciels doivent être modifiés ?
-- Quels tests doivent être re-exécutés ?
-- Quel est le coût du changement ?
+Exigences Client (StRS)     satisfiedBy     Exigences Système (SyRS)
+     │                                            │
+     │ satisfiedBy                                 │ satisfiedBy
+     ▼                                            ▼
+Exigences Logiciel (SRS)    verifiedBy      Cas de Tests (TC)
+     │
+     │ implementedBy
+     ▼
+Code Source / Design (DD)
 
-### Link Modules dans DOORS
+Link Modules :
+- StRS_to_SyRS_satisfiedBy (client → système)
+- SyRS_to_SRS_satisfiedBy (système → logiciel)
+- SRS_to_TC_verifiedBy (logiciel → tests)
+- SRS_to_DD_implementedBy (logiciel → design)
+\\\`\\\`\\\`
 
-Dans DOORS classique, les liens entre objets sont stockés dans des **Link Modules** :
+### Commandes essentielles
 
-\`\`\`
-Link Module : "satisfiedBy_links"
-├── Source : SyRS (System Requirements)
-├── Target : SRS (Software Requirements)
-├── Type : satisfiedBy
-└── Cardinalité : many-to-many
-\`\`\`
+\\\`\\\`\\\`bash
+# === DXL - PARCOURIR LES LIENS ===
+# Liens sortants d'un objet
+# Object o; Link outLink
+# for outLink in all(o -> "*") do {
+#     Object target = target(outLink)
+#     print identifier(o) " -> " identifier(target) "\\n"
+# }
 
-#### Créer un Link Module
+# Liens entrants vers un objet
+# for outLink in all(o <- "*") do {
+#     Object source = source(outLink)
+#     print identifier(source) " -> " identifier(o) "\\n"
+# }
 
-1. Dans le projet, clic droit > New > Link Module
-2. Configuration :
-   - Nom : "SyRS_to_SRS_satisfiedBy"
-   - Source Module : System Requirements (SyRS)
-   - Target Module : Software Requirements (SRS)
+# === DXL - VÉRIFIER LA COUVERTURE ===
+# Module m = current Module
+# Object o; int covered=0, notCovered=0
+# for o in entire m do {
+#     if (!isHeading(o) and o."Object Text" != "") {
+#         bool hasLink = false
+#         Link lnk
+#         for lnk in all(o -> "*") do { hasLink = true; break }
+#         if (hasLink) covered++
+#         else { notCovered++; print "GAP: " identifier(o) "\\n" }
+#     }
+# }
+# print "Couverture: " covered "/" (covered+notCovered) "\\n"
 
-#### Créer des liens entre objets
+# === DXL - TROUVER LES SUSPECTS ===
+# for o in entire m do {
+#     Link lnk
+#     for lnk in all(o -> "*") do {
+#         if (isSuspect(lnk)) {
+#             print "SUSPECT: " identifier(o) " -> " identifier(target(lnk)) "\\n"
+#         }
+#     }
+# }
 
-Méthodes pour créer des liens :
-- **Drag & Drop** : glisser un objet source vers un objet cible
-- **Edit > Links** : interface de gestion des liens
-- **DXL Script** : création automatisée de liens en masse
+# === DXL - CRÉER DES LIENS ===
+# Module srcMod = read("/Project/SyRS", false)
+# Module tgtMod = read("/Project/SRS", false)
+# Object src = object(10, srcMod)
+# Object tgt = object(25, tgtMod)
+# create(src, tgt, linkModuleName("satisfiedBy"))
 
-### Matrice de traçabilité
+# === OPÉRATIONS UI ===
+# Créer un Link Module : clic droit sur dossier > New > Link Module
+# Créer un lien : drag & drop entre deux modules ouverts
+# Matrice de traçabilité : Analysis > Traceability Matrix
+# Analyse d'impact : clic droit sur objet > Links > Show
+# Supprimer les suspects : Edit > Links > Clear All Suspects
+\\\`\\\`\\\`
 
-La matrice de traçabilité (Traceability Matrix) est une **vue croisée** montrant les liens entre deux modules :
+### Configuration
 
-\`\`\`
-                    SRS-001  SRS-002  SRS-003  SRS-004  SRS-005
-SyRS-REQ-01           ✓        ✓
-SyRS-REQ-02                              ✓
-SyRS-REQ-03                                        ✓       ✓
-SyRS-REQ-04     (non couvert - GAP !)
-\`\`\`
-
-La matrice révèle :
-- **Gaps** : exigences de haut niveau sans lien vers le bas (non implémentées)
-- **Orphelins** : exigences de bas niveau sans lien vers le haut (non justifiées)
-- **Sur-allocation** : une exigence satisfaite par trop de composants (complexité)
-
-### Analyse de couverture
-
-DOORS permet de calculer automatiquement la couverture :
-
-\`\`\`
-Couverture aval = Exigences HLR avec au moins un lien aval / Total exigences HLR × 100
-
-Exemple :
-- 150 exigences système (SyRS)
-- 142 ont au moins un lien vers une exigence logicielle (SRS)
-- Couverture = 142/150 = 94.7%
-- GAP = 8 exigences non dérivées → à investiguer !
-\`\`\`
-
-### Types de liens et conventions
-
-#### Liens structurels standard
-
-| Nom du lien | Direction | Signification |
-|-------------|-----------|---------------|
+#### Types de liens standards
+| Nom | Direction | Usage |
+|-----|-----------|-------|
 | satisfiedBy | HLR → LLR | L'exigence basse satisfait la haute |
 | verifiedBy | REQ → TEST | Le test vérifie l'exigence |
 | derivedFrom | LLR → HLR | L'exigence dérive de la haute |
 | implementedBy | REQ → CODE | Le code implémente l'exigence |
-| allocatedTo | REQ → COMPONENT | L'exigence est allouée au composant |
-| refines | Detail → General | L'exigence détaille une autre |
-| conflicts | REQ → REQ | Conflit identifié entre exigences |
+| allocatedTo | REQ → COMPONENT | Allocation à un composant |
 
-#### Bonnes pratiques pour les liens
+### Utilisation avancée
 
-1. **Cohérence directionnelle** : toujours du même sens (haut vers bas ou bas vers haut)
-2. **Cardinalité raisonnable** : une exigence ne devrait pas satisfaire plus de 5-7 exigences
-3. **Justification** : ajouter un commentaire sur le lien si la relation n'est pas évidente
-4. **Maintenance** : vérifier les liens lors de chaque modification d'exigence
-5. **Automatisation** : utiliser DXL pour les vérifications systématiques
+#### Liens suspects
+Quand un objet source ou cible est modifié, DOORS marque le lien comme suspect. Cela signale que la relation pourrait ne plus être valide. L'analyse des suspects est une activité régulière de maintenance de la traçabilité.
 
-### Suspects (liens suspectés invalides)
+#### Matrice de traçabilité
+La matrice croisée montre les relations entre deux modules. Elle révèle les GAPS (exigences non couvertes) et les orphelins (exigences sans justification).
 
-Quand un objet source ou cible est modifié, DOORS marque le lien comme **suspect** :
+#### Couverture
+Couverture = exigences avec liens / total exigences × 100. L'objectif est 100% dans les projets certifiés.
 
-\`\`\`
-Scénario :
-1. SyRS-REQ-01 : "Le système doit supporter 500 utilisateurs"
-2. SRS-001 est lié à SyRS-REQ-01 (satisfiedBy)
-3. SyRS-REQ-01 est modifié : "Le système doit supporter 2000 utilisateurs"
-4. → Le lien SRS-001 → SyRS-REQ-01 devient SUSPECT
-5. → L'ingénieur doit vérifier si SRS-001 est toujours valide
-\`\`\`
+### Bonnes pratiques
 
-La gestion des suspects est essentielle pour maintenir la cohérence du système.
-
-### DXL pour l'automatisation des liens
-
-DXL (DOORS eXtension Language) permet d'automatiser les vérifications :
-
-\`\`\`c
-// Script DXL : Trouver les exigences sans liens aval
-Module m = current Module
-Object o
-int countWithLinks = 0
-int countWithoutLinks = 0
-
-for o in entire m do {
-    if (o."Object Text" != "") {
-        Link outLink
-        bool hasLink = false
-        for outLink in all(o -> "*") do {
-            hasLink = true
-            break
-        }
-        if (hasLink) {
-            countWithLinks++
-        } else {
-            countWithoutLinks++
-            print identifier(o) " : " o."Object Text" "\\n"
-        }
-    }
-}
-
-print "\\n--- Résumé ---\\n"
-print "Avec liens : " countWithLinks "\\n"
-print "Sans liens (GAPS) : " countWithoutLinks "\\n"
-\`\`\`
-
-### Vues d'analyse dans DOORS
-
-#### Vue "Traceability Explorer"
-- Affiche l'arbre de traçabilité complet d'un objet
-- Navigation bidirectionnelle (amont/aval)
-- Identification visuelle des gaps et suspects
-
-#### Vue "Coverage Analysis"
-- Pourcentage de couverture par module
-- Liste des objets non couverts
-- Export vers Excel pour reporting
-
-#### Vue "Impact Analysis"
-- Sélectionnez un objet modifié
-- DOORS montre tous les objets impactés (directs et indirects)
-- Estimation du périmètre de re-vérification`,
+1. **Liens cohérents** : toujours dans le même sens (haut vers bas)
+2. **Cardinalité raisonnable** : max 5-7 liens par exigence
+3. **Traiter les suspects rapidement** : ne pas accumuler
+4. **Automatiser les vérifications** avec DXL
+5. **Matrice de traçabilité** à chaque revue formelle
+6. **Documenter les raisons** des liens non évidents`,
 
       practiceContent: `### Travaux Pratiques : Traçabilité
 
-#### TP 1 : Créer une structure de traçabilité complète
+#### TP 1 : Créer une structure de traçabilité
 
-1. Créez trois modules dans votre projet :
-\`\`\`
-Formation_DOORS_TP/
-├── 01_System_Requirements/ (SyRS)
-│   └── Module : "System Requirements"
-├── 02_Software_Requirements/ (SRS)
-│   └── Module : "Software Requirements"
-└── 03_Test_Cases/ (TC)
-    └── Module : "Test Cases"
-\`\`\`
+1. Créez trois modules :
+   - System Requirements (SyRS) : 5 exigences
+   - Software Requirements (SRS) : 10 exigences
+   - Test Cases (TC) : 8 cas de test
 
-2. Peuplez chaque module :
-   - SyRS : 5 exigences système (SyRS-001 à SyRS-005)
-   - SRS : 10 exigences logiciel (SRS-001 à SRS-010)
-   - TC : 8 cas de test (TC-001 à TC-008)
-
-#### TP 2 : Créer les Link Modules et les liens
-
-1. Créez un Link Module "SyRS_to_SRS" :
-   - Source : System Requirements
-   - Target : Software Requirements
-   - Type : satisfiedBy
-
-2. Créez un Link Module "SRS_to_TC" :
-   - Source : Software Requirements
-   - Target : Test Cases
-   - Type : verifiedBy
+2. Créez deux Link Modules :
+   - "SyRS_to_SRS" (satisfiedBy)
+   - "SRS_to_TC" (verifiedBy)
 
 3. Établissez les liens :
    - SyRS-001 → SRS-001, SRS-002
    - SyRS-002 → SRS-003, SRS-004
    - SyRS-003 → SRS-005, SRS-006
-   - SyRS-004 → (intentionnellement sans lien = GAP)
-   - SyRS-005 → SRS-009, SRS-010
-
-4. Liez les tests :
-   - SRS-001 → TC-001
-   - SRS-002 → TC-002
+   - SyRS-004 → (INTENTIONNELLEMENT SANS LIEN = GAP)
+   - SRS-001 → TC-001; SRS-002 → TC-002
    - SRS-003 → TC-003, TC-004
-   - SRS-005 → TC-005
-   - SRS-007 → (pas de test = GAP)
+   - SRS-007 → (PAS DE TEST = GAP)
 
-#### TP 3 : Générer la matrice de traçabilité
+#### TP 2 : Générer la matrice de traçabilité
 
-1. Ouvrez Analysis > Traceability Matrix
-2. Configurez :
-   - Row Module : System Requirements
-   - Column Module : Software Requirements
-3. Identifiez :
-   - Les lignes vides (exigences système non dérivées)
-   - Les colonnes vides (exigences logiciel orphelines)
-4. Exportez la matrice en CSV
+1. Analysis > Traceability Matrix
+2. Row Module : System Requirements
+3. Column Module : Software Requirements
+4. Identifiez les lignes vides (GAPs) et colonnes vides (orphelins)
 
-#### TP 4 : Simuler une analyse d'impact
+#### TP 3 : Script DXL de vérification de couverture
 
-1. Modifiez SyRS-001 (changez le texte de l'exigence)
-2. Observez les liens qui deviennent "suspect"
-3. Ouvrez chaque lien suspect et décidez :
-   - Le lien est toujours valide → Clear suspect
-   - Le lien nécessite une mise à jour → Modifier SRS
-4. Documentez l'impact :
-   - Combien d'exigences SRS sont impactées ?
-   - Combien de tests doivent être re-exécutés ?
-
-#### TP 5 : Script DXL de vérification
-
-Exécutez le script suivant pour identifier les gaps :
-\`\`\`
-// Dans le module SRS, vérifier la couverture test
+\\\`\\\`\\\`c
 Module m = current Module
 Object o
-int covered = 0
-int notCovered = 0
+int total = 0, covered = 0, notCovered = 0
 
 for o in entire m do {
-    if (o."Object Text" != "" and !isHeading(o)) {
-        bool hasTestLink = false
+    if (!isHeading(o) and o."Object Text" != "") {
+        total++
         Link lnk
-        for lnk in all(o -> "verifiedBy") do {
-            hasTestLink = true
+        bool hasOutLink = false
+        for lnk in all(o -> "*") do {
+            hasOutLink = true
             break
         }
-        if (!hasTestLink) {
-            notCovered++
-            print identifier(o) " - PAS DE TEST\\n"
-        } else {
+        if (hasOutLink) {
             covered++
+        } else {
+            notCovered++
+            print "GAP: " identifier(o) " - " o."Object Text" "\\n"
         }
     }
 }
-print "\\nCouverture test : " covered "/" (covered + notCovered) "\\n"
-\`\`\``,
+
+print "\\n=== Rapport de couverture ===\\n"
+print "Total: " total "\\n"
+print "Couverts: " covered " (" (covered*100/total) "%)\\n"
+print "GAPS: " notCovered "\\n"
+\\\`\\\`\\\`
+
+#### TP 4 : Simuler une analyse d'impact
+
+1. Modifiez SyRS-001 (changez le texte)
+2. Observez les liens devenus "suspect"
+3. Pour chaque suspect, décidez : Clear suspect ou modifier SRS
+4. Documentez le nombre d'éléments impactés
+
+#### TP 5 : Export de la matrice en CSV
+
+\\\`\\\`\\\`c
+// Script DXL d'export
+Module m = current Module
+Object o
+Stream f = write("C:/export/traceability.csv")
+f << "ID,Text,Status,Nb_Links_Out,Targets\\n"
+
+for o in entire m do {
+    if (!isHeading(o) and o."Object Text" != "") {
+        f << identifier(o) ","
+        f << "\"" o."Object Text" "\","
+        f << o."Status" ","
+        int count = 0
+        string targets = ""
+        Link lnk
+        for lnk in all(o -> "*") do {
+            count++
+            targets = targets identifier(target(lnk)) " "
+        }
+        f << count "," targets "\\n"
+    }
+}
+close(f)
+print "Export terminé\\n"
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
-        'Traçabilité bidirectionnelle : amont (d\'où vient l\'exigence) et aval (comment elle est implémentée)',
+        'Traçabilité bidirectionnelle : amont (origine) et aval (implémentation/test)',
         'Link Modules stockent les relations entre objets de modules différents',
-        'La matrice de traçabilité révèle les GAPS (non couvert) et orphelins (non justifié)',
+        'La matrice de traçabilité révèle les GAPS et orphelins',
         'Les liens deviennent SUSPECTS quand un objet source ou cible est modifié',
-        'L\'analyse d\'impact montre toutes les conséquences d\'un changement',
-        'DXL permet d\'automatiser les vérifications de couverture et de cohérence'
+        'DXL permet d automatiser les vérifications de couverture',
+        'Couverture 100% exigée pour la certification DO-178C et ISO 26262'
       ]) },
-
 
     { id: 'doors-03', courseId: 'doors', title: 'Administration et DXL', duration: '7h', orderIndex: 3,
       theoryContent: `## Administration DOORS et programmation DXL
 
-### Administration de DOORS
+### Présentation
 
-#### Gestion des utilisateurs et groupes
+L'administration de DOORS comprend la gestion des utilisateurs, des droits d'accès, des baselines et des sauvegardes. DXL (DOORS eXtension Language) est le langage de script intégré qui permet d'automatiser toutes les opérations : exports, imports, vérifications de qualité, statistiques et rapports. Ce module couvre en détail l'administration quotidienne et la programmation DXL avec de nombreux exemples pratiques.
 
-DOORS utilise un modèle de sécurité basé sur les **groupes** et les **niveaux d'accès** :
+### Installation sur Linux
 
-\`\`\`
-Niveaux d'accès (Access Levels) :
+\\\`\\\`\\\`bash
+# Administration serveur DOORS
+sudo systemctl status doors-server
+
+# Sauvegardes régulières (à planifier via cron)
+/opt/ibm/doors/bin/doorsd -backup /backup/doors_$(date +%Y%m%d)
+
+# Crontab pour sauvegarde quotidienne
+echo "0 2 * * * /opt/ibm/doors/bin/doorsd -backup /backup/doors_\$(date +\\%Y\\%m\\%d)" | sudo crontab -u doorsadmin -
+
+# Rotation des sauvegardes
+find /backup -name "doors_*" -mtime +30 -exec rm -rf {} \\;
+
+# Monitoring des connexions
+/opt/ibm/doors/bin/doorsd -connections
+
+# Vérification de l'intégrité
+/opt/ibm/doors/bin/doorsd -verify
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+Modèle de sécurité DOORS :
+\\\`\\\`\\\`
+Niveaux d'accès :
 - None : aucun accès
 - Read : lecture seule
 - Modify : modification des objets existants
@@ -2221,2036 +3060,3065 @@ Niveaux d'accès (Access Levels) :
 - Delete : suppression d'objets
 - Admin : administration complète
 
-Hiérarchie des droits :
-Database Admin > Project Admin > Module Owner > User
-\`\`\`
+Hiérarchie : Database Admin > Project Admin > Module Owner > User
+\\\`\\\`\\\`
 
-#### Configuration des accès
+### Commandes essentielles
 
-Les accès sont configurés à chaque niveau de la hiérarchie :
+\\\`\\\`\\\`bash
+# === ADMINISTRATION ===
+# Gestion utilisateurs (via le client DOORS > Administration)
+# - Create User, Delete User, Assign to Group
+# - Set Access Rights per project/folder/module
 
-| Niveau | Ce qui est contrôlé |
-|--------|-------------------|
-| Database | Qui peut créer des projets |
-| Project | Qui peut accéder au projet |
-| Folder | Héritage ou override des droits |
-| Module | Qui peut lire/modifier le module |
-| Attribute | Qui peut modifier un attribut spécifique |
+# Sauvegarde/Restauration
+/opt/ibm/doors/bin/doorsd -backup /path/to/backup
+/opt/ibm/doors/bin/doorsd -restore /path/to/backup
 
-#### Baselines et gestion de versions
+# === DXL - SYNTAXE DE BASE ===
+# Variables et types
+# int count = 0
+# real pi = 3.14159
+# string name = "Formation"
+# bool valid = true
+# Date today = today()
+# Buffer buf = create()
 
-Les baselines capturent un **instantané figé** d'un module à un moment donné :
+# Structures de contrôle
+# if (x > 0) { ... } else { ... }
+# for (i = 0; i < 10; i++) { ... }
+# while (condition) { ... }
 
-\`\`\`
-Module "SRS" - Historique des baselines :
-├── Baseline 1.0 (2024-01-15) - "Version initiale approuvée"
-├── Baseline 1.1 (2024-02-20) - "Correction CR-001, CR-002"
-├── Baseline 2.0 (2024-04-10) - "Ajout module navigation"
-└── Current (en cours de modification)
-\`\`\`
+# Fonctions
+# string formatReq(string id, string text) {
+#     return id ": " text
+# }
 
-Opérations sur les baselines :
-- **Créer** : fige la version actuelle
-- **Comparer** : voir les différences entre deux baselines
-- **Restaurer** : revenir à une version antérieure (crée une nouvelle baseline)
-- **Exporter** : générer un document à partir d'une baseline
+# === DXL - ACCÈS AUX MODULES ET OBJETS ===
+# Module m = read("/Project/Folder/Module", true)  // true = edit mode
+# Module m = current Module                         // module courant
+# Object o; for o in entire m do { ... }           // parcourir tous les objets
+# Object o = object(42, m)                          // objet par numéro
+# string text = o."Object Text"                     // lire un attribut
+# o."Status" = "Approved"                           // modifier un attribut
+# identifier(o)                                     // obtenir l'identifiant
+# isHeading(o)                                      // est-ce un heading ?
 
-#### Modules Templates (modèles)
+# === DXL - SCRIPTS UTILITAIRES ===
 
-Les templates standardisent la structure des nouveaux modules :
-- Attributs pré-définis
-- Structure de sections pré-remplie
-- Vues par défaut configurées
-- Règles de validation intégrées
+# Script 1 : Export CSV complet
+# Module m = current Module
+# Object o
+# Stream f = write("export.csv")
+# f << "ID,Text,Status,Priority\\n"
+# for o in entire m do {
+#     if (!isHeading(o) and o."Object Text" != "") {
+#         f << identifier(o) ",\\"" o."Object Text" "\\","
+#         f << o."Status" "," o."Priority" "\\n"
+#     }
+# }
+# close(f)
 
-### DXL - DOORS eXtension Language
+# Script 2 : Audit qualité des exigences
+# int issues = 0
+# for o in entire m do {
+#     string text = o."Object Text"
+#     if (text != "" and !isHeading(o)) {
+#         if (contains(text, "should") or contains(text, "may")) {
+#             issues++
+#             print "AMBIGU: " identifier(o) "\\n"
+#         }
+#         if (length(text) > 500) {
+#             issues++
+#             print "TROP LONG: " identifier(o) "\\n"
+#         }
+#     }
+# }
 
-DXL est le langage de script de DOORS. C'est un langage **procédural** inspiré du C, avec des extensions spécifiques à DOORS.
+# Script 3 : Statistiques par status
+# int total=0, draft=0, approved=0
+# for o in entire m do {
+#     if (!isHeading(o) and o."Object Text" != "") {
+#         total++
+#         if (o."Status" == "Draft") draft++
+#         else if (o."Status" == "Approved") approved++
+#     }
+# }
+# print "Total: " total ", Draft: " draft ", Approved: " approved "\\n"
 
-#### Syntaxe de base
+# Script 4 : Bulk update d'attribut
+# for o in entire m do {
+#     if (o."Status" == "Under_Review") {
+#         o."Status" = "Approved"
+#         o."Approved_Date" = today()
+#     }
+# }
 
-\`\`\`c
-// Variables et types
-int count = 0
-real pi = 3.14159
-string name = "Formation DXL"
-bool isValid = true
-Date today = today()
+# Script 5 : Chercher les doublons
+# Skip s = create()
+# for o in entire m do {
+#     string text = o."Object Text"
+#     if (text != "" and !isHeading(o)) {
+#         if (find(s, text)) print "DOUBLON: " identifier(o) "\\n"
+#         else insert(s, text)
+#     }
+# }
+# delete(s)
+\\\`\\\`\\\`
 
-// Structures de contrôle
-if (count > 0) {
-    print "Count is positive\\n"
-} else {
-    print "Count is zero or negative\\n"
-}
+### Configuration
 
-// Boucles
-int i
-for (i = 0; i < 10; i++) {
-    print i "\\n"
-}
+#### Gestion des droits d'accès
+- Par groupe (Developers, Reviewers, Managers, Admins)
+- Par niveau (Database, Project, Folder, Module)
+- Héritage configurable (inherit ou override)
 
-// Fonctions
-string formatReq(string id, string text) {
-    return id ": " text
-}
-\`\`\`
+#### Templates de modules
+- Structure pré-définie (sections, attributs)
+- Vues par défaut
+- Règles de validation
 
-#### Accéder aux objets DOORS
+### Utilisation avancée
 
-\`\`\`c
-// Ouvrir un module
-Module m = read("/Formation_DOORS_TP/01_Requirements/SRS", true)
-if (null m) {
-    print "Erreur : module introuvable\\n"
-    halt
-}
-
-// Parcourir tous les objets
-Object o
-for o in entire m do {
-    string objText = o."Object Text"
-    string objId = identifier(o)
-    
-    if (objText != "" and !isHeading(o)) {
-        print objId " | " objText "\\n"
-    }
-}
-
-// Accéder aux attributs
-for o in entire m do {
-    string status = o."Status"
-    string priority = o."Priority"
-    
-    if (status == "Draft") {
-        print identifier(o) " est encore en brouillon\\n"
-    }
-}
-
-// Modifier un attribut
-Object target = object(42, m)  // Objet numéro 42
-target."Status" = "Approved"
-target."Approved_Date" = today()
-\`\`\`
-
-#### Travailler avec les liens
-
-\`\`\`c
-// Parcourir les liens sortants d'un objet
-Object o
-Module m = current Module
-
-for o in entire m do {
-    Link outLink
-    int linkCount = 0
-    
-    for outLink in all(o -> "*") do {
-        Object targetObj = target(outLink)
-        Module targetMod = module(targetObj)
-        
-        print identifier(o) " -> " identifier(targetObj)
-        print " [" name(targetMod) "]\\n"
-        linkCount++
-    }
-    
-    if (linkCount == 0 and !isHeading(o) and o."Object Text" != "") {
-        print "WARNING: " identifier(o) " n'a aucun lien sortant\\n"
-    }
-}
-
-// Créer un lien programmatiquement
-Module srcMod = read("/Project/SyRS", false)
-Module tgtMod = read("/Project/SRS", false)
-Object src = object(10, srcMod)
-Object tgt = object(25, tgtMod)
-
-create(src, tgt, linkModuleName("satisfiedBy"))
-\`\`\`
-
-#### Scripts utilitaires courants
-
-\`\`\`c
-// Script 1 : Export CSV des exigences
-Module m = current Module
-Object o
-Stream csvFile = write("C:/export/requirements.csv")
-
-csvFile << "ID,Text,Status,Priority,Verification\\n"
-
-for o in entire m do {
-    if (!isHeading(o) and o."Object Text" != "") {
-        csvFile << identifier(o) ","
-        csvFile << "\"" o."Object Text" "\","
-        csvFile << o."Status" ","
-        csvFile << o."Priority" ","
-        csvFile << o."Verification_Method" "\\n"
-    }
-}
-
-close(csvFile)
-print "Export terminé\\n"
-
-// Script 2 : Statistiques du module
-Module m = current Module
-Object o
-int total = 0, draft = 0, approved = 0, deleted = 0
-
-for o in entire m do {
-    if (!isHeading(o) and o."Object Text" != "") {
-        total++
-        string st = o."Status"
-        if (st == "Draft") draft++
-        else if (st == "Approved") approved++
-        else if (st == "Deleted") deleted++
-    }
-}
-
-print "=== Statistiques ===\\n"
-print "Total exigences : " total "\\n"
-print "Draft : " draft " (" (draft*100/total) "%)\\n"
-print "Approved : " approved " (" (approved*100/total) "%)\\n"
-print "Deleted : " deleted "\\n"
-
-// Script 3 : Vérifier la qualité des exigences
-Module m = current Module
-Object o
-int issues = 0
-
-for o in entire m do {
-    string text = o."Object Text"
-    if (text != "" and !isHeading(o)) {
-        // Vérifier les mots ambigus
-        if (contains(text, "should") or contains(text, "may") or 
-            contains(text, "might") or contains(text, "could")) {
-            issues++
-            print "AMBIGUË: " identifier(o) " contient un mot ambigu\\n"
-        }
-        // Vérifier la longueur
-        if (length(text) > 500) {
-            issues++
-            print "TROP LONG: " identifier(o) " (" length(text) " chars)\\n"
-        }
-        // Vérifier qu'elle est testable
-        if (o."Verification_Method" == "") {
-            issues++
-            print "PAS DE MÉTHODE: " identifier(o) "\\n"
-        }
-    }
-}
-print "\\nTotal issues qualité : " issues "\\n"
-\`\`\`
-
-### Génération de documents
-
-DOORS peut générer des documents formatés (Word, PDF) à partir des modules :
-- Templates de documents configurables
-- Inclusion automatique des attributs, liens, images
-- En-têtes/pieds de page avec métadonnées du projet
-- Table des matières automatique
-- Matrice de traçabilité intégrée
-
-### Intégration avec d'autres outils
+#### Import/Export formats
+- **ReqIF** : standard d'échange inter-outils (ISO 29148)
+- **CSV/Excel** : import/export tabulaire
+- **Word** : génération de documents conformes
+- **XML** : export structuré pour intégration
 
 #### OSLC (Open Services for Lifecycle Collaboration)
-- Standard IBM pour interconnecter les outils ALM
+- Standard pour interconnecter les outils ALM
 - DOORS DNG expose des API REST/OSLC
 - Liens cross-tool : DOORS ↔ RTC ↔ RQM ↔ Rhapsody
 
-#### Import/Export
-- **ReqIF** : format d'échange standard (Requirements Interchange Format)
-- **CSV/Excel** : import/export tabulaire
-- **Word** : génération de documents conformes`,
+### Bonnes pratiques
+
+1. **Sauvegardes quotidiennes** automatisées avec rotation
+2. **Groupes de droits** plutôt que droits individuels
+3. **Scripts DXL versionnés** dans un SCM
+4. **Validation automatique** avant les revues formelles
+5. **Templates** pour assurer la cohérence des nouveaux modules
+6. **Audit trail** activé pour la conformité`,
 
       practiceContent: `### Travaux Pratiques : Administration et DXL
 
-#### TP 1 : Configuration des accès
+#### TP 1 : Gestion des droits d'accès
 
-1. Créez deux groupes dans DOORS :
-   - "Developers" : accès Read + Modify sur les modules SRS
-   - "Reviewers" : accès Read only sur tous les modules
+1. Créez deux groupes : "Developers" (Modify), "Reviewers" (Read)
+2. Assignez les droits par module
+3. Testez avec différents comptes
 
-2. Assignez les droits :
-\`\`\`
-Module SyRS : Developers = Read, Reviewers = Read
-Module SRS  : Developers = Modify, Reviewers = Read
-Module TC   : Developers = Create, Reviewers = Read
-\`\`\`
+#### TP 2 : Script DXL d'audit complet
 
-3. Testez en vous connectant avec un compte de chaque groupe
-
-#### TP 2 : Gérer les baselines
-
-1. Modifiez 3 exigences dans votre module SRS
-2. Créez une baseline "V1.0_Approved"
-3. Modifiez encore 2 exigences
-4. Créez une baseline "V1.1_Updated"
-5. Comparez les deux baselines :
-   - Quelles sont les différences ?
-   - Combien d'objets ont changé ?
-
-#### TP 3 : Écrire un script DXL d'audit
-
-Écrivez un script qui :
-1. Parcourt toutes les exigences du module SRS
-2. Vérifie pour chaque exigence :
-   - A-t-elle un statut autre que "Draft" ?
-   - A-t-elle au moins un lien sortant (traçabilité aval) ?
-   - A-t-elle un attribut "Priority" renseigné ?
-3. Génère un rapport avec :
-   - Le nombre total d'exigences
-   - Le pourcentage conforme
-   - La liste des exigences non conformes
-
-\`\`\`c
-// Squelette du script
+\\\`\\\`\\\`c
+// Script d'audit à exécuter sur chaque module
 Module m = current Module
 Object o
-int total = 0, compliant = 0
+int total=0, compliant=0, issues=0
+
+print "=== AUDIT DE QUALITÉ ===\\n"
+print "Module: " name(m) "\\n\\n"
 
 for o in entire m do {
     if (!isHeading(o) and o."Object Text" != "") {
         total++
-        bool isCompliant = true
+        bool ok = true
+        string text = o."Object Text"
         
-        // Vérification 1 : Status
-        if (o."Status" == "Draft" or o."Status" == "") {
-            isCompliant = false
-            print "[STATUS] " identifier(o) "\\n"
+        // Vérif 1 : Status renseigné
+        if (o."Status" == "" or o."Status" == "Draft") {
+            ok = false
+            print "[STATUS] " identifier(o) " - encore en Draft\\n"
         }
         
-        // Vérification 2 : Lien aval
+        // Vérif 2 : Pas de mots ambigus
+        if (contains(text,"should") or contains(text,"may") or contains(text,"might")) {
+            ok = false
+            issues++
+            print "[AMBIGU] " identifier(o) "\\n"
+        }
+        
+        // Vérif 3 : Priority renseignée
+        if (o."Priority" == "") {
+            ok = false
+            print "[PRIORITY] " identifier(o) " - non renseignée\\n"
+        }
+        
+        // Vérif 4 : Lien sortant existe
         Link lnk
-        bool hasOutLink = false
-        for lnk in all(o -> "*") do {
-            hasOutLink = true
-            break
-        }
-        if (!hasOutLink) {
-            isCompliant = false
+        bool hasLink = false
+        for lnk in all(o -> "*") do { hasLink = true; break }
+        if (!hasLink) {
+            ok = false
             print "[NO LINK] " identifier(o) "\\n"
         }
         
-        // Vérification 3 : Priority
-        if (o."Priority" == "") {
-            isCompliant = false
-            print "[NO PRIORITY] " identifier(o) "\\n"
-        }
-        
-        if (isCompliant) compliant++
+        if (ok) compliant++
     }
 }
 
-print "\\n=== RÉSULTAT AUDIT ===\\n"
-print "Conformes : " compliant "/" total
-print " (" (compliant*100/total) "%)\\n"
-\`\`\`
+print "\\n=== RÉSULTAT ===\\n"
+print "Total: " total "\\n"
+print "Conformes: " compliant " (" (compliant*100/total) "%)\\n"
+print "Non-conformes: " (total-compliant) "\\n"
+\\\`\\\`\\\`
 
-#### TP 4 : Export automatisé
+#### TP 3 : Export automatisé en CSV
 
-1. Écrivez un script DXL qui exporte le module en CSV
-2. Incluez : ID, Texte, Status, Priority, nombre de liens
-3. Exécutez et vérifiez le fichier CSV généré
-4. Importez dans Excel et créez un graphique de répartition par Status
+\\\`\\\`\\\`c
+Module m = current Module
+Object o
+Stream csv = write("C:/exports/requirements_export.csv")
+
+csv << "ID,Text,Status,Priority,Verification,Links_Count\\n"
+
+for o in entire m do {
+    if (!isHeading(o) and o."Object Text" != "") {
+        int linkCount = 0
+        Link lnk
+        for lnk in all(o -> "*") do { linkCount++ }
+        
+        csv << identifier(o) ","
+        csv << "\\"" o."Object Text" "\\","
+        csv << o."Status" ","
+        csv << o."Priority" ","
+        csv << o."Verification_Method" ","
+        csv << linkCount "\\n"
+    }
+}
+close(csv)
+print "Export CSV terminé\\n"
+\\\`\\\`\\\`
+
+#### TP 4 : Baseline et comparaison
+
+1. Modifiez 3 exigences dans votre module
+2. Créez une baseline "V1.0"
+3. Modifiez encore 2 exigences
+4. Créez une baseline "V1.1"
+5. Comparez les baselines et documentez les différences
 
 #### TP 5 : Template de module
 
-1. Créez un module template avec :
-   - Structure standard (Introduction, Scope, Requirements, etc.)
-   - Attributs pré-configurés
-   - Vues par défaut
-2. Créez un nouveau module basé sur ce template
-3. Vérifiez que la structure est correctement héritée`,
+1. Créez un module template avec structure standard
+2. Ajoutez les attributs pré-configurés
+3. Créez un nouveau module depuis ce template
+4. Vérifiez que la structure est héritée`,
 
       keyPoints: JSON.stringify([
         'Sécurité par groupes avec niveaux : None, Read, Modify, Create, Delete, Admin',
-        'Les baselines figent une version du module pour audit et comparaison',
-        'DXL est un langage C-like pour automatiser les opérations dans DOORS',
-        'Scripts DXL courants : export CSV, statistiques, audit qualité, vérification liens',
-        'OSLC et ReqIF permettent l\'interopérabilité avec d\'autres outils ALM',
-        'Les templates standardisent la création de nouveaux modules'
+        'Sauvegardes quotidiennes automatisées avec rotation et vérification d intégrité',
+        'DXL : langage C-like pour automatiser exports, audits, statistiques, bulk updates',
+        'Scripts DXL essentiels : export CSV, audit qualité, vérification liens, statistiques',
+        'ReqIF : format standard d échange inter-outils pour les exigences',
+        'Templates standardisent la création de nouveaux modules (attributs, structure, vues)'
       ]) },
 
 
     // ==================== CLEARCASE ====================
-    { id: 'cc-01', courseId: 'clearcase', title: 'Introduction à ClearCase', duration: '3h30', orderIndex: 1,
+    { id: 'cc-01', courseId: 'clearcase', title: 'Introduction à ClearCase', duration: '4h', orderIndex: 1,
       theoryContent: `## Introduction à IBM Rational ClearCase
 
-### Qu'est-ce que ClearCase ?
+### Présentation
 
-IBM Rational ClearCase est un système de **gestion de configuration logicielle** (Software Configuration Management - SCM) conçu pour les projets d'envergure enterprise. Développé depuis les années 1990, il est utilisé dans les grandes organisations (aéronautique, défense, télécommunications, finance) pour gérer le code source et tous les artefacts de développement.
+IBM Rational ClearCase est un **système de gestion de configuration logicielle** (SCM - Software Configuration Management) de classe entreprise. Développé initialement par Atria Software puis acquis par Rational Software (racheté par IBM en 2003), ClearCase est utilisé dans les grandes organisations pour gérer le code source, les documents et tous les artefacts de développement.
 
-### ClearCase vs Git : deux philosophies
+ClearCase se distingue des SCM traditionnels par ses concepts uniques :
 
-| Aspect | ClearCase | Git |
-|--------|-----------|-----|
-| Architecture | Centralisée (client-serveur) | Distribuée (chaque clone est complet) |
-| Unité de version | Fichier/répertoire individuel | Commit (snapshot du projet) |
-| Branches | Par élément (file-level) | Par repository (project-level) |
-| Stockage | VOB (Versioned Object Base) | .git directory |
-| Vues | Dynamiques ou Snapshot | Working directory |
-| Taille | Conçu pour des millions de fichiers | Limité par la taille du repo |
-| Accès réseau | Requis (dynamique) ou optionnel (snapshot) | Local puis push/pull |
-| Coût | Licence commerciale élevée | Gratuit (open source) |
+- **VOB (Versioned Object Base)** : base de données versionée stockant tous les fichiers et répertoires
+- **Vues (Views)** : espace de travail donnant accès aux fichiers selon des règles de sélection
+- **Config Spec** : fichier de règles définissant quelles versions sont visibles dans une vue
+- **Branches** : branches nommées avec historique complet et merge tracking
+- **Labels** : étiquettes appliquées à des versions spécifiques pour marquer des baselines
 
-### Architecture de ClearCase
+Contrairement à Git (distribué), ClearCase est **centralisé** et repose sur un serveur (ou cluster de serveurs) qui héberge les VOBs. Les développeurs accèdent aux fichiers via des vues dynamiques (montées réseau en temps réel) ou des vues snapshot (copies locales).
 
-\`\`\`
-┌─────────────────────────────────────────────────────────┐
-│                    SERVEURS                               │
-│                                                          │
-│  ┌──────────┐  ┌──────────┐  ┌──────────────────────┐   │
-│  │ VOB      │  │ View     │  │ License              │   │
-│  │ Server   │  │ Server   │  │ Server               │   │
-│  │          │  │          │  │                      │   │
-│  │ Stocke   │  │ Gère les │  │ Gère les licences    │   │
-│  │ versions │  │ vues     │  │ utilisateur          │   │
-│  └──────────┘  └──────────┘  └──────────────────────┘   │
-│       │              │                                   │
-└───────┼──────────────┼───────────────────────────────────┘
-        │              │
-┌───────┼──────────────┼───────────────────────────────────┐
-│       ▼              ▼          CLIENTS                   │
-│  ┌─────────────────────────────────────────────────┐     │
-│  │           Vue Dynamique ou Snapshot              │     │
-│  │  /view/my_view/vobs/project/src/main.c          │     │
-│  │           ↕ Config Spec (règles de sélection)   │     │
-│  └─────────────────────────────────────────────────┘     │
-└──────────────────────────────────────────────────────────┘
-\`\`\`
+### Installation sur Linux (Ubuntu/Debian)
 
-### Concepts fondamentaux
+#### Prérequis système
 
-#### 1. VOB (Versioned Object Base)
+\\\`\\\`\\\`bash
+# Vérifier les prérequis
+uname -a               # Linux 64-bit requis
+free -h                # Minimum 4 Go RAM pour le serveur
+df -h /opt             # Minimum 20 Go espace disque
 
-Le VOB est le **dépôt central** qui stocke toutes les versions de tous les fichiers :
-- Chaque fichier a un historique complet de versions
-- Chaque répertoire est aussi versionné (ajout/suppression de fichiers)
-- Les métadonnées (labels, branches, attributs) sont stockées dans le VOB
-- Un projet peut être réparti sur plusieurs VOBs
+# Dépendances système requises
+sudo apt update
+sudo apt install -y \\
+  libc6 libstdc++6 libncurses5 libxml2 \\
+  ksh rsh-client rsh-server nfs-kernel-server \\
+  xinetd libmotif-dev xterm
 
-#### 2. Éléments et versions
+# Vérifier le hostname résolu
+hostname -f
+ping -c 1 \$(hostname -f)
+\\\`\\\`\\\`
 
-\`\`\`
-Élément : main.c (le fichier conceptuel)
-├── Version 1 : /main/1 (version initiale)
-├── Version 2 : /main/2 (correction bug)
-├── Version 3 : /main/3 (nouvelle feature)
-├── Branche : /main/feature_x/1
-├── Branche : /main/feature_x/2
-└── Branche : /main/bugfix/1
-\`\`\`
+#### Installation du serveur ClearCase
 
-Chaque version est identifiée par son **extended pathname** :
-\`\`\`
-main.c@@/main/feature_x/2
-\`\`\`
+\\\`\\\`\\\`bash
+# Monter le média d'installation IBM
+sudo mkdir -p /mnt/clearcase
+sudo mount -o loop IBM_Rational_ClearCase_9.0.2.iso /mnt/clearcase
 
-#### 3. Vues (Views)
+# Lancer l'installateur
+cd /mnt/clearcase
+sudo ./launchpad.sh
 
-Une vue est un **espace de travail** qui sélectionne une version spécifique de chaque fichier :
+# Installation silencieuse (mode texte)
+sudo ./install.sh -silent -acceptLicense \\
+  -installDir /opt/ibm/clearcase \\
+  -components server,client,integration
 
-**Vue dynamique** :
-- Montée comme un système de fichiers réseau (NFS/CIFS)
-- Les fichiers sont lus en temps réel depuis le VOB
-- Pas de copie locale (tout passe par le réseau)
-- Changement instantané en modifiant la Config Spec
-- Nécessite une connexion réseau permanente
+# Configurer le service ClearCase
+sudo /opt/ibm/clearcase/etc/clearcase_configure.sh
 
-**Vue snapshot** :
-- Copie locale des fichiers sélectionnés
-- Similaire à un checkout SVN ou git clone
-- Fonctionne hors ligne
-- Nécessite un "update" pour synchroniser
-
-#### 4. Config Spec (Configuration Specification)
-
-La Config Spec est un ensemble de **règles** qui déterminent quelle version de chaque fichier est visible dans la vue :
-
-\`\`\`
-# Config Spec : vue de développement sur la branche main
-element * CHECKEDOUT
-element * /main/LATEST
-
-# Config Spec : vue sur une branche feature
-element * CHECKEDOUT
-element * .../feature_auth/LATEST
-element * /main/LATEST
-
-# Config Spec : vue figée sur un label (baseline)
-element * RELEASE_2.0
-element * /main/LATEST
-
-# Config Spec : vue avec date (time-based)
-element * /main/LATEST -time 15-Jan-2024.18:00
-\`\`\`
-
-#### 5. Checkout / Checkin
-
-Contrairement à Git, ClearCase utilise un modèle de **verrouillage explicite** :
-
-\`\`\`bash
-# Checkout : réserver le fichier pour modification
-cleartool checkout -comment "Fix bug #123" main.c
-# Le fichier est maintenant modifiable (et possiblement verrouillé pour les autres)
-
-# Modifier le fichier
-vim main.c
-
-# Checkin : créer une nouvelle version
-cleartool checkin -comment "Fixed null pointer in main()" main.c
-# Crée la version /main/4
-\`\`\`
-
-Modes de checkout :
-- **Reserved** : vous seul pouvez modifier (verrou exclusif)
-- **Unreserved** : d'autres peuvent aussi checkout (merge nécessaire au checkin)
-
-#### 6. Labels (étiquettes)
-
-Les labels marquent un ensemble cohérent de versions (équivalent d'un tag Git) :
-
-\`\`\`bash
-# Créer un type de label
-cleartool mklbtype -comment "Release 2.0" RELEASE_2.0
-
-# Appliquer le label à toutes les versions de la vue
-cleartool mklabel -recurse RELEASE_2.0 /vobs/project/
-
-# Voir les labels d'un fichier
-cleartool lshistory -graphical main.c
-\`\`\`
-
-### Cas d'usage typiques
-
-1. **Grandes équipes (100+ développeurs)** : ClearCase gère bien la scalabilité
-2. **Projets réglementés** : traçabilité complète de chaque modification
-3. **Monorepos gigantesques** : millions de fichiers dans un seul VOB
-4. **Build reproductibles** : la Config Spec garantit l'exacte reproduction
-5. **Environnements multi-sites** : réplication de VOBs entre sites géographiques`,
-
-      practiceContent: `### Travaux Pratiques : Prise en main de ClearCase
-
-#### Prérequis
-- Accès à un serveur ClearCase configuré
-- Client ClearCase installé (cleartool en ligne de commande)
-- Un VOB de test accessible
-
-#### Étape 1 : Vérifier l'installation
-
-\`\`\`bash
-# Vérifier la version de ClearCase
+# Vérifier l'installation
 cleartool -version
+# IBM Rational ClearCase version 9.0.2.x
 
-# Lister les VOBs disponibles
+# Démarrer les services
+sudo /opt/ibm/clearcase/etc/atria_start
+\\\`\\\`\\\`
+
+#### Configuration post-installation
+
+\\\`\\\`\\\`bash
+# Créer le répertoire de stockage des VOBs
+sudo mkdir -p /var/adm/clearcase/vobs
+sudo chown clearcase_albd:clearcase /var/adm/clearcase/vobs
+
+# Créer le répertoire des vues
+sudo mkdir -p /var/adm/clearcase/views
+sudo chown clearcase_albd:clearcase /var/adm/clearcase/views
+
+# Vérifier les licences
+clearlicense -product ClearCase
+
+# Vérifier les services
+ps -ef | grep albd
+ps -ef | grep lockmgr
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────┐
+│                    ClearCase Architecture                         │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│   ┌──────────────┐     ┌──────────────┐     ┌──────────────┐   │
+│   │  Client Dev  │     │  Client Dev  │     │  Build Host  │   │
+│   │  (Dynamic    │     │  (Snapshot   │     │  (Dynamic    │   │
+│   │   View)      │     │   View)      │     │   View)      │   │
+│   └──────┬───────┘     └──────┬───────┘     └──────┬───────┘   │
+│          │                     │                     │           │
+│          ├─────────────────────┼─────────────────────┤           │
+│          │         RÉSEAU (NFS/MVFS)                 │           │
+│          ▼                     ▼                     ▼           │
+│   ┌──────────────────────────────────────────────────────────┐  │
+│   │              ClearCase Region Server                      │  │
+│   │  ┌─────────┐  ┌──────────┐  ┌───────────┐  ┌────────┐  │  │
+│   │  │  ALBD   │  │  VOB     │  │   View    │  │ License│  │  │
+│   │  │ Daemon  │  │  Server  │  │   Server  │  │ Server │  │  │
+│   │  │ (port   │  │ (vob_s)  │  │ (view_s)  │  │(albd)  │  │  │
+│   │  │  371)   │  │          │  │           │  │        │  │  │
+│   │  └─────────┘  └────┬─────┘  └─────┬─────┘  └────────┘  │  │
+│   └─────────────────────┼──────────────┼─────────────────────┘  │
+│                         │              │                         │
+│   ┌─────────────────────▼──────────────▼─────────────────────┐  │
+│   │                   Storage                                 │  │
+│   │  ┌──────────┐  ┌──────────┐  ┌──────────┐               │  │
+│   │  │  VOB DB  │  │  VOB     │  │  View    │               │  │
+│   │  │ (.vbs)   │  │  Storage │  │  Storage │               │  │
+│   │  │          │  │  Pools   │  │ (.vws)   │               │  │
+│   │  └──────────┘  └──────────┘  └──────────┘               │  │
+│   └──────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+**Composants principaux :**
+
+| Composant | Rôle |
+|-----------|------|
+| ALBD (Atria Location Broker Daemon) | Point d'entrée, routage des requêtes (port 371) |
+| VOB Server (vob_server) | Gère l'accès aux bases de données VOB |
+| View Server (view_server) | Gère les vues et le cache |
+| MVFS (Multi-Version File System) | Système de fichiers virtuel pour vues dynamiques |
+| Lock Manager (lockmgr) | Gestion de la concurrence et des verrous |
+| DB Server | Base de données interne (RPC-based) |
+
+### Commandes essentielles
+
+#### Gestion des VOBs
+
+\\\`\\\`\\\`bash
+# Créer une VOB
+cleartool mkvob -tag /vobs/projet_alpha \\
+  -c "VOB pour le projet Alpha" \\
+  /var/adm/clearcase/vobs/projet_alpha.vbs
+
+# Monter une VOB
+cleartool mount /vobs/projet_alpha
+
+# Lister les VOBs
 cleartool lsvob
+cleartool lsvob -long /vobs/projet_alpha
 
-# Lister vos vues existantes
-cleartool lsview -me
-\`\`\`
+# Démonter une VOB
+cleartool umount /vobs/projet_alpha
 
-#### Étape 2 : Créer une vue dynamique
+# Supprimer une VOB (attention!)
+cleartool rmvob /var/adm/clearcase/vobs/projet_alpha.vbs
 
-\`\`\`bash
+# Informations détaillées
+cleartool describe vob:/vobs/projet_alpha
+
+# Verrouiller/Déverrouiller une VOB
+cleartool lock vob:/vobs/projet_alpha
+cleartool unlock vob:/vobs/projet_alpha
+\\\`\\\`\\\`
+
+#### Gestion des vues
+
+\\\`\\\`\\\`bash
 # Créer une vue dynamique
-cleartool mkview -tag my_dev_view \\
-  -stgloc auto \\
-  -comment "Vue de développement formation"
+cleartool mkview -tag dev_jean_main \\
+  /var/adm/clearcase/views/dev_jean_main.vws
 
-# Configurer la vue (accéder à la vue)
-cleartool setview my_dev_view
+# Créer une vue snapshot
+cleartool mkview -snapshot -tag snap_jean \\
+  -vws /var/adm/clearcase/views/snap_jean.vws \\
+  /home/jean/snap_jean
 
-# Vérifier la config spec actuelle
+# Lister les vues
+cleartool lsview
+cleartool lsview -long dev_jean_main
+
+# Se positionner dans une vue (dynamique)
+cleartool setview dev_jean_main
+# ou
+cd /view/dev_jean_main/vobs/projet_alpha
+
+# Mettre à jour une vue snapshot
+cleartool update -f /home/jean/snap_jean
+
+# Supprimer une vue
+cleartool rmview -tag dev_jean_main
+
+# Voir la config spec d'une vue
 cleartool catcs
+cleartool catcs -tag dev_jean_main
+\\\`\\\`\\\`
 
-# Modifier la config spec
-cleartool setcs -tag my_dev_view << EOF
-element * CHECKEDOUT
-element * /main/LATEST
-EOF
-\`\`\`
+#### Config Spec (sélection des versions)
 
-#### Étape 3 : Opérations de base
+\\\`\\\`\\\`bash
+# Éditer la config spec de la vue courante
+cleartool edcs
 
-\`\`\`bash
-# Naviguer dans le VOB
-cd /vobs/formation_vob/src
+# Appliquer une config spec depuis un fichier
+cleartool setcs /path/to/my_configspec.txt
 
-# Lister les fichiers avec leurs versions
-cleartool ls -long
+# Config spec basique (voir le main/LATEST)
+# element * CHECKEDOUT
+# element * /main/LATEST
+
+# Config spec avec branche
+# element * CHECKEDOUT
+# element * /main/dev_feature/LATEST
+# element * /main/LATEST
+
+# Config spec avec label
+# element * CHECKEDOUT
+# element * REL_1.0
+# element * /main/LATEST
+
+# Config spec avec date
+# element * CHECKEDOUT
+# element * /main/LATEST -time 01-Jan-2024.12:00:00
+\\\`\\\`\\\`
+
+#### Checkout / Checkin / Uncheckout
+
+\\\`\\\`\\\`bash
+# Checkout un fichier (réservé - personne d'autre ne peut modifier)
+cleartool checkout -reserved -c "Correction bug #123" src/main.c
+
+# Checkout non réservé (merge nécessaire si conflit)
+cleartool checkout -unreserved -c "Ajout feature" src/utils.h
+
+# Checkin (créer une nouvelle version)
+cleartool checkin -c "Fix: correction du buffer overflow" src/main.c
+
+# Annuler un checkout
+cleartool uncheckout src/main.c
+cleartool uncheckout -keep src/main.c   # garde le fichier modifié (.keep)
+
+# Lister les checkouts dans la vue
+cleartool lsco -cview -avobs -short
+cleartool lsco -recurse .
 
 # Voir l'historique d'un fichier
-cleartool lshistory main.c
+cleartool lshistory src/main.c
+cleartool lshistory -graphical src/main.c
+\\\`\\\`\\\`
 
-# Checkout (réserver pour modification)
-cleartool checkout -reserved -comment "TP Formation" main.c
+#### Branches et Labels
 
-# Modifier le fichier
-echo "// Modification TP" >> main.c
-
-# Voir les différences
-cleartool diff -predecessor main.c
-
-# Checkin (valider la modification)
-cleartool checkin -comment "Ajout commentaire TP" main.c
-\`\`\`
-
-#### Étape 4 : Créer une branche
-
-\`\`\`bash
+\\\`\\\`\\\`bash
 # Créer un type de branche
-cleartool mkbrtype -comment "Branche pour feature login" feature_login
+cleartool mkbrtype -c "Branche de développement feature X" dev_featureX
 
-# Modifier la config spec pour travailler sur la branche
-cleartool setcs << EOF
-element * CHECKEDOUT
-element * .../feature_login/LATEST
-element * /main/LATEST -mkbranch feature_login
-EOF
+# Créer une branche sur un fichier
+cleartool mkbranch dev_featureX src/main.c
 
-# Maintenant chaque checkout créera la branche automatiquement
-cleartool checkout -comment "Feature login" auth.c
-# Modifiez auth.c...
-cleartool checkin -comment "Implémentation login" auth.c
-# Crée la version auth.c@@/main/feature_login/1
-\`\`\`
+# Créer un type de label
+cleartool mklbtype -c "Release 2.0" REL_2_0
 
-#### Étape 5 : Appliquer un label
+# Appliquer un label
+cleartool mklabel REL_2_0 src/main.c
+cleartool mklabel -recurse REL_2_0 .
 
-\`\`\`bash
-# Créer le type de label
-cleartool mklbtype -comment "Version TP complété" TP_DONE_V1
+# Lister les labels
+cleartool lstype -kind lbtype
+cleartool describe lbtype:REL_2_0
 
-# Appliquer à tous les fichiers de la vue
-cleartool mklabel -recurse TP_DONE_V1 .
+# Lister les branches
+cleartool lstype -kind brtype
+cleartool describe brtype:dev_featureX
 
-# Vérifier
-cleartool find . -version "lbtype(TP_DONE_V1)" -print
-\`\`\`
+# Merge
+cleartool findmerge . -fversion /main/dev_featureX/LATEST -merge
+cleartool merge -to src/main.c /main/dev_featureX/LATEST
+\\\`\\\`\\\`
 
-#### Étape 6 : Créer une vue snapshot
+#### Comparaison et historique
 
-\`\`\`bash
-# Créer une vue snapshot (copie locale)
-cleartool mkview -snapshot -tag my_snapshot_view \\
-  -vws /home/user/.ccviews/my_snapshot_view.vws \\
-  /home/user/workspaces/my_snapshot
+\\\`\\\`\\\`bash
+# Comparer deux versions
+cleartool diff src/main.c@@/main/2 src/main.c@@/main/3
+cleartool diff -graphical src/main.c@@/main/2 src/main.c
 
-# Charger les fichiers
-cd /home/user/workspaces/my_snapshot
-cleartool setcs -default
+# Arbre de versions
+cleartool lsvtree src/main.c
+cleartool lsvtree -graphical src/main.c
+
+# Historique complet
+cleartool lshistory -recurse -since 01-Jan-2024 .
+
+# Annotations (blame)
+cleartool annotate src/main.c
+cleartool annotate -fmt "%Sd %u %Vn | " src/main.c
+
+# Trouver des fichiers
+cleartool find . -version "lbtype(REL_1_0)" -print
+cleartool find . -branch "brtype(dev_featureX)" -print
+\\\`\\\`\\\`
+
+### Configuration
+
+#### Fichier de configuration réseau
+
+\\\`\\\`\\\`bash
+# /var/adm/clearcase/config/rgy_region.conf
+# Définit la région ClearCase
+REGION=france_dev
+
+# /var/adm/clearcase/config/rgy_hosts.conf
+# Liste des serveurs de registre
+registry_host=cc-server-01.company.com
+backup_registry=cc-server-02.company.com
+\\\`\\\`\\\`
+
+#### Configuration client
+
+\\\`\\\`\\\`bash
+# Vérifier la configuration
+cleartool hostinfo -long
+cleartool lsregion
+
+# Configurer le registre
+cleartool mkregion -tag europe_region
+
+# Protection storage pools
+cleartool protectvob -chown root /vobs/projet_alpha
+
+# Espace disque VOB
+cleartool space /vobs/projet_alpha
+\\\`\\\`\\\`
+
+### Bonnes pratiques
+
+1. **Utilisez des vues dynamiques** pour le développement actif (accès temps réel)
+2. **Vues snapshot** pour les builds CI ou les machines déconnectées
+3. **Toujours commenter** les checkout/checkin (-c "description")
+4. **Verrouillez les branches** de release après livraison
+5. **Config specs partagées** : stockez-les dans un fichier versionné
+6. **Labels systématiques** : appliquez un label à chaque release/milestone
+7. **Nettoyez les vues orphelines** régulièrement (rmview)
+8. **Surveillez l'espace VOB** (scrubber pour purger les données dérivées)
+9. **Sauvegardez les VOBs** quotidiennement avec vob_snapshot
+10. **Évitez les checkout réservés** sauf nécessité (bloque les autres développeurs)`,
+
+      practiceContent: `## Travaux Pratiques - Introduction à ClearCase
+
+### Prérequis
+- Accès à un serveur ClearCase configuré
+- Compte utilisateur avec droits de création de vues
+
+### TP 1 : Création et exploration d'une VOB
+
+\\\`\\\`\\\`bash
+# 1. Lister les VOBs disponibles
+cleartool lsvob
+
+# 2. Monter une VOB existante
+cleartool mount /vobs/tp_formation
+
+# 3. Vérifier le montage
+ls /vobs/tp_formation
+cleartool describe vob:/vobs/tp_formation
+
+# 4. Explorer la structure
+cleartool ls /vobs/tp_formation
+cleartool ls -long /vobs/tp_formation/src
+\\\`\\\`\\\`
+
+### TP 2 : Création et utilisation d'une vue dynamique
+
+\\\`\\\`\\\`bash
+# 1. Créer une vue dynamique personnelle
+cleartool mkview -tag tp_\$(whoami)_main \\
+  /var/adm/clearcase/views/tp_\$(whoami)_main.vws
+
+# 2. Se positionner dans la vue
+cleartool setview tp_\$(whoami)_main
+
+# 3. Naviguer dans la VOB
+cd /vobs/tp_formation/src
+ls -la
+
+# 4. Vérifier la config spec active
+cleartool catcs
+
+# 5. Modifier la config spec
+cleartool edcs
+# Ajouter :
+# element * CHECKEDOUT
+# element * /main/LATEST
+\\\`\\\`\\\`
+
+### TP 3 : Checkout, modification, checkin
+
+\\\`\\\`\\\`bash
+# 1. Checkout un fichier
+cleartool checkout -unreserved -c "TP: modification test" src/hello.c
+
+# 2. Vérifier le statut
+cleartool lsco -cview
+
+# 3. Modifier le fichier
+echo '// Modification TP' >> src/hello.c
+
+# 4. Voir les différences
+cleartool diff -pred src/hello.c
+
+# 5. Checkin
+cleartool checkin -c "TP: ajout commentaire test" src/hello.c
+
+# 6. Vérifier l'historique
+cleartool lshistory src/hello.c
+\\\`\\\`\\\`
+
+### TP 4 : Branches et labels
+
+\\\`\\\`\\\`bash
+# 1. Créer un type de branche
+cleartool mkbrtype -c "Branche TP exercice" tp_\$(whoami)_br
+
+# 2. Modifier la config spec pour la branche
+cleartool edcs
+# element * CHECKEDOUT
+# element * .../tp_\$(whoami)_br/LATEST
+# element * /main/LATEST -mkbranch tp_\$(whoami)_br
+
+# 3. Checkout et modification (crée la branche automatiquement)
+cleartool checkout -c "TP branche" src/hello.c
+echo '// Sur ma branche' >> src/hello.c
+cleartool checkin -c "Modif sur branche" src/hello.c
+
+# 4. Vérifier l'arbre de versions
+cleartool lsvtree src/hello.c
+
+# 5. Créer et appliquer un label
+cleartool mklbtype -c "Fin TP" TP_DONE_\$(whoami)
+cleartool mklabel -recurse TP_DONE_\$(whoami) /vobs/tp_formation/src
+\\\`\\\`\\\`
+
+### TP 5 : Vue snapshot et comparaison
+
+\\\`\\\`\\\`bash
+# 1. Créer une vue snapshot
+cleartool mkview -snapshot -tag tp_\$(whoami)_snap \\
+  -vws /var/adm/clearcase/views/tp_snap_\$(whoami).vws \\
+  ~/clearcase_snap
+
+# 2. Mettre à jour la vue
+cd ~/clearcase_snap
 cleartool update .
-\`\`\`
 
-#### Questions de vérification
-- Quelle est la différence entre vue dynamique et snapshot ?
-- Quel est le chemin complet (extended pathname) de votre dernière version ?
-- Le label TP_DONE_V1 est-il visible dans l'historique ?`,
+# 3. Comparer avec la vue dynamique
+cleartool diff src/hello.c@@/main/LATEST src/hello.c@@/main/tp_\$(whoami)_br/LATEST
+
+# 4. Nettoyer
+cleartool rmview -tag tp_\$(whoami)_snap
+cleartool rmview -tag tp_\$(whoami)_main
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
-        'ClearCase est un SCM centralisé à versionnement par fichier (pas par commit)',
-        'VOB = dépôt central, View = espace de travail, Config Spec = règles de sélection',
-        'Vues dynamiques (réseau, temps réel) vs Snapshot (copie locale, hors-ligne)',
-        'Checkout/Checkin avec réservation (Reserved = verrou exclusif)',
-        'Labels = équivalent des tags Git, appliqués à un ensemble de versions',
-        'Config Spec permet de voir n\'importe quelle combinaison de versions (branche, label, date)'
+        'ClearCase est un SCM centralisé avec VOBs, vues et config specs',
+        'VOB (Versioned Object Base) : base de données versionée pour fichiers et répertoires',
+        'Vues dynamiques (accès réseau temps réel) vs snapshot (copie locale)',
+        'Config Spec : règles de sélection des versions visibles (branche, label, date)',
+        'Checkout réservé bloque les autres, checkout non-réservé permet le travail parallèle',
+        'Labels : étiquettes pour marquer des baselines et releases',
+        'Commandes clés : mkvob, mkview, setview, checkout, checkin, mklabel, lsvtree',
+        'Architecture client-serveur : ALBD, VOB Server, View Server, MVFS'
       ]) },
 
 
-    { id: 'cc-02', courseId: 'clearcase', title: 'UCM et branches', duration: '5h', orderIndex: 2,
-      theoryContent: `## UCM (Unified Change Management) et stratégies de branches
+    { id: 'cc-02', courseId: 'clearcase', title: 'UCM et gestion des branches', duration: '5h', orderIndex: 2,
+      theoryContent: `## ClearCase UCM et Gestion des Branches
 
-### Qu'est-ce que UCM ?
+### Présentation
 
-UCM (Unified Change Management) est une **surcouche méthodologique** de ClearCase qui simplifie la gestion de configuration en imposant un workflow standardisé. UCM combine ClearCase (gestion des fichiers) avec ClearQuest (suivi des activités/changements).
+**UCM (Unified Change Management)** est la couche de gestion de processus intégrée à ClearCase. UCM fournit un modèle de travail structuré qui simplifie la gestion des branches, des activités et des livraisons. C'est l'approche recommandée par IBM pour les équipes utilisant ClearCase.
 
-### Base ClearCase vs UCM
+UCM introduit des concepts de haut niveau au-dessus du versionnement ClearCase de base :
 
-| Aspect | Base ClearCase | UCM |
-|--------|---------------|-----|
-| Workflow | Libre (vous définissez tout) | Standardisé (activités, streams) |
-| Branches | Créées manuellement | Gérées automatiquement (streams) |
-| Config Spec | Écrite manuellement | Générée automatiquement |
-| Traçabilité | Labels manuels | Activités et changesets |
-| Merge | Manuel (findmerge) | Semi-automatique (deliver/rebase) |
-| Complexité | Haute (flexible) | Moyenne (guidé) |
+- **Projet UCM** : conteneur de travail regroupant streams et composants
+- **Stream (flux)** : branche managée automatiquement (équivalent d'une branche Git)
+- **Activity (activité)** : unité de travail logique regroupant des changements (comme un commit Git)
+- **Baseline** : snapshot d'un composant à un instant donné (comme un tag Git)
+- **Component** : ensemble de fichiers/répertoires versionés ensemble
+- **Deliver** : livrer ses changements depuis un stream de développement vers le stream d'intégration
+- **Rebase** : mettre à jour son stream de développement avec les dernières baselines
 
-### Concepts UCM
+### Installation sur Linux (Ubuntu/Debian)
 
-#### 1. Project
+UCM est intégré à ClearCase, pas d'installation séparée. Activation :
 
-Le projet UCM définit :
-- Les VOBs utilisés
-- Le stream d'intégration
-- Les politiques de développement
+\\\`\\\`\\\`bash
+# Vérifier que ClearCase UCM est disponible
+cleartool man mkproject
 
-#### 2. Streams (flux)
+# Créer un PVOB (Project VOB) - pré-requis UCM
+cleartool mkvob -tag /vobs/pvob_projet \\
+  -ucmproject \\
+  -c "Project VOB pour UCM" \\
+  /var/adm/clearcase/vobs/pvob_projet.vbs
 
-Un stream est un **contexte de développement** qui remplace les branches manuelles :
+# Monter le PVOB
+cleartool mount /vobs/pvob_projet
 
-\`\`\`
-Project: MyApplication
-│
-├── Integration Stream (stream principal)
-│   ├── Baseline BL_1.0
-│   ├── Baseline BL_1.1
-│   └── Baseline BL_2.0 (current)
-│
-├── Dev Stream: dev_alice (stream de développement)
-│   └── Fondé sur BL_2.0
-│
-├── Dev Stream: dev_bob
-│   └── Fondé sur BL_2.0
-│
-└── Dev Stream: dev_charlie
-    └── Fondé sur BL_1.1 (en retard !)
-\`\`\`
+# Vérifier le type
+cleartool describe vob:/vobs/pvob_projet
+# Type : UCM Project VOB
+\\\`\\\`\\\`
 
-#### 3. Activities (activités)
+#### Configuration d'un projet UCM complet
 
-Une activité UCM regroupe tous les changements liés à une même tâche :
+\\\`\\\`\\\`bash
+# 1. Créer le composant
+cleartool mkcomp -c "Composant application" \\
+  app_component@/vobs/pvob_projet \\
+  -root /vobs/src_code
 
-\`\`\`
-Activity: "Implement user authentication"
-├── Changes:
-│   ├── auth.c@@/main/dev_alice/1 → /main/dev_alice/2
-│   ├── auth.h@@/main/dev_alice/0 → /main/dev_alice/1 (nouveau fichier)
-│   ├── login.c@@/main/dev_alice/1 → /main/dev_alice/2
-│   └── Makefile@@/main/dev_alice/1 → /main/dev_alice/2
-├── Status: Completed
-└── ClearQuest Record: CR-456
-\`\`\`
+# 2. Créer le projet UCM
+cleartool mkproject -c "Projet Alpha UCM" \\
+  -in /vobs/pvob_projet \\
+  projet_alpha@/vobs/pvob_projet
 
-#### 4. Baselines
+# 3. Créer le stream d'intégration
+cleartool mkstream -c "Stream intégration" \\
+  -integration \\
+  -in projet_alpha@/vobs/pvob_projet \\
+  int_alpha@/vobs/pvob_projet
 
-En UCM, une baseline est un **point de stabilité** sur le stream d'intégration :
-- Marquée après les tests d'intégration
-- Sert de fondation pour les streams de développement
-- Niveaux de promotion : Initial → Built → Tested → Released
+# 4. Créer une baseline initiale
+cleartool mkbl -c "Baseline initiale" \\
+  -component app_component@/vobs/pvob_projet \\
+  BL_INIT
 
-#### 5. Deliver et Rebase
+# 5. Créer un stream de développement
+cleartool mkstream -c "Dev Jean" \\
+  -in projet_alpha@/vobs/pvob_projet \\
+  -baseline BL_INIT@/vobs/pvob_projet \\
+  dev_jean@/vobs/pvob_projet
+\\\`\\\`\\\`
 
-Les deux opérations fondamentales d'UCM :
+### Architecture et composants
 
-**Deliver** : pousser vos changements vers le stream d'intégration
-\`\`\`
-Dev Stream (dev_alice) ──deliver──→ Integration Stream
-         │                                  │
-    Vos activités                    Reçoit vos changements
-    complétées                       (merge si nécessaire)
-\`\`\`
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────┐
+│                    UCM Architecture                               │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│   ┌──────────────────────────────────────────────────────┐       │
+│   │              PROJET UCM                               │       │
+│   │                                                       │       │
+│   │   ┌────────────────────────────────────────────┐     │       │
+│   │   │    Stream d'Intégration (INT)              │     │       │
+│   │   │    BL_1.0 ──── BL_1.1 ──── BL_2.0        │     │       │
+│   │   └──────┬─────────────┬────────────┬─────────┘     │       │
+│   │          │  deliver    │  deliver   │  rebase        │       │
+│   │          ▼             ▼            ▼                │       │
+│   │   ┌──────────┐  ┌──────────┐  ┌──────────┐         │       │
+│   │   │ Dev_Jean │  │Dev_Marie │  │Dev_Pierre│         │       │
+│   │   │ Stream   │  │ Stream   │  │ Stream   │         │       │
+│   │   │          │  │          │  │          │         │       │
+│   │   │ Act_123  │  │ Act_456  │  │ Act_789  │         │       │
+│   │   │ Act_124  │  │ Act_457  │  │          │         │       │
+│   │   └──────────┘  └──────────┘  └──────────┘         │       │
+│   │                                                       │       │
+│   │   Composants: [app_component] [lib_component]        │       │
+│   └──────────────────────────────────────────────────────┘       │
+│                                                                   │
+│   ┌──────────────────────────────────────────────────────┐       │
+│   │              PVOB (Project VOB)                       │       │
+│   │  - Métadonnées projet, streams, activities           │       │
+│   │  - Baselines, composants, politiques                 │       │
+│   └──────────────────────────────────────────────────────┘       │
+│                                                                   │
+│   ┌──────────────────────────────────────────────────────┐       │
+│   │              VOBs de code source                      │       │
+│   │  - Fichiers et répertoires versionnés                │       │
+│   │  - Branches créées automatiquement par UCM           │       │
+│   └──────────────────────────────────────────────────────┘       │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
 
-**Rebase** : récupérer les derniers changements du stream d'intégration
-\`\`\`
-Integration Stream ──rebase──→ Dev Stream (dev_alice)
-         │                           │
-    Nouvelles baselines         Met à jour votre fondation
-    (changements des autres)    (merge si nécessaire)
-\`\`\`
+### Commandes essentielles
 
-### Stratégies de branches en Base ClearCase
+#### Gestion des projets et streams
 
-#### Modèle Mainline
+\\\`\\\`\\\`bash
+# Lister les projets UCM
+cleartool lsproject -invob /vobs/pvob_projet
 
-\`\`\`
-/main ─────────────────────────────────────────
-   │         │              │           │
-   ├── /feature_A/    ├── /feature_B/  ├── /bugfix_123/
-   │   1, 2, 3        │   1, 2        │   1
-   │   (merge back)   │   (merge)     │   (merge)
-   ▼                   ▼              ▼
-\`\`\`
+# Détails d'un projet
+cleartool describe project:projet_alpha@/vobs/pvob_projet
 
-#### Modèle Release Branches
+# Lister les streams
+cleartool lsstream -in projet_alpha@/vobs/pvob_projet
 
-\`\`\`
-/main ───────────────────────────────────────────
-   │              │                │
-   ├── /rel_1.0/  ├── /rel_2.0/   ├── /rel_3.0/
-   │   (maintenance) │  (maintenance) │
-   │   hotfix_1      │               │
-   │   hotfix_2      │               │
-\`\`\`
+# Créer un stream de développement
+cleartool mkstream -c "Développement feature X" \\
+  -in projet_alpha@/vobs/pvob_projet \\
+  -baseline BL_1_0@/vobs/pvob_projet \\
+  dev_featureX@/vobs/pvob_projet
 
-### Merge dans ClearCase
+# Créer une vue UCM liée au stream
+cleartool mkview -tag jean_featureX \\
+  -stream dev_jean@/vobs/pvob_projet \\
+  /var/adm/clearcase/views/jean_featureX.vws
 
-Le merge dans ClearCase est **par fichier** (pas par commit comme Git) :
+# Se positionner dans la vue
+cleartool setview jean_featureX
+\\\`\\\`\\\`
 
-\`\`\`bash
-# Merge automatique (trivial merge)
-cleartool findmerge . -fversion .../feature_login/LATEST -merge
+#### Gestion des activités
 
-# Merge avec résolution de conflits
-cleartool findmerge main.c -fversion .../feature_login/LATEST -graphical
-# Ouvre l'outil graphique de merge (xcleardiff)
+\\\`\\\`\\\`bash
+# Créer une activité
+cleartool mkactivity -c "Correction bug #567" \\
+  -in dev_jean@/vobs/pvob_projet \\
+  fix_bug_567@/vobs/pvob_projet
 
-# Merge d'un seul fichier
-cleartool merge -to main.c -version /main/feature_login/3
-\`\`\`
+# Se positionner sur une activité (set activity)
+cleartool setactivity fix_bug_567@/vobs/pvob_projet
 
-#### Types de merge
+# Lister les activités du stream
+cleartool lsactivity -in dev_jean@/vobs/pvob_projet
 
-| Type | Description | Commande |
-|------|-------------|----------|
-| Trivial | Pas de conflit, une seule branche a modifié | Automatique |
-| Non-trivial | Les deux branches ont modifié | Manuel (outil graphique) |
-| Copy merge | Prendre une version telle quelle | -type copy |
+# Détails d'une activité (changeset)
+cleartool lsactivity -long fix_bug_567@/vobs/pvob_projet
+cleartool describe activity:fix_bug_567@/vobs/pvob_projet
 
-### Triggers (déclencheurs)
+# Voir le changeset (fichiers modifiés)
+cleartool lsactivity -changeset fix_bug_567@/vobs/pvob_projet
 
-Les triggers sont des **scripts exécutés automatiquement** lors d'opérations ClearCase :
+# Terminer une activité
+cleartool setactivity -none
+\\\`\\\`\\\`
 
-\`\`\`bash
-# Créer un trigger qui vérifie le commentaire au checkin
+#### Deliver et Rebase
+
+\\\`\\\`\\\`bash
+# DELIVER : livrer du stream dev vers intégration
+# Depuis la vue du stream de développement
+cleartool deliver -stream dev_jean@/vobs/pvob_projet \\
+  -to int_alpha@/vobs/pvob_projet \\
+  -activities fix_bug_567@/vobs/pvob_projet
+
+# Compléter le deliver après résolution de conflits
+cleartool deliver -complete
+
+# Annuler un deliver en cours
+cleartool deliver -cancel
+
+# Vérifier l'état du deliver
+cleartool deliver -status
+
+# REBASE : récupérer les dernières baselines dans son stream dev
+cleartool rebase -stream dev_jean@/vobs/pvob_projet \\
+  -baseline BL_1_1@/vobs/pvob_projet
+
+# Compléter le rebase
+cleartool rebase -complete
+
+# Rebase recommandé (dernière baseline recommandée)
+cleartool rebase -recommended -stream dev_jean@/vobs/pvob_projet
+\\\`\\\`\\\`
+
+#### Baselines et composants
+
+\\\`\\\`\\\`bash
+# Créer une baseline
+cleartool mkbl -c "Build validé sprint 3" \\
+  -view int_view \\
+  BL_SPRINT_3
+
+# Lister les baselines
+cleartool lsbl -component app_component@/vobs/pvob_projet
+cleartool lsbl -stream int_alpha@/vobs/pvob_projet
+
+# Promouvoir une baseline (changer son niveau)
+cleartool chbl -level RELEASED BL_SPRINT_3@/vobs/pvob_projet
+
+# Niveaux de promotion : INITIAL > BUILT > TESTED > RELEASED > REJECTED
+cleartool describe baseline:BL_SPRINT_3@/vobs/pvob_projet
+
+# Comparer des baselines
+cleartool diffbl BL_SPRINT_2@/vobs/pvob_projet BL_SPRINT_3@/vobs/pvob_projet
+cleartool diffbl -activities BL_SPRINT_2@/vobs/pvob_projet BL_SPRINT_3@/vobs/pvob_projet
+\\\`\\\`\\\`
+
+#### Merge et résolution de conflits (findmerge)
+
+\\\`\\\`\\\`bash
+# Trouver les fichiers à merger
+cleartool findmerge /vobs/src_code -fversion .../dev_featureX/LATEST \\
+  -print
+
+# Exécuter le merge
+cleartool findmerge /vobs/src_code -fversion .../dev_featureX/LATEST \\
+  -merge
+
+# Merge graphique (pour conflits complexes)
+cleartool findmerge /vobs/src_code -fversion .../dev_featureX/LATEST \\
+  -gmerge
+
+# Merge d'un fichier spécifique
+cleartool merge -to src/main.c \\
+  -version /main/dev_featureX/LATEST
+
+# Vérifier le statut de merge
+cleartool describe -fmt "%[hlink:Merge]p\\n" src/main.c
+\\\`\\\`\\\`
+
+#### Triggers et automatisation
+
+\\\`\\\`\\\`bash
+# Créer un trigger type (pré-checkin)
 cleartool mktrtype -element -all \\
   -preop checkin \\
-  -exec "/scripts/check_comment.sh" \\
-  -comment "Vérifie que le commentaire de checkin n'est pas vide" \\
-  check_comment_trigger
+  -c "Vérifier format du commentaire" \\
+  -exec "/opt/triggers/check_comment.sh" \\
+  trg_check_comment@/vobs/src_code
 
-# Script /scripts/check_comment.sh :
-#!/bin/bash
-if [ -z "$CLEARCASE_COMMENT" ]; then
-    echo "ERREUR: Le commentaire est obligatoire"
-    exit 1
-fi
-# Vérifier le format (ex: ticket Jira)
-if ! echo "$CLEARCASE_COMMENT" | grep -qE "^[A-Z]+-[0-9]+"; then
-    echo "ERREUR: Le commentaire doit commencer par un numéro de ticket (ex: PROJ-123)"
-    exit 1
-fi
-exit 0
-\`\`\`
+# Trigger post-deliver (notification)
+cleartool mktrtype -ucmobject -all \\
+  -postop deliver_complete \\
+  -c "Notification email après deliver" \\
+  -exec "/opt/triggers/notify_deliver.sh" \\
+  trg_notify_deliver@/vobs/pvob_projet
 
-Types de triggers :
-- **pre-op** : avant l'opération (peut l'annuler)
-- **post-op** : après l'opération (notification, log)
+# Lister les triggers
+cleartool lstype -kind trtype -invob /vobs/src_code
 
-Opérations déclenchables : checkout, checkin, mkelem, rmelem, mklabel, mkbranch, etc.
+# Désactiver un trigger temporairement
+cleartool lock trtype:trg_check_comment@/vobs/src_code
 
-### Multi-site avec ClearCase
+# Script trigger exemple (check_comment.sh)
+# #!/bin/bash
+# COMMENT=\$(cleartool describe -fmt "%c" \$CLEARCASE_PN)
+# if [[ ! \$COMMENT =~ ^(feat|fix|docs|refactor): ]]; then
+#   echo "Erreur: commentaire doit commencer par feat:|fix:|docs:|refactor:"
+#   exit 1
+# fi
+# exit 0
+\\\`\\\`\\\`
 
-ClearCase MultiSite permet la **réplication de VOBs** entre sites géographiques :
+### Configuration
 
-\`\`\`
-Site Paris                    Site New York
-┌──────────┐                  ┌──────────┐
-│ VOB_main │ ←── sync ──→    │ VOB_main │
-│ (master) │    (toutes les   │ (replica)│
-└──────────┘    30 minutes)   └──────────┘
-\`\`\`
+#### Politiques de projet UCM
 
-- Chaque site a un **mastership** sur certaines branches
-- Les modifications sont répliquées via des **packets** (sync périodique)
-- Pas de modification simultanée de la même branche sur deux sites`,
+\\\`\\\`\\\`bash
+# Configurer les politiques du projet
+cleartool chproject \\
+  -policy POLICY_DELIVER_REQUIRE_REBASE \\
+  -policy POLICY_DELIVER_NCO_DEVSTR \\
+  projet_alpha@/vobs/pvob_projet
 
-      practiceContent: `### Travaux Pratiques : UCM et branches
+# Politiques disponibles :
+# POLICY_DELIVER_REQUIRE_REBASE - Rebase obligatoire avant deliver
+# POLICY_DELIVER_NCO_DEVSTR - Pas de checkout sur stream dev pendant deliver
+# POLICY_CHSTREAM_UNRESTRICTED - Changement de stream libre
+# POLICY_INTERPROJECT_DELIVER - Deliver inter-projet autorisé
 
-#### TP 1 : Créer un projet UCM
+# Voir les politiques actives
+cleartool describe -long project:projet_alpha@/vobs/pvob_projet
+\\\`\\\`\\\`
 
-\`\`\`bash
-# Créer un PVOB (Project VOB) pour UCM
-cleartool mkvob -ucmproject -tag /vobs/formation_pvob \\
-  -stgloc auto \\
-  -comment "PVOB Formation"
+### Bonnes pratiques
 
-# Créer un projet UCM
-cleartool mkproject -in /vobs/formation_pvob \\
-  -comment "Projet Formation UCM" \\
-  -model SIMPLE \\
-  formation_project@/vobs/formation_pvob
+1. **Rebase fréquent** : récupérez les baselines d'intégration régulièrement
+2. **Activités granulaires** : une activité = un changement logique cohérent
+3. **Nommage des streams** : convention dev_prenom_feature ou team_feature
+4. **Baselines régulières** : créez des baselines à chaque build stable
+5. **Promote baselines** : utilisez les niveaux de promotion (BUILT → TESTED → RELEASED)
+6. **Triggers de qualité** : pré-checkin pour format, pré-deliver pour build
+7. **Deliver atomique** : livrez des activités complètes, pas des modifications partielles
+8. **Documentation** : commentez systématiquement les activités et baselines
+9. **Politique REQUIRE_REBASE** : obligez le rebase avant deliver pour éviter les conflits
+10. **Nettoyage** : archivez les streams de développement terminés`,
 
-# Créer le stream d'intégration
-cleartool mkstream -in formation_project@/vobs/formation_pvob \\
-  -integration \\
-  -comment "Stream d'intégration" \\
-  formation_int@/vobs/formation_pvob
-\`\`\`
+      practiceContent: `## Travaux Pratiques - UCM et Branches
 
-#### TP 2 : Workflow UCM complet
+### TP 1 : Configuration d'un projet UCM
 
-\`\`\`bash
+\\\`\\\`\\\`bash
+# 1. Créer un PVOB
+cleartool mkvob -tag /vobs/pvob_tp \\
+  -ucmproject \\
+  -c "PVOB pour TP UCM" \\
+  /var/adm/clearcase/vobs/pvob_tp.vbs
+cleartool mount /vobs/pvob_tp
+
+# 2. Créer le composant
+cleartool mkcomp -c "Composant TP" \\
+  comp_tp@/vobs/pvob_tp \\
+  -root /vobs/tp_formation
+
+# 3. Créer le projet
+cleartool mkproject -c "Projet TP UCM" \\
+  -in /vobs/pvob_tp \\
+  projet_tp@/vobs/pvob_tp
+
+# 4. Créer le stream d'intégration
+cleartool mkstream -integration \\
+  -c "Integration TP" \\
+  -in projet_tp@/vobs/pvob_tp \\
+  int_tp@/vobs/pvob_tp
+\\\`\\\`\\\`
+
+### TP 2 : Workflow UCM complet
+
+\\\`\\\`\\\`bash
 # 1. Créer un stream de développement
-cleartool mkstream -in formation_project@/vobs/formation_pvob \\
-  -baseline BL_INITIAL@/vobs/formation_pvob \\
-  -comment "Stream développement TP" \\
-  dev_tp@/vobs/formation_pvob
+cleartool mkstream -c "Dev feature login" \\
+  -in projet_tp@/vobs/pvob_tp \\
+  -baseline BL_INIT@/vobs/pvob_tp \\
+  dev_login@/vobs/pvob_tp
 
-# 2. Créer une vue sur le stream de dev
-cleartool mkview -tag dev_tp_view -stream dev_tp@/vobs/formation_pvob \\
-  -stgloc auto
+# 2. Créer une vue associée
+cleartool mkview -tag view_dev_login \\
+  -stream dev_login@/vobs/pvob_tp \\
+  /var/adm/clearcase/views/view_dev_login.vws
 
 # 3. Travailler dans la vue
-cleartool setview dev_tp_view
-cd /vobs/formation_vob/src
+cleartool setview view_dev_login
+cd /vobs/tp_formation/src
 
 # 4. Créer une activité
-cleartool mkactivity -comment "Implémentation feature login" feature_login
+cleartool mkactivity -c "Implémenter login" act_login
+cleartool setactivity act_login
 
-# 5. Faire des modifications
-cleartool checkout -activity feature_login -comment "Login" auth.c
-# ... modifier auth.c ...
-cleartool checkin -comment "Login implémenté" auth.c
+# 5. Modifier des fichiers
+cleartool checkout -c "Ajout login" auth.c
+echo '// Login implementation' >> auth.c
+cleartool checkin -c "Login V1" auth.c
 
-# 6. Compléter l'activité
-cleartool chactivity -complete feature_login
+# 6. Deliver vers intégration
+cleartool deliver -stream dev_login@/vobs/pvob_tp \\
+  -to int_tp@/vobs/pvob_tp
+cleartool deliver -complete
+\\\`\\\`\\\`
 
-# 7. Deliver vers l'intégration
-cleartool deliver -stream dev_tp@/vobs/formation_pvob \\
-  -target formation_int@/vobs/formation_pvob \\
-  -complete
-\`\`\`
+### TP 3 : Rebase et gestion des conflits
 
-#### TP 3 : Rebase (mise à jour depuis l'intégration)
+\\\`\\\`\\\`bash
+# 1. Simuler un changement en intégration
+# (un collègue a livré du code)
 
-\`\`\`bash
-# Vérifier les baselines disponibles
-cleartool lsbl -stream formation_int@/vobs/formation_pvob
+# 2. Rebase du stream de développement
+cleartool rebase -stream dev_login@/vobs/pvob_tp \\
+  -recommended
 
-# Rebase vers la dernière baseline
-cleartool rebase -stream dev_tp@/vobs/formation_pvob \\
-  -baseline BL_2.0@/vobs/formation_pvob \\
-  -complete
+# 3. En cas de conflit
+cleartool findmerge . -flatest -merge
+# Résoudre manuellement si nécessaire
+cleartool rebase -complete
 
-# Résoudre les conflits si nécessaire
-cleartool findmerge . -fver .../formation_int/LATEST -merge
-\`\`\`
+# 4. Vérifier la baseline courante du stream
+cleartool describe stream:dev_login@/vobs/pvob_tp
+\\\`\\\`\\\`
 
-#### TP 4 : Créer un trigger
+### TP 4 : Triggers
 
-\`\`\`bash
-# Créer un script de validation
-cat > /scripts/validate_checkin.sh << 'EOF'
+\\\`\\\`\\\`bash
+# 1. Créer un script de trigger
+cat > /opt/triggers/check_ci.sh << 'EOF'
 #!/bin/bash
-# Vérifier que le commentaire contient un ID d'activité
-if [ -z "$CLEARCASE_COMMENT" ]; then
-    echo "ERREUR: Commentaire obligatoire"
-    exit 1
+COMMENT=$(cleartool describe -fmt "%c" $CLEARCASE_PN)
+if [ -z "$COMMENT" ]; then
+  echo "ERREUR: Un commentaire est obligatoire pour le checkin"
+  exit 1
 fi
-echo "Checkin validé: $CLEARCASE_PN"
 exit 0
 EOF
-chmod +x /scripts/validate_checkin.sh
+chmod +x /opt/triggers/check_ci.sh
 
-# Créer le trigger
+# 2. Créer le trigger type
 cleartool mktrtype -element -all \\
   -preop checkin \\
-  -exec "/scripts/validate_checkin.sh" \\
-  -comment "Validation commentaire" \\
-  validate_checkin@/vobs/formation_vob
+  -c "Commentaire obligatoire" \\
+  -exec "/opt/triggers/check_ci.sh" \\
+  trg_comment@/vobs/tp_formation
 
-# Tester : essayer un checkin sans commentaire
-cleartool checkout main.c
-cleartool checkin main.c  # Devrait échouer !
-cleartool checkin -comment "Fix: PROJ-123 correction bug" main.c  # OK
-\`\`\`
+# 3. Tester le trigger
+cleartool checkout -nc src/test.c    # OK
+cleartool checkin -nc src/test.c     # ÉCHEC - pas de commentaire
+cleartool checkin -c "Test" src/test.c  # OK
+\\\`\\\`\\\`
 
-#### TP 5 : Merge entre branches
+### TP 5 : Baselines et promotion
 
-\`\`\`bash
-# Créer deux branches avec des modifications
-# Sur branche feature_A : modifier fichier1.c
-# Sur branche feature_B : modifier fichier1.c (même fichier !)
+\\\`\\\`\\\`bash
+# 1. Créer une baseline depuis la vue d'intégration
+cleartool setview int_view
+cleartool mkbl -c "Build CI #42 OK" BL_BUILD_42
 
-# Merger feature_A vers main
-cleartool findmerge . -fversion .../feature_A/LATEST -merge -log merge.log
+# 2. Vérifier la baseline
+cleartool lsbl -component comp_tp@/vobs/pvob_tp
 
-# Merger feature_B vers main (conflit probable sur fichier1.c)
-cleartool findmerge . -fversion .../feature_B/LATEST -graphical
-# Résoudre le conflit avec l'outil xcleardiff
-\`\`\``,
+# 3. Promouvoir la baseline
+cleartool chbl -level BUILT BL_BUILD_42@/vobs/pvob_tp
+cleartool chbl -level TESTED BL_BUILD_42@/vobs/pvob_tp
+cleartool chbl -level RELEASED BL_BUILD_42@/vobs/pvob_tp
+
+# 4. Comparer avec la baseline précédente
+cleartool diffbl -activities BL_BUILD_41@/vobs/pvob_tp BL_BUILD_42@/vobs/pvob_tp
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
-        'UCM simplifie ClearCase avec un workflow standardisé (streams, activités, deliver/rebase)',
-        'Streams remplacent les branches manuelles, activités groupent les changements liés',
-        'Deliver = pousser vers l\'intégration, Rebase = récupérer les mises à jour',
-        'Le merge ClearCase est par fichier, pas par commit (findmerge, xcleardiff)',
-        'Les triggers automatisent les validations (commentaire, format, tests)',
-        'MultiSite réplique les VOBs entre sites géographiques avec mastership par branche'
+        'UCM : couche de processus structuré au-dessus de ClearCase (projets, streams, activités)',
+        'Stream = branche managée automatiquement ; Activity = unité de travail logique',
+        'Workflow UCM : create stream → mkactivity → develop → deliver → rebase',
+        'Deliver : livrer les changements du stream dev vers le stream d intégration',
+        'Rebase : synchroniser son stream avec les dernières baselines d intégration',
+        'Baselines avec niveaux de promotion : INITIAL → BUILT → TESTED → RELEASED',
+        'Triggers : scripts automatiques pré/post opérations (qualité, notifications)',
+        'Politique REQUIRE_REBASE recommandée pour éviter conflits lors du deliver',
+        'PVOB (Project VOB) stocke les métadonnées UCM (projets, streams, baselines)'
       ]) },
 
 
-    { id: 'cc-03', courseId: 'clearcase', title: 'Migration vers Git', duration: '5h30', orderIndex: 3,
-      theoryContent: `## Migration de ClearCase vers Git
+    { id: 'cc-03', courseId: 'clearcase', title: 'Migration vers Git', duration: '5h', orderIndex: 3,
+      theoryContent: `## Migration ClearCase vers Git
 
-### Pourquoi migrer ?
+### Présentation
 
-De nombreuses organisations migrent de ClearCase vers Git pour plusieurs raisons :
+La migration de ClearCase vers Git est un projet complexe mais de plus en plus fréquent. Les organisations migrent pour bénéficier de la rapidité, de la flexibilité et de l'écosystème moderne de Git (GitHub, GitLab, CI/CD cloud). Cette migration nécessite une planification soigneuse car les modèles de versionnement sont fondamentalement différents.
 
-| Motivation | Détail |
-|-----------|--------|
-| Coût | Licences ClearCase très élevées vs Git gratuit |
-| Talent | Les nouveaux développeurs connaissent Git, pas ClearCase |
-| Performance | Git est beaucoup plus rapide (opérations locales) |
-| Écosystème | GitHub, GitLab, outils modernes CI/CD |
-| Agilité | Git facilite les workflows agiles (feature branches, PRs) |
-| Cloud | Git est cloud-native, ClearCase est on-premise |
-| Maintenance | Infrastructure ClearCase complexe (VOB servers, view servers) |
+**Pourquoi migrer ?**
 
-### Défis de la migration
+- **Coût** : licences ClearCase très élevées vs Git gratuit
+- **Performance** : Git est beaucoup plus rapide (opérations locales)
+- **Écosystème** : intégration native avec CI/CD modernes (Jenkins, GitLab CI, GitHub Actions)
+- **Recrutement** : la majorité des développeurs connaît Git, très peu ClearCase
+- **Agilité** : Git flow, feature branches, pull requests
+- **Cloud** : hébergement cloud facile (GitHub, GitLab, Bitbucket)
 
-La migration n'est pas triviale car les modèles sont fondamentalement différents :
+**Défis de la migration :**
 
-#### 1. Versionnement par fichier vs par commit
-ClearCase version chaque fichier indépendamment. Git crée des snapshots atomiques du projet entier. Il faut **reconstruire des commits** à partir des versions individuelles.
+- Mapping des concepts (VOB → repo, branch → branch, label → tag)
+- Historique : conserver ou non l'historique complet
+- Vues dynamiques : pas d'équivalent direct dans Git
+- UCM activities : mapper vers des commits/branches Git
+- Taille des repos : ClearCase supporte des repos énormes, Git non
 
-#### 2. Historique des branches
-ClearCase peut avoir des milliers de branches par fichier. Migrer tout l'historique peut être très long et produire un repo Git énorme.
+### Installation sur Linux (Ubuntu/Debian)
 
-#### 3. Vues dynamiques
-Les vues dynamiques n'ont pas d'équivalent Git. Les développeurs doivent s'adapter à un workflow local.
+#### Outils de migration
 
-#### 4. Fichiers binaires volumineux
-ClearCase gère bien les gros binaires. Git nécessite Git LFS pour les fichiers volumineux.
+\\\`\\\`\\\`bash
+# Installer Git
+sudo apt update
+sudo apt install -y git git-lfs
 
-#### 5. Permissions granulaires
-ClearCase permet des ACL par fichier/répertoire. Git n'a pas d'équivalent natif (solutions : CODEOWNERS, branch protection, server-side hooks).
+# Configurer Git LFS pour les gros fichiers binaires
+git lfs install
 
-### Stratégies de migration
+# Installer git-cc (bridge ClearCase-Git open source)
+git clone https://github.com/charleso/git-cc.git /opt/git-cc
+cd /opt/git-cc
+pip install -r requirements.txt
+sudo ln -s /opt/git-cc/git-cc /usr/local/bin/git-cc
 
-#### Stratégie 1 : Big Bang
-- Migrer tout en une fois
-- Avantage : simple, propre
-- Inconvénient : risqué pour les gros projets
+# Installer cc2git (alternative)
+git clone https://github.com/niclasr/cc2git.git /opt/cc2git
+pip3 install -r /opt/cc2git/requirements.txt
 
-#### Stratégie 2 : Parallèle (bridge)
-- ClearCase et Git coexistent pendant une période de transition
-- Un pont (bridge) synchronise les deux
-- Avantage : migration progressive, moins risquée
-- Inconvénient : complexité de maintenir deux systèmes
+# IBM Rational Bridge (outil officiel IBM)
+# Disponible dans le package Rational Team Concert (RTC)
+# Installation via IBM Installation Manager
 
-#### Stratégie 3 : Par composant
-- Migrer les composants un par un
-- Commencer par les moins critiques
-- Avantage : apprentissage progressif, risque limité
-- Inconvénient : plus long, interfaces entre les deux systèmes
+# Installer git-filter-repo pour nettoyage post-migration
+pip3 install git-filter-repo
+\\\`\\\`\\\`
 
-### Outils de migration
+### Architecture et composants
 
-#### git-cc (ClearCase to Git bridge)
-\`\`\`bash
-# Installation
-pip install git-cc
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────┐
+│              Stratégie de Migration ClearCase → Git               │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  Phase 1: Analyse          Phase 2: Migration    Phase 3: Valid. │
+│  ┌──────────────────┐     ┌──────────────────┐  ┌────────────┐ │
+│  │ Inventaire VOBs  │     │ Export historique │  │ Tests      │ │
+│  │ Mapping concepts │ ──▶ │ Conversion       │──▶│ Validation │ │
+│  │ Choix stratégie  │     │ Nettoyage        │  │ Formation  │ │
+│  │ Planning         │     │ Push Git         │  │ Cutover    │ │
+│  └──────────────────┘     └──────────────────┘  └────────────┘ │
+│                                                                   │
+│  ┌───────────────────────────────────────────────────────────┐   │
+│  │           Mapping des concepts                             │   │
+│  ├─────────────────────┬─────────────────────────────────────┤   │
+│  │ ClearCase           │ Git                                  │   │
+│  ├─────────────────────┼─────────────────────────────────────┤   │
+│  │ VOB                 │ Repository (un ou plusieurs)         │   │
+│  │ Element (fichier)   │ Fichier tracké                       │   │
+│  │ Version             │ Commit (snapshot complet)            │   │
+│  │ Branch              │ Branch                               │   │
+│  │ Label               │ Tag                                  │   │
+│  │ Config Spec         │ .gitattributes + branch switch       │   │
+│  │ View                │ Working directory (clone)            │   │
+│  │ Checkout/Checkin    │ git add + git commit                 │   │
+│  │ UCM Activity        │ Feature branch + commits             │   │
+│  │ UCM Stream          │ Long-lived branch                    │   │
+│  │ UCM Deliver         │ Pull Request / Merge Request         │   │
+│  │ UCM Rebase          │ git rebase / git merge               │   │
+│  │ UCM Baseline        │ Tag                                  │   │
+│  │ Trigger             │ Git hook                             │   │
+│  └─────────────────────┴─────────────────────────────────────┘   │
+│                                                                   │
+│  Stratégies de migration :                                        │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐   │
+│  │  Big Bang    │  │ Incrémental  │  │  Coexistence         │   │
+│  │  (cutover    │  │ (par module) │  │  (bridge bidirec.)   │   │
+│  │   unique)    │  │              │  │                      │   │
+│  └──────────────┘  └──────────────┘  └──────────────────────┘   │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
 
-# Configuration
-git cc init --clearcase /vobs/project --branch main
+### Commandes essentielles
 
-# Migration de l'historique
-git cc migrate --since "01-Jan-2020" --branch main
+#### Analyse pré-migration
 
-# Migration incrémentale (synchronisation)
-git cc pull  # ClearCase → Git
-git cc push  # Git → ClearCase
-\`\`\`
+\\\`\\\`\\\`bash
+# Inventaire des VOBs et taille
+cleartool lsvob -long | grep -E "tag|pool|size"
+cleartool space -all /vobs/projet_alpha
 
-#### cleartool + scripts custom
+# Compter les éléments
+cleartool find /vobs/projet_alpha -type f -print | wc -l
+cleartool find /vobs/projet_alpha -type d -print | wc -l
 
-Approche manuelle mais contrôlée :
+# Lister toutes les branches
+cleartool lstype -kind brtype -invob /vobs/projet_alpha -short
 
-\`\`\`bash
+# Lister tous les labels
+cleartool lstype -kind lbtype -invob /vobs/projet_alpha -short
+
+# Identifier les gros fichiers binaires (candidats Git LFS)
+cleartool find /vobs/projet_alpha -type f -name "*.dll" -print
+cleartool find /vobs/projet_alpha -type f -name "*.lib" -print
+cleartool find /vobs/projet_alpha -type f -name "*.exe" -print
+
+# Historique et activité
+cleartool lshistory -recurse -since 01-Jan-2020 /vobs/projet_alpha | wc -l
+
+# Identifier les fichiers les plus modifiés
+cleartool lshistory -recurse /vobs/projet_alpha | \\
+  grep "checkin" | awk '{print $NF}' | sort | uniq -c | sort -rn | head -20
+\\\`\\\`\\\`
+
+#### Export avec git-cc
+
+\\\`\\\`\\\`bash
+# Configuration git-cc
+cd /workspace/migration
+git init projet_alpha_git
+cd projet_alpha_git
+
+# Configurer git-cc
+cat > .git/gitcc << EOF
+[core]
+  clearcase = /vobs/projet_alpha
+  branches = main|dev_.*|release_.*
+  include = src/|include/|docs/
+  exclude = build/|tmp/|*.o
+[user]
+  name = Migration Bot
+  email = migration@company.com
+EOF
+
+# Lancer l'export (peut prendre des heures)
+git-cc init
+git-cc rebase  # Import depuis ClearCase vers Git
+
+# Vérifier l'historique importé
+git log --oneline | head -20
+git branch -a
+git tag -l
+\\\`\\\`\\\`
+
+#### Export manuel avec scripts
+
+\\\`\\\`\\\`bash
 #!/bin/bash
-# Script de migration : extraire l'historique d'un VOB vers Git
+# Script de migration manuelle ClearCase → Git
+# migrate_cc_to_git.sh
 
-VOB_PATH="/vobs/project"
-GIT_REPO="/tmp/migrated_project"
+VOB="/vobs/projet_alpha"
+GIT_REPO="/workspace/migration/projet_alpha"
 BRANCH="main"
 
 # Initialiser le repo Git
-mkdir -p $GIT_REPO && cd $GIT_REPO
+mkdir -p $GIT_REPO
+cd $GIT_REPO
 git init
 
-# Pour chaque baseline (point de référence)
-for baseline in $(cleartool lsbl -stream project_int@/vobs/pvob -fmt "%n\\n"); do
-    echo "Processing baseline: $baseline"
-    
-    # Configurer une vue sur cette baseline
-    cleartool setcs -tag migration_view << EOF
-element * $baseline
+# Exporter la baseline courante (snapshot)
+echo "Export de la baseline courante..."
+cleartool setview -exec "cp -r $VOB/src ." migration_view
+cleartool setview -exec "cp -r $VOB/include ." migration_view
+
+# Ajouter au repo Git
+git add .
+git commit -m "Initial import from ClearCase baseline BL_CURRENT"
+
+# Exporter les labels comme tags
+for label in $(cleartool lstype -kind lbtype -invob $VOB -short); do
+  echo "Processing label: $label"
+  
+  # Appliquer config spec avec le label
+  cat > /tmp/cs_$label << EOF2
+element * $label
 element * /main/LATEST
-EOF
-    
-    # Copier les fichiers
-    rsync -av --exclude='.@@' /view/migration_view$VOB_PATH/ $GIT_REPO/
-    
-    # Récupérer la date et l'auteur
-    DATE=$(cleartool lsbl -fmt "%d" $baseline@/vobs/pvob)
-    AUTHOR=$(cleartool lsbl -fmt "%u" $baseline@/vobs/pvob)
-    
-    # Commit Git
-    git add -A
-    git commit --date="$DATE" --author="$AUTHOR <$AUTHOR@company.com>" \\
-      -m "Baseline: $baseline"
-    
-    # Tag
-    git tag "$baseline"
+EOF2
+  
+  cleartool setcs -tag migration_view /tmp/cs_$label
+  
+  # Copier et committer
+  rsync -a --delete $VOB/src/ $GIT_REPO/src/
+  git add -A
+  git commit -m "Label: $label" --allow-empty
+  git tag "$label"
 done
-\`\`\`
 
-#### Migration avec préservation de l'historique complet
+echo "Migration terminée. $(git log --oneline | wc -l) commits créés."
+\\\`\\\`\\\`
 
-\`\`\`python
-#!/usr/bin/env python3
-"""
-Script de migration ClearCase → Git avec historique
-Reconstruit les commits à partir des events ClearCase
-"""
-import subprocess
-import json
-from datetime import datetime
+#### Migration des branches
 
-def get_clearcase_history(vob_path, since_date):
-    """Récupère l'historique des checkins"""
-    cmd = f'cleartool lshistory -recurse -since {since_date} ' \\
-          f'-fmt "%u|%d|%n|%o|%Nc\\n" {vob_path}'
-    result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
-    
-    events = []
-    for line in result.stdout.strip().split('\\n'):
-        parts = line.split('|')
-        if len(parts) >= 5:
-            events.append({
-                'user': parts[0],
-                'date': parts[1],
-                'element': parts[2],
-                'operation': parts[3],
-                'comment': parts[4]
-            })
-    return events
+\\\`\\\`\\\`bash
+#!/bin/bash
+# Script migration branches ClearCase → Git
 
-def group_by_activity(events):
-    """Regroupe les events par activité (= futur commit)"""
-    # Logique de regroupement par proximité temporelle et utilisateur
-    # ...
-    pass
+VOB="/vobs/projet_alpha"
+GIT_REPO="/workspace/migration/projet_alpha"
 
-def create_git_commits(grouped_events, git_repo):
-    """Crée les commits Git à partir des groupes"""
-    for group in grouped_events:
-        # Checkout les bonnes versions
-        # git add les fichiers modifiés
-        # git commit avec date et auteur originaux
-        pass
-\`\`\`
-
-### Mapping des concepts
-
-| ClearCase | Git | Notes |
-|-----------|-----|-------|
-| VOB | Repository | Un VOB = un repo (ou plusieurs) |
-| View | Working directory | Plus besoin de serveur de vues |
-| Config Spec | .gitconfig / checkout | Pas d'équivalent direct |
-| Label | Tag | Tag annoté recommandé |
-| Branch (file-level) | Branch (repo-level) | Changement conceptuel majeur |
-| Checkout/Checkin | Stage/Commit | Pas de verrouillage en Git |
-| UCM Activity | Commit ou PR | Un commit = un changement atomique |
-| UCM Deliver | Merge/Pull Request | Code review possible avec PR |
-| UCM Rebase | git pull / git rebase | Récupérer les changements upstream |
-| Trigger | Git hook | pre-commit, pre-push, server-side |
-| MultiSite | Remote (origin) | Push/Pull natif |
-
-### Plan de migration type
-
-\`\`\`
-Phase 1 - Préparation (2-4 semaines)
-├── Audit du VOB : taille, nombre de fichiers, branches actives
-├── Choix de la stratégie (big bang, parallèle, par composant)
-├── Choix de l'hébergement Git (GitLab, GitHub, Bitbucket)
-├── Formation des équipes à Git
-└── Mise en place de l'infrastructure Git
-
-Phase 2 - Migration pilote (2-4 semaines)
-├── Migrer un composant non-critique
-├── Valider le workflow Git avec l'équipe
-├── Ajuster les outils CI/CD
-└── Documenter les différences de workflow
-
-Phase 3 - Migration principale (4-8 semaines)
-├── Migration composant par composant
-├── Validation de chaque migration (build, tests)
-├── Période de gel ClearCase → Git uniquement
-└── Support intensif aux équipes
-
-Phase 4 - Décommissionnement (2-4 semaines)
-├── Archivage des VOBs (lecture seule)
-├── Suppression des vues
-├── Arrêt des serveurs ClearCase
-└── Documentation finale
-\`\`\`
-
-### Bonnes pratiques post-migration
-
-1. **Git LFS** pour les fichiers binaires (remplace le stockage VOB)
-2. **Branch protection** pour remplacer les triggers de validation
-3. **CODEOWNERS** pour les permissions par répertoire
-4. **Conventional commits** pour remplacer les commentaires structurés
-5. **CI/CD pipelines** pour remplacer les triggers post-checkin
-6. **Mono-repo vs multi-repo** : décision architecturale importante`,
-
-      practiceContent: `### Travaux Pratiques : Migration ClearCase vers Git
-
-#### TP 1 : Audit d'un VOB avant migration
-
-\`\`\`bash
-# Compter le nombre de fichiers
-cleartool find /vobs/project -type f -print | wc -l
-
-# Compter les branches actives
-cleartool lstype -kind brtype -short /vobs/project | wc -l
-
-# Identifier les gros fichiers binaires (candidats Git LFS)
-cleartool find /vobs/project -type f -name "*.dll" -o -name "*.exe" \\
-  -o -name "*.lib" -o -name "*.zip" -print
-
-# Lister les labels (futurs tags Git)
-cleartool lstype -kind lbtype -short /vobs/project
-
-# Taille totale du VOB
-cleartool space -vob /vobs/project
-\`\`\`
-
-#### TP 2 : Extraire un snapshot pour migration
-
-\`\`\`bash
-# Créer le repo Git cible
-mkdir /tmp/migrated && cd /tmp/migrated
-git init
-
-# Extraire l'état actuel de la branche main
-cleartool setcs -tag export_view << EOF
+# Pour chaque branche ClearCase active
+for branch in $(cleartool lstype -kind brtype -invob $VOB -short | grep -v "^main$"); do
+  echo "=== Migration branche: $branch ==="
+  
+  cd $GIT_REPO
+  git checkout -b "$branch" main
+  
+  # Config spec pour cette branche
+  cat > /tmp/cs_branch << EOF
+element * CHECKEDOUT
+element * .../$branch/LATEST
 element * /main/LATEST
 EOF
+  
+  cleartool setcs -tag migration_view /tmp/cs_branch
+  
+  # Synchroniser
+  rsync -a --delete --exclude='.git' \\
+    /view/migration_view$VOB/src/ $GIT_REPO/src/
+  
+  git add -A
+  if ! git diff --cached --quiet; then
+    git commit -m "Import branch $branch from ClearCase"
+  fi
+done
 
-# Copier (en excluant les métadonnées ClearCase)
-rsync -av --exclude='*.contrib' --exclude='.@@' \\
-  /view/export_view/vobs/project/ /tmp/migrated/
+git checkout main
+echo "Branches migrées: $(git branch | wc -l)"
+\\\`\\\`\\\`
 
-# Premier commit
-git add -A
-git commit -m "Initial migration from ClearCase /main/LATEST"
-\`\`\`
+#### Post-migration et nettoyage
 
-#### TP 3 : Configurer Git LFS pour les binaires
-
-\`\`\`bash
-# Installer Git LFS
-git lfs install
-
-# Identifier les fichiers binaires
-find . -name "*.dll" -o -name "*.exe" -o -name "*.so" -o -name "*.jar"
-
-# Configurer le tracking LFS
-git lfs track "*.dll"
-git lfs track "*.exe"
-git lfs track "*.so"
-git lfs track "*.jar"
-git lfs track "*.zip"
-
-# Commiter la configuration
+\\\`\\\`\\\`bash
+# Configurer .gitattributes pour LFS
+cat > .gitattributes << EOF
+*.dll filter=lfs diff=lfs merge=lfs -text
+*.lib filter=lfs diff=lfs merge=lfs -text
+*.exe filter=lfs diff=lfs merge=lfs -text
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.pdf filter=lfs diff=lfs merge=lfs -text
+EOF
 git add .gitattributes
 git commit -m "Configure Git LFS for binary files"
-\`\`\`
 
-#### TP 4 : Mapper les labels vers des tags Git
+# Nettoyer l'historique (supprimer fichiers sensibles)
+git filter-repo --path-glob '*.bak' --invert-paths
+git filter-repo --path build/ --invert-paths
 
-\`\`\`bash
-# Pour chaque label important, créer un tag Git
-for label in RELEASE_1.0 RELEASE_1.1 RELEASE_2.0; do
-    echo "Processing label: $label"
-    
-    # Extraire la version labelisée
-    cleartool setcs -tag export_view << EOF
+# Configurer .gitignore
+cat > .gitignore << EOF
+# Build artifacts
+build/
+*.o
+*.obj
+*.exe
+*.dll
+
+# ClearCase artifacts
+*.contrib
+*.keep
+lost+found/
+EOF
+git add .gitignore
+git commit -m "Add .gitignore"
+
+# Pousser vers le serveur Git distant
+git remote add origin git@gitlab.company.com:team/projet_alpha.git
+git push -u origin --all
+git push origin --tags
+\\\`\\\`\\\`
+
+### Configuration
+
+#### Configuration de coexistence (période de transition)
+
+\\\`\\\`\\\`bash
+# Script de synchronisation bidirectionnelle (pont)
+# sync_cc_git.sh - À exécuter par cron
+#!/bin/bash
+LOCK_FILE="/tmp/cc_git_sync.lock"
+
+if [ -f "$LOCK_FILE" ]; then
+  echo "Sync already running"
+  exit 1
+fi
+touch $LOCK_FILE
+
+# Sync ClearCase → Git
+cd /workspace/bridge/projet
+git-cc rebase
+
+# Sync Git → ClearCase (si nécessaire)
+git-cc checkin
+
+rm $LOCK_FILE
+
+# Cron configuration
+# */30 * * * * /opt/scripts/sync_cc_git.sh >> /var/log/cc_git_sync.log 2>&1
+\\\`\\\`\\\`
+
+#### Configuration Git pour l'équipe post-migration
+
+\\\`\\\`\\\`bash
+# Template de hook pre-commit (remplace les triggers ClearCase)
+cat > .git/hooks/pre-commit << 'EOF'
+#!/bin/bash
+# Vérifier le format du message de commit
+# Équivalent du trigger ClearCase check_comment
+
+# Pas de fichiers binaires non-LFS
+for file in $(git diff --cached --name-only); do
+  if file "$file" | grep -q "binary"; then
+    if ! git lfs ls-files | grep -q "$file"; then
+      echo "ERREUR: fichier binaire $file non géré par LFS"
+      exit 1
+    fi
+  fi
+done
+exit 0
+EOF
+chmod +x .git/hooks/pre-commit
+\\\`\\\`\\\`
+
+### Bonnes pratiques
+
+1. **Migrer par phases** : commencez par un module pilote, pas tout d'un coup
+2. **Conservez un snapshot** de l'historique ClearCase (archive) même si vous ne migrez pas tout
+3. **Git LFS** pour tous les binaires > 1 Mo
+4. **Formez les équipes** sur Git avant le cutover (workflow très différent)
+5. **Période de gel** : arrêtez les développements sur ClearCase pendant le cutover
+6. **Validation exhaustive** : comparez checksums entre ClearCase et Git après migration
+7. **Gardez ClearCase en lecture seule** pendant 3-6 mois comme référence
+8. **Mappez UCM vers GitFlow** : stream intégration → main/develop, stream dev → feature branches
+9. **Automatisez les tests** post-migration pour valider que le code compile et passe les tests
+10. **Documentation** : créez un guide de correspondance CC→Git pour les développeurs`,
+
+      practiceContent: `## Travaux Pratiques - Migration ClearCase vers Git
+
+### TP 1 : Analyse de l'existant ClearCase
+
+\\\`\\\`\\\`bash
+# 1. Inventaire complet
+echo "=== Inventaire VOB ==="
+cleartool lsvob
+
+# 2. Statistiques
+echo "=== Statistiques ==="
+cleartool find /vobs/tp_formation -type f -print | wc -l
+echo "Fichiers trouvés"
+
+cleartool lstype -kind brtype -invob /vobs/tp_formation -short | wc -l
+echo "Branches"
+
+cleartool lstype -kind lbtype -invob /vobs/tp_formation -short | wc -l
+echo "Labels"
+
+# 3. Identifier les binaires
+echo "=== Fichiers binaires ==="
+cleartool find /vobs/tp_formation -type f \\( -name "*.dll" -o -name "*.exe" -o -name "*.jar" \\) -print
+
+# 4. Activité récente
+echo "=== Activité derniers 30 jours ==="
+cleartool lshistory -recurse -since $(date -d "30 days ago" +%d-%b-%Y) /vobs/tp_formation | grep checkin | wc -l
+\\\`\\\`\\\`
+
+### TP 2 : Migration snapshot (baseline courante)
+
+\\\`\\\`\\\`bash
+# 1. Préparer le repo Git
+mkdir -p /workspace/migration/tp_project
+cd /workspace/migration/tp_project
+git init
+git lfs install
+
+# 2. Exporter depuis ClearCase (via vue snapshot)
+cleartool mkview -snapshot -tag migration_snap \\
+  -vws /var/adm/clearcase/views/migration_snap.vws \\
+  /tmp/migration_snap
+
+cd /tmp/migration_snap
+cleartool update .
+
+# 3. Copier vers Git (exclure métadonnées CC)
+rsync -av --exclude='.copyarea.db' \\
+  --exclude='lost+found' \\
+  /tmp/migration_snap/vobs/tp_formation/ \\
+  /workspace/migration/tp_project/
+
+# 4. Configurer LFS et committer
+cd /workspace/migration/tp_project
+echo "*.jar filter=lfs diff=lfs merge=lfs -text" > .gitattributes
+git add .
+git commit -m "Initial migration from ClearCase"
+
+# 5. Vérifier
+git log --stat
+du -sh .git
+\\\`\\\`\\\`
+
+### TP 3 : Migration avec historique (labels → tags)
+
+\\\`\\\`\\\`bash
+# 1. Script de migration des labels
+cd /workspace/migration/tp_project
+
+for label in REL_1_0 REL_1_1 REL_2_0; do
+  echo "Migrating label: $label"
+  
+  # Appliquer config spec avec label
+  cat > /tmp/cs_migration << EOF
 element * $label
 element * /main/LATEST
 EOF
-    
-    rsync -av --delete --exclude='.@@' \\
-      /view/export_view/vobs/project/ /tmp/migrated/
-    
-    git add -A
-    git commit -m "Label: $label" --allow-empty
-    git tag -a "$label" -m "Migrated from ClearCase label $label"
+  cleartool setcs -tag migration_snap /tmp/cs_migration
+  cleartool update -f /tmp/migration_snap
+  
+  # Sync vers Git
+  rsync -a --delete --exclude='.git' --exclude='.copyarea.db' \\
+    /tmp/migration_snap/vobs/tp_formation/ \\
+    /workspace/migration/tp_project/
+  
+  git add -A
+  git commit -m "ClearCase label: $label" --allow-empty
+  git tag "$label" -m "Migrated from ClearCase label $label"
 done
-\`\`\`
 
-#### TP 5 : Configurer les hooks Git (remplacement des triggers)
+# 2. Vérifier les tags
+git tag -l
+git log --oneline --decorate
+\\\`\\\`\\\`
 
-\`\`\`bash
-# pre-commit hook : vérifier le format du message
+### TP 4 : Validation post-migration
+
+\\\`\\\`\\\`bash
+# 1. Comparer le contenu
+echo "=== Validation ==="
+
+# Checksum ClearCase
+find /tmp/migration_snap/vobs/tp_formation/src -type f -exec md5sum {} \\; | sort > /tmp/cc_checksums.txt
+
+# Checksum Git
+find /workspace/migration/tp_project/src -type f -exec md5sum {} \\; | sort > /tmp/git_checksums.txt
+
+# Comparer
+diff /tmp/cc_checksums.txt /tmp/git_checksums.txt
+if [ $? -eq 0 ]; then
+  echo "VALIDATION OK: contenus identiques"
+else
+  echo "ATTENTION: différences détectées"
+  diff /tmp/cc_checksums.txt /tmp/git_checksums.txt | head -20
+fi
+
+# 2. Compter les fichiers
+CC_COUNT=$(find /tmp/migration_snap/vobs/tp_formation/src -type f | wc -l)
+GIT_COUNT=$(find /workspace/migration/tp_project/src -type f | wc -l)
+echo "ClearCase: $CC_COUNT fichiers, Git: $GIT_COUNT fichiers"
+
+# 3. Vérifier que le build fonctionne
+cd /workspace/migration/tp_project
+make clean && make all
+\\\`\\\`\\\`
+
+### TP 5 : Configuration Git post-migration
+
+\\\`\\\`\\\`bash
+# 1. Configurer le workflow Git
+cd /workspace/migration/tp_project
+
+# Branching strategy (GitFlow simplifié)
+git checkout -b develop
+git checkout -b release/1.0
+
+# 2. Hooks Git (remplaçant les triggers CC)
 cat > .git/hooks/commit-msg << 'EOF'
 #!/bin/bash
-# Équivalent du trigger ClearCase check_comment
-MSG=$(cat "$1")
-if ! echo "$MSG" | grep -qE "^(feat|fix|docs|refactor|test)(\(.+\))?: .+"; then
-    echo "ERREUR: Message non conforme au format Conventional Commits"
-    echo "Format attendu: type(scope): description"
-    echo "Exemple: feat(auth): implement user login"
-    exit 1
+MSG=$(cat $1)
+if ! echo "$MSG" | grep -qE "^(feat|fix|docs|refactor|test|chore)(\(.+\))?: .{10,}"; then
+  echo "Format: type(scope): description (min 10 chars)"
+  echo "Types: feat, fix, docs, refactor, test, chore"
+  exit 1
 fi
 EOF
 chmod +x .git/hooks/commit-msg
 
-# Tester
-git commit -m "bad message"  # Devrait échouer
-git commit -m "feat(auth): implement login"  # Devrait passer
-\`\`\`
+# 3. Push vers le serveur
+git remote add origin git@gitlab.company.com:team/tp_project.git
+git push -u origin --all
+git push origin --tags
 
-#### Questions de vérification
-- Combien de fichiers ont été migrés ?
-- Les tags Git correspondent-ils aux labels ClearCase ?
-- Git LFS est-il correctement configuré pour les binaires ?
-- Le hook commit-msg fonctionne-t-il ?`,
+echo "Migration complète!"
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
-        'Migration motivée par le coût, la performance, l\'écosystème moderne et le recrutement',
-        'Défi principal : versionnement par fichier (CC) vs par commit (Git)',
-        'Trois stratégies : Big Bang, Parallèle (bridge), Par composant',
-        'Git LFS remplace le stockage natif des binaires du VOB',
-        'Les triggers ClearCase sont remplacés par des Git hooks et la CI/CD',
-        'Plan type : Préparation → Pilote → Migration principale → Décommissionnement'
+        'Migration motivée par : coût licences, performance, écosystème moderne, recrutement',
+        'Mapping concepts : VOB→repo, label→tag, branch→branch, UCM activity→feature branch',
+        'Stratégies : Big Bang (cutover unique), incrémentale (par module), coexistence (bridge)',
+        'Outils : git-cc, cc2git, IBM Rational Bridge, scripts personnalisés',
+        'Git LFS indispensable pour les fichiers binaires (DLL, EXE, JAR)',
+        'Validation post-migration : checksums, nombre de fichiers, tests de build',
+        'Période de coexistence recommandée : ClearCase en lecture seule pendant 3-6 mois',
+        'Formation équipe obligatoire : workflow ClearCase très différent de Git',
+        'Hooks Git remplacent les triggers ClearCase (même logique, syntaxe différente)'
       ]) },
 
 
     // ==================== KLOCWORK ====================
-    { id: 'kw-01', courseId: 'klocwork', title: 'Introduction à Klocwork', duration: '2h30', orderIndex: 1,
-      theoryContent: `## Klocwork - Analyse statique avancée
+    { id: 'kw-01', courseId: 'klocwork', title: 'Introduction à Klocwork', duration: '4h', orderIndex: 1,
+      theoryContent: `## Introduction à Klocwork
 
-### Qu'est-ce que Klocwork ?
+### Présentation
 
-Klocwork (aujourd'hui **Perforce Klocwork**) est un outil d'analyse statique de code source conçu pour détecter les défauts de sécurité, de qualité et de fiabilité dans les langages **C, C++, C# et Java**. Il est utilisé dans les industries critiques comme l'aéronautique, l'automobile, le médical et la défense.
+**Klocwork** (maintenant Perforce Klocwork) est un outil d'**analyse statique de code** (SAST - Static Application Security Testing) de classe entreprise pour les langages C, C++, Java et C#. Il détecte les défauts critiques, les vulnérabilités de sécurité et les violations de standards de codage sans exécuter le code.
 
-### Pourquoi l'analyse statique ?
+Klocwork se distingue par :
 
-L'analyse statique examine le code source **sans l'exécuter**. Elle permet de :
+- **Analyse incrémentale** : analyse uniquement les fichiers modifiés (rapide en CI)
+- **Précision** : moteur d'analyse de flux de données inter-procédural avancé
+- **Standards** : support natif MISRA C/C++, CERT C/C++, CWE, OWASP, AUTOSAR
+- **Knowledge Base** : base de connaissance centralisée pour gérer les résultats
+- **Intégration IDE** : plugins pour Eclipse, Visual Studio, IntelliJ
+- **Desktop analysis** : analyse locale avant commit (shift-left)
 
-- **Détection précoce des bugs** (shift-left testing) : trouver les problèmes avant les tests
-- **Identification des vulnérabilités de sécurité** : avant même le déploiement
-- **Conformité aux standards** : MISRA, CERT, CWE, OWASP
-- **Réduction des coûts** : corriger un bug en phase de codage coûte 30x moins qu'en production
-- **Amélioration continue** : métriques et tendances dans le temps
+**Types de défauts détectés :**
 
-### Analyse statique vs Analyse dynamique
+| Catégorie | Exemples |
+|-----------|----------|
+| Buffer overflow | Dépassement de tableau, strcpy non sécurisé |
+| Null pointer | Déréférencement de pointeur NULL |
+| Memory leak | Fuite mémoire, ressource non libérée |
+| Concurrency | Race condition, deadlock potentiel |
+| Security | Injection SQL, XSS, path traversal |
+| Uninitialized var | Variable utilisée sans initialisation |
+| Dead code | Code inatteignable |
+| Resource leak | Fichier ouvert non fermé, socket non libéré |
 
-| Critère | Analyse statique | Analyse dynamique |
-|---------|-----------------|-------------------|
-| Exécution du code | Non | Oui |
-| Couverture | Tous les chemins | Chemins exécutés |
-| Phase | Développement | Tests |
-| Faux positifs | Plus nombreux | Moins nombreux |
-| Performance | Rapide | Dépend des tests |
-| Exemples | Klocwork, SonarQube | Valgrind, Sanitizers |
+### Installation sur Linux (Ubuntu/Debian)
 
-### Architecture de Klocwork
+#### Installation du serveur Klocwork
 
-L'architecture Klocwork se compose de plusieurs éléments :
+\\\`\\\`\\\`bash
+# Prérequis système
+sudo apt update
+sudo apt install -y openjdk-11-jdk postgresql-14 unzip wget
 
-\`\`\`
-┌─────────────────────────────────────────────────────┐
-│                    DÉVELOPPEUR                        │
-│  IDE (Eclipse, VS, IntelliJ) + Plugin Klocwork       │
-│  → kwcheck : analyse locale incrémentale             │
-└─────────────────────┬───────────────────────────────┘
-                      │
-                      ▼
-┌─────────────────────────────────────────────────────┐
-│                 SERVEUR KLOCWORK                      │
-│  kwbuildproject : analyse complète du projet          │
-│  Base de données des résultats                       │
-│  Dashboard web : visualisation et gestion            │
-└─────────────────────┬───────────────────────────────┘
-                      │
-                      ▼
-┌─────────────────────────────────────────────────────┐
-│              INTÉGRATION CI/CD                        │
-│  Jenkins, GitLab CI, Azure DevOps                    │
-│  Analyse automatique à chaque commit/merge           │
-└─────────────────────────────────────────────────────┘
-\`\`\`
+# Vérifier Java
+java -version
+# openjdk version "11.0.x"
 
-### Types de défauts détectés
+# Télécharger Klocwork (depuis le portail Perforce)
+wget https://downloads.perforce.com/klocwork/kw-server-2023.4-linux64.tar.gz
 
-**Sécurité :**
-- Buffer overflow (dépassement de tampon)
-- SQL Injection
-- Cross-Site Scripting (XSS)
-- Path Traversal
-- Command Injection
-- Use of dangerous functions (gets, strcpy, sprintf)
+# Extraire
+sudo mkdir -p /opt/klocwork
+sudo tar -xzf kw-server-2023.4-linux64.tar.gz -C /opt/klocwork
+sudo ln -s /opt/klocwork/kw-server-2023.4 /opt/klocwork/current
 
-**Fiabilité :**
-- Null pointer dereference (déréférencement de pointeur nul)
-- Resource leak (fuite de ressources : mémoire, fichiers, sockets)
-- Use after free (utilisation après libération)
-- Race condition (conditions de course multi-thread)
-- Division par zéro
-- Integer overflow
+# Ajouter au PATH
+echo 'export PATH=/opt/klocwork/current/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
 
-**Qualité :**
-- Code mort (unreachable code)
-- Variables non initialisées
-- Fonctions trop complexes
-- Violations de standards de codage
-- Code non conforme MISRA
+# Initialiser le serveur
+kwservice create-server /opt/klocwork/server \\
+  --port 8080 \\
+  --db-port 3306 \\
+  --license-host license.company.com \\
+  --license-port 27000
 
-### Klocwork vs autres outils d'analyse statique
+# Démarrer le serveur
+kwservice start --name klocwork-server /opt/klocwork/server
 
-| Critère | Klocwork | SonarQube | Coverity | PVS-Studio |
-|---------|----------|-----------|----------|------------|
-| Langages principaux | C/C++, Java, C# | 30+ langages | C/C++, Java, C# | C/C++, C#, Java |
-| Force | Embarqué/critique | Multi-langage | Profondeur analyse | C++ moderne |
-| MISRA | Support natif complet | Limité | Support complet | Support partiel |
-| Analyse inter-procédurale | Oui (Knowledge Base) | Limitée | Oui | Limitée |
-| IDE intégré | Eclipse, VS, IntelliJ | SonarLint | Pas de plugin IDE | VS, CLion |
-| Coût | $$$ (licence) | Gratuit (Community) | $$$ (licence) | $$ (licence) |
+# Vérifier
+kwservice status /opt/klocwork/server
+# Server running on port 8080
+\\\`\\\`\\\`
 
-### Versions et composants
+#### Installation des outils client (analyse)
 
-- **kwcheck** : Analyse locale incrémentale sur le poste du développeur
-- **kwbuildproject** : Analyse complète du projet sur le serveur
-- **kwadmin** : Administration du serveur Klocwork
-- **kwinject** : Capture des informations de compilation (build intercept)
-- **Klocwork Desktop** : Interface graphique pour développeurs
-- **Klocwork Review** : Interface web pour la gestion des résultats
-- **Klocwork Insight** : Plugin IDE pour analyse en temps réel`,
+\\\`\\\`\\\`bash
+# Télécharger les outils d'analyse
+wget https://downloads.perforce.com/klocwork/kw-analysis-2023.4-linux64.tar.gz
+sudo tar -xzf kw-analysis-2023.4-linux64.tar.gz -C /opt/klocwork
 
-      practiceContent: `### Travaux Pratiques : Installation et premier scan
+# PATH pour les outils d'analyse
+echo 'export PATH=/opt/klocwork/current/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
 
-#### Prérequis
-- Machine avec au moins 8 Go de RAM
-- Compilateur C/C++ installé (GCC, Clang ou MSVC)
-- Un projet C/C++ compilable (nous utiliserons un projet exemple)
-
-#### Étape 1 : Installation de Klocwork Desktop
-
-1. Téléchargez Klocwork depuis le portail Perforce
-2. Installez le package :
-\`\`\`bash
-# Linux
-chmod +x kw-installer-linux64.sh
-./kw-installer-linux64.sh --prefix /opt/klocwork
-
-# Ajoutez au PATH
-export PATH=/opt/klocwork/bin:$PATH
-\`\`\`
-
-3. Vérifiez l'installation :
-\`\`\`bash
-kwcheck --version
+# Vérifier l'installation
 kwinject --version
+kwcheck --version
 kwbuildproject --version
-\`\`\`
 
-#### Étape 2 : Préparer un projet exemple
+# Configuration client (connexion au serveur)
+kwauth --url http://kw-server:8080
+# Entrer utilisateur/mot de passe
+\\\`\\\`\\\`
 
-Créez un projet C avec des bugs intentionnels :
-\`\`\`c
-// example.c - Fichier avec des défauts volontaires
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#### Installation du plugin IDE (VS Code / Eclipse)
 
-// Bug 1 : Buffer overflow potentiel
-void process_input(char *user_input) {
-    char buffer[64];
-    strcpy(buffer, user_input);  // Pas de vérification de taille !
-    printf("Input: %s\\n", buffer);
-}
+\\\`\\\`\\\`bash
+# Plugin Eclipse - installer depuis le marketplace
+# Help > Eclipse Marketplace > Chercher "Klocwork"
 
-// Bug 2 : Null pointer dereference
-int* get_value(int condition) {
-    int *ptr = NULL;
-    if (condition > 0) {
-        ptr = malloc(sizeof(int));
-        *ptr = 42;
-    }
-    return ptr;  // Peut retourner NULL
-}
+# Plugin IntelliJ - installer depuis les préférences
+# Settings > Plugins > Marketplace > "Klocwork"
 
-// Bug 3 : Resource leak
-void read_file(const char *filename) {
-    FILE *f = fopen(filename, "r");
-    if (f == NULL) return;
-    
-    char buf[256];
-    fgets(buf, sizeof(buf), f);
-    printf("%s", buf);
-    // Oubli de fclose(f) → fuite de ressource !
-}
+# Configuration du plugin
+# Server URL: http://kw-server:8080
+# Project: nom_du_projet
+\\\`\\\`\\\`
 
-// Bug 4 : Integer overflow
-int multiply(int a, int b) {
-    return a * b;  // Pas de vérification d'overflow !
-}
+### Architecture et composants
 
-int main(int argc, char *argv[]) {
-    if (argc > 1) {
-        process_input(argv[1]);
-    }
-    
-    int *val = get_value(0);
-    printf("Value: %d\\n", *val);  // Déréférence NULL !
-    
-    read_file("test.txt");
-    
-    int result = multiply(2147483647, 2);  // Overflow !
-    return 0;
-}
-\`\`\`
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────┐
+│                  Klocwork Architecture                            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│   ┌──────────────────────────────────────────────────────┐       │
+│   │                Développeurs                           │       │
+│   │  ┌─────────┐  ┌─────────┐  ┌─────────────────────┐ │       │
+│   │  │  IDE +   │  │ kwcheck │  │  CI/CD Pipeline     │ │       │
+│   │  │  Plugin  │  │ (local) │  │  (kwinject+kwbuild) │ │       │
+│   │  └────┬─────┘  └────┬────┘  └──────────┬──────────┘ │       │
+│   └───────┼──────────────┼──────────────────┼────────────┘       │
+│           │              │                  │                     │
+│           ▼              ▼                  ▼                     │
+│   ┌──────────────────────────────────────────────────────┐       │
+│   │              Klocwork Server                          │       │
+│   │                                                       │       │
+│   │  ┌──────────┐  ┌──────────────┐  ┌──────────────┐   │       │
+│   │  │ Web UI   │  │  Analysis    │  │  Knowledge   │   │       │
+│   │  │ (port    │  │  Engine      │  │  Base (KB)   │   │       │
+│   │  │  8080)   │  │  (kwbuild)   │  │  (résultats) │   │       │
+│   │  └──────────┘  └──────────────┘  └──────────────┘   │       │
+│   │                                                       │       │
+│   │  ┌──────────┐  ┌──────────────┐  ┌──────────────┐   │       │
+│   │  │ Projects │  │  License     │  │  Database    │   │       │
+│   │  │ Config   │  │  Manager     │  │  (PostgreSQL)│   │       │
+│   │  └──────────┘  └──────────────┘  └──────────────┘   │       │
+│   └──────────────────────────────────────────────────────┘       │
+│                                                                   │
+│   Flux d'analyse :                                                │
+│   Source → kwinject (capture build) → kwbuildproject (analyse)    │
+│         → kwadmin load (charger résultats) → Web UI (consulter)  │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
 
-#### Étape 3 : Capturer le build avec kwinject
+### Commandes essentielles
 
-\`\`\`bash
-# Créez un Makefile simple
-cat > Makefile << 'EOF'
-CC=gcc
-CFLAGS=-Wall
+#### kwinject - Capture de la compilation
 
-all: example
+\\\`\\\`\\\`bash
+# kwinject intercepte les commandes de compilation pour savoir
+# quels fichiers compiler et avec quelles options
 
-example: example.c
-	$(CC) $(CFLAGS) -o example example.c
+# Avec Make
+kwinject make -j4
+# Génère kwinject.out (build specification)
 
-clean:
-	rm -f example
-EOF
+# Avec CMake
+kwinject cmake --build build/
+kwinject make -C build/
 
-# Capturez le build
-kwinject make all
-# Produit un fichier kwinject.out contenant les commandes de compilation
-ls -la kwinject.out
-\`\`\`
+# Avec gcc directement
+kwinject gcc -c -o main.o main.c -I/usr/include
 
-#### Étape 4 : Lancer l'analyse locale
+# Personnaliser le fichier de sortie
+kwinject --output /path/to/buildspec.out make all
 
-\`\`\`bash
-# Créez un projet local kwcheck
-kwcheck create --url http://localhost:8080/myproject
+# Mode trace (verbose)
+kwinject --trace-in make all
 
-# Importez les infos de build
-kwcheck import kwinject.out
+# Pour les projets Java (Maven)
+kwinject mvn compile
 
-# Lancez l'analyse
+# Pour les projets Java (Gradle)
+kwinject gradle build
+
+# Vérifier le buildspec généré
+cat kwinject.out | head -20
+\\\`\\\`\\\`
+
+#### kwcheck - Analyse locale (desktop)
+
+\\\`\\\`\\\`bash
+# Analyse locale rapide (sans serveur)
+kwcheck create --url http://kw-server:8080/project_name
+
+# Lancer l'analyse locale sur les fichiers modifiés
 kwcheck run
 
-# Affichez les résultats
+# Analyser un fichier spécifique
+kwcheck run -f src/main.c
+
+# Analyser avec un buildspec existant
+kwcheck run --build-spec kwinject.out
+
+# Lister les issues trouvées
 kwcheck list
+kwcheck list --severity 1,2   # Seulement critical et error
+kwcheck list --status Analyze  # Seulement les nouvelles
 
-# Résultat attendu :
-# ID  File        Line  Checker            Severity  Message
-# 1   example.c   8    SV.TAINTED.COPY    Critical  Buffer overflow...
-# 2   example.c   21   NPD.FUNC.MIGHT     Error     Null pointer...
-# 3   example.c   28   RESOURCE_LEAK      Error     Resource leak...
-# 4   example.c   34   INT.OVERFLOW       Warning   Integer overflow...
-\`\`\`
+# Détails d'une issue
+kwcheck info --id 42
 
-#### Étape 5 : Filtrer et trier les résultats
+# Format de sortie
+kwcheck list --report /tmp/report.xml --format xml
+kwcheck list --format json > issues.json
 
-\`\`\`bash
-# Filtrer par sévérité
-kwcheck list --severity Critical,Error
+# Filtrer par checker
+kwcheck list --checker BUFFER_OVERFLOW
+kwcheck list --checker "MISRA.*"
 
-# Filtrer par type de checker
-kwcheck list --checker NPD
-kwcheck list --checker "SV.*"
-
-# Afficher les détails d'une issue
-kwcheck show 1
-
-# Marquer une issue comme faux positif
-kwcheck set-status 4 "Not a Problem" --comment "Vérifié: les inputs sont validés en amont"
-\`\`\`
-
-#### Étape 6 : Corriger et re-analyser
-
-1. Corrigez les bugs dans example.c
-2. Relancez \`kwinject make all\`
-3. Relancez \`kwcheck run\`
-4. Vérifiez que les issues sont résolues`,
-
-      keyPoints: JSON.stringify([
-        'Klocwork analyse le code C, C++, C# et Java sans l\'exécuter',
-        'Détecte buffer overflow, null pointer, resource leak, race conditions, integer overflow',
-        'Architecture : kwcheck (local) + kwbuildproject (serveur) + Dashboard web',
-        'Conforme aux standards MISRA, CERT, CWE et OWASP',
-        'Le shift-left (analyse précoce) réduit les coûts de correction de 30x',
-        'kwinject capture les informations de compilation nécessaires à l\'analyse'
-      ]) },
-
-
-    { id: 'kw-02', courseId: 'klocwork', title: 'Configuration et checkers', duration: '3h', orderIndex: 2,
-      theoryContent: `## Configuration avancée de Klocwork
-
-### Comprendre les Checkers
-
-Les checkers sont les règles d'analyse de Klocwork. Chaque checker détecte un type spécifique de défaut. Ils sont organisés en **taxonomies** (familles de règles).
-
-### Principales taxonomies
-
-#### 1. C/C++ Critical Issues
-Défauts critiques pouvant causer des crashes ou des failles :
-- **NPD** (Null Pointer Dereference) : déréférencement d'un pointeur potentiellement nul
-- **MLK** (Memory Leak) : fuite de mémoire
-- **UFM** (Uninitialized Field in Module) : champ non initialisé
-- **ABV** (Array Bounds Violation) : dépassement de tableau
-- **NNTS** (Not Null Terminated String) : chaîne non terminée par un null
-- **SV** (Security Vulnerability) : vulnérabilités de sécurité diverses
-- **RCA** (Resource/Connection Abandoned) : ressource non libérée
-
-#### 2. MISRA C:2012 / MISRA C++:2008
-Standards obligatoires dans l'automobile et l'aéronautique :
-- **Règles obligatoires (Mandatory)** : doivent être respectées sans exception
-- **Règles requises (Required)** : doivent être respectées sauf dérogation documentée
-- **Règles conseillées (Advisory)** : recommandées mais non obligatoires
-- **Règles décidables** : vérifiables automatiquement par l'outil
-- **Règles indécidables** : nécessitent parfois une revue manuelle
-
-Exemples de règles MISRA détectées par Klocwork :
-\`\`\`
-MISRA.BITS.NOT_UNSIGNED    - Opérations bitwise sur types signés
-MISRA.CAST.PTR_TO_INT      - Cast d'un pointeur vers un entier
-MISRA.GOTO                 - Utilisation de goto interdite
-MISRA.SWITCH.NO_DEFAULT    - Switch sans cas default
-MISRA.RETURN.NOT_LAST      - Return qui n'est pas la dernière instruction
-MISRA.INIT.BRACES          - Initialisation sans accolades complètes
-MISRA.FUNC.PARAMS          - Déclaration de fonction sans prototype
-MISRA.DECL.ARRAY_SIZE      - Tableau sans taille explicite
-\`\`\`
-
-#### 3. CERT C/C++ Secure Coding
-Standards de sécurité du CERT (Carnegie Mellon University) :
-- **STR** : Manipulation sécurisée des chaînes de caractères
-- **MEM** : Gestion mémoire sécurisée (allocation, libération)
-- **INT** : Overflow et conversion sécurisée d'entiers
-- **FIO** : Entrées/sorties fichiers sécurisées
-- **ENV** : Variables d'environnement (pas de confiance)
-- **CON** : Programmation concurrente (race conditions)
-- **ERR** : Gestion des erreurs
-
-#### 4. CWE (Common Weakness Enumeration)
-Classification internationale des faiblesses logicielles :
-- CWE-120 : Buffer Copy without Checking Size of Input
-- CWE-476 : Null Pointer Dereference
-- CWE-401 : Missing Release of Memory after Effective Lifetime
-- CWE-362 : Concurrent Execution using Shared Resource with Improper Synchronization
-- CWE-89 : SQL Injection
-- CWE-79 : Cross-site Scripting (XSS)
-- CWE-22 : Path Traversal
-
-### Configuration des checkers
-
-#### Fichier de configuration .kwlp
-
-Le fichier .kwlp (Klocwork Local Project) permet de configurer les checkers :
-
-\`\`\`
-# Activer tous les checkers MISRA obligatoires
-+checker=MISRA.REQUIRED.*
-+checker=MISRA.MANDATORY.*
-
-# Activer les checkers CERT pour les chaînes et la mémoire
-+checker=CERT.STR.*
-+checker=CERT.MEM.*
-+checker=CERT.INT.*
-
-# Désactiver les checkers de style (trop verbeux)
--checker=STYLE.*
--checker=METRICS.*
--checker=CWARN.*
-
-# Configurer les sévérités personnalisées
-severity:MISRA.*=critical
-severity:CERT.*=error
-severity:CWE.*=error
-severity:NPD.*=critical
-severity:MLK.*=error
-
-# Exclure certains fichiers de l'analyse
-exclude:**/test/**
-exclude:**/third_party/**
-exclude:**/generated/**
-exclude:**/vendor/**
-
-# Inclure uniquement certains répertoires
-include:src/**
-include:lib/**
-\`\`\`
-
-#### Configuration par projet sur le serveur
-
-\`\`\`bash
-# Lister tous les checkers disponibles
-kwcheck list-checkers
-
-# Lister les checkers par taxonomie
-kwcheck list-checkers --taxonomy MISRA
-kwcheck list-checkers --taxonomy CERT
-
-# Activer un ensemble de checkers pour un projet serveur
-kwadmin set-project-property --url http://kw-server:8080/project \\
-  checkers "MISRA.REQUIRED,CERT.STR,CERT.MEM,NPD,MLK,ABV,SV"
-
-# Configurer la sévérité d'un checker
-kwadmin set-checker-severity --url http://kw-server:8080/project \\
-  MISRA.REQUIRED Critical
-
-# Désactiver un checker spécifique
-kwadmin disable-checker --url http://kw-server:8080/project CWARN.NORETURN
-\`\`\`
-
-### Analyse incrémentale vs complète
-
-#### kwcheck - Analyse locale incrémentale
-- S'exécute sur le poste du développeur
-- Analyse uniquement les fichiers modifiés depuis la dernière analyse
-- Résultats en quelques secondes à quelques minutes
-- Intégration IDE (Eclipse, Visual Studio, IntelliJ IDEA)
-- Idéal pour le feedback immédiat pendant le développement
-
-\`\`\`bash
-# Analyse des fichiers modifiés uniquement
-kwcheck run --incremental
-
-# Analyse d'un fichier spécifique
-kwcheck run --file src/main.c
-
-# Analyse avec un profil spécifique
-kwcheck run --config misra_profile.kwlp
-\`\`\`
+# Marquer un faux positif localement
+kwcheck set-status --id 42 --status "Not a Problem" --comment "Faux positif vérifié"
+\\\`\\\`\\\`
 
 #### kwbuildproject - Analyse serveur complète
-- S'exécute sur le serveur Klocwork dédié
-- Analyse l'intégralité du projet (tous les fichiers)
-- Analyse inter-procédurale complète (cross-file analysis)
-- Construit et met à jour la Knowledge Base
-- Résultats en minutes à heures selon la taille du projet
 
-\`\`\`bash
-# Analyse complète du projet sur le serveur
-kwbuildproject --url http://kw-server:8080/myproject \\
-  --tables-directory /path/to/tables \\
+\\\`\\\`\\\`bash
+# Créer un projet sur le serveur
+kwadmin create-project project_alpha \\
+  --url http://kw-server:8080
+
+# Lancer l'analyse complète
+kwbuildproject --url http://kw-server:8080/project_alpha \\
+  --tables-directory /tmp/kw_tables \\
   kwinject.out
 
-# Charger les résultats dans la base serveur
-kwadmin load myproject /path/to/tables
+# Charger les résultats sur le serveur
+kwadmin load project_alpha \\
+  --url http://kw-server:8080 \\
+  --tables-directory /tmp/kw_tables
 
-# Vérifier le statut
+# Analyse incrémentale (seulement les fichiers modifiés)
+kwbuildproject --url http://kw-server:8080/project_alpha \\
+  --tables-directory /tmp/kw_tables \\
+  --incremental \\
+  kwinject.out
+
+# Options avancées
+kwbuildproject --url http://kw-server:8080/project_alpha \\
+  --tables-directory /tmp/kw_tables \\
+  --jobs-num 8 \\
+  --license-wait \\
+  --force \\
+  kwinject.out
+
+# Vérifier les résultats via API
+curl -s "http://kw-server:8080/review/api/projects/project_alpha/issues?action=search" \\
+  -H "Authorization: Bearer \$TOKEN" | python3 -m json.tool
+\\\`\\\`\\\`
+
+#### kwadmin - Administration
+
+\\\`\\\`\\\`bash
+# Lister les projets
 kwadmin list-projects --url http://kw-server:8080
-\`\`\`
 
-### La Knowledge Base (KB)
+# Créer un projet
+kwadmin create-project nouveau_projet --url http://kw-server:8080
 
-La Knowledge Base est le cœur de l'analyse inter-procédurale de Klocwork. Elle maintient un modèle sémantique du programme :
+# Supprimer un projet
+kwadmin delete-project ancien_projet --url http://kw-server:8080
 
-1. **Flux de données** : comment les données circulent entre les fonctions
-2. **Contrats de fonctions** : pré-conditions et post-conditions automatiquement inférées
-3. **État des variables** : à chaque point du programme, quelles valeurs sont possibles
-4. **Graphe d'appels** : qui appelle quoi, avec quels paramètres
-5. **Alias analysis** : quels pointeurs peuvent pointer vers la même mémoire
+# Exporter les résultats
+kwadmin export-issues project_alpha \\
+  --url http://kw-server:8080 \\
+  --output issues_export.xml
 
-Exemple d'analyse inter-procédurale :
+# Importer une configuration de checkers
+kwadmin import-config project_alpha \\
+  --url http://kw-server:8080 \\
+  --file /path/to/checkers.conf
 
-\`\`\`c
-// Fichier a.c
-int* create_item(int type) {
-    if (type == 0) return NULL;  // KB note : peut retourner NULL
-    int *item = malloc(sizeof(int));
-    if (!item) return NULL;      // KB note : peut retourner NULL (2ème cas)
-    *item = type;
-    return item;
-}
+# Gestion des utilisateurs
+kwadmin create-user --name jean --url http://kw-server:8080
+kwadmin set-role --user jean --role reviewer --project project_alpha \\
+  --url http://kw-server:8080
 
-// Fichier b.c (analysé séparément mais KB connaît les contrats)
-void use_item(int type) {
-    int *item = create_item(type);
-    // KB détecte : NPD.FUNC.MIGHT car create_item peut retourner NULL
-    // dans deux cas différents (type==0 ou malloc échoue)
-    printf("%d\\n", *item);  // ← BUG détecté !
-}
-\`\`\`
+# Backup de la base de données
+kwadmin backup --url http://kw-server:8080 --output /backup/kw_backup.tar.gz
+\\\`\\\`\\\`
 
-### Annotations et suppressions
+### Configuration
 
-Vous pouvez guider Klocwork avec des annotations dans le code :
+#### Configuration des checkers (taxonomie)
 
-\`\`\`c
-// Annotation : paramètre ne doit jamais être NULL
-void process(/*@non_null@*/ const char *data);
+\\\`\\\`\\\`bash
+# Voir les checkers disponibles
+kwcheck list-checkers
 
-// Annotation : fonction alloue de la mémoire (appelant doit libérer)
-/*@allocates@*/ int* create_buffer(size_t size);
+# Configuration par fichier .kwlp (Klocwork Local Project)
+# .kwlp/workingcache/tables/analysis_profile.pconf
+# Ou via la ligne de commande :
 
-// Suppression d'un faux positif spécifique avec justification
-void safe_function(int *ptr) {
-    // klocwork suppress NPD.FUNC.MIGHT
-    // Justification: ptr est vérifié non-null par l'appelant (contrat API)
-    ptr->value = 42;
-}
+# Activer un checker
+kwcheck enable-checker BUFFER_OVERFLOW.TAINTED
+kwcheck enable-checker "MISRA.C.*"
 
-// Suppression par pragma (toute la fonction)
-#pragma klocwork_suppress NPD.FUNC.MIGHT "Vérifié par design"
-void another_function() {
-    // ...
-}
-\`\`\``,
+# Désactiver un checker
+kwcheck disable-checker CWARN.NOEFFECT
 
-      practiceContent: `### Travaux Pratiques : Configuration avancée
+# Configurer la sévérité
+kwcheck set-checker-severity BUFFER_OVERFLOW --severity 1
 
-#### TP 1 : Créer un profil MISRA C:2012
-
-1. Créez un fichier de configuration pour un projet automobile :
-\`\`\`bash
-cat > misra_profile.kwlp << 'EOF'
-# Profil MISRA C:2012 pour projet automobile
-# Toutes les règles obligatoires et requises
-+checker=MISRA.MANDATORY.*
-+checker=MISRA.REQUIRED.*
--checker=MISRA.ADVISORY.*
-
-# Sévérités strictes
-severity:MISRA.MANDATORY.*=critical
-severity:MISRA.REQUIRED.*=error
-
-# Exclure le code tiers et les tests
-exclude:**/vendor/**
-exclude:**/bsp/**
-exclude:**/test/**
-exclude:**/mock/**
+# Fichier de configuration des checkers (.conf)
+cat > checkers.conf << EOF
++BUFFER_OVERFLOW
++NULL_POINTER
++UNINIT_VAR
++RESOURCE_LEAK
++MISRA.C.2012.*
+-CWARN.CONSTCOND
+-CWARN.NOEFFECT
 EOF
-\`\`\`
 
-2. Appliquez le profil et lancez l'analyse :
-\`\`\`bash
-kwcheck import-config misra_profile.kwlp
-kwcheck run
-kwcheck list --severity Critical,Error
-\`\`\`
+kwcheck import-config checkers.conf
+\\\`\\\`\\\`
 
-3. Générez un rapport de conformité :
-\`\`\`bash
-kwcheck list --format csv --taxonomy MISRA > misra_report.csv
-echo "Nombre de violations MISRA :"
-wc -l misra_report.csv
-\`\`\`
+#### Configuration Knowledge Base
 
-#### TP 2 : Configurer les checkers CERT pour la sécurité
+\\\`\\\`\\\`bash
+# La Knowledge Base (KB) stocke les décisions sur les issues :
+# - Confirmed : vrai défaut à corriger
+# - Not a Problem : faux positif
+# - Fix in Next Release : accepté temporairement
+# - Fix in Later Release : dette technique
 
-1. Créez un profil CERT :
-\`\`\`bash
-cat > cert_security.kwlp << 'EOF'
-+checker=CERT.STR.*
-+checker=CERT.MEM.*
-+checker=CERT.INT.*
-+checker=CERT.FIO.*
-+checker=CERT.ERR.*
-+checker=CERT.CON.*
-severity:CERT.*=error
-EOF
-\`\`\`
+# Synchroniser la KB locale avec le serveur
+kwcheck sync --url http://kw-server:8080/project_alpha
 
-2. Créez un fichier de test avec des violations CERT intentionnelles :
-\`\`\`c
-// cert_test.c
-#include <string.h>
-#include <stdlib.h>
+# Exporter les statuts de la KB
+kwcheck export-status --output kb_export.json
+\\\`\\\`\\\`
+
+### Bonnes pratiques
+
+1. **kwinject à chaque build CI** : capturez le buildspec à jour
+2. **Analyse incrémentale** en CI pour la rapidité, complète le week-end
+3. **Intégration IDE** : activez kwcheck pour les développeurs (shift-left)
+4. **Quality Gate** : bloquez les merges si des issues Critical/Error sont trouvées
+5. **Traitez les faux positifs** : marquez-les dans la KB plutôt que les ignorer
+6. **Standards adaptés** : activez MISRA pour l'embarqué, CERT pour la sécurité
+7. **Revue régulière** : réunion hebdomadaire pour traiter les nouvelles issues
+8. **Trending** : suivez l'évolution du nombre d'issues dans le temps
+9. **Formation** : formez les développeurs aux patterns de défauts courants
+10. **Annotations** : utilisez les annotations Klocwork dans le code pour guider l'analyse`,
+
+      practiceContent: `## Travaux Pratiques - Introduction à Klocwork
+
+### TP 1 : Installation et premier scan
+
+\\\`\\\`\\\`bash
+# 1. Vérifier l'installation
+kwinject --version
+kwcheck --version
+
+# 2. Créer un projet de test avec des bugs intentionnels
+mkdir -p /workspace/kw_tp/src
+cat > /workspace/kw_tp/src/buggy.c << 'EOF'
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-// Violation CERT.STR31-C : Buffer overflow par strcpy
-void bad_string_copy(const char *input) {
-    char dest[10];
-    strcpy(dest, input);  // Pas de vérification de taille !
+// Bug 1: Buffer overflow
+void buffer_overflow() {
+    char buf[10];
+    strcpy(buf, "This string is way too long for the buffer");
+    printf("%s\\n", buf);
 }
 
-// Violation CERT.MEM35-C : cast inutile du retour de malloc en C
-void bad_allocation() {
-    int *p = (int*)malloc(sizeof(int));
-    *p = 5;
-    // Violation CERT.MEM51-C : memory leak (pas de free)
+// Bug 2: Null pointer dereference
+void null_deref(int *ptr) {
+    printf("Value: %d\\n", *ptr);  // ptr could be NULL
 }
 
-// Violation CERT.FIO42-C : fermeture de fichier manquante
-void bad_file_handling(const char *filename) {
-    FILE *f = fopen(filename, "r");
-    char buf[100];
-    fgets(buf, sizeof(buf), f);
-    printf("%s", buf);
-    // f n'est jamais fermé !
+// Bug 3: Memory leak
+void memory_leak() {
+    char *data = malloc(100);
+    strcpy(data, "leaked memory");
+    // Missing free(data)
 }
 
-// Violation CERT.INT32-C : integer overflow
-int bad_multiply(int a, int b) {
-    return a * b;  // Pas de vérification avant multiplication
+// Bug 4: Uninitialized variable
+void uninit_var() {
+    int x;
+    printf("Value: %d\\n", x);
 }
-\`\`\`
 
-3. Analysez et examinez les résultats :
-\`\`\`bash
-kwcheck import-config cert_security.kwlp
-kwinject gcc -c cert_test.c
+int main() {
+    buffer_overflow();
+    null_deref(NULL);
+    memory_leak();
+    uninit_var();
+    return 0;
+}
+EOF
+
+# 3. Compiler et capturer le build
+cd /workspace/kw_tp
+cat > Makefile << 'EOF'
+CC=gcc
+CFLAGS=-Wall -g
+all: buggy
+buggy: src/buggy.c
+	$(CC) $(CFLAGS) -o buggy src/buggy.c
+clean:
+	rm -f buggy
+EOF
+
+kwinject make all
+ls -la kwinject.out
+\\\`\\\`\\\`
+
+### TP 2 : Analyse locale avec kwcheck
+
+\\\`\\\`\\\`bash
+# 1. Créer un projet local
+cd /workspace/kw_tp
+kwcheck create --url http://kw-server:8080/tp_project \\
+  --build-spec kwinject.out
+
+# 2. Lancer l'analyse
+kwcheck run
+
+# 3. Lister les résultats
+echo "=== Issues trouvées ==="
+kwcheck list
+
+# 4. Filtrer par sévérité
+echo "=== Issues critiques ==="
+kwcheck list --severity 1
+
+echo "=== Issues error ==="
+kwcheck list --severity 1,2
+
+# 5. Détails d'un issue spécifique
+kwcheck info --id 1
+
+# 6. Export en JSON
+kwcheck list --format json > /workspace/kw_tp/results.json
+cat /workspace/kw_tp/results.json | python3 -m json.tool
+\\\`\\\`\\\`
+
+### TP 3 : Analyse serveur et Knowledge Base
+
+\\\`\\\`\\\`bash
+# 1. Créer le projet sur le serveur
+kwadmin create-project tp_project --url http://kw-server:8080
+
+# 2. Lancer l'analyse serveur
+kwbuildproject --url http://kw-server:8080/tp_project \\
+  --tables-directory /tmp/kw_tp_tables \\
+  kwinject.out
+
+# 3. Charger les résultats
+kwadmin load tp_project \\
+  --url http://kw-server:8080 \\
+  --tables-directory /tmp/kw_tp_tables
+
+# 4. Consulter via l'API
+curl -s "http://kw-server:8080/review/api/projects/tp_project/issues?action=search" | python3 -m json.tool
+
+# 5. Gérer un faux positif via la KB
+kwcheck set-status --id 3 \\
+  --status "Not a Problem" \\
+  --comment "Mémoire libérée par le processus à la sortie"
+
+# 6. Synchroniser avec le serveur
+kwcheck sync --url http://kw-server:8080/tp_project
+\\\`\\\`\\\`
+
+### TP 4 : Correction et re-analyse
+
+\\\`\\\`\\\`bash
+# 1. Corriger les bugs
+cat > /workspace/kw_tp/src/fixed.c << 'EOF'
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Fix 1: Buffer overflow corrigé
+void safe_copy() {
+    char buf[50];
+    strncpy(buf, "Safe string", sizeof(buf) - 1);
+    buf[sizeof(buf) - 1] = '\\0';
+    printf("%s\\n", buf);
+}
+
+// Fix 2: Null check
+void safe_deref(int *ptr) {
+    if (ptr != NULL) {
+        printf("Value: %d\\n", *ptr);
+    }
+}
+
+// Fix 3: Memory freed
+void no_leak() {
+    char *data = malloc(100);
+    if (data) {
+        strcpy(data, "no leak");
+        printf("%s\\n", data);
+        free(data);
+    }
+}
+
+// Fix 4: Variable initialized
+void init_var() {
+    int x = 0;
+    printf("Value: %d\\n", x);
+}
+
+int main() {
+    int val = 42;
+    safe_copy();
+    safe_deref(&val);
+    no_leak();
+    init_var();
+    return 0;
+}
+EOF
+
+# 2. Re-compiler et re-analyser
+kwinject make all
+kwcheck run
+
+# 3. Vérifier que les issues sont résolues
+kwcheck list
+echo "Issues restantes: $(kwcheck list 2>/dev/null | wc -l)"
+\\\`\\\`\\\`
+
+### TP 5 : Configuration des checkers
+
+\\\`\\\`\\\`bash
+# 1. Lister les checkers disponibles
+kwcheck list-checkers | head -30
+
+# 2. Activer les checkers MISRA
+kwcheck enable-checker "MISRA.C.2012.*"
+
+# 3. Re-analyser avec MISRA
+kwcheck run
+kwcheck list --checker "MISRA.*"
+
+# 4. Créer un profil personnalisé
+cat > /workspace/kw_tp/custom_checkers.conf << EOF
+# Checkers critiques activés
++BUFFER_OVERFLOW
++NULL_POINTER
++UNINIT_VAR
++RESOURCE_LEAK
++SECURITY.*
+# Warnings désactivés
+-CWARN.NOEFFECT
+-CWARN.CONSTCOND
+EOF
+
+kwcheck import-config /workspace/kw_tp/custom_checkers.conf
 kwcheck run
 kwcheck list
-\`\`\`
-
-#### TP 3 : Annotations et suppression de faux positifs
-
-1. Identifiez un faux positif dans vos résultats
-2. Ajoutez l'annotation de suppression appropriée :
-\`\`\`c
-// Exemple de suppression justifiée
-void validated_function(char *ptr) {
-    // klocwork suppress NPD.FUNC.MIGHT
-    // Justification: ptr est validé par check_params() appelé avant cette fonction
-    // Voir architecture doc section 4.2 pour le contrat d'appel
-    process(ptr->data);
-}
-\`\`\`
-3. Relancez l'analyse et vérifiez que la suppression fonctionne
-4. Documentez la raison dans un fichier de suivi des suppressions
-
-#### TP 4 : Comparer analyse locale vs serveur
-
-1. Lancez kwcheck run (analyse locale incrémentale)
-2. Comptez les issues trouvées
-3. Lancez kwbuildproject (analyse complète avec Knowledge Base)
-4. Comparez les résultats :
-   - L'analyse serveur trouve-t-elle plus de bugs inter-procéduraux ?
-   - Quels types de bugs supplémentaires sont détectés ?
-   - Quelle est la différence de temps d'exécution ?`,
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
-        'Les checkers sont organisés en taxonomies : MISRA, CERT, CWE, OWASP',
-        'MISRA C:2012 est obligatoire dans l\'automobile et l\'aéronautique (ASIL, DAL)',
-        'kwcheck (local, rapide, incrémental) vs kwbuildproject (serveur, complet, inter-procédural)',
-        'La Knowledge Base permet l\'analyse inter-procédurale entre fichiers et modules',
-        'Les annotations (@non_null, suppress) guident l\'analyse et documentent les faux positifs',
-        'Fichiers .kwlp pour configurer les checkers activés, sévérités et exclusions'
+        'Klocwork : analyse statique SAST pour C, C++, Java, C# (détection bugs et vulnérabilités)',
+        'Flux : kwinject (capture build) → kwbuildproject (analyse) → kwadmin load (résultats serveur)',
+        'kwcheck : analyse locale rapide pour les développeurs (shift-left testing)',
+        'Knowledge Base : base centralisée pour gérer statuts des issues (confirmed, not a problem)',
+        'Détecte : buffer overflow, null pointer, memory leak, race condition, injection SQL',
+        'Standards supportés : MISRA C/C++, CERT, CWE, OWASP, AUTOSAR',
+        'Analyse incrémentale en CI pour performance, complète périodiquement',
+        'Quality Gate : bloquer le merge si issues Critical/Error détectées'
       ]) },
 
 
-    { id: 'kw-03', courseId: 'klocwork', title: 'Intégration CI/CD et reporting', duration: '5h30', orderIndex: 3,
-      theoryContent: `## Intégration de Klocwork dans les pipelines CI/CD
+    { id: 'kw-02', courseId: 'klocwork', title: 'Configuration et checkers', duration: '4h', orderIndex: 2,
+      theoryContent: `## Configuration Avancée et Checkers Klocwork
 
-### Pourquoi intégrer Klocwork dans la CI/CD ?
+### Présentation
 
-L'intégration de l'analyse statique dans le pipeline de livraison continue garantit que **chaque modification de code** est automatiquement vérifiée. Cela permet de :
+La puissance de Klocwork réside dans sa capacité à être finement configuré pour chaque projet. Les **checkers** (analyseurs) sont les règles que Klocwork applique au code. Chaque checker détecte un type spécifique de défaut. La configuration des checkers permet d'adapter l'analyse au contexte du projet : embarqué (MISRA), sécurité (CERT/CWE), ou qualité générale.
 
-- Bloquer les merges qui introduisent des défauts critiques
-- Maintenir un historique des métriques de qualité
-- Assurer la conformité continue aux standards (MISRA, CERT)
-- Détecter les régressions de qualité immédiatement
-- Fournir un feedback rapide aux développeurs
+**Familles de checkers :**
 
-### Architecture CI/CD avec Klocwork
+| Famille | Description | Cible |
+|---------|-------------|-------|
+| MISRA C 2012 | Motor Industry Software Reliability Association | Embarqué automobile/aéro |
+| MISRA C++ 2008 | Version C++ du standard MISRA | C++ embarqué |
+| CERT C/C++ | Carnegie Mellon SEI coding standards | Sécurité logicielle |
+| CWE | Common Weakness Enumeration | Vulnérabilités connues |
+| OWASP | Open Web Application Security Project | Applications web |
+| AUTOSAR C++14 | Automotive Open System Architecture | Auto C++ |
+| Klocwork Native | Checkers propriétaires Klocwork | Qualité générale |
 
-\`\`\`
-┌─────────────────────────────────────────────────────────────┐
-│                    PIPELINE CI/CD                             │
-│                                                              │
-│  ┌──────┐   ┌───────┐   ┌──────────┐   ┌────────────────┐  │
-│  │ Git  │──→│ Build │──→│ kwinject │──→│ kwbuildproject │  │
-│  │ Push │   │       │   │ (capture)│   │ (analyse)      │  │
-│  └──────┘   └───────┘   └──────────┘   └───────┬────────┘  │
-│                                                  │           │
-│                                        ┌─────────▼────────┐ │
-│                                        │  Quality Gate     │ │
-│                                        │  Pass / Fail      │ │
-│                                        └─────────┬────────┘ │
-│                                                  │           │
-│                          ┌───────────────────────┼──────┐   │
-│                          │                       │      │   │
-│                          ▼                       ▼      │   │
-│                     Deploy (OK)            Block (FAIL)  │   │
-│                                           + Notify      │   │
-└─────────────────────────────────────────────────────────────┘
-\`\`\`
+### Installation sur Linux (Ubuntu/Debian)
 
-### Intégration avec Jenkins
+#### Configuration des profils de checkers
 
-#### Pipeline Jenkins complet
+\\\`\\\`\\\`bash
+# Lister tous les checkers disponibles par catégorie
+kwcheck list-checkers --category security
+kwcheck list-checkers --category reliability
+kwcheck list-checkers --category "MISRA C 2012"
+kwcheck list-checkers --category "CERT C"
 
-\`\`\`groovy
+# Compter les checkers par famille
+echo "=== Checkers disponibles ==="
+kwcheck list-checkers | grep -c "MISRA"
+kwcheck list-checkers | grep -c "CERT"
+kwcheck list-checkers | grep -c "CWE"
+kwcheck list-checkers | grep -c "AUTOSAR"
+
+# Créer un profil de base
+kwcheck create --url http://kw-server:8080/project_name
+\\\`\\\`\\\`
+
+#### Installation des packs de standards
+
+\\\`\\\`\\\`bash
+# Les standards MISRA/CERT nécessitent une licence spécifique
+# Vérifier les licences disponibles
+kwlm -status
+
+# Activer le pack MISRA
+kwadmin set-project-property project_name \\
+  --url http://kw-server:8080 \\
+  --name "misra.enabled" --value "true"
+
+# Activer le pack CERT
+kwadmin set-project-property project_name \\
+  --url http://kw-server:8080 \\
+  --name "cert.enabled" --value "true"
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────┐
+│              Configuration Klocwork - Architecture                │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  ┌──────────────────────────────────────────────────────────┐    │
+│  │                 Profil d'analyse                          │    │
+│  │                                                           │    │
+│  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌────────┐  │    │
+│  │  │ MISRA C  │  │ CERT C   │  │   CWE    │  │ Custom │  │    │
+│  │  │ Checkers │  │ Checkers │  │ Checkers │  │Checkers│  │    │
+│  │  │ (193)    │  │ (120)    │  │ (85)     │  │(user)  │  │    │
+│  │  └──────────┘  └──────────┘  └──────────┘  └────────┘  │    │
+│  │                                                           │    │
+│  │  Configuration: .kwlp / analysis_profile.pconf           │    │
+│  └──────────────────────────────────────────────────────────┘    │
+│                                                                   │
+│  ┌──────────────────────────────────────────────────────────┐    │
+│  │              Annotations dans le code                     │    │
+│  │                                                           │    │
+│  │  /* @klocwork SUPPRESS BUFFER_OVERFLOW : justification */ │    │
+│  │  /* @klocwork ALLOW NULL_POINTER : validated upstream */  │    │
+│  │                                                           │    │
+│  └──────────────────────────────────────────────────────────┘    │
+│                                                                   │
+│  ┌──────────────────────────────────────────────────────────┐    │
+│  │              Fichiers de configuration                    │    │
+│  │                                                           │    │
+│  │  .kwlp/              Projet local kwcheck                 │    │
+│  │  ├── workingcache/   Cache d'analyse                      │    │
+│  │  ├── tables/         Tables de résultats                  │    │
+│  │  └── .kwps           Settings du projet                   │    │
+│  │                                                           │    │
+│  │  analysis_profile.pconf    Profil de checkers             │    │
+│  │  klocwork.conf             Configuration globale          │    │
+│  │  custom_checkers.conf      Checkers personnalisés         │    │
+│  └──────────────────────────────────────────────────────────┘    │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+### Commandes essentielles
+
+#### Configuration MISRA C 2012
+
+\\\`\\\`\\\`bash
+# Activer tous les checkers MISRA C 2012 obligatoires (Required)
+kwcheck enable-checker "MISRA.C.2012.RULE.*"
+kwcheck enable-checker "MISRA.C.2012.DIR.*"
+
+# Activer seulement les règles Required et Mandatory
+cat > misra_required.conf << 'EOF'
+# MISRA C:2012 - Required Rules
++MISRA.C.2012.RULE.1.3
++MISRA.C.2012.RULE.2.1
++MISRA.C.2012.RULE.2.2
++MISRA.C.2012.RULE.3.1
++MISRA.C.2012.RULE.3.2
++MISRA.C.2012.RULE.4.1
++MISRA.C.2012.RULE.4.2
++MISRA.C.2012.RULE.5.1
++MISRA.C.2012.RULE.5.2
++MISRA.C.2012.RULE.5.3
++MISRA.C.2012.RULE.5.4
++MISRA.C.2012.RULE.5.5
++MISRA.C.2012.RULE.8.1
++MISRA.C.2012.RULE.8.2
++MISRA.C.2012.RULE.8.4
++MISRA.C.2012.RULE.8.5
++MISRA.C.2012.RULE.8.6
++MISRA.C.2012.RULE.8.8
++MISRA.C.2012.RULE.8.10
++MISRA.C.2012.RULE.8.14
++MISRA.C.2012.RULE.9.1
++MISRA.C.2012.RULE.10.1
++MISRA.C.2012.RULE.10.2
++MISRA.C.2012.RULE.10.3
++MISRA.C.2012.RULE.10.4
++MISRA.C.2012.RULE.10.6
++MISRA.C.2012.RULE.10.7
++MISRA.C.2012.RULE.10.8
++MISRA.C.2012.RULE.11.1
++MISRA.C.2012.RULE.11.2
++MISRA.C.2012.RULE.11.3
++MISRA.C.2012.RULE.11.6
++MISRA.C.2012.RULE.11.7
++MISRA.C.2012.RULE.11.8
++MISRA.C.2012.RULE.11.9
++MISRA.C.2012.RULE.12.1
++MISRA.C.2012.RULE.12.2
++MISRA.C.2012.RULE.13.1
++MISRA.C.2012.RULE.13.2
++MISRA.C.2012.RULE.13.5
++MISRA.C.2012.RULE.13.6
++MISRA.C.2012.RULE.14.1
++MISRA.C.2012.RULE.14.4
++MISRA.C.2012.RULE.15.6
++MISRA.C.2012.RULE.15.7
++MISRA.C.2012.RULE.16.1
++MISRA.C.2012.RULE.16.2
++MISRA.C.2012.RULE.16.3
++MISRA.C.2012.RULE.16.4
++MISRA.C.2012.RULE.16.5
++MISRA.C.2012.RULE.16.6
++MISRA.C.2012.RULE.16.7
++MISRA.C.2012.RULE.17.1
++MISRA.C.2012.RULE.17.2
++MISRA.C.2012.RULE.17.3
++MISRA.C.2012.RULE.17.4
++MISRA.C.2012.RULE.17.6
++MISRA.C.2012.RULE.17.7
++MISRA.C.2012.RULE.18.1
++MISRA.C.2012.RULE.18.2
++MISRA.C.2012.RULE.18.3
++MISRA.C.2012.RULE.18.6
++MISRA.C.2012.RULE.19.1
++MISRA.C.2012.RULE.20.1
++MISRA.C.2012.RULE.20.2
++MISRA.C.2012.RULE.20.4
++MISRA.C.2012.RULE.20.7
++MISRA.C.2012.RULE.20.11
++MISRA.C.2012.RULE.20.13
++MISRA.C.2012.RULE.20.14
++MISRA.C.2012.RULE.21.1
++MISRA.C.2012.RULE.21.2
++MISRA.C.2012.RULE.21.3
++MISRA.C.2012.RULE.21.4
++MISRA.C.2012.RULE.21.5
++MISRA.C.2012.RULE.21.6
++MISRA.C.2012.RULE.21.7
++MISRA.C.2012.RULE.21.8
++MISRA.C.2012.RULE.21.9
++MISRA.C.2012.RULE.21.10
++MISRA.C.2012.RULE.21.11
++MISRA.C.2012.RULE.22.1
++MISRA.C.2012.RULE.22.2
++MISRA.C.2012.RULE.22.3
++MISRA.C.2012.RULE.22.4
++MISRA.C.2012.RULE.22.5
++MISRA.C.2012.RULE.22.6
+EOF
+
+kwcheck import-config misra_required.conf
+\\\`\\\`\\\`
+
+#### Configuration CERT C
+
+\\\`\\\`\\\`bash
+# Activer les checkers CERT C
+kwcheck enable-checker "CERT.C.*"
+
+# Checkers CERT les plus importants
+cat > cert_critical.conf << 'EOF'
+# CERT C - Règles critiques
++CERT.C.ARR.BOUNDS        # Array bounds
++CERT.C.CON.RACE          # Race condition
++CERT.C.ENV.TAINTED       # Tainted data
++CERT.C.ERR.NOCHECK       # Error not checked
++CERT.C.EXP.UNINIT        # Uninitialized expression
++CERT.C.FIO.NOCLOSE       # File not closed
++CERT.C.MEM.LEAK          # Memory leak
++CERT.C.MEM.DOUBLEFREE    # Double free
++CERT.C.MEM.USEAFTER      # Use after free
++CERT.C.STR.OVERFLOW      # String overflow
++CERT.C.INT.OVERFLOW      # Integer overflow
++CERT.C.SIG.HANDLER       # Signal handler issues
++CERT.C.POS.THREAD        # POSIX thread issues
+EOF
+
+kwcheck import-config cert_critical.conf
+\\\`\\\`\\\`
+
+#### Configuration CWE
+
+\\\`\\\`\\\`bash
+# Activer les checkers CWE (Common Weakness Enumeration)
+kwcheck enable-checker "CWE.*"
+
+# CWE Top 25 Most Dangerous Software Weaknesses
+cat > cwe_top25.conf << 'EOF'
+# CWE Top 25 (2023)
++CWE.787    # Out-of-bounds Write
++CWE.79     # Cross-site Scripting (XSS)
++CWE.89     # SQL Injection
++CWE.416    # Use After Free
++CWE.78     # OS Command Injection
++CWE.20     # Improper Input Validation
++CWE.125    # Out-of-bounds Read
++CWE.22     # Path Traversal
++CWE.352    # Cross-Site Request Forgery
++CWE.434    # Unrestricted Upload
++CWE.862    # Missing Authorization
++CWE.476    # NULL Pointer Dereference
++CWE.287    # Improper Authentication
++CWE.190    # Integer Overflow
++CWE.502    # Deserialization of Untrusted Data
++CWE.77     # Command Injection
++CWE.119    # Buffer Overflow
++CWE.798    # Hard-coded Credentials
++CWE.918    # SSRF
++CWE.306    # Missing Authentication
++CWE.362    # Race Condition
++CWE.269    # Improper Privilege Management
++CWE.94     # Code Injection
++CWE.863    # Incorrect Authorization
++CWE.276    # Incorrect Default Permissions
+EOF
+
+kwcheck import-config cwe_top25.conf
+\\\`\\\`\\\`
+
+#### Annotations dans le code
+
+\\\`\\\`\\\`bash
+# Supprimer un avertissement spécifique (inline)
+// Klocwork annotation pour supprimer un checker sur une ligne
+/* parasoft-suppress MISRA.C.2012.RULE.11.3 "Justified: hardware register access" */
+
+# Annotations Klocwork natives
+void example_function(void) {
+    // kwlp: suppress=UNINIT_VAR : "Variable initialized in called function"
+    int x;
+    init_from_hw(&x);
+    use(x);
+}
+
+# Annotation de fichier complet
+/* kwlp: file-suppress=MISRA.C.2012.RULE.20.1 : "Third-party header" */
+
+# Annotation de fonction
+/* kwlp: function-suppress=NULL_POINTER : "Validated in caller" */
+void process(char *buf) {
+    strlen(buf);  // pas de warning null pointer
+}
+
+# Annotations via fichier .kwsuppression
+cat > .kwsuppression << 'EOF'
+# Suppressions globales projet
+file:vendor/*.c suppress=ALL : "Third-party code"
+file:generated/*.c suppress=ALL : "Auto-generated code"
+function:legacy_init suppress=UNINIT_VAR : "Legacy code accepted"
+EOF
+\\\`\\\`\\\`
+
+#### Fichiers .kwlp (projet local)
+
+\\\`\\\`\\\`bash
+# Structure du projet local kwcheck
+.kwlp/
+├── .kwps                    # Project settings
+├── workingcache/
+│   ├── tables/
+│   │   ├── analysis_profile.pconf  # Profil de checkers
+│   │   └── build.conf              # Configuration build
+│   └── cache/              # Cache d'analyse incrémentale
+└── .kwlocal                # Settings locaux
+
+# Créer un projet avec configuration personnalisée
+kwcheck create \\
+  --url http://kw-server:8080/mon_projet \\
+  --build-spec kwinject.out \\
+  --checkers-config misra_required.conf
+
+# Partager la configuration (versionner dans Git)
+cp .kwlp/.kwps projet_kwcheck_config.kwps
+git add projet_kwcheck_config.kwps
+\\\`\\\`\\\`
+
+### Configuration
+
+#### Configuration serveur (projets et modules)
+
+\\\`\\\`\\\`bash
+# Configurer les modules d'un projet (analyse par composant)
+kwadmin set-project-property project_alpha \\
+  --url http://kw-server:8080 \\
+  --name "module.src" --value "src/**"
+
+kwadmin set-project-property project_alpha \\
+  --url http://kw-server:8080 \\
+  --name "module.lib" --value "lib/**"
+
+# Configurer les seuils de qualité
+kwadmin set-project-property project_alpha \\
+  --url http://kw-server:8080 \\
+  --name "quality.critical.max" --value "0"
+
+kwadmin set-project-property project_alpha \\
+  --url http://kw-server:8080 \\
+  --name "quality.error.max" --value "10"
+\\\`\\\`\\\`
+
+### Bonnes pratiques
+
+1. **Commencez avec les checkers natifs** puis ajoutez MISRA/CERT progressivement
+2. **Ne désactivez jamais les checkers Critical** sans justification documentée
+3. **Annotations dans le code** plutôt que suppressions globales (traçabilité)
+4. **Revue des faux positifs** : assignez un responsable pour chaque module
+5. **Profils par équipe** : embarqué = MISRA complet, backend = CERT + CWE
+6. **Mise à jour régulière** des profils quand de nouveaux checkers sont disponibles
+7. **Documentation des suppressions** : chaque annotation doit avoir une justification
+8. **Métriques** : suivez le ratio issues/KLOC par module et par release
+9. **Formation continue** : les checkers évoluent, formez les équipes
+10. **Intégration CI/CD** : profil strict en CI, profil complet pour l'audit périodique`,
+
+      practiceContent: `## Travaux Pratiques - Configuration et Checkers
+
+### TP 1 : Profil MISRA C pour projet embarqué
+
+\\\`\\\`\\\`bash
+# 1. Créer un projet embarqué de test
+mkdir -p /workspace/kw_embedded/src
+cat > /workspace/kw_embedded/src/embedded.c << 'EOF'
+#include <stdint.h>
+
+// Violations MISRA intentionnelles pour le TP
+int32_t global_var;  // MISRA Rule 8.4 - missing extern
+
+void func_no_return_type()  // MISRA Rule 8.1
+{
+    int x = 1;
+    if(x = 2) {  // MISRA Rule 13.4 - assignment in condition
+        global_var = x;
+    }
+    
+    goto end;  // MISRA Rule 15.1 - goto
+end:
+    return;
+}
+
+int main(void) {
+    int arr[10];
+    int i;
+    for(i = 0; i < 10; i++) {
+        arr[i] = i * 2;
+    }
+    func_no_return_type();
+    return 0;
+}
+EOF
+
+# 2. Compiler
+cd /workspace/kw_embedded
+cat > Makefile << 'EOF'
+CC=gcc
+CFLAGS=-std=c99 -Wall
+all: embedded
+embedded: src/embedded.c
+	$(CC) $(CFLAGS) -o embedded src/embedded.c
+EOF
+
+kwinject make all
+
+# 3. Créer le profil MISRA
+cat > misra_profile.conf << 'EOF'
++MISRA.C.2012.RULE.*
++MISRA.C.2012.DIR.*
+-CWARN.*
+-CERT.*
+EOF
+
+# 4. Analyser avec MISRA
+kwcheck create --build-spec kwinject.out
+kwcheck import-config misra_profile.conf
+kwcheck run
+
+# 5. Lister les violations MISRA
+kwcheck list --checker "MISRA.*"
+\\\`\\\`\\\`
+
+### TP 2 : Profil sécurité CERT/CWE
+
+\\\`\\\`\\\`bash
+# 1. Code avec vulnérabilités de sécurité
+cat > /workspace/kw_embedded/src/security.c << 'EOF'
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// CWE-78: OS Command Injection
+void execute_command(const char *user_input) {
+    char cmd[256];
+    sprintf(cmd, "ls %s", user_input);  // Tainted data!
+    system(cmd);
+}
+
+// CWE-134: Format String
+void log_message(const char *msg) {
+    printf(msg);  // Format string vulnerability!
+}
+
+// CWE-190: Integer Overflow
+int calculate(int a, int b) {
+    return a * b;  // Potential overflow!
+}
+
+// CWE-798: Hard-coded Credentials
+int authenticate(const char *password) {
+    return strcmp(password, "admin123") == 0;
+}
+
+int main() {
+    execute_command("/tmp");
+    log_message("test");
+    calculate(2147483647, 2);
+    authenticate("test");
+    return 0;
+}
+EOF
+
+# 2. Configurer le profil sécurité
+cat > security_profile.conf << 'EOF'
++CERT.C.*
++CWE.*
++SECURITY.*
++SV.TAINTED.*
++SV.SQL.*
++SV.XSS.*
+EOF
+
+# 3. Analyser
+kwinject gcc -c -o security.o src/security.c
+kwcheck import-config security_profile.conf
+kwcheck run
+
+# 4. Examiner les résultats sécurité
+kwcheck list --severity 1,2
+kwcheck list --checker "CWE.*"
+kwcheck list --checker "SV.TAINTED.*"
+\\\`\\\`\\\`
+
+### TP 3 : Annotations et suppressions
+
+\\\`\\\`\\\`bash
+# 1. Ajouter des annotations justifiées
+cat > /workspace/kw_embedded/src/annotated.c << 'EOF'
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+/* kwlp: file-suppress=MISRA.C.2012.RULE.21.6 : "printf needed for debug build" */
+
+// kwlp: suppress=MISRA.C.2012.RULE.11.3 : "Hardware register access requires cast"
+volatile uint32_t *get_hw_register(void) {
+    return (volatile uint32_t *)0x40000000;
+}
+
+void safe_function(int *ptr) {
+    // kwlp: suppress=NULL_POINTER : "Validated by calling contract"
+    *ptr = 42;
+}
+
+int main(void) {
+    volatile uint32_t *reg = get_hw_register();
+    int val = 0;
+    safe_function(&val);
+    printf("Register: %u, Val: %d\\n", *reg, val);
+    return 0;
+}
+EOF
+
+# 2. Créer le fichier de suppressions globales
+cat > /workspace/kw_embedded/.kwsuppression << 'EOF'
+# Suppressions projet
+file:vendor/**/* suppress=ALL : "Third-party code not maintained by us"
+file:test/**/* suppress=MISRA.* : "Test code exempt from MISRA"
+EOF
+
+# 3. Re-analyser et vérifier que les suppressions fonctionnent
+kwinject gcc -c -o annotated.o src/annotated.c
+kwcheck run
+kwcheck list
+echo "Les issues supprimées ne devraient plus apparaître"
+\\\`\\\`\\\`
+
+### TP 4 : Rapport de conformité
+
+\\\`\\\`\\\`bash
+# 1. Générer un rapport de conformité MISRA
+kwcheck run
+kwcheck list --checker "MISRA.*" --format xml > misra_report.xml
+
+# 2. Générer un rapport JSON pour intégration
+kwcheck list --format json > full_report.json
+
+# 3. Script de résumé
+python3 << 'PYEOF'
+import json
+with open('full_report.json') as f:
+    issues = json.load(f)
+
+summary = {}
+for issue in issues:
+    checker = issue.get('checker', 'unknown')
+    severity = issue.get('severity', 'unknown')
+    key = f"{severity}-{checker}"
+    summary[key] = summary.get(key, 0) + 1
+
+print("=== Rapport de conformité ===")
+for k, v in sorted(summary.items()):
+    print(f"  {k}: {v} issues")
+print(f"\\nTotal: {len(issues)} issues")
+PYEOF
+\\\`\\\`\\\`
+
+### TP 5 : Profils multiples par contexte
+
+\\\`\\\`\\\`bash
+# 1. Profil pour code embarqué critique (DO-178C)
+cat > profile_do178c.conf << 'EOF'
+# DO-178C Level A - Maximum strictness
++MISRA.C.2012.RULE.*
++MISRA.C.2012.DIR.*
++CERT.C.*
++CWE.*
++UNINIT_VAR
++BUFFER_OVERFLOW
++NULL_POINTER
++RESOURCE_LEAK
+EOF
+
+# 2. Profil pour code applicatif serveur
+cat > profile_server.conf << 'EOF'
+# Server application - Focus security
++CERT.C.*
++CWE.*
++SV.TAINTED.*
++SV.SQL.*
++SV.XSS.*
++SECURITY.*
+-MISRA.*
+EOF
+
+# 3. Profil pour tests unitaires
+cat > profile_tests.conf << 'EOF'
+# Test code - Minimal rules
++BUFFER_OVERFLOW
++NULL_POINTER
++RESOURCE_LEAK
+-MISRA.*
+-CERT.*
+-CWARN.*
+EOF
+
+# 4. Appliquer selon le contexte
+echo "=== Analyse embarqué ==="
+kwcheck import-config profile_do178c.conf
+kwcheck run -f src/embedded.c
+kwcheck list | wc -l
+
+echo "=== Analyse sécurité ==="
+kwcheck import-config profile_server.conf
+kwcheck run -f src/security.c
+kwcheck list | wc -l
+\\\`\\\`\\\``,
+
+      keyPoints: JSON.stringify([
+        'Familles de checkers : MISRA C/C++, CERT C/C++, CWE, OWASP, AUTOSAR, natifs Klocwork',
+        'MISRA C 2012 : standard obligatoire pour l embarqué automobile et aéronautique',
+        'CERT C : règles Carnegie Mellon pour la sécurité logicielle (buffer, memory, concurrency)',
+        'CWE Top 25 : vulnérabilités les plus dangereuses (injection, overflow, XSS)',
+        'Annotations dans le code (kwlp: suppress) pour documenter les faux positifs',
+        'Fichier .kwsuppression pour les suppressions globales (vendor, generated code)',
+        'Profils par contexte : embarqué strict (MISRA), serveur (CERT/CWE), tests (minimal)',
+        'Configuration via .kwlp/ versionnable dans Git pour partager avec l équipe',
+        'Fichiers .conf pour activer/désactiver les checkers (+CHECKER / -CHECKER)'
+      ]) },
+
+
+    { id: 'kw-03', courseId: 'klocwork', title: 'Intégration CI/CD', duration: '3h', orderIndex: 3,
+      theoryContent: `## Intégration Klocwork dans CI/CD
+
+### Présentation
+
+L'intégration de Klocwork dans les pipelines CI/CD est essentielle pour automatiser la détection des défauts et maintenir la qualité du code en continu. L'objectif est d'**échouer le pipeline** (quality gate) lorsque des défauts critiques sont introduits, tout en minimisant le temps d'analyse grâce au mode incrémental.
+
+**Modèles d'intégration :**
+
+| Modèle | Quand | Durée | Couverture |
+|--------|-------|-------|------------|
+| Analyse diff (kwcheck) | À chaque commit/MR | 1-5 min | Fichiers modifiés |
+| Analyse incrémentale (kwbuildproject --incremental) | Merge sur develop | 5-30 min | Module impacté |
+| Analyse complète (kwbuildproject) | Nightly/Weekly | 30 min - 2h | Tout le projet |
+| Audit de conformité | Release | Variable | Rapport complet |
+
+### Installation sur Linux (Ubuntu/Debian)
+
+#### Configuration de l'agent CI
+
+\\\`\\\`\\\`bash
+# Sur l'agent Jenkins/GitLab Runner
+# 1. Installer les outils d'analyse Klocwork
+sudo tar -xzf kw-analysis-2023.4-linux64.tar.gz -C /opt/klocwork
+
+# 2. Ajouter au PATH système
+echo 'export PATH=/opt/klocwork/current/bin:$PATH' >> /etc/profile.d/klocwork.sh
+source /etc/profile.d/klocwork.sh
+
+# 3. Configurer l'authentification non-interactive
+kwauth --url http://kw-server:8080 --user ci_bot --password-file /etc/klocwork/ci_password
+
+# 4. Vérifier la connectivité
+kwcheck --version
+curl -s http://kw-server:8080/review/api/version
+\\\`\\\`\\\`
+
+#### Configuration du serveur pour CI
+
+\\\`\\\`\\\`bash
+# Créer un utilisateur dédié CI
+kwadmin create-user --name ci_bot \\
+  --url http://kw-server:8080 \\
+  --role build_engineer
+
+# Configurer le token API
+kwadmin create-token --user ci_bot \\
+  --url http://kw-server:8080 \\
+  --name "CI Token" \\
+  --expiry 365d
+# Sauvegarder le token généré
+
+# Configurer les seuils de qualité
+kwadmin set-project-property project_alpha \\
+  --url http://kw-server:8080 \\
+  --name "quality_gate.critical" --value "0"
+
+kwadmin set-project-property project_alpha \\
+  --url http://kw-server:8080 \\
+  --name "quality_gate.error" --value "5"
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────┐
+│            Klocwork CI/CD Integration Architecture                │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  ┌───────────────────────────────────────────────────────────┐   │
+│  │                    Pipeline CI/CD                          │   │
+│  │                                                            │   │
+│  │  ┌────────┐  ┌─────────┐  ┌──────────┐  ┌────────────┐  │   │
+│  │  │  Git   │  │  Build  │  │ Klocwork │  │  Quality   │  │   │
+│  │  │  Clone │→ │  (make) │→ │ Analysis │→ │  Gate      │  │   │
+│  │  └────────┘  └─────────┘  └──────────┘  └────────────┘  │   │
+│  │                                │               │          │   │
+│  │                                ▼               ▼          │   │
+│  │                         ┌──────────┐    ┌──────────┐     │   │
+│  │                         │ Upload   │    │ Pass/    │     │   │
+│  │                         │ Results  │    │ Fail     │     │   │
+│  │                         └────┬─────┘    └──────────┘     │   │
+│  └──────────────────────────────┼────────────────────────────┘   │
+│                                 │                                 │
+│                                 ▼                                 │
+│  ┌───────────────────────────────────────────────────────────┐   │
+│  │              Klocwork Server                               │   │
+│  │  ┌──────────┐  ┌──────────────┐  ┌──────────────────┐    │   │
+│  │  │Knowledge │  │   Trending   │  │   Dashboards     │    │   │
+│  │  │  Base    │  │   & Metrics  │  │   & Reports      │    │   │
+│  │  └──────────┘  └──────────────┘  └──────────────────┘    │   │
+│  └───────────────────────────────────────────────────────────┘   │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+### Commandes essentielles
+
+#### Pipeline Jenkins (Jenkinsfile)
+
+\\\`\\\`\\\`groovy
+// Jenkinsfile - Analyse Klocwork
 pipeline {
-    agent any
+    agent { label 'linux-klocwork' }
     
     environment {
-        KW_SERVER = 'http://klocwork-server:8080'
-        KW_PROJECT = 'my-embedded-project'
-        KW_TABLES = "\${WORKSPACE}/kw-tables"
+        KW_SERVER = 'http://kw-server:8080'
+        KW_PROJECT = 'project_alpha'
+        KW_TABLES = "\${WORKSPACE}/kw_tables"
     }
     
     stages {
-        stage('Checkout') {
+        stage('Build') {
             steps {
-                checkout scm
-            }
-        }
-        
-        stage('Build with kwinject') {
-            steps {
-                sh '''
-                    # Capture les commandes de compilation
-                    kwinject --output kwinject.out make all
-                '''
+                sh 'kwinject make -j\$(nproc) all'
             }
         }
         
         stage('Klocwork Analysis') {
             steps {
-                sh '''
-                    # Analyse complète
+                sh """
+                    mkdir -p \${KW_TABLES}
                     kwbuildproject --url \${KW_SERVER}/\${KW_PROJECT} \\
-                      --tables-directory \${KW_TABLES} \\
-                      kwinject.out
-                    
-                    # Charger les résultats
-                    kwadmin --url \${KW_SERVER} load \${KW_PROJECT} \${KW_TABLES}
-                '''
+                        --tables-directory \${KW_TABLES} \\
+                        --incremental \\
+                        --jobs-num \$(nproc) \\
+                        kwinject.out
+                """
+            }
+        }
+        
+        stage('Upload Results') {
+            steps {
+                sh """
+                    kwadmin load \${KW_PROJECT} \\
+                        --url \${KW_SERVER} \\
+                        --tables-directory \${KW_TABLES}
+                """
             }
         }
         
         stage('Quality Gate') {
             steps {
                 script {
-                    // Récupérer le nombre d'issues critiques
-                    def criticalCount = sh(
+                    def issues = sh(
                         script: """
-                            kwadmin --url \${KW_SERVER} \\
-                              list-issues \${KW_PROJECT} \\
-                              --severity Critical --status Analyze,Fix \\
-                              | wc -l
+                            curl -s "\${KW_SERVER}/review/api/projects/\${KW_PROJECT}/issues?action=search&severity=1,2&status=Analyze" \\
+                                -H "Authorization: Bearer \${KW_TOKEN}" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))"
                         """,
                         returnStdout: true
                     ).trim().toInteger()
                     
-                    def errorCount = sh(
-                        script: """
-                            kwadmin --url \${KW_SERVER} \\
-                              list-issues \${KW_PROJECT} \\
-                              --severity Error --status Analyze,Fix \\
-                              | wc -l
-                        """,
-                        returnStdout: true
-                    ).trim().toInteger()
-                    
-                    echo "Critical issues: \${criticalCount}"
-                    echo "Error issues: \${errorCount}"
-                    
-                    // Bloquer si des issues critiques existent
-                    if (criticalCount > 0) {
-                        error "Quality Gate FAILED: \${criticalCount} critical issues found"
+                    if (issues > 0) {
+                        error "Quality Gate FAILED: \${issues} critical/error issues found"
                     }
-                    
-                    // Warning si trop d'errors
-                    if (errorCount > 10) {
-                        unstable "Quality Gate WARNING: \${errorCount} error issues"
-                    }
+                    echo "Quality Gate PASSED: No critical issues"
                 }
-            }
-        }
-        
-        stage('Deploy') {
-            when {
-                expression { currentBuild.result != 'FAILURE' }
-            }
-            steps {
-                sh 'make install DESTDIR=staging/'
             }
         }
     }
@@ -4258,179 +6126,266 @@ pipeline {
     post {
         always {
             // Archiver le rapport
-            archiveArtifacts artifacts: 'kw-tables/**', allowEmptyArchive: true
+            sh 'kwcheck list --format xml > klocwork_report.xml || true'
+            archiveArtifacts artifacts: 'klocwork_report.xml', allowEmptyArchive: true
         }
         failure {
-            // Notifier l'équipe
-            emailext subject: "Klocwork: Issues critiques détectées",
-                body: "Le build \${BUILD_NUMBER} a échoué l'analyse Klocwork",
-                to: 'team@company.com'
+            emailext(
+                subject: "Klocwork: Issues détectées - \${env.JOB_NAME}",
+                body: "Des issues critiques ont été détectées. Voir: \${KW_SERVER}",
+                to: "\${env.CHANGE_AUTHOR_EMAIL}"
+            )
         }
     }
 }
-\`\`\`
+\\\`\\\`\\\`
 
-### Intégration avec GitLab CI
+#### Pipeline GitLab CI (.gitlab-ci.yml)
 
-\`\`\`yaml
-# .gitlab-ci.yml
+\\\`\\\`\\\`yaml
+# .gitlab-ci.yml - Intégration Klocwork
 variables:
-  KW_SERVER: "http://klocwork:8080"
-  KW_PROJECT: "embedded-firmware"
+  KW_SERVER: "http://kw-server:8080"
+  KW_PROJECT: "project_alpha"
+  KW_TABLES: "$CI_PROJECT_DIR/kw_tables"
 
 stages:
   - build
-  - analysis
+  - analyze
   - quality-gate
-  - deploy
+  - report
 
 build:
   stage: build
   script:
-    - kwinject --output kwinject.out make all
+    - kwinject make -j$(nproc) all
   artifacts:
     paths:
       - kwinject.out
     expire_in: 1 hour
 
 klocwork-analysis:
-  stage: analysis
-  script:
-    - mkdir -p kw-tables
-    - kwbuildproject --url $KW_SERVER/$KW_PROJECT
-        --tables-directory kw-tables
-        kwinject.out
-    - kwadmin --url $KW_SERVER load $KW_PROJECT kw-tables
+  stage: analyze
   dependencies:
     - build
+  script:
+    - mkdir -p $KW_TABLES
+    - |
+      kwbuildproject --url $KW_SERVER/$KW_PROJECT \
+        --tables-directory $KW_TABLES \
+        --incremental \
+        --jobs-num $(nproc) \
+        kwinject.out
+    - |
+      kwadmin load $KW_PROJECT \
+        --url $KW_SERVER \
+        --tables-directory $KW_TABLES
+  artifacts:
+    paths:
+      - $KW_TABLES
+    expire_in: 1 day
 
 quality-gate:
   stage: quality-gate
-  script:
-    - |
-      CRITICAL=$(kwadmin --url $KW_SERVER list-issues $KW_PROJECT \
-        --severity Critical --status Analyze,Fix | wc -l)
-      echo "Critical issues: $CRITICAL"
-      if [ "$CRITICAL" -gt "0" ]; then
-        echo "FAILED: $CRITICAL critical issues"
-        exit 1
-      fi
-      echo "Quality Gate PASSED"
   dependencies:
     - klocwork-analysis
-\`\`\`
+  script:
+    - |
+      CRITICAL=$(curl -s "$KW_SERVER/review/api/projects/$KW_PROJECT/issues?action=search&severity=1&status=Analyze" \
+        -H "Authorization: Bearer $KW_TOKEN" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))")
+      ERROR=$(curl -s "$KW_SERVER/review/api/projects/$KW_PROJECT/issues?action=search&severity=2&status=Analyze" \
+        -H "Authorization: Bearer $KW_TOKEN" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))")
+      
+      echo "Critical issues: $CRITICAL"
+      echo "Error issues: $ERROR"
+      
+      if [ "$CRITICAL" -gt 0 ]; then
+        echo "QUALITY GATE FAILED: $CRITICAL critical issues"
+        exit 1
+      fi
+      if [ "$ERROR" -gt 5 ]; then
+        echo "QUALITY GATE FAILED: $ERROR error issues (max: 5)"
+        exit 1
+      fi
+      echo "QUALITY GATE PASSED"
+  rules:
+    - if: $CI_MERGE_REQUEST_IID
 
-### Analyse différentielle (Differential Analysis)
+klocwork-report:
+  stage: report
+  script:
+    - kwcheck list --format json > klocwork_report.json
+    - |
+      python3 << 'EOF'
+      import json
+      with open('klocwork_report.json') as f:
+          issues = json.load(f)
+      print(f"Total issues: {len(issues)}")
+      by_severity = {}
+      for i in issues:
+          s = i.get('severity', 'unknown')
+          by_severity[s] = by_severity.get(s, 0) + 1
+      for s, c in sorted(by_severity.items()):
+          print(f"  Severity {s}: {c}")
+      EOF
+  artifacts:
+    reports:
+      codequality: klocwork_report.json
+    paths:
+      - klocwork_report.json
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+      when: always
+\\\`\\\`\\\`
 
-L'analyse différentielle ne vérifie que les fichiers modifiés dans une Pull Request :
+#### Analyse diff pour Merge Requests
 
-\`\`\`bash
-# Identifier les fichiers modifiés
-CHANGED_FILES=$(git diff --name-only origin/main...HEAD -- '*.c' '*.h')
+\\\`\\\`\\\`bash
+#!/bin/bash
+# kw_diff_analysis.sh - Analyse uniquement les fichiers modifiés dans la MR
 
-# Analyse uniquement ces fichiers
-kwcheck run --file-list <(echo "$CHANGED_FILES")
+# Récupérer les fichiers modifiés
+CHANGED_FILES=$(git diff --name-only origin/main...HEAD -- '*.c' '*.cpp' '*.h')
 
-# Obtenir uniquement les nouvelles issues (pas les existantes)
-kwcheck list --status New
-\`\`\`
+if [ -z "$CHANGED_FILES" ]; then
+  echo "Pas de fichiers C/C++ modifiés"
+  exit 0
+fi
 
-### Reporting et métriques
+echo "Fichiers à analyser: $CHANGED_FILES"
 
-#### Dashboard Klocwork
+# Analyse kwcheck sur les fichiers modifiés uniquement
+kwcheck run $(echo $CHANGED_FILES | xargs -I{} echo "-f {}")
 
-Le dashboard web de Klocwork fournit :
-- **Vue projet** : nombre total d'issues par sévérité et par état
-- **Tendances** : évolution dans le temps (graphiques)
-- **Densité** : issues par 1000 lignes de code (KLOC)
-- **Distribution** : répartition par module/fichier/développeur
-- **Conformité** : pourcentage de conformité par standard (MISRA, CERT)
+# Vérifier les résultats
+ISSUES=$(kwcheck list --severity 1,2 2>/dev/null | wc -l)
 
-#### Métriques clés à surveiller
+if [ "$ISSUES" -gt 0 ]; then
+  echo "❌ $ISSUES issues critiques/erreur trouvées:"
+  kwcheck list --severity 1,2
+  exit 1
+else
+  echo "✅ Aucune issue critique détectée"
+  exit 0
+fi
+\\\`\\\`\\\`
 
-| Métrique | Description | Objectif |
-|----------|-------------|----------|
-| Critical issues | Bugs bloquants/critiques | 0 |
-| Issue density | Issues / KLOC | < 5 |
-| New issues per build | Nouvelles issues par build | Tendance décroissante |
-| Fix rate | Issues corrigées / détectées | > 80% |
-| False positive rate | Faux positifs / total | < 15% |
-| MISRA compliance | % de règles respectées | > 95% |
+#### Rapports et métriques
 
-#### Export de rapports
+\\\`\\\`\\\`bash
+# Générer un rapport de tendance (trending)
+curl -s "$KW_SERVER/review/api/projects/$KW_PROJECT/metrics?action=trending&period=30d" \\
+  -H "Authorization: Bearer $KW_TOKEN" > trending.json
 
-\`\`\`bash
-# Export CSV pour reporting
-kwadmin --url http://kw-server:8080 list-issues myproject \\
-  --format csv > report.csv
+# Script de rapport HTML
+python3 << 'EOF'
+import json
+import datetime
 
-# Export filtré par sévérité
-kwadmin --url http://kw-server:8080 list-issues myproject \\
-  --severity Critical,Error --format csv > critical_report.csv
+with open('trending.json') as f:
+    data = json.load(f)
 
-# Export avec détails complets
-kwadmin --url http://kw-server:8080 list-issues myproject \\
-  --columns "id,file,line,checker,severity,status,owner,message" \\
-  --format csv > detailed_report.csv
-\`\`\`
+html = """<html><head><title>Klocwork Report</title></head><body>
+<h1>Rapport Klocwork - {date}</h1>
+<table border="1">
+<tr><th>Sévérité</th><th>Nouvelles</th><th>Résolues</th><th>Total</th></tr>
+""".format(date=datetime.date.today())
 
-### Gestion du cycle de vie des issues
+for severity in ['Critical', 'Error', 'Warning']:
+    s = data.get(severity, {})
+    html += f"<tr><td>{severity}</td><td>{s.get('new', 0)}</td><td>{s.get('fixed', 0)}</td><td>{s.get('total', 0)}</td></tr>"
 
-Les issues dans Klocwork suivent un workflow :
+html += "</table></body></html>"
 
-\`\`\`
-Nouveau (Analyze) → Assigné → Fix → Vérifié (Fixed)
-      │                              │
-      ├→ Not a Problem (faux positif) │
-      ├→ Defer (reporté)              │
-      └→ Won't Fix (accepté)          └→ Réouvert (si régression)
-\`\`\`
+with open('kw_report.html', 'w') as f:
+    f.write(html)
+print("Report generated: kw_report.html")
+EOF
+\\\`\\\`\\\`
 
-#### API REST pour l'automatisation
+### Configuration
 
-\`\`\`bash
-# Lister les issues d'un projet via l'API
-curl "http://kw-server:8080/api/v1/projects/myproject/issues?severity=Critical" \\
-  -H "Authorization: Bearer $KW_TOKEN"
+#### Configuration des notifications
 
-# Mettre à jour le statut d'une issue
-curl -X PUT "http://kw-server:8080/api/v1/projects/myproject/issues/42" \\
-  -H "Authorization: Bearer $KW_TOKEN" \\
-  -H "Content-Type: application/json" \\
-  -d '{"status": "Fix", "owner": "developer@company.com"}'
-\`\`\``,
+\\\`\\\`\\\`bash
+# Webhook pour Slack/Teams sur nouvelles issues critiques
+cat > /opt/klocwork/hooks/notify_critical.sh << 'EOF'
+#!/bin/bash
+# Appelé par le serveur Klocwork quand une issue critique est créée
+SLACK_WEBHOOK="https://hooks.slack.com/services/xxx/yyy/zzz"
+PROJECT=$1
+ISSUE_ID=$2
+SEVERITY=$3
 
-      practiceContent: `### Travaux Pratiques : Intégration CI/CD
+if [ "$SEVERITY" = "1" ]; then
+  curl -X POST $SLACK_WEBHOOK -H 'Content-type: application/json' \
+    -d "{\"text\":\"🚨 Klocwork: Issue critique #$ISSUE_ID dans $PROJECT\"}"
+fi
+EOF
+chmod +x /opt/klocwork/hooks/notify_critical.sh
 
-#### TP 1 : Pipeline Jenkins avec Klocwork
+# Configuration email (serveur)
+kwadmin set-server-property \\
+  --url http://kw-server:8080 \\
+  --name "email.smtp.host" --value "smtp.company.com"
 
-1. Créez un Jenkinsfile dans votre projet :
-\`\`\`groovy
+kwadmin set-server-property \\
+  --url http://kw-server:8080 \\
+  --name "email.smtp.port" --value "587"
+\\\`\\\`\\\`
+
+### Bonnes pratiques
+
+1. **Analyse diff en MR** : rapide (< 5 min), bloque les issues critiques
+2. **Analyse complète nightly** : couverture totale, détecte les régressions
+3. **Quality Gate stricts** : 0 Critical autorisé, max 5 Error en merge
+4. **Token dédié CI** : ne pas utiliser un compte utilisateur pour le pipeline
+5. **Cache les tables** : réutilisez --tables-directory entre builds incrémentaux
+6. **Paralléliser** : utilisez --jobs-num pour accélérer l'analyse
+7. **Rapports automatiques** : envoyez un résumé hebdomadaire aux tech leads
+8. **Trending** : surveillez la courbe d'issues dans le temps (doit descendre)
+9. **Intégration IDE** : les devs corrigent avant le CI (shift-left)
+10. **Audit régulier** : revue mensuelle des faux positifs et de la KB`,
+
+      practiceContent: `## Travaux Pratiques - Intégration CI/CD
+
+### TP 1 : Pipeline Jenkins avec Klocwork
+
+\\\`\\\`\\\`bash
+# 1. Créer un Jenkinsfile avec analyse Klocwork
+cat > Jenkinsfile << 'EOF'
 pipeline {
     agent any
+    environment {
+        KW_SERVER = 'http://kw-server:8080'
+        KW_PROJECT = 'tp_cicd'
+    }
     stages {
+        stage('Checkout') {
+            steps { checkout scm }
+        }
         stage('Build + Capture') {
-            steps {
-                sh 'kwinject --output kwinject.out make all'
-            }
+            steps { sh 'kwinject make all' }
         }
         stage('Analyze') {
             steps {
                 sh '''
-                    kwbuildproject --url http://localhost:8080/tp-project \\
-                      --tables-directory ./kw-tables \\
-                      kwinject.out
-                    kwadmin --url http://localhost:8080 load tp-project ./kw-tables
+                    mkdir -p kw_tables
+                    kwbuildproject --url $KW_SERVER/$KW_PROJECT \
+                        --tables-directory kw_tables \
+                        --incremental kwinject.out
+                    kwadmin load $KW_PROJECT \
+                        --url $KW_SERVER \
+                        --tables-directory kw_tables
                 '''
             }
         }
         stage('Gate') {
             steps {
                 sh '''
-                    ISSUES=$(kwadmin --url http://localhost:8080 \\
-                      list-issues tp-project --severity Critical | wc -l)
-                    if [ "$ISSUES" -gt "0" ]; then
-                        echo "BLOCKED: $ISSUES critical issues"
+                    ISSUES=$(kwcheck list --severity 1,2 | wc -l)
+                    if [ "$ISSUES" -gt 0 ]; then
+                        echo "FAIL: $ISSUES issues"
                         exit 1
                     fi
                 '''
@@ -4438,443 +6393,467 @@ pipeline {
         }
     }
 }
-\`\`\`
+EOF
 
-2. Exécutez le pipeline et observez le résultat
+# 2. Committer et pousser
+git add Jenkinsfile
+git commit -m "Add Klocwork CI pipeline"
+git push origin feature/klocwork-ci
+\\\`\\\`\\\`
 
-#### TP 2 : Analyse différentielle sur une PR
+### TP 2 : Pipeline GitLab CI
 
-\`\`\`bash
-# Simuler un workflow de PR
-git checkout -b feature/new-module
-# Ajouter du code avec des bugs
+\\\`\\\`\\\`bash
+# 1. Créer .gitlab-ci.yml
+cat > .gitlab-ci.yml << 'EOF'
+stages:
+  - build
+  - analyze
+  - gate
 
-# Identifier les fichiers modifiés
-git diff --name-only main -- '*.c' '*.h' > changed_files.txt
+variables:
+  KW_SERVER: "http://kw-server:8080"
+  KW_PROJECT: "tp_cicd"
 
-# Analyser uniquement ces fichiers
-kwcheck run --file-list changed_files.txt
+build:
+  stage: build
+  script:
+    - kwinject make all
+  artifacts:
+    paths: [kwinject.out]
 
-# Lister uniquement les nouvelles issues
-kwcheck list --status New
-echo "Nouvelles issues à corriger avant merge :"
-kwcheck list --status New --severity Critical,Error
-\`\`\`
+analyze:
+  stage: analyze
+  script:
+    - mkdir -p kw_tables
+    - kwbuildproject --url $KW_SERVER/$KW_PROJECT --tables-directory kw_tables --incremental kwinject.out
+    - kwadmin load $KW_PROJECT --url $KW_SERVER --tables-directory kw_tables
+    - kwcheck list --format json > report.json
+  artifacts:
+    paths: [report.json]
 
-#### TP 3 : Configurer un Quality Gate
+quality-gate:
+  stage: gate
+  script:
+    - |
+      CRITICAL=$(cat report.json | python3 -c "import json,sys; d=json.load(sys.stdin); print(sum(1 for i in d if i.get('severity')==1))")
+      if [ "$CRITICAL" -gt 0 ]; then
+        echo "BLOCKED: $CRITICAL critical issues"
+        exit 1
+      fi
+      echo "PASSED"
+EOF
 
-Définissez les critères d'acceptation :
-\`\`\`bash
+git add .gitlab-ci.yml
+git commit -m "Add Klocwork GitLab CI pipeline"
+\\\`\\\`\\\`
+
+### TP 3 : Quality Gate personnalisé
+
+\\\`\\\`\\\`bash
+# 1. Script de quality gate avancé
+cat > scripts/quality_gate.sh << 'EOF'
 #!/bin/bash
-# quality_gate.sh - Script de Quality Gate Klocwork
+set -e
 
-KW_URL="http://localhost:8080"
-PROJECT="tp-project"
-
-# Critères
+KW_SERVER="\${KW_SERVER:-http://kw-server:8080}"
+KW_PROJECT="\${KW_PROJECT:-project_alpha}"
 MAX_CRITICAL=0
 MAX_ERROR=5
-MAX_DENSITY=10  # issues per KLOC
+MAX_WARNING=50
+
+echo "=== Klocwork Quality Gate ==="
+echo "Server: $KW_SERVER"
+echo "Project: $KW_PROJECT"
 
 # Récupérer les métriques
-CRITICAL=$(kwadmin --url $KW_URL list-issues $PROJECT --severity Critical --status Analyze,Fix | wc -l)
-ERRORS=$(kwadmin --url $KW_URL list-issues $PROJECT --severity Error --status Analyze,Fix | wc -l)
+CRITICAL=$(curl -s "$KW_SERVER/review/api/projects/$KW_PROJECT/issues?action=search&severity=1&status=Analyze" \
+  -H "Authorization: Bearer $KW_TOKEN" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))")
+ERROR=$(curl -s "$KW_SERVER/review/api/projects/$KW_PROJECT/issues?action=search&severity=2&status=Analyze" \
+  -H "Authorization: Bearer $KW_TOKEN" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))")
+WARNING=$(curl -s "$KW_SERVER/review/api/projects/$KW_PROJECT/issues?action=search&severity=3&status=Analyze" \
+  -H "Authorization: Bearer $KW_TOKEN" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))")
 
-echo "=== Quality Gate Results ==="
-echo "Critical issues: $CRITICAL (max: $MAX_CRITICAL)"
-echo "Error issues: $ERRORS (max: $MAX_ERROR)"
+echo ""
+echo "Results:"
+echo "  Critical: $CRITICAL (max: $MAX_CRITICAL)"
+echo "  Error:    $ERROR (max: $MAX_ERROR)"
+echo "  Warning:  $WARNING (max: $MAX_WARNING)"
+echo ""
 
-# Évaluation
-PASS=true
+FAILED=0
 if [ "$CRITICAL" -gt "$MAX_CRITICAL" ]; then
-    echo "❌ FAIL: Too many critical issues"
-    PASS=false
+  echo "❌ CRITICAL threshold exceeded"
+  FAILED=1
 fi
-if [ "$ERRORS" -gt "$MAX_ERROR" ]; then
-    echo "❌ FAIL: Too many error issues"
-    PASS=false
+if [ "$ERROR" -gt "$MAX_ERROR" ]; then
+  echo "❌ ERROR threshold exceeded"
+  FAILED=1
+fi
+if [ "$WARNING" -gt "$MAX_WARNING" ]; then
+  echo "⚠️  WARNING threshold exceeded (non-blocking)"
 fi
 
-if [ "$PASS" = true ]; then
-    echo "✅ Quality Gate PASSED"
-    exit 0
+if [ "$FAILED" -eq 1 ]; then
+  echo ""
+  echo "🚫 QUALITY GATE: FAILED"
+  exit 1
 else
-    echo "❌ Quality Gate FAILED"
-    exit 1
+  echo ""
+  echo "✅ QUALITY GATE: PASSED"
+  exit 0
 fi
-\`\`\`
+EOF
+chmod +x scripts/quality_gate.sh
 
-#### TP 4 : Générer un rapport de conformité MISRA
+# 2. Tester localement
+export KW_SERVER="http://kw-server:8080"
+export KW_PROJECT="tp_cicd"
+export KW_TOKEN="your-token-here"
+./scripts/quality_gate.sh
+\\\`\\\`\\\`
 
-\`\`\`bash
-# Exporter le rapport MISRA
-kwadmin --url http://localhost:8080 list-issues tp-project \\
-  --taxonomy MISRA --format csv > misra_compliance.csv
+### TP 4 : Rapport automatique
 
-# Calculer le taux de conformité
-TOTAL_RULES=143  # Nombre de règles MISRA C:2012 Required
-VIOLATED=$(cut -d',' -f4 misra_compliance.csv | sort -u | wc -l)
-COMPLIANCE=$(echo "scale=1; (1 - $VIOLATED/$TOTAL_RULES) * 100" | bc)
+\\\`\\\`\\\`bash
+# 1. Script de rapport pour Slack
+cat > scripts/kw_slack_report.sh << 'EOF'
+#!/bin/bash
+KW_SERVER="\${KW_SERVER:-http://kw-server:8080}"
+KW_PROJECT="\${KW_PROJECT:-project_alpha}"
+SLACK_WEBHOOK="$SLACK_WEBHOOK_URL"
 
-echo "Conformité MISRA : \${COMPLIANCE}%"
-echo "Règles violées : $VIOLATED / $TOTAL_RULES"
-\`\`\`
+# Collecter les métriques
+TOTAL=$(curl -s "$KW_SERVER/review/api/projects/$KW_PROJECT/issues?action=search" \
+  -H "Authorization: Bearer $KW_TOKEN" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))")
+NEW=$(curl -s "$KW_SERVER/review/api/projects/$KW_PROJECT/issues?action=search&status=Analyze" \
+  -H "Authorization: Bearer $KW_TOKEN" | python3 -c "import json,sys; print(len(json.load(sys.stdin)))")
 
-#### TP 5 : Intégration avec les notifications
+# Envoyer à Slack
+curl -X POST "$SLACK_WEBHOOK" -H 'Content-type: application/json' -d "{
+  \"blocks\": [
+    {\"type\": \"header\", \"text\": {\"type\": \"plain_text\", \"text\": \"📊 Rapport Klocwork - $KW_PROJECT\"}},
+    {\"type\": \"section\", \"text\": {\"type\": \"mrkdwn\", \"text\": \"*Total issues:* $TOTAL\\n*Nouvelles (à analyser):* $NEW\"}},
+    {\"type\": \"section\", \"text\": {\"type\": \"mrkdwn\", \"text\": \"<$KW_SERVER|Voir le dashboard>\"}}
+  ]
+}"
+echo "Rapport envoyé à Slack"
+EOF
+chmod +x scripts/kw_slack_report.sh
+\\\`\\\`\\\`
 
-\`\`\`bash
-# Envoyer une notification Slack après l'analyse
-WEBHOOK_URL="https://hooks.slack.com/services/xxx/yyy/zzz"
-CRITICAL=$(kwadmin --url http://localhost:8080 list-issues tp-project --severity Critical | wc -l)
+### TP 5 : Intégration complète multi-projets
 
-curl -X POST $WEBHOOK_URL -H 'Content-Type: application/json' \\
-  -d "{
-    \"text\": \"Klocwork Analysis Complete\",
-    \"blocks\": [{
-      \"type\": \"section\",
-      \"text\": {
-        \"type\": \"mrkdwn\",
-        \"text\": \"*Project:* tp-project\\n*Critical Issues:* \${CRITICAL}\\n*Status:* $([ $CRITICAL -eq 0 ] && echo '✅ PASS' || echo '❌ FAIL')\"
-      }
-    }]
-  }"
-\`\`\``,
+\\\`\\\`\\\`bash
+# 1. Script d'analyse multi-projets (monorepo)
+cat > scripts/kw_multi_analyze.sh << 'EOF'
+#!/bin/bash
+set -e
+
+PROJECTS=("module_core" "module_network" "module_ui")
+KW_SERVER="http://kw-server:8080"
+
+for project in "\${PROJECTS[@]}"; do
+  echo "=== Analyzing: $project ==="
+  cd $project
+  
+  # Build et capture
+  kwinject make all
+  
+  # Analyse
+  mkdir -p /tmp/kw_tables_$project
+  kwbuildproject --url $KW_SERVER/$project \
+    --tables-directory /tmp/kw_tables_$project \
+    --incremental kwinject.out
+  
+  # Upload
+  kwadmin load $project --url $KW_SERVER \
+    --tables-directory /tmp/kw_tables_$project
+  
+  cd ..
+done
+
+echo "=== All projects analyzed ==="
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
-        'kwinject capture le build, kwbuildproject analyse, kwadmin charge les résultats sur le serveur',
-        'Le Quality Gate bloque le pipeline si des issues critiques sont détectées',
-        'L\'analyse différentielle ne vérifie que les fichiers modifiés (rapide pour les PRs)',
-        'Métriques clés : densité d\'issues, taux de correction, conformité MISRA',
-        'L\'API REST permet d\'automatiser la gestion des issues et le reporting',
-        'Les rapports CSV et le dashboard web fournissent la visibilité aux managers et auditeurs'
+        'Modèles CI : analyse diff (MR, rapide), incrémentale (develop), complète (nightly)',
+        'Jenkins : plugin Klocwork ou Jenkinsfile avec kwinject/kwbuildproject/kwadmin',
+        'GitLab CI : stages build → analyze → quality-gate avec artifacts',
+        'Quality Gate : 0 Critical, max N Error pour bloquer le pipeline',
+        'Token CI dédié : authentification non-interactive pour les pipelines',
+        'Analyse diff en MR : kwcheck run sur les fichiers modifiés uniquement (rapide)',
+        'Rapports : JSON/XML exportables, intégration Slack/Teams/email',
+        'Trending : surveiller l évolution du nombre d issues dans le temps',
+        'Cache tables-directory entre builds incrémentaux pour performance'
       ]) },
 
 
     // ==================== JENKINS ====================
-    { id: 'jen-01', courseId: 'jenkins', title: 'Introduction à Jenkins', duration: '3h', orderIndex: 1,
+    { id: 'jen-01', courseId: 'jenkins', title: 'Introduction à Jenkins', duration: '4h', orderIndex: 1,
       theoryContent: `## Introduction à Jenkins
 
-### Qu'est-ce que Jenkins ?
+### Présentation
 
-Jenkins est un serveur d'**automatisation open source** écrit en Java. C'est l'outil de CI/CD (Continuous Integration / Continuous Delivery) le plus utilisé au monde avec plus de 300 000 installations actives. Jenkins permet d'automatiser les étapes de build, test et déploiement du logiciel.
+**Jenkins** est le serveur d'automatisation open source le plus utilisé au monde pour le CI/CD (Continuous Integration / Continuous Delivery). Écrit en Java, il permet d'automatiser toutes les étapes du cycle de développement : compilation, tests, analyse de code, déploiement et monitoring.
 
-### Histoire et écosystème
+**Pourquoi Jenkins ?**
 
-- **2004** : Créé par Kohsuke Kawaguchi (Sun Microsystems) sous le nom "Hudson"
-- **2011** : Fork en "Jenkins" suite au rachat de Sun par Oracle
-- **Aujourd'hui** : Plus de 1800 plugins, communauté massive, fondation Jenkins (Linux Foundation)
+- **Open Source** : gratuit, communauté massive (1700+ plugins)
+- **Extensible** : plugins pour presque tous les outils DevOps
+- **Pipeline as Code** : Jenkinsfiles versionnés dans Git
+- **Distribué** : architecture maître/agents pour la scalabilité
+- **Polyglotte** : supporte tous les langages et frameworks
+- **Écosystème** : intégration native avec Docker, Kubernetes, cloud
 
-### Pourquoi Jenkins ?
+**Historique :** Jenkins est né en 2011 comme fork de Hudson (Oracle). Créé par Kohsuke Kawaguchi, il est maintenu par la Jenkins community sous la Linux Foundation (CD Foundation).
 
-| Avantage | Description |
-|----------|-------------|
-| Open source | Gratuit, code source disponible |
-| Extensible | 1800+ plugins pour tout intégrer |
-| Polyvalent | Tout langage, toute plateforme |
-| Distribué | Architecture master/agents scalable |
-| Pipeline as Code | Jenkinsfile versionné avec le code |
-| Communauté | Massive, documentation abondante |
-| Maturité | 20 ans d'existence, très stable |
+**Concepts clés :**
 
-### Concepts fondamentaux
+| Concept | Description |
+|---------|-------------|
+| Job | Unité de travail configurable (build, test, deploy) |
+| Pipeline | Workflow multi-étapes défini en code (Jenkinsfile) |
+| Agent/Node | Machine exécutant les builds (master ou workers) |
+| Executor | Thread d'exécution sur un agent |
+| Workspace | Répertoire de travail du build |
+| Plugin | Extension ajoutant des fonctionnalités |
+| Credentials | Secrets gérés de manière sécurisée |
 
-#### 1. Job (projet)
+### Installation sur Linux (Ubuntu/Debian)
 
-Un job est une **tâche automatisée** dans Jenkins. Types de jobs :
+#### Installation via Docker (Recommandée)
 
-- **Freestyle** : configuration via l'interface web (simple)
-- **Pipeline** : script Groovy définissant les étapes (recommandé)
-- **Multibranch Pipeline** : pipeline automatique par branche Git
-- **Organization Folder** : scan automatique de tous les repos d'une org GitHub/GitLab
-
-#### 2. Build
-
-Un build est une **exécution** d'un job. Chaque build a :
-- Un numéro séquentiel (#1, #2, #3...)
-- Un statut : Success (bleu), Unstable (jaune), Failure (rouge), Aborted (gris)
-- Des logs de console
-- Des artefacts produits
-- Un changelog (commits depuis le dernier build)
-
-#### 3. Pipeline
-
-Un pipeline définit le **workflow complet** de livraison :
-
-\`\`\`groovy
-pipeline {
-    agent any
-    
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn clean compile'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('Package') {
-            steps {
-                sh 'mvn package -DskipTests'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'deploy.sh staging'
-            }
-        }
-    }
-}
-\`\`\`
-
-#### 4. Agent (esclave/noeud)
-
-Un agent est une **machine** qui exécute les builds :
-- **Built-in node** : le contrôleur Jenkins lui-même (déconseillé pour les builds)
-- **Permanent agents** : machines dédiées connectées en permanence
-- **Cloud agents** : provisionné à la demande (Docker, Kubernetes, AWS EC2)
-
-### Architecture Jenkins
-
-\`\`\`
-┌──────────────────────────────────────────────────┐
-│              JENKINS CONTROLLER                    │
-│  (anciennement "master")                         │
-│                                                  │
-│  ┌──────────┐ ┌──────────┐ ┌─────────────────┐  │
-│  │ Web UI   │ │ REST API │ │ Job Scheduler   │  │
-│  └──────────┘ └──────────┘ └─────────────────┘  │
-│  ┌──────────┐ ┌──────────┐ ┌─────────────────┐  │
-│  │ Plugins  │ │ Security │ │ Build Queue     │  │
-│  └──────────┘ └──────────┘ └─────────────────┘  │
-└───────────────────────┬──────────────────────────┘
-                        │ JNLP / SSH / WebSocket
-         ┌──────────────┼──────────────┐
-         ▼              ▼              ▼
-┌──────────────┐ ┌──────────────┐ ┌──────────────┐
-│  Agent Linux │ │ Agent Docker │ │  Agent Win   │
-│  Java, Maven │ │  Ephemeral   │ │  .NET, MSBuild│
-│  GCC, Python │ │  (on-demand) │ │  Visual Studio│
-└──────────────┘ └──────────────┘ └──────────────┘
-\`\`\`
-
-### Installation
-
-#### Méthodes d'installation
-
-\`\`\`bash
-# 1. Docker (recommandé pour les labs)
-docker run -d --name jenkins \\
-  -p 8080:8080 -p 50000:50000 \\
-  -v jenkins-data:/var/jenkins_home \\
-  jenkins/jenkins:lts
-
-# 2. Package système (production)
-# Debian/Ubuntu
-curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc
-echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
-sudo apt update && sudo apt install jenkins
-
-# 3. WAR file (portable)
-java -jar jenkins.war --httpPort=8080
-\`\`\`
-
-### Plugins essentiels
-
-| Plugin | Usage |
-|--------|-------|
-| Git | Intégration Git |
-| Pipeline | Pipelines déclaratifs et scriptés |
-| Blue Ocean | Interface moderne pour les pipelines |
-| Docker Pipeline | Utiliser Docker dans les pipelines |
-| Credentials | Gestion sécurisée des secrets |
-| JUnit | Rapports de tests |
-| Artifactory | Intégration JFrog Artifactory |
-| SonarQube Scanner | Analyse de qualité de code |
-| Slack Notification | Notifications Slack |
-| Role-based Authorization | Contrôle d'accès fin |
-
-### Jenkins vs alternatives modernes
-
-| Critère | Jenkins | GitHub Actions | GitLab CI | Azure DevOps |
-|---------|---------|---------------|-----------|--------------|
-| Hébergement | Self-hosted | Cloud (GitHub) | Self/Cloud | Cloud (MS) |
-| Configuration | Jenkinsfile | YAML | YAML | YAML |
-| Plugins | 1800+ | Marketplace | Intégré | Extensions |
-| Coût | Gratuit (+infra) | Gratuit (limites) | Gratuit (limites) | Gratuit (limites) |
-| Complexité | Haute | Basse | Moyenne | Moyenne |
-| Flexibilité | Maximale | Haute | Haute | Haute |`,
-
-      practiceContent: `### Travaux Pratiques : Installation et premier job
-
-#### Prérequis
-- Docker installé
-- Git installé
-- Un projet à builder (Java, Node.js ou Python)
-
-#### Étape 1 : Installer Jenkins avec Docker
-
-\`\`\`bash
-# Créer un réseau Docker
+\\\`\\\`\\\`bash
+# Créer le réseau Docker pour Jenkins
 docker network create jenkins
 
-# Lancer Jenkins
+# Lancer Jenkins avec Docker-in-Docker (DinD)
 docker run -d --name jenkins \\
   --network jenkins \\
   -p 8080:8080 -p 50000:50000 \\
-  -v jenkins-data:/var/jenkins_home \\
+  -v jenkins_home:/var/jenkins_home \\
   -v /var/run/docker.sock:/var/run/docker.sock \\
-  jenkins/jenkins:lts
+  --restart unless-stopped \\
+  jenkins/jenkins:lts-jdk17
 
 # Récupérer le mot de passe initial
 docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
-\`\`\`
 
-#### Étape 2 : Configuration initiale
+# Suivre les logs
+docker logs -f jenkins
+# Attendre "Jenkins is fully up and running"
 
-1. Ouvrez http://localhost:8080
-2. Entrez le mot de passe initial
-3. Installez les plugins suggérés
-4. Créez votre compte administrateur
-5. Configurez l'URL Jenkins : http://localhost:8080/
+# Accéder à l'interface : http://localhost:8080
+\\\`\\\`\\\`
 
-#### Étape 3 : Créer un job Freestyle
+#### Installation via apt (Production Debian/Ubuntu)
 
-1. Cliquez sur "New Item"
-2. Nom : "hello-world-freestyle"
-3. Type : "Freestyle project"
-4. Configuration :
-   - Build Steps > Execute shell :
-\`\`\`bash
-echo "Hello from Jenkins!"
-echo "Date: $(date)"
-echo "User: $(whoami)"
+\\\`\\\`\\\`bash
+# Ajouter la clé GPG et le dépôt Jenkins
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \\
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | \\
+  sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+# Installer Java 17 et Jenkins
+sudo apt update
+sudo apt install -y fontconfig openjdk-17-jre jenkins
+
+# Démarrer Jenkins
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+# Récupérer le mot de passe initial
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+# Ouvrir le port firewall si nécessaire
+sudo ufw allow 8080/tcp
+\\\`\\\`\\\`
+
+#### Installation via yum/dnf (RHEL/CentOS)
+
+\\\`\\\`\\\`bash
+# Ajouter le dépôt Jenkins
+sudo wget -O /etc/yum.repos.d/jenkins.repo \\
+  https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
+# Installer
+sudo dnf install -y java-17-openjdk jenkins
+
+# Démarrer
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+
+# Récupérer le mot de passe initial
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────┐
+│                    Jenkins Architecture                           │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│   ┌──────────────────────────────────────────────────────────┐   │
+│   │              Jenkins Controller (Master)                  │   │
+│   │                                                           │   │
+│   │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌────────┐  │   │
+│   │  │  Web UI  │  │  REST    │  │ Scheduler│  │ Plugin │  │   │
+│   │  │  (8080)  │  │  API     │  │ (cron,   │  │ Manager│  │   │
+│   │  │          │  │          │  │  SCM     │  │        │  │   │
+│   │  │          │  │          │  │  poll)   │  │ (1700+)│  │   │
+│   │  └──────────┘  └──────────┘  └──────────┘  └────────┘  │   │
+│   │                                                           │   │
+│   │  ┌──────────┐  ┌──────────┐  ┌──────────────────────┐   │   │
+│   │  │Credential│  │  Queue   │  │  JENKINS_HOME        │   │   │
+│   │  │  Store   │  │ (builds) │  │  /var/lib/jenkins     │   │   │
+│   │  └──────────┘  └──────────┘  │  ├── jobs/           │   │   │
+│   │                               │  ├── plugins/        │   │   │
+│   │                               │  ├── config.xml      │   │   │
+│   │                               │  └── secrets/        │   │   │
+│   │                               └──────────────────────┘   │   │
+│   └───────────────────────────┬──────────────────────────────┘   │
+│                               │ JNLP / SSH (port 50000)          │
+│           ┌───────────────────┼───────────────────┐              │
+│           ▼                   ▼                   ▼              │
+│   ┌──────────────┐   ┌──────────────┐   ┌──────────────┐       │
+│   │   Agent 1    │   │   Agent 2    │   │   Agent 3    │       │
+│   │  (Linux)     │   │  (Docker)    │   │ (Kubernetes) │       │
+│   │              │   │              │   │              │       │
+│   │ Executors: 4 │   │ Executors: 2 │   │ Executors: ∞ │       │
+│   │ Labels:      │   │ Labels:      │   │ Labels:      │       │
+│   │  linux,java  │   │ docker,node  │   │ k8s,dynamic  │       │
+│   └──────────────┘   └──────────────┘   └──────────────┘       │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+### Commandes essentielles
+
+#### Jenkins CLI
+
+\\\`\\\`\\\`bash
+# Télécharger le CLI Jenkins
+wget http://localhost:8080/jnlpJars/jenkins-cli.jar
+
+# Aide
+java -jar jenkins-cli.jar -s http://localhost:8080/ help
+
+# Authentification
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN who-am-i
+
+# Lister les jobs
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN list-jobs
+
+# Lancer un build
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN build my-job
+
+# Lancer un build avec paramètres
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN build my-job -p BRANCH=develop -p DEPLOY=true
+
+# Installer un plugin
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN install-plugin git docker-workflow
+
+# Redémarrer Jenkins (safe)
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN safe-restart
+
+# Exporter la configuration d'un job
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN get-job my-job > my-job-config.xml
+
+# Créer un job depuis XML
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN create-job new-job < new-job-config.xml
+\\\`\\\`\\\`
+
+#### API REST Jenkins
+
+\\\`\\\`\\\`bash
+# Informations système
+curl -s http://admin:TOKEN@localhost:8080/api/json?pretty=true
+
+# Lister les jobs
+curl -s "http://admin:TOKEN@localhost:8080/api/json?tree=jobs[name,color,url]"
+
+# Statut d'un job
+curl -s "http://admin:TOKEN@localhost:8080/job/my-job/api/json"
+
+# Dernier build
+curl -s "http://admin:TOKEN@localhost:8080/job/my-job/lastBuild/api/json"
+
+# Lancer un build
+curl -X POST "http://admin:TOKEN@localhost:8080/job/my-job/build"
+
+# Lancer un build paramétré
+curl -X POST "http://admin:TOKEN@localhost:8080/job/my-job/buildWithParameters" \\
+  --data-urlencode "BRANCH=feature/new" \\
+  --data-urlencode "DEPLOY=true"
+
+# Console output du dernier build
+curl -s "http://admin:TOKEN@localhost:8080/job/my-job/lastBuild/consoleText"
+
+# Queue des builds
+curl -s "http://admin:TOKEN@localhost:8080/queue/api/json"
+
+# Liste des plugins installés
+curl -s "http://admin:TOKEN@localhost:8080/pluginManager/api/json?depth=1"
+
+# CRUMB (CSRF protection)
+CRUMB=$(curl -s "http://admin:TOKEN@localhost:8080/crumbIssuer/api/json" | python3 -c "import json,sys; print(json.load(sys.stdin)['crumb'])")
+curl -X POST -H "Jenkins-Crumb:$CRUMB" "http://admin:TOKEN@localhost:8080/job/my-job/build"
+\\\`\\\`\\\`
+
+#### Job Freestyle (configuration)
+
+\\\`\\\`\\\`bash
+# Exemple de job freestyle via script de build
+#!/bin/bash
+# Ce script est configuré dans "Execute shell" d'un job freestyle
+
+echo "=== Build started ==="
+echo "Job: $JOB_NAME"
+echo "Build: $BUILD_NUMBER"
 echo "Workspace: $WORKSPACE"
-java -version 2>&1 || echo "Java non disponible"
-\`\`\`
-5. Sauvegardez et cliquez "Build Now"
-6. Vérifiez la console output
+echo "Branch: $GIT_BRANCH"
 
-#### Étape 4 : Créer un job Pipeline
+# Compilation
+cd $WORKSPACE
+mvn clean package -DskipTests
 
-1. New Item > "hello-pipeline" > Pipeline
-2. Dans la section Pipeline, entrez :
-\`\`\`groovy
+# Tests
+mvn test
+
+# Archiver les artefacts
+cp target/*.jar $WORKSPACE/artifacts/
+
+echo "=== Build completed ==="
+\\\`\\\`\\\`
+
+#### Pipeline (Jenkinsfile basique)
+
+\\\`\\\`\\\`groovy
+// Jenkinsfile minimal (Pipeline Déclaratif)
 pipeline {
     agent any
     
     stages {
-        stage('Hello') {
+        stage('Checkout') {
             steps {
-                echo 'Hello World from Pipeline!'
-                sh 'uname -a'
+                git branch: 'main', url: 'https://github.com/team/project.git'
             }
         }
-        stage('Build Info') {
-            steps {
-                echo "Build #\${env.BUILD_NUMBER}"
-                echo "Job: \${env.JOB_NAME}"
-                echo "Workspace: \${env.WORKSPACE}"
-            }
-        }
-        stage('Date') {
-            steps {
-                sh 'date'
-            }
-        }
-    }
-    
-    post {
-        success {
-            echo 'Pipeline completed successfully!'
-        }
-        failure {
-            echo 'Pipeline failed!'
-        }
-    }
-}
-\`\`\`
-3. Exécutez et observez l'affichage par étapes
-
-#### Étape 5 : Connecter un repo Git
-
-1. Créez un nouveau Pipeline "git-project"
-2. Dans Pipeline > Definition : "Pipeline script from SCM"
-3. SCM : Git
-4. Repository URL : https://github.com/votre-repo/projet-test.git
-5. Branch : */main
-6. Script Path : Jenkinsfile
-7. Sauvegardez et buildez
-
-#### Questions de vérification
-- Quel est le statut de votre premier build ?
-- Où se trouve le workspace sur le système de fichiers ?
-- Combien de plugins sont installés par défaut ?
-- Quelle version de Jenkins avez-vous ?`,
-
-      keyPoints: JSON.stringify([
-        'Jenkins est le serveur CI/CD open source le plus utilisé (300 000+ installations)',
-        'Architecture Controller + Agents pour distribuer les builds',
-        'Jobs Freestyle (UI) vs Pipeline (code Groovy) - Pipeline recommandé',
-        'Plus de 1800 plugins pour intégrer tous les outils du marché',
-        'Pipeline as Code : le Jenkinsfile est versionné avec le code source',
-        'Installation possible via Docker, package système ou WAR file'
-      ]) },
-
-
-    { id: 'jen-02', courseId: 'jenkins', title: 'Pipelines déclaratifs', duration: '4h', orderIndex: 2,
-      theoryContent: `## Pipelines déclaratifs Jenkins
-
-### Pipeline déclaratif vs scripté
-
-Jenkins propose deux syntaxes pour les pipelines :
-
-| Aspect | Déclaratif | Scripté |
-|--------|-----------|---------|
-| Syntaxe | Structurée (DSL) | Groovy libre |
-| Lisibilité | Haute | Variable |
-| Flexibilité | Encadrée | Totale |
-| Validation | Linter intégré | Pas de validation |
-| Recommandation | Préféré (99% des cas) | Cas complexes uniquement |
-| Mot-clé | pipeline {} | node {} |
-
-### Structure d'un pipeline déclaratif
-
-\`\`\`groovy
-pipeline {
-    // Où exécuter (obligatoire)
-    agent any
-    
-    // Variables d'environnement
-    environment {
-        APP_NAME = 'my-application'
-        VERSION = '1.0.0'
-    }
-    
-    // Options globales
-    options {
-        timeout(time: 30, unit: 'MINUTES')
-        disableConcurrentBuilds()
-        buildDiscarder(logRotator(numToKeepStr: '10'))
-    }
-    
-    // Paramètres de build
-    parameters {
-        string(name: 'DEPLOY_ENV', defaultValue: 'staging', description: 'Environnement cible')
-        booleanParam(name: 'RUN_TESTS', defaultValue: true, description: 'Exécuter les tests ?')
-        choice(name: 'LOG_LEVEL', choices: ['INFO', 'DEBUG', 'WARN'], description: 'Niveau de log')
-    }
-    
-    // Déclencheurs automatiques
-    triggers {
-        pollSCM('H/5 * * * *')  // Vérifier Git toutes les 5 minutes
-        cron('H 2 * * 1-5')     // Build nocturne en semaine à 2h
-    }
-    
-    // Étapes du pipeline
-    stages {
+        
         stage('Build') {
             steps {
                 sh 'mvn clean compile'
@@ -4882,473 +6861,1330 @@ pipeline {
         }
         
         stage('Test') {
-            when {
-                expression { params.RUN_TESTS == true }
-            }
             steps {
                 sh 'mvn test'
             }
             post {
                 always {
-                    junit '**/target/surefire-reports/*.xml'
+                    junit 'target/surefire-reports/*.xml'
                 }
             }
         }
         
-        stage('Deploy') {
+        stage('Package') {
             steps {
-                sh "deploy.sh \${params.DEPLOY_ENV}"
+                sh 'mvn package -DskipTests'
+                archiveArtifacts artifacts: 'target/*.jar'
             }
         }
     }
     
-    // Actions post-pipeline
     post {
-        success { echo 'Build réussi !' }
-        failure { echo 'Build échoué !' }
-        always { cleanWs() }
+        success { echo 'Build successful!' }
+        failure { echo 'Build failed!' }
     }
 }
-\`\`\`
+\\\`\\\`\\\`
 
-### Directives principales
+### Configuration
 
-#### agent - Où exécuter
+#### Plugins essentiels
 
-\`\`\`groovy
-// Sur n'importe quel agent disponible
-agent any
+\\\`\\\`\\\`bash
+# Plugins recommandés pour un setup complet
+# Installer via Manage Jenkins > Plugins
 
-// Sur un agent avec un label spécifique
-agent { label 'linux && java17' }
+# SCM
+# - Git Plugin
+# - GitHub Plugin / GitLab Plugin
+
+# Pipeline
+# - Pipeline (workflow-aggregator)
+# - Pipeline Stage View
+# - Blue Ocean (UI moderne)
+
+# Build
+# - Docker Pipeline
+# - Kubernetes Plugin
+# - Maven Integration
+
+# Qualité
+# - Warnings Next Generation (rapports d'analyse)
+# - JUnit Plugin
+# - Code Coverage API
+# - SonarQube Scanner
+
+# Notifications
+# - Slack Notification
+# - Email Extension
+# - Microsoft Teams
+
+# Sécurité
+# - Role-Based Authorization Strategy
+# - Credentials Plugin
+# - OWASP Dependency Check
+
+# Installation en batch via CLI
+PLUGINS="git github docker-workflow kubernetes pipeline-stage-view blueocean junit slack credentials"
+for plugin in $PLUGINS; do
+  java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+    -auth admin:TOKEN install-plugin $plugin
+done
+java -jar jenkins-cli.jar -s http://localhost:8080/ -auth admin:TOKEN safe-restart
+\\\`\\\`\\\`
+
+#### Configuration globale (config.xml)
+
+\\\`\\\`\\\`bash
+# Fichier principal : /var/lib/jenkins/config.xml
+# Configurations systèmes importantes :
+
+# Nombre d'executors sur le master
+# Manage Jenkins > System Configuration > # of executors: 0
+# (recommandé: pas de build sur le master)
+
+# URL Jenkins
+# Manage Jenkins > System > Jenkins URL: http://jenkins.company.com:8080/
+
+# Variables d'environnement globales
+# Manage Jenkins > System > Global properties > Environment variables
+# JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+# MAVEN_HOME=/opt/maven
+
+# Sauvegarder la configuration
+cp /var/lib/jenkins/config.xml /backup/jenkins_config_$(date +%Y%m%d).xml
+\\\`\\\`\\\`
+
+### Bonnes pratiques
+
+1. **Pipeline as Code** : tout dans un Jenkinsfile versionné (pas de config UI)
+2. **Pas de build sur le master** : utilisez des agents dédiés
+3. **Plugins minimum** : n'installez que ce qui est nécessaire (surface d'attaque)
+4. **Credentials centralisés** : jamais de secrets en clair dans le Jenkinsfile
+5. **Agents éphémères** : Docker ou Kubernetes pour un environnement propre à chaque build
+6. **Sauvegardez régulièrement** : JENKINS_HOME complet (config + jobs + secrets)
+7. **Mises à jour** : appliquez les security advisories rapidement
+8. **Monitoring** : surveillez la queue, l'espace disque, la mémoire
+9. **Blue Ocean** : utilisez l'interface moderne pour la visibilité des pipelines
+10. **Shared Libraries** : factorisez le code pipeline commun`,
+
+      practiceContent: `## Travaux Pratiques - Introduction à Jenkins
+
+### TP 1 : Installation Docker et premiers pas
+
+\\\`\\\`\\\`bash
+# 1. Lancer Jenkins avec Docker
+docker run -d --name jenkins-tp \\
+  -p 8080:8080 -p 50000:50000 \\
+  -v jenkins_tp_home:/var/jenkins_home \\
+  jenkins/jenkins:lts-jdk17
+
+# 2. Récupérer le mot de passe initial
+sleep 30  # Attendre le démarrage
+docker exec jenkins-tp cat /var/jenkins_home/secrets/initialAdminPassword
+
+# 3. Compléter le setup wizard
+echo "Accéder à http://localhost:8080"
+echo "Installer les plugins suggérés"
+echo "Créer un compte admin"
+
+# 4. Vérifier l'installation
+curl -s http://localhost:8080/api/json | python3 -m json.tool
+\\\`\\\`\\\`
+
+### TP 2 : Premier job Freestyle
+
+\\\`\\\`\\\`bash
+# 1. Créer un job freestyle via l'API
+cat > /tmp/hello-job.xml << 'EOF'
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <description>Job de test Hello World</description>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>
+echo "=== Hello Jenkins! ==="
+echo "Job: $JOB_NAME"
+echo "Build #$BUILD_NUMBER"
+echo "Timestamp: $(date)"
+echo "Hostname: $(hostname)"
+echo "=== Done ==="
+      </command>
+    </hudson.tasks.Shell>
+  </builders>
+</project>
+EOF
+
+# 2. Créer le job
+curl -X POST "http://admin:TOKEN@localhost:8080/createItem?name=hello-world" \\
+  -H "Content-Type: application/xml" \\
+  --data-binary @/tmp/hello-job.xml
+
+# 3. Lancer le job
+curl -X POST "http://admin:TOKEN@localhost:8080/job/hello-world/build"
+
+# 4. Vérifier le résultat
+sleep 5
+curl -s "http://admin:TOKEN@localhost:8080/job/hello-world/1/consoleText"
+\\\`\\\`\\\`
+
+### TP 3 : Premier Pipeline (Jenkinsfile)
+
+\\\`\\\`\\\`bash
+# 1. Créer un repo Git avec un Jenkinsfile
+mkdir -p /tmp/jenkins-pipeline-tp
+cd /tmp/jenkins-pipeline-tp
+git init
+
+cat > Jenkinsfile << 'EOF'
+pipeline {
+    agent any
+    
+    environment {
+        APP_NAME = 'tp-jenkins'
+        VERSION = '1.0.0'
+    }
+    
+    stages {
+        stage('Info') {
+            steps {
+                echo "Building \${APP_NAME} v\${VERSION}"
+                sh 'java -version'
+                sh 'uname -a'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh '''
+                    echo "Compiling..."
+                    mkdir -p build
+                    echo "Hello from Jenkins" > build/output.txt
+                    echo "Build successful"
+                '''
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                sh '''
+                    echo "Running tests..."
+                    test -f build/output.txt
+                    echo "Tests passed"
+                '''
+            }
+        }
+        
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: 'build/**'
+                echo "Artifacts archived"
+            }
+        }
+    }
+    
+    post {
+        success { echo '✅ Pipeline successful!' }
+        failure { echo '❌ Pipeline failed!' }
+        always { echo 'Pipeline finished.' }
+    }
+}
+EOF
+
+git add .
+git commit -m "Initial Jenkinsfile"
+
+# 2. Créer le pipeline job dans Jenkins (via UI)
+echo "New Item > Pipeline > Pipeline from SCM > Git > URL du repo"
+\\\`\\\`\\\`
+
+### TP 4 : API REST et automatisation
+
+\\\`\\\`\\\`bash
+# 1. Explorer l'API
+echo "=== System info ==="
+curl -s "http://admin:TOKEN@localhost:8080/api/json" | python3 -c "
+import json, sys
+d = json.load(sys.stdin)
+print(f'Jenkins version: {d.get(\"description\", \"\")}')
+print(f'Jobs: {len(d.get(\"jobs\", []))}')
+for j in d.get('jobs', []):
+    print(f'  - {j[\"name\"]} ({j[\"color\"]})')
+"
+
+# 2. Déclencher un build et attendre le résultat
+BUILD_URL=$(curl -sI -X POST "http://admin:TOKEN@localhost:8080/job/hello-world/build" | grep -i location | awk '{print $2}' | tr -d '\r')
+echo "Build queued: $BUILD_URL"
+
+# Attendre que le build démarre
+sleep 5
+curl -s "http://admin:TOKEN@localhost:8080/job/hello-world/lastBuild/api/json" | python3 -c "
+import json, sys
+d = json.load(sys.stdin)
+print(f'Build #{d[\"number\"]} - Result: {d.get(\"result\", \"IN PROGRESS\")}')
+print(f'Duration: {d.get(\"duration\", 0)/1000:.1f}s')
+"
+
+# 3. Récupérer les artefacts
+curl -s "http://admin:TOKEN@localhost:8080/job/hello-world/lastSuccessfulBuild/artifact/"
+\\\`\\\`\\\`
+
+### TP 5 : Plugins et configuration
+
+\\\`\\\`\\\`bash
+# 1. Lister les plugins installés
+curl -s "http://admin:TOKEN@localhost:8080/pluginManager/api/json?depth=1" | python3 -c "
+import json, sys
+d = json.load(sys.stdin)
+plugins = d.get('plugins', [])
+print(f'Plugins installés: {len(plugins)}')
+for p in sorted(plugins, key=lambda x: x['shortName'])[:20]:
+    status = '✅' if p.get('active') else '❌'
+    print(f'  {status} {p[\"shortName\"]} ({p[\"version\"]})')
+"
+
+# 2. Installer un plugin
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN install-plugin docker-workflow
+
+# 3. Configurer un credential
+curl -X POST "http://admin:TOKEN@localhost:8080/credentials/store/system/domain/_/createCredentials" \\
+  -H "Content-Type: application/xml" \\
+  --data '<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
+    <scope>GLOBAL</scope>
+    <id>github-creds</id>
+    <username>ci-bot</username>
+    <password>secret-token</password>
+  </com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>'
+
+echo "Credential created: github-creds"
+\\\`\\\`\\\``,
+
+      keyPoints: JSON.stringify([
+        'Jenkins : serveur CI/CD open source le plus populaire, 1700+ plugins',
+        'Installation : Docker (recommandé), apt/yum (production), WAR (legacy)',
+        'Architecture : Controller (master) + Agents (workers) distribués',
+        'Jobs Freestyle : configuration via UI, adaptés aux tâches simples',
+        'Pipelines : workflows multi-étapes définis en code (Jenkinsfile)',
+        'API REST : automatisation complète (builds, config, monitoring)',
+        'Plugins essentiels : Git, Docker, Pipeline, Blue Ocean, Credentials',
+        'Bonnes pratiques : Pipeline as Code, pas de build sur master, agents éphémères'
+      ]) },
+
+
+    { id: 'jen-02', courseId: 'jenkins', title: 'Pipelines déclaratifs', duration: '4h', orderIndex: 2,
+      theoryContent: `## Pipelines Déclaratifs Jenkins
+
+### Présentation
+
+Le **Pipeline Déclaratif** est la syntaxe recommandée pour écrire des Jenkinsfiles. Il offre une structure claire et lisible avec des blocs prédéfinis (pipeline, agent, stages, steps) tout en permettant d'injecter du code Groovy quand nécessaire via les blocs \\\`script {}\\\`.
+
+**Déclaratif vs Scripté :**
+
+| Aspect | Déclaratif | Scripté |
+|--------|-----------|---------|
+| Syntaxe | Structurée, blocs imposés | Groovy libre |
+| Courbe d'apprentissage | Facile | Complexe |
+| Validation | Blue Ocean, linter | Aucune |
+| Flexibilité | Moyenne (script blocks) | Totale |
+| Recommandé | Oui (95% des cas) | Cas complexes |
+
+**Structure d'un pipeline déclaratif :**
+
+\\\`\\\`\\\`
+pipeline {
+    agent { ... }           // Où exécuter
+    options { ... }         // Options globales
+    environment { ... }     // Variables d'environnement
+    parameters { ... }      // Paramètres d'entrée
+    triggers { ... }        // Déclencheurs
+    stages {                // Étapes du pipeline
+        stage('...') {
+            when { ... }    // Conditions d'exécution
+            steps { ... }   // Actions
+            post { ... }    // Actions post-étape
+        }
+    }
+    post { ... }            // Actions post-pipeline
+}
+\\\`\\\`\\\`
+
+### Installation sur Linux (Ubuntu/Debian)
+
+#### Configuration du Pipeline Plugin
+
+\\\`\\\`\\\`bash
+# Installer les plugins Pipeline (si pas déjà fait)
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN install-plugin \\
+  workflow-aggregator \\
+  pipeline-stage-view \\
+  pipeline-utility-steps \\
+  pipeline-build-step
+
+# Redémarrer Jenkins
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN safe-restart
+
+# Vérifier l'installation
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN list-plugins | grep pipeline
+\\\`\\\`\\\`
+
+#### Linter Jenkinsfile
+
+\\\`\\\`\\\`bash
+# Valider un Jenkinsfile avant de pousser
+curl -X POST -F "jenkinsfile=<Jenkinsfile" \\
+  "http://admin:TOKEN@localhost:8080/pipeline-model-converter/validate"
+
+# Script de validation locale
+cat > validate_jenkinsfile.sh << 'EOF'
+#!/bin/bash
+JENKINS_URL="http://localhost:8080"
+JENKINS_AUTH="admin:TOKEN"
+
+RESULT=$(curl -s -X POST -F "jenkinsfile=<$1" \\
+  "$JENKINS_URL/pipeline-model-converter/validate" \\
+  -u "$JENKINS_AUTH")
+
+if echo "$RESULT" | grep -q "successfully validated"; then
+  echo "✅ Jenkinsfile valide"
+  exit 0
+else
+  echo "❌ Erreurs dans le Jenkinsfile:"
+  echo "$RESULT"
+  exit 1
+fi
+EOF
+chmod +x validate_jenkinsfile.sh
+./validate_jenkinsfile.sh Jenkinsfile
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────┐
+│              Pipeline Déclaratif - Structure                      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  pipeline {                                                       │
+│  │                                                                │
+│  ├── agent { docker 'node:18' }     // Environnement d'exécution │
+│  │                                                                │
+│  ├── options {                      // Options globales           │
+│  │     timeout(time: 30, unit: 'MINUTES')                        │
+│  │     retry(2)                                                   │
+│  │     disableConcurrentBuilds()                                  │
+│  │   }                                                            │
+│  │                                                                │
+│  ├── environment {                  // Variables                   │
+│  │     APP = 'myapp'                                              │
+│  │     CREDS = credentials('id')    // Secret injecté            │
+│  │   }                                                            │
+│  │                                                                │
+│  ├── parameters {                   // Entrées utilisateur        │
+│  │     string(name: 'BRANCH')                                    │
+│  │     booleanParam(name: 'DEPLOY')                              │
+│  │   }                                                            │
+│  │                                                                │
+│  ├── stages {                                                     │
+│  │   ├── stage('Build')  ─── steps { sh 'make' }                │
+│  │   ├── stage('Test')   ─── parallel { ... }                    │
+│  │   └── stage('Deploy') ─── when { branch 'main' }             │
+│  │   }                                                            │
+│  │                                                                │
+│  └── post {                         // Actions finales            │
+│       always { ... }                                              │
+│       success { ... }                                             │
+│       failure { ... }                                             │
+│     }                                                             │
+│  }                                                                │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+### Commandes essentielles
+
+#### Directives agent
+
+\\\`\\\`\\\`groovy
+// Agent global - n'importe quel agent disponible
+pipeline {
+    agent any
+    stages { ... }
+}
 
 // Pas d'agent global (défini par stage)
-agent none
-
-// Dans un conteneur Docker
-agent {
-    docker {
-        image 'maven:3.9-eclipse-temurin-17'
-        args '-v $HOME/.m2:/root/.m2'
-    }
-}
-
-// Dockerfile personnalisé
-agent {
-    dockerfile {
-        filename 'Dockerfile.build'
-        dir 'docker'
-        args '-v /tmp:/tmp'
-    }
-}
-
-// Kubernetes pod
-agent {
-    kubernetes {
-        yaml '''
-        apiVersion: v1
-        kind: Pod
-        spec:
-          containers:
-          - name: maven
-            image: maven:3.9
-            command: ['sleep', '99d']
-          - name: docker
-            image: docker:dind
-            securityContext:
-              privileged: true
-        '''
-    }
-}
-\`\`\`
-
-#### environment - Variables d'environnement
-
-\`\`\`groovy
-environment {
-    // Variable simple
-    APP_NAME = 'my-app'
-    
-    // Depuis les credentials Jenkins
-    DOCKER_CREDS = credentials('docker-hub-creds')
-    // Crée : DOCKER_CREDS (user:pass), DOCKER_CREDS_USR, DOCKER_CREDS_PSW
-    
-    // Depuis un secret text
-    API_TOKEN = credentials('api-token-id')
-    
-    // Calculée
-    BUILD_TAG = "\${env.BUILD_NUMBER}-\${env.GIT_COMMIT?.take(7)}"
-}
-\`\`\`
-
-#### when - Exécution conditionnelle
-
-\`\`\`groovy
-stage('Deploy Prod') {
-    when {
-        // Seulement sur la branche main
-        branch 'main'
-        
-        // ET seulement si le paramètre est vrai
-        expression { params.DEPLOY_TO_PROD == true }
-        
-        // ET pas un build déclenché par timer
-        not { triggeredBy 'TimerTrigger' }
-    }
-    steps {
-        sh 'deploy.sh production'
-    }
-}
-
-// Autres conditions when :
-when { branch 'release/*' }           // Pattern de branche
-when { tag 'v*' }                     // Sur un tag
-when { changeset '**/*.java' }        // Si fichiers Java modifiés
-when { environment name: 'ENV', value: 'prod' }
-when { expression { return env.BRANCH_NAME ==~ /release\\/.*/ } }
-when { allOf { branch 'main'; environment name: 'DEPLOY', value: 'true' } }
-when { anyOf { branch 'main'; branch 'develop' } }
-\`\`\`
-
-#### parallel - Étapes en parallèle
-
-\`\`\`groovy
-stage('Tests') {
-    parallel {
-        stage('Unit Tests') {
+pipeline {
+    agent none
+    stages {
+        stage('Build') {
             agent { label 'linux' }
-            steps {
-                sh 'mvn test -pl unit-tests'
-            }
+            steps { sh 'make' }
         }
-        stage('Integration Tests') {
-            agent { label 'linux' }
-            steps {
-                sh 'mvn test -pl integration-tests'
-            }
+    }
+}
+
+// Agent Docker
+pipeline {
+    agent {
+        docker {
+            image 'maven:3.9-eclipse-temurin-17'
+            args '-v /root/.m2:/root/.m2'   // Cache Maven
         }
-        stage('UI Tests') {
-            agent { label 'browser' }
+    }
+    stages { ... }
+}
+
+// Agent Docker avec Dockerfile
+pipeline {
+    agent {
+        dockerfile {
+            filename 'Dockerfile.ci'
+            dir 'ci'
+            args '-v /tmp:/tmp'
+            additionalBuildArgs '--build-arg VERSION=1.0'
+        }
+    }
+    stages { ... }
+}
+
+// Agent Kubernetes
+pipeline {
+    agent {
+        kubernetes {
+            yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: maven
+    image: maven:3.9-eclipse-temurin-17
+    command: ['sleep', 'infinity']
+  - name: docker
+    image: docker:24-dind
+    securityContext:
+      privileged: true
+"""
+        }
+    }
+    stages { ... }
+}
+\\\`\\\`\\\`
+
+#### Environment et credentials
+
+\\\`\\\`\\\`groovy
+pipeline {
+    agent any
+    
+    environment {
+        // Variables simples
+        APP_NAME = 'my-application'
+        VERSION = '2.1.0'
+        
+        // Variables depuis credentials Jenkins
+        // Username + Password
+        GIT_CREDS = credentials('github-credentials')
+        // Génère: GIT_CREDS (user:pass), GIT_CREDS_USR, GIT_CREDS_PSW
+        
+        // Token / Secret text
+        SONAR_TOKEN = credentials('sonarqube-token')
+        
+        // Fichier secret
+        KUBECONFIG = credentials('kubernetes-config')
+        
+        // Variable calculée
+        BUILD_TAG = "\${APP_NAME}-\${VERSION}-\${BUILD_NUMBER}"
+    }
+    
+    stages {
+        stage('Use Credentials') {
+            environment {
+                // Variables spécifiques au stage
+                DEPLOY_ENV = 'staging'
+                AWS_CREDS = credentials('aws-credentials')
+            }
             steps {
-                sh 'npm run test:e2e'
+                sh '''
+                    echo "App: $APP_NAME v$VERSION"
+                    echo "Tag: $BUILD_TAG"
+                    echo "Deploy to: $DEPLOY_ENV"
+                    # Les credentials sont masqués dans les logs
+                    docker login -u $GIT_CREDS_USR -p $GIT_CREDS_PSW ghcr.io
+                '''
             }
         }
     }
 }
-\`\`\`
+\\\`\\\`\\\`
 
-#### input - Approbation manuelle
+#### Directives when (conditions)
 
-\`\`\`groovy
-stage('Deploy Production') {
-    steps {
-        input message: 'Déployer en production ?',
-              ok: 'Déployer',
-              submitter: 'admin,release-managers',
-              parameters: [
-                  string(name: 'REASON', description: 'Raison du déploiement')
-              ]
-        sh 'deploy.sh production'
-    }
-}
-\`\`\`
-
-### Gestion des credentials
-
-\`\`\`groovy
+\\\`\\\`\\\`groovy
 pipeline {
     agent any
     stages {
-        stage('Deploy') {
-            steps {
-                // Username/Password
-                withCredentials([usernamePassword(
-                    credentialsId: 'deploy-creds',
-                    usernameVariable: 'USER',
-                    passwordVariable: 'PASS'
-                )]) {
-                    sh 'deploy --user $USER --password $PASS'
-                }
-                
-                // SSH Key
-                withCredentials([sshUserPrivateKey(
-                    credentialsId: 'ssh-key',
-                    keyFileVariable: 'SSH_KEY',
-                    usernameVariable: 'SSH_USER'
-                )]) {
-                    sh 'ssh -i $SSH_KEY $SSH_USER@server.com "restart app"'
-                }
-                
-                // Secret File
-                withCredentials([file(
-                    credentialsId: 'kubeconfig',
-                    variable: 'KUBECONFIG'
-                )]) {
-                    sh 'kubectl --kubeconfig=$KUBECONFIG apply -f deployment.yaml'
+        // Exécuter seulement sur la branche main
+        stage('Deploy Prod') {
+            when { branch 'main' }
+            steps { sh './deploy.sh production' }
+        }
+        
+        // Seulement sur les branches feature/*
+        stage('Deploy Dev') {
+            when { branch pattern: 'feature/*', comparator: 'GLOB' }
+            steps { sh './deploy.sh dev' }
+        }
+        
+        // Condition sur variable d'environnement
+        stage('Notify') {
+            when { environment name: 'DEPLOY_ENV', value: 'production' }
+            steps { echo 'Deploying to production!' }
+        }
+        
+        // Condition sur paramètre
+        stage('Full Tests') {
+            when { expression { params.RUN_FULL_TESTS == true } }
+            steps { sh './run_all_tests.sh' }
+        }
+        
+        // Conditions combinées (AND)
+        stage('Release') {
+            when {
+                allOf {
+                    branch 'main'
+                    tag pattern: 'v\\\\d+\\\\.\\\\d+\\\\.\\\\d+', comparator: 'REGEXP'
                 }
             }
+            steps { sh './release.sh' }
+        }
+        
+        // Conditions combinées (OR)
+        stage('Deploy') {
+            when {
+                anyOf {
+                    branch 'main'
+                    branch 'develop'
+                }
+            }
+            steps { sh './deploy.sh' }
+        }
+        
+        // Changeset (fichiers modifiés)
+        stage('Frontend Build') {
+            when { changeset 'frontend/**' }
+            steps { sh 'cd frontend && npm run build' }
+        }
+        
+        // beforeAgent: évaluer la condition AVANT d'allouer un agent
+        stage('Heavy Build') {
+            when {
+                beforeAgent true
+                branch 'main'
+            }
+            agent { label 'heavy-builder' }
+            steps { sh './heavy_build.sh' }
         }
     }
 }
-\`\`\`
+\\\`\\\`\\\`
 
-### Shared Libraries
+#### Parallel et matrix
 
-Les Shared Libraries permettent de **factoriser** le code commun entre pipelines :
-
-\`\`\`groovy
-// vars/buildJavaApp.groovy (dans le repo de la shared library)
-def call(Map config) {
-    pipeline {
-        agent any
-        stages {
-            stage('Build') {
-                steps {
-                    sh "mvn clean package -pl \${config.module}"
+\\\`\\\`\\\`groovy
+pipeline {
+    agent none
+    stages {
+        // Étapes en parallèle
+        stage('Tests') {
+            parallel {
+                stage('Unit Tests') {
+                    agent { docker 'maven:3.9' }
+                    steps { sh 'mvn test -Punit' }
+                }
+                stage('Integration Tests') {
+                    agent { docker 'maven:3.9' }
+                    steps { sh 'mvn test -Pintegration' }
+                }
+                stage('Lint') {
+                    agent { docker 'node:18' }
+                    steps { sh 'npm run lint' }
                 }
             }
-            stage('Test') {
-                steps {
-                    sh "mvn test -pl \${config.module}"
+        }
+        
+        // Matrix (combinaisons)
+        stage('Build Matrix') {
+            matrix {
+                axes {
+                    axis {
+                        name 'PLATFORM'
+                        values 'linux', 'windows', 'macos'
+                    }
+                    axis {
+                        name 'JAVA_VERSION'
+                        values '11', '17', '21'
+                    }
                 }
-            }
-            stage('SonarQube') {
-                steps {
-                    withSonarQubeEnv('SonarQube') {
-                        sh "mvn sonar:sonar -pl \${config.module}"
+                excludes {
+                    exclude {
+                        axis { name 'PLATFORM'; values 'macos' }
+                        axis { name 'JAVA_VERSION'; values '11' }
+                    }
+                }
+                stages {
+                    stage('Build') {
+                        steps {
+                            echo "Building on \${PLATFORM} with Java \${JAVA_VERSION}"
+                            sh "./build.sh --platform=\${PLATFORM} --java=\${JAVA_VERSION}"
+                        }
                     }
                 }
             }
         }
     }
 }
+\\\`\\\`\\\`
 
-// Utilisation dans un Jenkinsfile :
+#### Shared Libraries
+
+\\\`\\\`\\\`groovy
+// Structure d'une Shared Library
+// vars/buildApp.groovy - Fonction globale
+def call(Map config = [:]) {
+    pipeline {
+        agent { docker config.image ?: 'maven:3.9' }
+        stages {
+            stage('Build') {
+                steps { sh config.buildCmd ?: 'mvn clean package' }
+            }
+            stage('Test') {
+                steps { sh config.testCmd ?: 'mvn test' }
+            }
+            stage('Deploy') {
+                when { branch 'main' }
+                steps { sh config.deployCmd ?: './deploy.sh' }
+            }
+        }
+    }
+}
+
+// Utilisation dans un Jenkinsfile
 @Library('my-shared-lib') _
-buildJavaApp(module: 'backend-service')
-\`\`\``,
 
-      practiceContent: `### Travaux Pratiques : Pipelines déclaratifs
+buildApp(
+    image: 'node:18',
+    buildCmd: 'npm ci && npm run build',
+    testCmd: 'npm test',
+    deployCmd: './scripts/deploy.sh'
+)
 
-#### TP 1 : Pipeline multi-stages complet
+// vars/notifySlack.groovy - Fonction utilitaire
+def call(String status, String channel = '#builds') {
+    def color = status == 'SUCCESS' ? 'good' : 'danger'
+    slackSend(
+        channel: channel,
+        color: color,
+        message: "\${env.JOB_NAME} #\${env.BUILD_NUMBER} - \${status}"
+    )
+}
 
-Créez un Jenkinsfile avec toutes les étapes d'un vrai projet :
-\`\`\`groovy
+// src/com/company/Pipeline.groovy - Classe partagée
+package com.company
+
+class Pipeline implements Serializable {
+    def steps
+    Pipeline(steps) { this.steps = steps }
+    
+    def dockerBuild(String image, String tag) {
+        steps.sh "docker build -t \${image}:\${tag} ."
+        steps.sh "docker push \${image}:\${tag}"
+    }
+}
+\\\`\\\`\\\`
+
+### Configuration
+
+#### Options et paramètres avancés
+
+\\\`\\\`\\\`groovy
+pipeline {
+    agent any
+    
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        retry(3)
+        timestamps()
+        ansiColor('xterm')
+        disableConcurrentBuilds()
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        skipDefaultCheckout()
+    }
+    
+    parameters {
+        string(name: 'BRANCH', defaultValue: 'main', description: 'Branch to build')
+        booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Deploy after build?')
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'staging', 'production'], description: 'Target env')
+        password(name: 'SECRET', description: 'Secret value')
+    }
+    
+    triggers {
+        cron('H 2 * * 1-5')              // Nightly build weekdays
+        pollSCM('H/5 * * * *')           // Poll Git every 5 min
+        githubPush()                      // GitHub webhook
+        upstream(upstreamProjects: 'lib-project', threshold: hudson.model.Result.SUCCESS)
+    }
+    
+    stages {
+        stage('Example') {
+            steps {
+                echo "Branch: \${params.BRANCH}"
+                echo "Deploy: \${params.DEPLOY}"
+                echo "Env: \${params.ENVIRONMENT}"
+            }
+        }
+    }
+}
+\\\`\\\`\\\`
+
+### Bonnes pratiques
+
+1. **Déclaratif par défaut** : utilisez \\\`script {}\\\` seulement si nécessaire
+2. **Jenkinsfile dans le repo** : versionné avec le code source
+3. **Shared Libraries** : factorisez le code commun entre projets
+4. **when + beforeAgent** : économisez des ressources en évaluant avant allocation
+5. **Parallel** : accélérez les pipelines en parallélisant les tests
+6. **Credentials** : jamais de secret en clair, toujours via credentials()
+7. **timeout + retry** : protégez contre les builds bloqués
+8. **post blocks** : nettoyez toujours (always), notifiez sur failure
+9. **skipDefaultCheckout** : contrôlez quand et comment le code est récupéré
+10. **Linter** : validez le Jenkinsfile avant de pousser`,
+
+      practiceContent: `## Travaux Pratiques - Pipelines Déclaratifs
+
+### TP 1 : Pipeline multi-stages
+
+\\\`\\\`\\\`groovy
+// Jenkinsfile - Pipeline complet
 pipeline {
     agent any
     
     environment {
-        APP = 'formation-app'
-        REGISTRY = 'localhost:5000'
-    }
-    
-    parameters {
-        choice(name: 'ENV', choices: ['dev', 'staging', 'prod'])
-        booleanParam(name: 'SKIP_TESTS', defaultValue: false)
+        APP = 'tp-pipeline'
+        VERSION = '1.0.0'
     }
     
     stages {
-        stage('Checkout') {
+        stage('Preparation') {
             steps {
-                checkout scm
-                sh 'git log --oneline -5'
+                echo "Preparing \${APP} v\${VERSION}"
+                sh 'mkdir -p build test-results'
             }
         }
         
         stage('Build') {
             steps {
-                sh 'echo "Building \${APP}..."'
-                sh 'sleep 2'
-                echo "Build #\${BUILD_NUMBER} complete"
+                sh '''
+                    echo "Building application..."
+                    echo "console.log('Hello');" > build/app.js
+                    echo "Build complete"
+                '''
             }
         }
         
         stage('Test') {
-            when { expression { !params.SKIP_TESTS } }
-            parallel {
-                stage('Unit') {
-                    steps { sh 'echo "Running unit tests..." && sleep 3' }
-                }
-                stage('Integration') {
-                    steps { sh 'echo "Running integration tests..." && sleep 5' }
-                }
+            steps {
+                sh '''
+                    echo "Running tests..."
+                    echo '<?xml version="1.0"?>
+                    <testsuite tests="3" failures="0">
+                      <testcase classname="App" name="test1"/>
+                      <testcase classname="App" name="test2"/>
+                      <testcase classname="App" name="test3"/>
+                    </testsuite>' > test-results/results.xml
+                    echo "3 tests passed"
+                '''
+            }
+            post {
+                always { junit 'test-results/*.xml' }
             }
         }
         
         stage('Deploy') {
             when { branch 'main' }
-            input {
-                message 'Deploy to \${params.ENV}?'
-                ok 'Deploy'
-            }
             steps {
-                echo "Deploying to \${params.ENV}"
+                echo "Deploying \${APP} v\${VERSION}..."
             }
         }
     }
     
     post {
-        success { echo '✅ Pipeline SUCCESS' }
+        success { echo '✅ Pipeline OK' }
         failure { echo '❌ Pipeline FAILED' }
-        always { echo 'Pipeline terminé' }
+        always { cleanWs() }
     }
 }
-\`\`\`
+\\\`\\\`\\\`
 
-#### TP 2 : Pipeline avec Docker
+### TP 2 : Pipeline avec paramètres et conditions
 
-\`\`\`groovy
+\\\`\\\`\\\`groovy
+pipeline {
+    agent any
+    
+    parameters {
+        choice(name: 'ENV', choices: ['dev', 'staging', 'prod'], description: 'Environnement')
+        booleanParam(name: 'RUN_TESTS', defaultValue: true, description: 'Exécuter les tests?')
+        string(name: 'VERSION', defaultValue: '1.0.0', description: 'Version à déployer')
+    }
+    
+    stages {
+        stage('Build') {
+            steps { echo "Building v\${params.VERSION} for \${params.ENV}" }
+        }
+        
+        stage('Tests') {
+            when { expression { params.RUN_TESTS == true } }
+            steps { echo "Running tests..." }
+        }
+        
+        stage('Deploy Dev') {
+            when { expression { params.ENV == 'dev' } }
+            steps { echo "Deploying to dev..." }
+        }
+        
+        stage('Deploy Staging') {
+            when { expression { params.ENV == 'staging' } }
+            steps { echo "Deploying to staging..." }
+        }
+        
+        stage('Deploy Prod') {
+            when {
+                allOf {
+                    expression { params.ENV == 'prod' }
+                    branch 'main'
+                }
+            }
+            steps {
+                input message: 'Confirmer le déploiement en production?'
+                echo "Deploying to production..."
+            }
+        }
+    }
+}
+\\\`\\\`\\\`
+
+### TP 3 : Pipeline parallèle
+
+\\\`\\\`\\\`groovy
+pipeline {
+    agent none
+    
+    stages {
+        stage('Build') {
+            agent any
+            steps { sh 'echo "Build done"' }
+        }
+        
+        stage('Tests en parallèle') {
+            parallel {
+                stage('Unit Tests') {
+                    agent any
+                    steps {
+                        sh '''
+                            echo "Unit tests..."
+                            sleep 2
+                            echo "Unit tests PASSED"
+                        '''
+                    }
+                }
+                stage('Integration Tests') {
+                    agent any
+                    steps {
+                        sh '''
+                            echo "Integration tests..."
+                            sleep 3
+                            echo "Integration tests PASSED"
+                        '''
+                    }
+                }
+                stage('Security Scan') {
+                    agent any
+                    steps {
+                        sh '''
+                            echo "Security scan..."
+                            sleep 1
+                            echo "No vulnerabilities found"
+                        '''
+                    }
+                }
+            }
+        }
+        
+        stage('Deploy') {
+            agent any
+            steps { echo "All tests passed, deploying..." }
+        }
+    }
+}
+\\\`\\\`\\\`
+
+### TP 4 : Shared Library
+
+\\\`\\\`\\\`bash
+# 1. Créer la structure de la shared library
+mkdir -p /tmp/jenkins-shared-lib/{vars,src/com/company}
+
+# 2. Fonction de build standard
+cat > /tmp/jenkins-shared-lib/vars/standardBuild.groovy << 'EOF'
+def call(Map config = [:]) {
+    def buildCmd = config.buildCmd ?: 'make all'
+    def testCmd = config.testCmd ?: 'make test'
+    
+    pipeline {
+        agent any
+        stages {
+            stage('Build') {
+                steps { sh buildCmd }
+            }
+            stage('Test') {
+                steps { sh testCmd }
+            }
+        }
+    }
+}
+EOF
+
+# 3. Fonction utilitaire de notification
+cat > /tmp/jenkins-shared-lib/vars/notify.groovy << 'EOF'
+def call(String status) {
+    if (status == 'FAILURE') {
+        echo "🚨 Build failed! Sending notification..."
+    } else {
+        echo "✅ Build succeeded!"
+    }
+}
+EOF
+
+# 4. Committer la library
+cd /tmp/jenkins-shared-lib
+git init
+git add .
+git commit -m "Initial shared library"
+
+# 5. Utilisation dans un Jenkinsfile
+cat > /tmp/Jenkinsfile_with_lib << 'EOF'
+@Library('my-shared-lib') _
+
+standardBuild(
+    buildCmd: 'npm ci && npm run build',
+    testCmd: 'npm test'
+)
+EOF
+\\\`\\\`\\\`
+
+### TP 5 : Pipeline Docker complet
+
+\\\`\\\`\\\`groovy
 pipeline {
     agent {
         docker {
             image 'node:18-alpine'
-            args '-v $HOME/.npm:/root/.npm'
+            args '-v /tmp/npm-cache:/root/.npm'
         }
+    }
+    
+    environment {
+        CI = 'true'
+        HOME = '/tmp'
     }
     
     stages {
         stage('Install') {
             steps {
-                sh 'node --version'
-                sh 'npm --version'
-                sh 'npm install'
+                sh '''
+                    node --version
+                    npm --version
+                    echo '{"name":"tp","version":"1.0.0","scripts":{"test":"echo ok","build":"echo built"}}' > package.json
+                    npm install
+                '''
             }
         }
-        stage('Lint') {
-            steps { sh 'npm run lint || true' }
-        }
-        stage('Test') {
-            steps { sh 'npm test || true' }
-        }
+        
         stage('Build') {
-            steps { sh 'npm run build || echo "No build script"' }
+            steps { sh 'npm run build' }
+        }
+        
+        stage('Test') {
+            steps { sh 'npm test' }
         }
     }
-}
-\`\`\`
-
-#### TP 3 : Pipeline avec credentials
-
-1. Dans Jenkins, ajoutez des credentials :
-   - ID: "deploy-token", Type: Secret text, Value: "super-secret-123"
-2. Créez un pipeline qui les utilise :
-\`\`\`groovy
-pipeline {
-    agent any
-    environment {
-        DEPLOY_TOKEN = credentials('deploy-token')
-    }
-    stages {
-        stage('Use Secret') {
-            steps {
-                sh 'echo "Token length: \${#DEPLOY_TOKEN}"'
-                // Jenkins masque automatiquement la valeur dans les logs
-                sh 'echo "The token is: $DEPLOY_TOKEN"'
-            }
-        }
+    
+    post {
+        always { cleanWs() }
     }
 }
-\`\`\`
-3. Vérifiez que le secret est masqué dans les logs
-
-#### TP 4 : Exécution conditionnelle
-
-Créez un pipeline qui se comporte différemment selon la branche :
-- Sur main : build + test + deploy staging
-- Sur release/* : build + test + deploy prod (avec approbation)
-- Sur feature/* : build + test seulement
-
-#### TP 5 : Shared Library
-
-1. Créez un repo Git "jenkins-shared-lib"
-2. Ajoutez un fichier vars/standardPipeline.groovy
-3. Configurez la library dans Jenkins > Manage Jenkins > System > Global Pipeline Libraries
-4. Utilisez-la dans un Jenkinsfile avec @Library`,
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
-        'Pipeline déclaratif : structuré, lisible, validable par linter',
-        'Directives clés : agent, environment, stages, when, parallel, post, input',
-        'agent docker : exécuter chaque stage dans un conteneur éphémère',
-        'when : conditions sur branche, tag, paramètre, fichiers modifiés',
-        'Credentials : withCredentials() masque automatiquement les secrets des logs',
-        'Shared Libraries : factoriser le code pipeline commun entre projets'
+        'Pipeline déclaratif : syntaxe structurée recommandée (pipeline, agent, stages, steps)',
+        'agent : any, none, docker, dockerfile, kubernetes, label pour cibler l exécution',
+        'environment + credentials() : injection sécurisée de secrets (masqués dans les logs)',
+        'when : conditions d exécution (branch, expression, changeset, allOf, anyOf)',
+        'parallel : exécuter des stages en parallèle pour accélérer le pipeline',
+        'matrix : combinaisons automatiques de plateformes/versions',
+        'Shared Libraries : code pipeline réutilisable entre projets (@Library)',
+        'parameters : string, boolean, choice pour rendre le pipeline interactif',
+        'post : always, success, failure, unstable pour les actions de fin de pipeline',
+        'Linter : valider le Jenkinsfile via l API avant de pousser'
       ]) },
 
 
-    { id: 'jen-03', courseId: 'jenkins', title: 'Agents et distribution', duration: '4h30', orderIndex: 3,
-      theoryContent: `## Agents distribués et scalabilité Jenkins
+    { id: 'jen-03', courseId: 'jenkins', title: 'Agents et distribution', duration: '4h', orderIndex: 3,
+      theoryContent: `## Agents et Distribution Jenkins
 
-### Pourquoi distribuer les builds ?
+### Présentation
 
-Un seul serveur Jenkins ne suffit pas quand :
-- Vous avez **beaucoup de builds** simultanés (file d'attente)
-- Vous avez besoin de **plateformes différentes** (Linux, Windows, macOS)
-- Vous voulez **isoler** les builds (sécurité, dépendances conflictuelles)
-- Vous voulez **scaler** dynamiquement selon la charge
-- Le controller doit rester **léger** (ne pas exécuter de builds lui-même)
+L'architecture distribuée de Jenkins permet de répartir la charge de travail sur plusieurs machines (**agents** ou **nodes**). Le **controller** (master) orchestre les builds tandis que les agents les exécutent. Cette architecture est essentielle pour la scalabilité, l'isolation des environnements et la sécurité.
 
-### Types d'agents
+**Types d'agents :**
 
-#### 1. Agents permanents (Static Agents)
+| Type | Description | Cas d'usage |
+|------|-------------|-------------|
+| SSH Agent | Connexion SSH permanente | Serveurs dédiés Linux |
+| JNLP Agent | Agent Java se connectant au master | Windows, DMZ |
+| Docker Agent | Conteneur éphémère par build | Isolation, reproductibilité |
+| Kubernetes Agent | Pod éphémère par build | Auto-scaling, cloud-native |
+| Cloud Agent | VM éphémère (AWS, Azure, GCP) | Scaling elastique |
 
-Machines dédiées connectées en permanence au controller :
+**Concepts clés :**
 
-\`\`\`
-Avantages :
-- Performances prévisibles
-- Environnement stable et contrôlé
-- Outils pré-installés
+- **Label** : tag assigné à un agent (ex: linux, docker, java17, gpu)
+- **Executor** : slot d'exécution parallèle sur un agent (typiquement 1-4)
+- **Workspace** : répertoire de travail isolé par job sur l'agent
+- **Availability** : stratégie de disponibilité (always on, demand)
+- **Tool Location** : outils installés sur l'agent (JDK, Maven, Node)
 
-Inconvénients :
-- Coût fixe (même quand idle)
-- Maintenance manuelle (mises à jour)
-- Pas de scalabilité dynamique
-\`\`\`
+### Installation sur Linux (Ubuntu/Debian)
 
-Protocoles de connexion :
-- **SSH** : Jenkins se connecte à l'agent via SSH (Linux/macOS)
-- **JNLP/WebSocket** : l'agent se connecte au controller (Windows, NAT)
-- **Inbound** : l'agent initie la connexion (firewalls restrictifs)
+#### Agent SSH (Linux)
 
-#### 2. Agents Docker
+\\\`\\\`\\\`bash
+# === Sur la machine AGENT ===
 
-Conteneurs éphémères créés pour chaque build :
+# 1. Installer Java (prérequis)
+sudo apt update
+sudo apt install -y openjdk-17-jre-headless
 
-\`\`\`groovy
+# 2. Créer l'utilisateur Jenkins
+sudo useradd -m -d /var/lib/jenkins -s /bin/bash jenkins
+sudo mkdir -p /var/lib/jenkins/.ssh
+sudo chown -R jenkins:jenkins /var/lib/jenkins
+
+# 3. Configurer SSH
+# Générer une clé SSH sur le MASTER
+ssh-keygen -t ed25519 -f /var/lib/jenkins/.ssh/agent_key -N ""
+
+# Copier la clé publique sur l'agent
+ssh-copy-id -i /var/lib/jenkins/.ssh/agent_key.pub jenkins@agent-host
+
+# 4. Installer les outils de build
+sudo apt install -y git make gcc docker.io
+sudo usermod -aG docker jenkins
+
+# 5. Vérifier la connectivité depuis le master
+ssh -i /var/lib/jenkins/.ssh/agent_key jenkins@agent-host "java -version"
+\\\`\\\`\\\`
+
+#### Agent JNLP (Java Web Start)
+
+\\\`\\\`\\\`bash
+# === Sur la machine AGENT ===
+
+# 1. Télécharger le JAR agent depuis le master
+wget http://jenkins-master:8080/jnlpJars/agent.jar
+
+# 2. Lancer l'agent (mode connexion entrante)
+java -jar agent.jar \\
+  -url http://jenkins-master:8080/ \\
+  -secret AGENT_SECRET_TOKEN \\
+  -name "agent-linux-01" \\
+  -workDir "/var/lib/jenkins/agent"
+
+# 3. Créer un service systemd pour l'agent
+sudo cat > /etc/systemd/system/jenkins-agent.service << 'EOF'
+[Unit]
+Description=Jenkins Agent
+After=network.target
+
+[Service]
+Type=simple
+User=jenkins
+WorkingDirectory=/var/lib/jenkins
+ExecStart=/usr/bin/java -jar /opt/jenkins/agent.jar \
+  -url http://jenkins-master:8080/ \
+  -secret AGENT_SECRET_TOKEN \
+  -name "agent-linux-01" \
+  -workDir "/var/lib/jenkins/agent"
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl enable jenkins-agent
+sudo systemctl start jenkins-agent
+\\\`\\\`\\\`
+
+#### Agent Docker
+
+\\\`\\\`\\\`bash
+# Docker comme agent pour un pipeline
+# Pas d'installation spéciale - Docker doit être disponible sur le master ou un agent
+
+# Installer Docker sur l'agent/master
+sudo apt install -y docker.io
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+
+# Vérifier que Jenkins peut utiliser Docker
+sudo -u jenkins docker run --rm hello-world
+
+# Docker-in-Docker (DinD) pour isolation complète
+docker run -d --name jenkins-agent-dind \\
+  --privileged \\
+  --network jenkins \\
+  -v jenkins-docker-certs:/certs/client \\
+  docker:24-dind
+\\\`\\\`\\\`
+
+#### Agent Kubernetes
+
+\\\`\\\`\\\`bash
+# 1. Installer le plugin Kubernetes dans Jenkins
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN install-plugin kubernetes
+
+# 2. Configurer le cloud Kubernetes
+# Manage Jenkins > Clouds > New Cloud > Kubernetes
+# - Kubernetes URL: https://kubernetes.default
+# - Jenkins URL: http://jenkins.ci.svc.cluster.local:8080
+# - Pod template: voir ci-dessous
+
+# 3. Déployer Jenkins dans Kubernetes avec Helm
+helm repo add jenkins https://charts.jenkins.io
+helm repo update
+
+helm install jenkins jenkins/jenkins \\
+  --namespace ci \\
+  --create-namespace \\
+  --set controller.serviceType=LoadBalancer \\
+  --set agent.enabled=true \\
+  --set persistence.size=50Gi
+
+# 4. Récupérer le mot de passe admin
+kubectl -n ci get secret jenkins -o jsonpath="{.data.jenkins-admin-password}" | base64 -d
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────┐
+│              Jenkins Distributed Architecture                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│   ┌──────────────────────────────────────────────────────────┐   │
+│   │              Jenkins Controller (Master)                  │   │
+│   │                                                           │   │
+│   │  ┌──────────┐  ┌──────────┐  ┌──────────────────────┐   │   │
+│   │  │ Scheduler│  │  Queue   │  │  Agent Manager       │   │   │
+│   │  │          │  │          │  │  - SSH Launcher       │   │   │
+│   │  │ Labels:  │  │ Pending  │  │  - JNLP Connector    │   │   │
+│   │  │ matching │  │  jobs    │  │  - Cloud Provisioner  │   │   │
+│   │  └──────────┘  └──────────┘  └──────────────────────┘   │   │
+│   │              Executors: 0 (recommandé)                    │   │
+│   └──────────────────────────┬───────────────────────────────┘   │
+│                              │                                    │
+│              ┌───────────────┼───────────────┐                   │
+│              │               │               │                   │
+│   ┌──────────▼───┐  ┌───────▼──────┐  ┌─────▼────────────┐    │
+│   │ Agent SSH    │  │ Agent Docker │  │ Kubernetes Cloud │    │
+│   │              │  │              │  │                  │    │
+│   │ Labels:      │  │ Labels:      │  │ Pod Templates:   │    │
+│   │  linux       │  │  docker      │  │  ┌────────────┐ │    │
+│   │  java17      │  │  node18      │  │  │ maven-pod  │ │    │
+│   │  maven       │  │  python      │  │  │ node-pod   │ │    │
+│   │              │  │              │  │  │ docker-pod │ │    │
+│   │ Executors: 4 │  │ Executors: ∞ │  │  └────────────┘ │    │
+│   │              │  │ (per build)  │  │  Auto-scaling    │    │
+│   │ Always On    │  │ Ephemeral    │  │  Ephemeral       │    │
+│   └──────────────┘  └──────────────┘  └──────────────────┘    │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+### Commandes essentielles
+
+#### Pipeline avec Docker agents
+
+\\\`\\\`\\\`groovy
+// Pipeline avec différents agents Docker par stage
 pipeline {
-    agent {
-        docker {
-            image 'maven:3.9-eclipse-temurin-17'
-            label 'docker-host'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent none
+    
     stages {
-        stage('Build') {
+        stage('Build Java') {
+            agent {
+                docker {
+                    image 'maven:3.9-eclipse-temurin-17'
+                    args '-v maven-repo:/root/.m2'
+                }
+            }
             steps {
-                sh 'mvn --version'
-                sh 'mvn clean package'
+                sh 'mvn clean package -DskipTests'
+                stash includes: 'target/*.jar', name: 'jar-artifact'
+            }
+        }
+        
+        stage('Build Frontend') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                    args '-v npm-cache:/root/.npm'
+                }
+            }
+            steps {
+                sh 'npm ci && npm run build'
+                stash includes: 'dist/**', name: 'frontend-build'
+            }
+        }
+        
+        stage('Docker Image') {
+            agent { label 'docker' }
+            steps {
+                unstash 'jar-artifact'
+                unstash 'frontend-build'
+                sh '''
+                    docker build -t myapp:\${BUILD_NUMBER} .
+                    docker push registry.company.com/myapp:\${BUILD_NUMBER}
+                '''
             }
         }
     }
 }
-\`\`\`
+\\\`\\\`\\\`
 
-Avantages :
-- **Isolation parfaite** : chaque build dans son propre conteneur
-- **Reproductibilité** : même image = même environnement
-- **Pas de pollution** : le conteneur est détruit après le build
-- **Multi-versions** : Java 8, 11, 17, 21 dans des images différentes
+#### Pipeline Kubernetes
 
-#### 3. Agents Kubernetes
-
-Le plugin Kubernetes crée des pods éphémères dans un cluster :
-
-\`\`\`groovy
+\\\`\\\`\\\`groovy
+// Pipeline avec agents Kubernetes dynamiques
 pipeline {
     agent {
         kubernetes {
-            yaml '''
+            yaml """
 apiVersion: v1
 kind: Pod
 metadata:
@@ -5358,13 +8194,13 @@ spec:
   containers:
   - name: maven
     image: maven:3.9-eclipse-temurin-17
-    command: ['sleep', '99d']
+    command: ['sleep', 'infinity']
     resources:
       requests:
-        memory: "512Mi"
+        memory: "1Gi"
         cpu: "500m"
       limits:
-        memory: "1Gi"
+        memory: "2Gi"
         cpu: "1000m"
     volumeMounts:
     - name: maven-cache
@@ -5378,14 +8214,15 @@ spec:
       value: ""
   - name: kubectl
     image: bitnami/kubectl:latest
-    command: ['sleep', '99d']
+    command: ['sleep', 'infinity']
   volumes:
   - name: maven-cache
     persistentVolumeClaim:
       claimName: maven-cache-pvc
-'''
+"""
         }
     }
+    
     stages {
         stage('Build') {
             steps {
@@ -5394,797 +8231,1212 @@ spec:
                 }
             }
         }
+        
         stage('Docker Build') {
             steps {
                 container('docker') {
-                    sh 'docker build -t myapp:latest .'
+                    sh '''
+                        docker build -t myapp:\${BUILD_NUMBER} .
+                        docker push registry.company.com/myapp:\${BUILD_NUMBER}
+                    '''
                 }
             }
         }
+        
         stage('Deploy') {
             steps {
                 container('kubectl') {
-                    sh 'kubectl apply -f k8s/'
+                    sh '''
+                        kubectl set image deployment/myapp \\
+                          myapp=registry.company.com/myapp:\${BUILD_NUMBER}
+                        kubectl rollout status deployment/myapp
+                    '''
                 }
             }
         }
     }
 }
-\`\`\`
+\\\`\\\`\\\`
 
-#### 4. Agents Cloud (EC2, Azure, GCP)
+#### Gestion des labels et affinité
 
-Machines virtuelles provisionnées à la demande :
-
-\`\`\`
-Configuration EC2 Plugin :
-- AMI : ami-0123456789 (Ubuntu 22.04 + Java + outils)
-- Instance Type : t3.medium (2 vCPU, 4 GB RAM)
-- Max instances : 10
-- Idle timeout : 15 minutes (terminate si pas de build)
-- Init script : install-tools.sh
-- Labels : "linux java docker"
-\`\`\`
-
-### Labels et affectation des builds
-
-Les labels permettent de diriger les builds vers les bons agents :
-
-\`\`\`groovy
-// Build sur un agent Linux avec Java 17
-agent { label 'linux && java17' }
-
-// Build sur un agent avec Docker installé
-agent { label 'docker' }
-
-// Build sur Windows pour .NET
-agent { label 'windows && dotnet' }
-
-// Build sur un agent GPU (machine learning)
-agent { label 'gpu && cuda' }
-
-// Expression logique complexe
-agent { label '(linux || macos) && !production' }
-\`\`\`
-
-### Configuration réseau
-
-#### Agent SSH (Linux)
-
-\`\`\`bash
-# Sur l'agent :
-# 1. Installer Java
-sudo apt install openjdk-17-jre-headless
-
-# 2. Créer l'utilisateur jenkins
-sudo useradd -m -d /var/jenkins -s /bin/bash jenkins
-sudo mkdir -p /var/jenkins/.ssh
-sudo ssh-keygen -t ed25519 -f /var/jenkins/.ssh/id_ed25519 -N ""
-
-# Sur le controller :
-# 3. Ajouter l'agent dans Jenkins > Manage Nodes
-#    - Host : agent-hostname
-#    - Credentials : SSH key
-#    - Remote root directory : /var/jenkins
-#    - Labels : "linux java17 docker"
-#    - Number of executors : 4
-\`\`\`
-
-#### Agent JNLP (Windows)
-
-\`\`\`powershell
-# Sur l'agent Windows :
-# 1. Télécharger agent.jar depuis http://jenkins-url/jnlpJars/agent.jar
-Invoke-WebRequest -Uri "http://jenkins:8080/jnlpJars/agent.jar" -OutFile agent.jar
-
-# 2. Lancer l'agent
-java -jar agent.jar -url http://jenkins:8080/ -secret @secret-file -name "windows-agent" -workDir "C:\\jenkins"
-
-# 3. Installer comme service Windows (pour le démarrage automatique)
-# Utiliser WinSW (Windows Service Wrapper)
-\`\`\`
-
-### Scalabilité et performance
-
-#### Dimensionnement du controller
-
-| Taille | vCPU | RAM | Jobs/jour | Agents |
-|--------|------|-----|-----------|--------|
-| Small | 2 | 4 GB | < 100 | < 10 |
-| Medium | 4 | 8 GB | 100-500 | 10-50 |
-| Large | 8 | 16 GB | 500-2000 | 50-200 |
-| Enterprise | 16+ | 32+ GB | 2000+ | 200+ |
-
-#### Bonnes pratiques de scalabilité
-
-1. **Ne pas builder sur le controller** : utiliser toujours des agents
-2. **Agents éphémères** : Docker/K8s pour éviter la dérive de configuration
-3. **Cache partagé** : Maven/npm cache sur un volume persistant
-4. **Cleanup** : supprimer les anciens builds et workspaces
-5. **Monitoring** : surveiller la queue, les temps d'attente, l'utilisation
-6. **High Availability** : Jenkins Enterprise ou solutions comme CloudBees
-
-### Sécurité des agents
-
-- **Principe du moindre privilège** : chaque agent n'a accès qu'à ce qu'il doit faire
-- **Credentials scoping** : limiter les credentials par dossier/projet
-- **Agent protocols** : désactiver les protocoles obsolètes (JNLP3)
-- **Network isolation** : agents dans des VLANs séparés
-- **Container security** : pas de conteneur privileged sauf nécessité absolue`,
-
-      practiceContent: `### Travaux Pratiques : Configuration des agents
-
-#### TP 1 : Agent Docker local
-
-\`\`\`bash
-# Vérifier que Docker est accessible depuis Jenkins
-docker exec jenkins docker --version
-
-# Si Docker n'est pas disponible, relancer Jenkins avec le socket Docker :
-docker stop jenkins && docker rm jenkins
-docker run -d --name jenkins \\
-  -p 8080:8080 -p 50000:50000 \\
-  -v jenkins-data:/var/jenkins_home \\
-  -v /var/run/docker.sock:/var/run/docker.sock \\
-  -v /usr/bin/docker:/usr/bin/docker \\
-  --group-add $(getent group docker | cut -d: -f3) \\
-  jenkins/jenkins:lts
-\`\`\`
-
-Puis créez un pipeline utilisant un agent Docker :
-\`\`\`groovy
+\\\`\\\`\\\`groovy
+// Utilisation avancée des labels
 pipeline {
-    agent {
-        docker { image 'python:3.11-slim' }
-    }
+    agent none
+    
     stages {
-        stage('Check') {
-            steps {
-                sh 'python --version'
-                sh 'pip --version'
-            }
+        // Build sur un agent avec GPU
+        stage('ML Training') {
+            agent { label 'linux && gpu && cuda11' }
+            steps { sh 'python3 train_model.py' }
         }
-        stage('Run') {
+        
+        // Tests sur Windows
+        stage('Windows Tests') {
+            agent { label 'windows && dotnet6' }
+            steps { bat 'dotnet test' }
+        }
+        
+        // Build ARM
+        stage('ARM Build') {
+            agent { label 'linux && arm64' }
+            steps { sh 'make ARCH=arm64' }
+        }
+        
+        // Déploiement depuis un agent dans la DMZ
+        stage('Deploy') {
+            agent { label 'dmz && production-access' }
+            steps { sh './deploy_to_prod.sh' }
+        }
+    }
+}
+\\\`\\\`\\\`
+
+#### Scaling et provisioning dynamique
+
+\\\`\\\`\\\`bash
+# Configuration de scaling automatique avec Docker
+# Manage Jenkins > Clouds > Docker
+
+# Template Docker dans Jenkins config
+# docker-agent-template.yaml
+cat > docker-cloud-config.yaml << 'EOF'
+clouds:
+  - docker:
+      name: "docker-cloud"
+      dockerApi:
+        dockerHost:
+          uri: "tcp://docker-host:2376"
+      templates:
+        - name: "java-agent"
+          image: "jenkins/inbound-agent:latest-jdk17"
+          labels: "docker java17"
+          instanceCapacity: "10"
+          remoteFs: "/home/jenkins/agent"
+          connector:
+            attach:
+              entryPointCmd: ""
+        - name: "node-agent"
+          image: "node:18"
+          labels: "docker node18"
+          instanceCapacity: "5"
+          remoteFs: "/home/jenkins/agent"
+EOF
+
+# Scaling Kubernetes - Configuration HPA
+cat > jenkins-agent-hpa.yaml << 'EOF'
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: jenkins-agents
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: jenkins-agent
+  minReplicas: 2
+  maxReplicas: 20
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+EOF
+kubectl apply -f jenkins-agent-hpa.yaml
+\\\`\\\`\\\`
+
+### Configuration
+
+#### Configuration des agents via JCasC
+
+\\\`\\\`\\\`yaml
+# jenkins.yaml (JCasC - Jenkins Configuration as Code)
+jenkins:
+  nodes:
+    - permanent:
+        name: "agent-linux-01"
+        remoteFS: "/var/lib/jenkins"
+        numExecutors: 4
+        labelString: "linux java17 maven docker"
+        mode: EXCLUSIVE
+        launcher:
+          ssh:
+            host: "agent-01.company.com"
+            port: 22
+            credentialsId: "agent-ssh-key"
+            sshHostKeyVerificationStrategy:
+              manuallyTrustedKeyVerificationStrategy:
+                requireInitialManualTrust: false
+    - permanent:
+        name: "agent-windows-01"
+        remoteFS: "C:\\jenkins"
+        numExecutors: 2
+        labelString: "windows dotnet"
+        mode: EXCLUSIVE
+        launcher:
+          jnlp:
+            workDirSettings:
+              disabled: false
+  clouds:
+    - kubernetes:
+        name: "kubernetes"
+        serverUrl: "https://kubernetes.default"
+        namespace: "jenkins-agents"
+        jenkinsUrl: "http://jenkins:8080"
+        templates:
+          - name: "default-agent"
+            label: "k8s"
+            containers:
+              - name: "jnlp"
+                image: "jenkins/inbound-agent:latest"
+                resourceRequestCpu: "200m"
+                resourceRequestMemory: "256Mi"
+\\\`\\\`\\\`
+
+### Bonnes pratiques
+
+1. **0 executors sur le controller** : le master ne doit jamais exécuter de builds
+2. **Agents éphémères** (Docker/K8s) : environnement propre à chaque build
+3. **Labels précis** : utilisez des labels combinés (linux && java17 && docker)
+4. **Agents dédiés** par type de build (build Java, tests Node, deploy prod)
+5. **Scaling automatique** : provisionnez les agents à la demande
+6. **Workspace cleanup** : nettoyez les workspaces entre les builds
+7. **Monitoring agents** : surveillez CPU, RAM, disque des agents
+8. **Sécurité réseau** : agents dans un VLAN dédié, communication chiffrée
+9. **Tool installations** : utilisez les "Tool Locations" Jenkins ou les images Docker
+10. **Capacity planning** : dimensionnez selon le nombre de builds simultanés`,
+
+      practiceContent: `## Travaux Pratiques - Agents et Distribution
+
+### TP 1 : Agent Docker éphémère
+
+\\\`\\\`\\\`groovy
+// Pipeline utilisant un agent Docker différent par stage
+pipeline {
+    agent none
+    
+    stages {
+        stage('Java Build') {
+            agent {
+                docker {
+                    image 'maven:3.9-eclipse-temurin-17'
+                }
+            }
             steps {
                 sh '''
-                    python -c "
-import platform
-print(f'Python {platform.python_version()}')
-print(f'OS: {platform.system()} {platform.release()}')
-print('Hello from Docker agent!')
-"
+                    java -version
+                    mvn --version
+                    echo "Java build environment ready"
+                '''
+            }
+        }
+        
+        stage('Node Build') {
+            agent {
+                docker {
+                    image 'node:18-alpine'
+                }
+            }
+            steps {
+                sh '''
+                    node --version
+                    npm --version
+                    echo "Node build environment ready"
+                '''
+            }
+        }
+        
+        stage('Python Tests') {
+            agent {
+                docker {
+                    image 'python:3.11-slim'
+                }
+            }
+            steps {
+                sh '''
+                    python --version
+                    pip --version
+                    echo "Python environment ready"
                 '''
             }
         }
     }
 }
-\`\`\`
+\\\`\\\`\\\`
 
-#### TP 2 : Multi-agents dans un pipeline
+### TP 2 : Agent Kubernetes avec multi-containers
 
-\`\`\`groovy
-pipeline {
-    agent none  // Pas d'agent global
-    
-    stages {
-        stage('Build Java') {
-            agent { docker { image 'maven:3.9' } }
-            steps {
-                sh 'mvn --version'
-                sh 'echo "Building with Maven..."'
-            }
-        }
-        
-        stage('Build Node') {
-            agent { docker { image 'node:18' } }
-            steps {
-                sh 'node --version'
-                sh 'npm --version'
-                sh 'echo "Building frontend..."'
-            }
-        }
-        
-        stage('Build Go') {
-            agent { docker { image 'golang:1.21' } }
-            steps {
-                sh 'go version'
-                sh 'echo "Building Go service..."'
-            }
-        }
-    }
-}
-\`\`\`
-
-#### TP 3 : Agents avec labels
-
-1. Configurez un agent permanent (ou simulez-le) :
-   - Jenkins > Manage Jenkins > Manage Nodes > New Node
-   - Nom : "linux-builder"
-   - Labels : "linux docker java"
-   - Number of executors : 2
-
-2. Créez un pipeline qui cible cet agent :
-\`\`\`groovy
-pipeline {
-    agent { label 'linux && java' }
-    stages {
-        stage('Build') {
-            steps {
-                echo "Running on: \${env.NODE_NAME}"
-                echo "Labels: linux, java"
-            }
-        }
-    }
-}
-\`\`\`
-
-#### TP 4 : Simuler la scalabilité
-
-Créez 5 pipelines qui tournent en parallèle et observez la file d'attente :
-\`\`\`groovy
-// job: load-test-1 à load-test-5
-pipeline {
-    agent any
-    stages {
-        stage('Heavy Work') {
-            steps {
-                sh 'echo "Working..." && sleep 60'
-            }
-        }
-    }
-}
-\`\`\`
-
-Observez dans Jenkins :
-- La file d'attente (Build Queue)
-- Le nombre d'executors utilisés
-- Les temps d'attente
-
-#### TP 5 : Dockerfile comme agent
-
-Créez un Dockerfile personnalisé pour votre build :
-\`\`\`dockerfile
-# Dockerfile.build
-FROM ubuntu:22.04
-RUN apt-get update && apt-get install -y \\
-    gcc g++ make cmake \\
-    python3 python3-pip \\
-    git curl wget
-RUN pip3 install pytest coverage
-WORKDIR /workspace
-\`\`\`
-
-\`\`\`groovy
+\\\`\\\`\\\`groovy
 pipeline {
     agent {
-        dockerfile {
-            filename 'Dockerfile.build'
-            args '-v /tmp/build-cache:/cache'
+        kubernetes {
+            yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: maven
+    image: maven:3.9-eclipse-temurin-17
+    command: ['sleep', 'infinity']
+  - name: node
+    image: node:18
+    command: ['sleep', 'infinity']
+  - name: tools
+    image: alpine:latest
+    command: ['sleep', 'infinity']
+"""
         }
     }
+    
     stages {
-        stage('Build') {
+        stage('Java') {
             steps {
-                sh 'gcc --version'
-                sh 'python3 --version'
-                sh 'cmake --version'
+                container('maven') {
+                    sh 'java -version && mvn --version'
+                }
             }
         }
-    }
-}
-\`\`\``,
-
-      keyPoints: JSON.stringify([
-        'Ne jamais exécuter de builds sur le controller Jenkins (sécurité + performance)',
-        'Agents permanents (SSH/JNLP), Docker (éphémères), Kubernetes (pods), Cloud (EC2)',
-        'Labels pour diriger les builds : agent { label "linux && java17 && docker" }',
-        'Docker agents : isolation parfaite, reproductibilité, multi-versions',
-        'Kubernetes : scalabilité automatique, pods multi-conteneurs par build',
-        'Dimensionner selon le nombre de builds/jour et d\'agents nécessaires'
-      ]) },
-
-
-    { id: 'jen-04', courseId: 'jenkins', title: 'Sécurité et administration', duration: '4h30', orderIndex: 4,
-      theoryContent: `## Sécurité et administration de Jenkins
-
-### Pourquoi la sécurité Jenkins est critique ?
-
-Jenkins a accès à :
-- Le **code source** de tous vos projets
-- Les **credentials** (mots de passe, clés SSH, tokens API)
-- Les **systèmes de production** (via les déploiements)
-- L'**infrastructure** (agents, cloud, réseau interne)
-
-Un Jenkins compromis = compromission totale de votre chaîne de livraison.
-
-### Modèle de sécurité Jenkins
-
-#### 1. Authentification (qui êtes-vous ?)
-
-Méthodes d'authentification disponibles :
-
-| Méthode | Description | Cas d'usage |
-|---------|-------------|-------------|
-| Jenkins database | Base interne | Lab, petites équipes |
-| LDAP/Active Directory | Annuaire entreprise | Enterprise |
-| SAML 2.0 | SSO (Okta, Azure AD) | Cloud/Enterprise |
-| GitHub/GitLab OAuth | Provider externe | Équipes dev |
-| Unix user/group | Utilisateurs système | Environnements Linux |
-
-Configuration LDAP :
-\`\`\`
-Server: ldap://ldap.company.com:389
-Root DN: dc=company,dc=com
-User search base: ou=People
-User search filter: uid={0}
-Group search base: ou=Groups
-Group membership: memberOf
-\`\`\`
-
-#### 2. Autorisation (que pouvez-vous faire ?)
-
-Stratégies d'autorisation :
-
-**Matrix-based Security** :
-\`\`\`
-                Overall  Job      View    SCM     Agent
-                Read     Build    Read    Tag     Connect
-admin           ✓        ✓        ✓       ✓       ✓
-developers      ✓        ✓        ✓       ✓       -
-viewers         ✓        -        ✓       -       -
-ci-bot          -        ✓        -       -       -
-\`\`\`
-
-**Role-Based Access Control (RBAC)** - Plugin recommandé :
-\`\`\`
-Rôles globaux :
-- admin : tout accès
-- developer : lire + builder
-- viewer : lecture seule
-
-Rôles par projet (pattern) :
-- team-a-dev : pattern "team-a-*" → full access
-- team-b-dev : pattern "team-b-*" → full access
-- release-manager : pattern "*-release" → build + deploy
-\`\`\`
-
-#### 3. Gestion des credentials
-
-Types de credentials dans Jenkins :
-- **Username with password** : login/mot de passe
-- **SSH Username with private key** : clé SSH
-- **Secret text** : token, API key
-- **Secret file** : fichier (kubeconfig, certificat)
-- **Certificate** : certificat PKCS#12
-
-Bonnes pratiques :
-\`\`\`groovy
-// ✅ BON : Utiliser withCredentials
-withCredentials([string(credentialsId: 'api-key', variable: 'API_KEY')]) {
-    sh "curl -H 'Authorization: Bearer $API_KEY' https://api.example.com/data"
-}
-
-// ❌ MAUVAIS : Ne jamais mettre de secrets en clair
-sh "curl -H 'Authorization: Bearer my-secret-key' https://api.example.com/data"
-
-// ✅ BON : Scope des credentials par dossier
-// Credentials visibles uniquement dans le dossier "team-a"
-
-// ✅ BON : Rotation régulière des credentials
-// Politique : tokens expirés après 90 jours
-\`\`\`
-
-### Durcissement de Jenkins
-
-#### Configuration sécurisée du controller
-
-\`\`\`groovy
-// Script init.groovy.d/security.groovy
-import jenkins.model.*
-import hudson.security.*
-import org.jenkinsci.plugins.matrixauth.*
-
-def instance = Jenkins.getInstance()
-
-// 1. Désactiver l'inscription ouverte
-def hudsonRealm = new HudsonPrivateSecurityRealm(false)
-instance.setSecurityRealm(hudsonRealm)
-
-// 2. Configurer la matrice de droits
-def strategy = new GlobalMatrixAuthorizationStrategy()
-strategy.add(Jenkins.ADMINISTER, "admin")
-strategy.add(Jenkins.READ, "authenticated")
-strategy.add(hudson.model.Item.READ, "authenticated")
-strategy.add(hudson.model.Item.BUILD, "developers")
-instance.setAuthorizationStrategy(strategy)
-
-// 3. Activer CSRF protection
-instance.setCrumbIssuer(new DefaultCrumbIssuer(true))
-
-// 4. Désactiver les agents insecure
-instance.setSlaveAgentPort(-1) // Désactiver JNLP si non utilisé
-
-instance.save()
-\`\`\`
-
-#### Checklist de sécurité
-
-1. **HTTPS obligatoire** : reverse proxy Nginx/Apache avec TLS
-2. **CSRF protection** : activée (crumb issuer)
-3. **Content-Security-Policy** : headers restrictifs
-4. **Script Security** : sandbox Groovy pour les pipelines
-5. **Agent to Controller Access** : limiter ce que les agents peuvent faire
-6. **Disable CLI** : désactiver si non utilisé
-7. **Audit logging** : tracer toutes les actions admin
-8. **Backup** : sauvegardes régulières de JENKINS_HOME
-9. **Updates** : appliquer les mises à jour de sécurité rapidement
-10. **Plugins** : auditer et limiter les plugins installés
-
-### Administration quotidienne
-
-#### Sauvegarde et restauration
-
-\`\`\`bash
-# Sauvegarde de JENKINS_HOME
-JENKINS_HOME=/var/jenkins_home
-BACKUP_DIR=/backups/jenkins/$(date +%Y%m%d)
-
-mkdir -p $BACKUP_DIR
-
-# Éléments critiques à sauvegarder
-rsync -av $JENKINS_HOME/config.xml $BACKUP_DIR/
-rsync -av $JENKINS_HOME/credentials.xml $BACKUP_DIR/
-rsync -av $JENKINS_HOME/secrets/ $BACKUP_DIR/secrets/
-rsync -av $JENKINS_HOME/jobs/ $BACKUP_DIR/jobs/ --include='*/config.xml' --exclude='builds/**'
-rsync -av $JENKINS_HOME/users/ $BACKUP_DIR/users/
-rsync -av $JENKINS_HOME/nodes/ $BACKUP_DIR/nodes/
-rsync -av $JENKINS_HOME/plugins/ $BACKUP_DIR/plugins/
-
-# Compression
-tar czf /backups/jenkins-$(date +%Y%m%d).tar.gz $BACKUP_DIR
-
-# Restauration : arrêter Jenkins, extraire, redémarrer
-\`\`\`
-
-#### Monitoring Jenkins
-
-Métriques à surveiller :
-
-| Métrique | Seuil d'alerte | Action |
-|----------|---------------|--------|
-| Build Queue length | > 10 | Ajouter des agents |
-| Executor utilization | > 80% | Scaler les agents |
-| Disk usage | > 80% | Cleanup des builds |
-| Memory usage | > 85% JVM | Augmenter heap |
-| Plugin outdated | > 30 jours | Mettre à jour |
-| Failed builds ratio | > 30% | Investiguer les causes |
-
-Outils de monitoring :
-- **Prometheus + Grafana** : plugin Prometheus pour Jenkins
-- **Jenkins Monitoring Plugin** : métriques intégrées
-- **Datadog/New Relic** : APM pour Jenkins
-
-#### Maintenance des builds
-
-\`\`\`groovy
-// Configuration de rétention dans le Jenkinsfile
-pipeline {
-    options {
-        buildDiscarder(logRotator(
-            numToKeepStr: '20',        // Garder les 20 derniers builds
-            artifactNumToKeepStr: '5',  // Garder les artefacts des 5 derniers
-            daysToKeepStr: '30'         // Supprimer après 30 jours
-        ))
-    }
-    // ...
-}
-
-// Script Groovy pour nettoyage global (Script Console)
-Jenkins.instance.getAllItems(hudson.model.Job.class).each { job ->
-    job.getBuilds().each { build ->
-        if (build.getNumber() < job.getLastBuild().getNumber() - 20) {
-            println "Deleting: \${job.name} #\${build.number}"
-            build.delete()
-        }
-    }
-}
-\`\`\`
-
-#### Jenkins Configuration as Code (JCasC)
-
-Gérer la configuration Jenkins de manière déclarative :
-
-\`\`\`yaml
-# jenkins.yaml
-jenkins:
-  systemMessage: "Jenkins configured by JCasC"
-  numExecutors: 0  # Pas de build sur le controller
-  securityRealm:
-    ldap:
-      configurations:
-        - server: "ldap://ldap.company.com"
-          rootDN: "dc=company,dc=com"
-  authorizationStrategy:
-    roleBased:
-      roles:
-        global:
-          - name: "admin"
-            permissions: ["Overall/Administer"]
-            entries:
-              - user: "admin"
-          - name: "developer"
-            permissions: ["Overall/Read", "Job/Build", "Job/Read"]
-            entries:
-              - group: "developers"
-  nodes:
-    - permanent:
-        name: "linux-agent-1"
-        remoteFS: "/var/jenkins"
-        labelString: "linux docker"
-        numExecutors: 4
-        launcher:
-          ssh:
-            host: "agent1.company.com"
-            credentialsId: "ssh-agent-key"
-
-credentials:
-  system:
-    domainCredentials:
-      - credentials:
-          - string:
-              id: "sonar-token"
-              secret: "\${SONAR_TOKEN}"
-          - usernamePassword:
-              id: "docker-registry"
-              username: "deploy"
-              password: "\${DOCKER_PASSWORD}"
-
-unclassified:
-  location:
-    url: "https://jenkins.company.com/"
-  sonarGlobalConfiguration:
-    installations:
-      - name: "SonarQube"
-        serverUrl: "https://sonar.company.com"
-        credentialsId: "sonar-token"
-\`\`\`
-
-### Mise à jour et plugins
-
-#### Stratégie de mise à jour
-
-1. **LTS (Long-Term Support)** : mise à jour tous les 3 mois (recommandé production)
-2. **Weekly** : dernières fonctionnalités (pour les labs et early adopters)
-
-\`\`\`bash
-# Mettre à jour Jenkins (via Docker)
-docker pull jenkins/jenkins:lts
-docker stop jenkins
-docker rm jenkins
-docker run -d --name jenkins \\
-  -v jenkins-data:/var/jenkins_home \\
-  -p 8080:8080 \\
-  jenkins/jenkins:lts
-
-# Mettre à jour les plugins via CLI
-java -jar jenkins-cli.jar -s http://jenkins:8080/ \\
-  install-plugin git pipeline-stage-view docker-workflow \\
-  -restart
-\`\`\``,
-
-      practiceContent: `### Travaux Pratiques : Sécurité et administration
-
-#### TP 1 : Configurer RBAC
-
-1. Installez le plugin "Role-based Authorization Strategy"
-2. Activez-le dans Manage Jenkins > Security > Authorization
-3. Créez les rôles suivants :
-   - admin : tous les droits
-   - developer : Read, Build, Cancel, Workspace
-   - viewer : Read only
-4. Créez un utilisateur "dev-user" et assignez-le au rôle "developer"
-5. Testez en vous connectant avec ce compte :
-   - Peut-il lancer un build ? (oui)
-   - Peut-il modifier la configuration d'un job ? (non)
-   - Peut-il accéder à Manage Jenkins ? (non)
-
-#### TP 2 : Gérer les credentials de manière sécurisée
-
-\`\`\`groovy
-// Créez ces credentials dans Jenkins :
-// 1. Secret text : id="api-token", value="sk-test-12345"
-// 2. Username/Password : id="registry-creds", user="deploy", pass="secret"
-// 3. SSH key : id="ssh-deploy-key"
-
-// Pipeline de test
-pipeline {
-    agent any
-    stages {
-        stage('Test Credentials') {
+        stage('Node') {
             steps {
-                withCredentials([
-                    string(credentialsId: 'api-token', variable: 'TOKEN'),
-                    usernamePassword(credentialsId: 'registry-creds',
-                        usernameVariable: 'REG_USER',
-                        passwordVariable: 'REG_PASS')
-                ]) {
-                    sh '''
-                        echo "Token starts with: \${TOKEN:0:3}..."
-                        echo "Registry user: $REG_USER"
-                        echo "Registry pass length: \${#REG_PASS}"
-                    '''
-                    // Vérifiez que les valeurs sont masquées dans les logs
+                container('node') {
+                    sh 'node --version && npm --version'
+                }
+            }
+        }
+        stage('Tools') {
+            steps {
+                container('tools') {
+                    sh 'apk add --no-cache curl jq && curl --version'
                 }
             }
         }
     }
 }
-\`\`\`
+\\\`\\\`\\\`
 
-#### TP 3 : Configuration as Code (JCasC)
+### TP 3 : Labels et affinité
 
-1. Installez le plugin "Configuration as Code"
-2. Créez un fichier jenkins.yaml :
-\`\`\`yaml
+\\\`\\\`\\\`groovy
+// Pipeline sélectionnant les agents par labels
+pipeline {
+    agent none
+    
+    stages {
+        stage('Build') {
+            agent { label 'linux && docker' }
+            steps {
+                sh 'echo "Building on a Linux Docker agent"'
+                sh 'uname -a'
+                sh 'docker --version'
+            }
+        }
+        
+        stage('Heavy Computation') {
+            agent { label 'linux && high-memory' }
+            steps {
+                sh '''
+                    echo "Running on high-memory agent"
+                    free -h
+                    nproc
+                '''
+            }
+        }
+    }
+}
+\\\`\\\`\\\`
+
+### TP 4 : Stash/Unstash entre agents
+
+\\\`\\\`\\\`groovy
+// Partager des fichiers entre agents différents
+pipeline {
+    agent none
+    
+    stages {
+        stage('Generate') {
+            agent { docker 'alpine:latest' }
+            steps {
+                sh '''
+                    mkdir -p output
+                    echo "Generated content $(date)" > output/data.txt
+                    echo "Config file" > output/config.yml
+                '''
+                stash includes: 'output/**', name: 'generated-files'
+            }
+        }
+        
+        stage('Process') {
+            agent { docker 'python:3.11-slim' }
+            steps {
+                unstash 'generated-files'
+                sh '''
+                    cat output/data.txt
+                    python3 -c "print('Processing:', open('output/data.txt').read())"
+                '''
+            }
+        }
+        
+        stage('Package') {
+            agent { docker 'alpine:latest' }
+            steps {
+                unstash 'generated-files'
+                sh '''
+                    tar -czf package.tar.gz output/
+                    ls -la package.tar.gz
+                '''
+                archiveArtifacts 'package.tar.gz'
+            }
+        }
+    }
+}
+\\\`\\\`\\\`
+
+### TP 5 : Dockerfile comme agent
+
+\\\`\\\`\\\`bash
+# 1. Créer un Dockerfile personnalisé pour le CI
+cat > Dockerfile.ci << 'EOF'
+FROM ubuntu:22.04
+RUN apt-get update && apt-get install -y \
+    openjdk-17-jdk \
+    maven \
+    git \
+    curl \
+    docker.io \
+    && rm -rf /var/lib/apt/lists/*
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+EOF
+
+# 2. Jenkinsfile utilisant ce Dockerfile
+cat > Jenkinsfile << 'EOF'
+pipeline {
+    agent {
+        dockerfile {
+            filename 'Dockerfile.ci'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
+    
+    stages {
+        stage('Verify') {
+            steps {
+                sh '''
+                    java -version
+                    mvn --version
+                    git --version
+                    docker --version
+                '''
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'echo "Building with custom environment"'
+            }
+        }
+    }
+}
+EOF
+\\\`\\\`\\\``,
+
+      keyPoints: JSON.stringify([
+        'Architecture distribuée : Controller (orchestre) + Agents (exécutent les builds)',
+        'Types d agents : SSH (permanent), JNLP (Windows/DMZ), Docker (éphémère), Kubernetes (auto-scale)',
+        'Labels : tags pour cibler les agents (linux && java17 && docker)',
+        'Docker agents : conteneur éphémère par build, environnement propre et reproductible',
+        'Kubernetes : pods éphémères avec multi-containers (maven, docker, kubectl)',
+        'stash/unstash : partager des fichiers entre agents différents dans un pipeline',
+        '0 executors sur le master : ne jamais exécuter de builds sur le controller',
+        'Scaling : provisionner les agents dynamiquement selon la charge (Cloud plugins)',
+        'JCasC : configurer les agents en code YAML versionnable'
+      ]) },
+
+
+    { id: 'jen-04', courseId: 'jenkins', title: 'Sécurité et administration', duration: '4h', orderIndex: 4,
+      theoryContent: `## Sécurité et Administration Jenkins
+
+### Présentation
+
+La sécurité et l'administration de Jenkins sont critiques car le serveur CI/CD a accès à tout : code source, secrets, infrastructure de production. Une mauvaise configuration peut exposer l'entreprise à des attaques de supply chain, des fuites de credentials ou des déploiements non autorisés.
+
+**Domaines de sécurité Jenkins :**
+
+| Domaine | Description |
+|---------|-------------|
+| Authentification | Qui peut accéder à Jenkins (LDAP, SSO, OAuth) |
+| Autorisation | Qui peut faire quoi (RBAC, Matrix) |
+| Credentials | Gestion sécurisée des secrets |
+| Réseau | HTTPS, reverse proxy, isolation réseau |
+| Agents | Communication sécurisée controller-agents |
+| Plugins | Mises à jour de sécurité, audit |
+| Audit | Traçabilité des actions |
+| Backup | Sauvegarde et récupération |
+
+### Installation sur Linux (Ubuntu/Debian)
+
+#### Sécurisation HTTPS avec reverse proxy
+
+\\\`\\\`\\\`bash
+# Installation Nginx comme reverse proxy
+sudo apt install -y nginx certbot python3-certbot-nginx
+
+# Configuration Nginx pour Jenkins
+sudo cat > /etc/nginx/sites-available/jenkins << 'EOF'
+upstream jenkins {
+    server 127.0.0.1:8080 fail_timeout=0;
+}
+
+server {
+    listen 80;
+    server_name jenkins.company.com;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name jenkins.company.com;
+
+    ssl_certificate /etc/letsencrypt/live/jenkins.company.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/jenkins.company.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    location / {
+        proxy_pass http://jenkins;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_read_timeout 90;
+        proxy_redirect http:// https://;
+    }
+}
+EOF
+
+sudo ln -s /etc/nginx/sites-available/jenkins /etc/nginx/sites-enabled/
+sudo nginx -t && sudo systemctl restart nginx
+
+# Certificat Let's Encrypt
+sudo certbot --nginx -d jenkins.company.com
+\\\`\\\`\\\`
+
+#### Configuration Jenkins pour HTTPS
+
+\\\`\\\`\\\`bash
+# Modifier /etc/default/jenkins (ou systemd)
+# Indiquer à Jenkins qu'il est derrière un proxy
+sudo sed -i 's/JENKINS_ARGS=""/JENKINS_ARGS="--httpListenAddress=127.0.0.1"/' /etc/default/jenkins
+
+# Configurer le prefix si nécessaire
+# JENKINS_ARGS="--httpListenAddress=127.0.0.1 --prefix=/jenkins"
+
+# Redémarrer
+sudo systemctl restart jenkins
+
+# Configurer Jenkins URL
+# Manage Jenkins > System > Jenkins URL: https://jenkins.company.com/
+\\\`\\\`\\\`
+
+### Architecture et composants
+
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────┐
+│              Jenkins Security Architecture                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  ┌───────────────────────────────────────────────────────────┐   │
+│  │                    Couche Réseau                           │   │
+│  │  ┌─────────┐     ┌──────────┐     ┌──────────────────┐   │   │
+│  │  │  Users  │────▶│  Nginx   │────▶│  Jenkins (8080)  │   │   │
+│  │  │ (HTTPS) │     │  (443)   │     │  localhost only   │   │   │
+│  │  └─────────┘     └──────────┘     └──────────────────┘   │   │
+│  └───────────────────────────────────────────────────────────┘   │
+│                                                                   │
+│  ┌───────────────────────────────────────────────────────────┐   │
+│  │                   Authentification                         │   │
+│  │  ┌────────┐  ┌────────┐  ┌────────┐  ┌──────────────┐   │   │
+│  │  │  LDAP  │  │  SAML  │  │ OAuth  │  │ Jenkins DB   │   │   │
+│  │  │  /AD   │  │  (SSO) │  │ (GitHub)│  │ (local)      │   │   │
+│  │  └────────┘  └────────┘  └────────┘  └──────────────┘   │   │
+│  └───────────────────────────────────────────────────────────┘   │
+│                                                                   │
+│  ┌───────────────────────────────────────────────────────────┐   │
+│  │                    Autorisation (RBAC)                     │   │
+│  │                                                            │   │
+│  │  Admin ──── full access                                    │   │
+│  │  DevLead ── configure, build, create jobs                  │   │
+│  │  Dev ────── build, view, workspace                         │   │
+│  │  QA ─────── build, view specific folders                   │   │
+│  │  Viewer ─── read-only                                      │   │
+│  └───────────────────────────────────────────────────────────┘   │
+│                                                                   │
+│  ┌───────────────────────────────────────────────────────────┐   │
+│  │                   Credentials Store                        │   │
+│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐    │   │
+│  │  │  System      │  │  Global      │  │  Folder      │    │   │
+│  │  │  (agents)    │  │  (all jobs)  │  │  (scoped)    │    │   │
+│  │  └──────────────┘  └──────────────┘  └──────────────┘    │   │
+│  └───────────────────────────────────────────────────────────┘   │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+### Commandes essentielles
+
+#### RBAC (Role-Based Access Control)
+
+\\\`\\\`\\\`bash
+# Installer le plugin Role-Based Authorization Strategy
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN install-plugin role-strategy
+
+# Activer : Manage Jenkins > Security > Authorization > Role-Based Strategy
+
+# Configuration via script Groovy (Script Console)
+# Manage Jenkins > Script Console
+
+# Créer des rôles via l'API Groovy
+import com.michelin.cio.hudson.plugins.rolestrategy.*
+import jenkins.model.*
+
+def strategy = Jenkins.instance.authorizationStrategy
+if (strategy instanceof RoleBasedAuthorizationStrategy) {
+    // Créer le rôle "developer"
+    def devPerms = [
+        "hudson.model.Item.Build",
+        "hudson.model.Item.Read",
+        "hudson.model.Item.Workspace",
+        "hudson.model.Run.Replay"
+    ] as Set
+    strategy.addRole(RoleBasedAuthorizationStrategy.GLOBAL, 
+        new Role("developer", ".*", devPerms))
+    
+    // Assigner un utilisateur au rôle
+    strategy.assignRole(RoleBasedAuthorizationStrategy.GLOBAL, 
+        "developer", "jean.dupont")
+    
+    Jenkins.instance.save()
+}
+\\\`\\\`\\\`
+
+#### Credentials management
+
+\\\`\\\`\\\`bash
+# Types de credentials :
+# - Username with password
+# - SSH Username with private key
+# - Secret text (tokens)
+# - Secret file (kubeconfig, certificates)
+# - Certificate (PKCS#12)
+
+# Créer un credential via API
+curl -X POST "http://admin:TOKEN@localhost:8080/credentials/store/system/domain/_/createCredentials" \\
+  -H "Content-Type: application/xml" \\
+  --data '
+<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
+  <scope>GLOBAL</scope>
+  <id>docker-registry</id>
+  <description>Docker Registry credentials</description>
+  <username>ci-user</username>
+  <password>secret-password</password>
+</com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>'
+
+# Secret text
+curl -X POST "http://admin:TOKEN@localhost:8080/credentials/store/system/domain/_/createCredentials" \\
+  -H "Content-Type: application/xml" \\
+  --data '
+<org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
+  <scope>GLOBAL</scope>
+  <id>sonar-token</id>
+  <description>SonarQube Token</description>
+  <secret>sqa_xxxxxxxxxxxxxxxxxxxx</secret>
+</org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>'
+
+# Lister les credentials
+curl -s "http://admin:TOKEN@localhost:8080/credentials/store/system/domain/_/api/json?depth=2"
+
+# Utilisation dans un pipeline
+// credentials('id') dans environment block
+// withCredentials([...]) dans steps
+\\\`\\\`\\\`
+
+#### JCasC (Jenkins Configuration as Code)
+
+\\\`\\\`\\\`yaml
+# jenkins.yaml - Configuration complète as Code
 jenkins:
-  systemMessage: "Jenkins TP - Configured by JCasC"
-  numExecutors: 2
-  mode: NORMAL
+  systemMessage: "Jenkins - Managed by JCasC"
+  numExecutors: 0
+  mode: EXCLUSIVE
   
+  securityRealm:
+    ldap:
+      configurations:
+        - server: "ldap://ldap.company.com"
+          rootDN: "dc=company,dc=com"
+          userSearchBase: "ou=users"
+          userSearch: "uid={0}"
+          groupSearchBase: "ou=groups"
+          groupMembershipStrategy:
+            fromGroupSearch:
+              filter: "member={0}"
+      
+  authorizationStrategy:
+    roleBased:
+      roles:
+        global:
+          - name: "admin"
+            permissions:
+              - "Overall/Administer"
+            entries:
+              - group: "jenkins-admins"
+          - name: "developer"
+            permissions:
+              - "Overall/Read"
+              - "Job/Build"
+              - "Job/Read"
+              - "Job/Workspace"
+            entries:
+              - group: "developers"
+          - name: "viewer"
+            permissions:
+              - "Overall/Read"
+              - "Job/Read"
+            entries:
+              - group: "everyone"
+
+  clouds:
+    - kubernetes:
+        name: "kubernetes"
+        namespace: "jenkins-agents"
+
+credentials:
+  system:
+    domainCredentials:
+      - credentials:
+          - usernamePassword:
+              scope: GLOBAL
+              id: "github-token"
+              username: "ci-bot"
+              password: "\${GITHUB_TOKEN}"
+          - string:
+              scope: GLOBAL
+              id: "sonar-token"
+              secret: "\${SONAR_TOKEN}"
+
+unclassified:
+  location:
+    url: "https://jenkins.company.com/"
+    adminAddress: "devops@company.com"
+  
+  globalLibraries:
+    libraries:
+      - name: "shared-lib"
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                remote: "https://github.com/company/jenkins-shared-lib.git"
+                credentialsId: "github-token"
+\\\`\\\`\\\`
+
+#### Backup et restauration
+
+\\\`\\\`\\\`bash
+# Script de backup JENKINS_HOME
+#!/bin/bash
+JENKINS_HOME="/var/lib/jenkins"
+BACKUP_DIR="/backup/jenkins"
+DATE=$(date +%Y%m%d_%H%M%S)
+BACKUP_FILE="$BACKUP_DIR/jenkins_backup_$DATE.tar.gz"
+
+mkdir -p $BACKUP_DIR
+
+# Éléments essentiels à sauvegarder
+tar -czf $BACKUP_FILE \\
+  --exclude="$JENKINS_HOME/workspace" \\
+  --exclude="$JENKINS_HOME/.cache" \\
+  --exclude="$JENKINS_HOME/caches" \\
+  --exclude="$JENKINS_HOME/war" \\
+  --exclude="$JENKINS_HOME/logs" \\
+  $JENKINS_HOME/config.xml \\
+  $JENKINS_HOME/credentials.xml \\
+  $JENKINS_HOME/secrets/ \\
+  $JENKINS_HOME/users/ \\
+  $JENKINS_HOME/jobs/ \\
+  $JENKINS_HOME/nodes/ \\
+  $JENKINS_HOME/plugins/*.jpi \\
+  $JENKINS_HOME/*.xml \\
+  $JENKINS_HOME/jenkins.yaml
+
+echo "Backup created: $BACKUP_FILE ($(du -sh $BACKUP_FILE | cut -f1))"
+
+# Rotation : garder 30 jours
+find $BACKUP_DIR -name "jenkins_backup_*" -mtime +30 -delete
+
+# Restauration
+# sudo systemctl stop jenkins
+# tar -xzf $BACKUP_FILE -C /
+# sudo chown -R jenkins:jenkins $JENKINS_HOME
+# sudo systemctl start jenkins
+\\\`\\\`\\\`
+
+#### Monitoring et alertes
+
+\\\`\\\`\\\`bash
+# Plugin Monitoring (JavaMelody)
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN install-plugin monitoring
+
+# Métriques Prometheus
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN install-plugin prometheus
+
+# Endpoint Prometheus : http://jenkins:8080/prometheus/
+
+# Script de health check
+#!/bin/bash
+JENKINS_URL="http://localhost:8080"
+RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" "$JENKINS_URL/login")
+QUEUE=$(curl -s "$JENKINS_URL/queue/api/json" | python3 -c "import json,sys; print(len(json.load(sys.stdin).get('items',[])))")
+DISK=$(df -h /var/lib/jenkins | tail -1 | awk '{print $5}' | tr -d '%')
+
+echo "Jenkins Health Check:"
+echo "  HTTP Status: $RESPONSE"
+echo "  Queue size: $QUEUE"
+echo "  Disk usage: $DISK%"
+
+if [ "$RESPONSE" != "200" ]; then
+  echo "ALERT: Jenkins not responding!"
+  # Envoyer alerte
+fi
+if [ "$DISK" -gt 85 ]; then
+  echo "ALERT: Disk space critical!"
+fi
+\\\`\\\`\\\`
+
+### Configuration
+
+#### Hardening (sécurisation avancée)
+
+\\\`\\\`\\\`bash
+# 1. Désactiver le CLI remoting (vulnérable)
+# Manage Jenkins > Security > CLI > Disable CLI over Remoting
+
+# 2. Activer CSRF Protection
+# Manage Jenkins > Security > CSRF Protection: enabled
+
+# 3. Agent → Controller Security
+# Manage Jenkins > Security > Agent → Controller Access Control: enabled
+
+# 4. Désactiver le signup
+# Manage Jenkins > Security > Security Realm > Do not allow sign up
+
+# 5. Content Security Policy (CSP)
+# System property dans JAVA_OPTS:
+# -Dhudson.model.DirectoryBrowserSupport.CSP="default-src 'self';"
+
+# 6. Rate limiting API
+# -Djenkins.security.ApiTokenProperty.adminCanGenerateNewTokens=true
+
+# 7. Audit Trail plugin
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN install-plugin audit-trail
+
+# 8. Script approval (sandbox Groovy)
+# Manage Jenkins > In-process Script Approval
+# Revoir et approuver les scripts manuellement
+\\\`\\\`\\\`
+
+### Bonnes pratiques
+
+1. **HTTPS obligatoire** : reverse proxy Nginx/Apache avec TLS
+2. **LDAP/SSO** : pas de comptes locaux (sauf compte admin de secours)
+3. **RBAC strict** : principe du moindre privilège, rôles par projet/folder
+4. **Credentials scopés** : utilisez les folders pour limiter l'accès aux secrets
+5. **JCasC** : toute la configuration en code versionné (reproductible)
+6. **Backup quotidien** : JENKINS_HOME (config, jobs, secrets, plugins)
+7. **Mises à jour** : appliquez les security advisories dans les 48h
+8. **Audit trail** : tracez toutes les actions (qui a lancé quoi, quand)
+9. **0 executors master** : jamais de build sur le controller
+10. **Script sandbox** : n'approuvez que les scripts vérifiés`,
+
+      practiceContent: `## Travaux Pratiques - Sécurité et Administration
+
+### TP 1 : Configuration RBAC
+
+\\\`\\\`\\\`bash
+# 1. Installer le plugin Role Strategy
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN install-plugin role-strategy
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN safe-restart
+
+# 2. Activer Role-Based Strategy
+# Manage Jenkins > Security > Authorization > Role-Based Strategy
+
+# 3. Créer des rôles via Script Console
+# Manage Jenkins > Script Console
+cat << 'GROOVY'
+import jenkins.model.*
+import hudson.security.*
+
+// Configurer Matrix-based security
+def instance = Jenkins.getInstance()
+def strategy = new GlobalMatrixAuthorizationStrategy()
+
+// Admin : tous les droits
+strategy.add(Jenkins.ADMINISTER, "admin")
+
+// Développeur : build et lecture
+strategy.add(Jenkins.READ, "developer")
+strategy.add(hudson.model.Item.BUILD, "developer")
+strategy.add(hudson.model.Item.READ, "developer")
+strategy.add(hudson.model.Item.WORKSPACE, "developer")
+
+// Viewer : lecture seule
+strategy.add(Jenkins.READ, "viewer")
+strategy.add(hudson.model.Item.READ, "viewer")
+
+instance.setAuthorizationStrategy(strategy)
+instance.save()
+println "Authorization configured"
+GROOVY
+\\\`\\\`\\\`
+
+### TP 2 : Gestion des credentials
+
+\\\`\\\`\\\`bash
+# 1. Créer différents types de credentials
+
+# Username/Password
+curl -X POST "http://admin:TOKEN@localhost:8080/credentials/store/system/domain/_/createCredentials" \\
+  -H "Content-Type: application/xml" \\
+  --data '<com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>
+    <scope>GLOBAL</scope>
+    <id>git-credentials</id>
+    <username>ci-user</username>
+    <password>my-secret-token</password>
+  </com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl>'
+
+# Secret text
+curl -X POST "http://admin:TOKEN@localhost:8080/credentials/store/system/domain/_/createCredentials" \\
+  -H "Content-Type: application/xml" \\
+  --data '<org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>
+    <scope>GLOBAL</scope>
+    <id>api-token</id>
+    <secret>super-secret-api-key</secret>
+  </org.jenkinsci.plugins.plaincredentials.impl.StringCredentialsImpl>'
+
+# 2. Utiliser dans un pipeline
+cat > Jenkinsfile << 'EOF'
+pipeline {
+    agent any
+    environment {
+        GIT_CREDS = credentials('git-credentials')
+        API_KEY = credentials('api-token')
+    }
+    stages {
+        stage('Use Credentials') {
+            steps {
+                sh '''
+                    echo "User: $GIT_CREDS_USR"
+                    echo "Pass: [MASKED]"
+                    echo "API Key: [MASKED]"
+                    # Les valeurs sont masquées dans les logs
+                '''
+            }
+        }
+        stage('With Credentials Block') {
+            steps {
+                withCredentials([
+                    usernamePassword(
+                        credentialsId: 'git-credentials',
+                        usernameVariable: 'USER',
+                        passwordVariable: 'PASS'
+                    )
+                ]) {
+                    sh 'echo "Authenticated as $USER"'
+                }
+            }
+        }
+    }
+}
+EOF
+\\\`\\\`\\\`
+
+### TP 3 : JCasC (Configuration as Code)
+
+\\\`\\\`\\\`bash
+# 1. Installer le plugin JCasC
+java -jar jenkins-cli.jar -s http://localhost:8080/ \\
+  -auth admin:TOKEN install-plugin configuration-as-code
+
+# 2. Créer le fichier de configuration
+cat > /var/lib/jenkins/jenkins.yaml << 'EOF'
+jenkins:
+  systemMessage: "Jenkins - Configured by JCasC"
+  numExecutors: 0
+  mode: EXCLUSIVE
+  
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: "admin"
+          password: "\${ADMIN_PASSWORD}"
+        - id: "developer"
+          password: "\${DEV_PASSWORD}"
+
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:developer"
+        - "Job/Build:developer"
+        - "Job/Read:developer"
+
 unclassified:
   location:
     url: "http://localhost:8080/"
-    adminAddress: "admin@formation.com"
-\`\`\`
-3. Appliquez : Manage Jenkins > Configuration as Code > Apply
-4. Vérifiez que le message système a changé
+    adminAddress: "admin@company.com"
+EOF
 
-#### TP 4 : Sauvegarde et restauration
+# 3. Appliquer la configuration
+# Manage Jenkins > Configuration as Code > Apply new configuration
 
-\`\`\`bash
-# Script de sauvegarde
+# 4. Exporter la configuration actuelle
+curl -s "http://admin:TOKEN@localhost:8080/configuration-as-code/export" > jenkins_export.yaml
+\\\`\\\`\\\`
+
+### TP 4 : Backup et restauration
+
+\\\`\\\`\\\`bash
+# 1. Script de backup
+cat > /opt/jenkins/backup.sh << 'EOF'
 #!/bin/bash
-JENKINS_CONTAINER="jenkins"
-BACKUP_FILE="/tmp/jenkins-backup-$(date +%Y%m%d-%H%M%S).tar.gz"
+set -e
+JENKINS_HOME="/var/lib/jenkins"
+BACKUP_DIR="/backup/jenkins"
+DATE=$(date +%Y%m%d)
 
-echo "Sauvegarde de Jenkins..."
+mkdir -p $BACKUP_DIR
 
-# Copier depuis le conteneur
-docker exec $JENKINS_CONTAINER tar czf /tmp/backup.tar.gz \\
-  -C /var/jenkins_home \\
-  config.xml credentials.xml secrets/ jobs/ users/ nodes/ plugins/
+echo "Starting Jenkins backup..."
 
-docker cp $JENKINS_CONTAINER:/tmp/backup.tar.gz $BACKUP_FILE
-docker exec $JENKINS_CONTAINER rm /tmp/backup.tar.gz
+# Backup des fichiers critiques
+tar -czf "$BACKUP_DIR/jenkins_$DATE.tar.gz" \
+  -C / \
+  var/lib/jenkins/config.xml \
+  var/lib/jenkins/credentials.xml \
+  var/lib/jenkins/secrets/ \
+  var/lib/jenkins/users/ \
+  var/lib/jenkins/jobs/*/config.xml \
+  var/lib/jenkins/nodes/ \
+  var/lib/jenkins/jenkins.yaml \
+  2>/dev/null || true
 
-echo "Sauvegarde créée : $BACKUP_FILE"
-ls -lh $BACKUP_FILE
-\`\`\`
+echo "Backup done: $BACKUP_DIR/jenkins_$DATE.tar.gz"
+ls -lh "$BACKUP_DIR/jenkins_$DATE.tar.gz"
 
-Test de restauration :
-\`\`\`bash
-# Simuler une restauration
-docker stop jenkins
-docker rm jenkins
+# Rotation (garder 14 jours)
+find $BACKUP_DIR -name "jenkins_*.tar.gz" -mtime +14 -delete
+echo "Old backups cleaned"
+EOF
+chmod +x /opt/jenkins/backup.sh
 
-# Recréer avec un volume vierge
-docker volume rm jenkins-data
-docker volume create jenkins-data
+# 2. Planifier via cron
+echo "0 2 * * * /opt/jenkins/backup.sh >> /var/log/jenkins_backup.log 2>&1" | sudo crontab -u root -
 
-# Restaurer la sauvegarde
-docker run --rm -v jenkins-data:/data -v /tmp:/backup alpine \\
-  tar xzf /backup/jenkins-backup-*.tar.gz -C /data/
+# 3. Test de restauration
+/opt/jenkins/backup.sh
+echo "Backup size: $(du -sh /backup/jenkins/jenkins_$DATE.tar.gz)"
+tar -tzf /backup/jenkins/jenkins_*.tar.gz | head -20
+\\\`\\\`\\\`
 
-# Relancer Jenkins
-docker run -d --name jenkins -p 8080:8080 \\
-  -v jenkins-data:/var/jenkins_home jenkins/jenkins:lts
-\`\`\`
+### TP 5 : Monitoring et health check
 
-#### TP 5 : Monitoring avec le plugin Prometheus
+\\\`\\\`\\\`bash
+# 1. Script de monitoring
+cat > /opt/jenkins/healthcheck.sh << 'EOF'
+#!/bin/bash
+JENKINS_URL="http://localhost:8080"
+AUTH="admin:TOKEN"
 
-1. Installez le plugin "Prometheus Metrics"
-2. Accédez à http://localhost:8080/prometheus/
-3. Observez les métriques disponibles :
-   - jenkins_job_count_value
-   - jenkins_queue_size_value
-   - jenkins_node_online_value
-   - jenkins_builds_duration_milliseconds
-4. (Bonus) Connectez à Prometheus/Grafana si disponible
+echo "=== Jenkins Health Check ==="
+echo "Date: $(date)"
 
-#### Checklist de vérification sécurité
+# HTTP Status
+HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -u $AUTH "$JENKINS_URL/api/json")
+echo "HTTP Status: $HTTP_CODE"
 
-- [ ] HTTPS activé (ou reverse proxy)
-- [ ] Compte admin avec mot de passe fort
-- [ ] CSRF protection activée
-- [ ] Pas de builds sur le controller (numExecutors=0)
-- [ ] Credentials scopés par dossier
-- [ ] Plugins à jour
-- [ ] Sauvegarde automatique configurée
-- [ ] Audit log activé`,
+# Version
+VERSION=$(curl -s -u $AUTH "$JENKINS_URL/api/json" | python3 -c "import json,sys; print(json.load(sys.stdin).get('description',''))" 2>/dev/null)
+echo "Version: $VERSION"
+
+# Queue
+QUEUE=$(curl -s -u $AUTH "$JENKINS_URL/queue/api/json" | python3 -c "import json,sys; print(len(json.load(sys.stdin).get('items',[])))" 2>/dev/null)
+echo "Queue size: $QUEUE jobs"
+
+# Agents
+AGENTS=$(curl -s -u $AUTH "$JENKINS_URL/computer/api/json" | python3 -c "
+import json, sys
+d = json.load(sys.stdin)
+total = len(d.get('computer', [])) - 1
+offline = sum(1 for c in d.get('computer', [])[1:] if c.get('offline'))
+print(f'{total - offline}/{total} online')
+" 2>/dev/null)
+echo "Agents: $AGENTS"
+
+# Disk
+DISK_USAGE=$(df -h /var/lib/jenkins | tail -1 | awk '{print $5}')
+echo "Disk usage: $DISK_USAGE"
+
+echo "=== End Health Check ==="
+EOF
+chmod +x /opt/jenkins/healthcheck.sh
+
+# 2. Exécuter
+/opt/jenkins/healthcheck.sh
+\\\`\\\`\\\``,
 
       keyPoints: JSON.stringify([
-        'Jenkins a accès au code, credentials et production : la sécurité est critique',
-        'RBAC (Role-Based Access Control) pour des permissions granulaires par rôle et projet',
-        'Credentials Jenkins : scoper par dossier, rotater régulièrement, ne jamais logger',
-        'JCasC (Jenkins Configuration as Code) : gérer la config en YAML versionné',
-        'Sauvegarder régulièrement : config.xml, credentials, secrets, jobs, plugins',
-        'Monitoring : queue, executors, disk, memory - alerter avant les problèmes'
+        'HTTPS obligatoire : reverse proxy Nginx avec TLS, Jenkins en localhost uniquement',
+        'RBAC : Role-Based Access Control avec principe du moindre privilège',
+        'Credentials : scopés par folder, jamais en clair dans les Jenkinsfiles',
+        'JCasC : toute la configuration Jenkins en fichier YAML versionné',
+        'Backup : quotidien de JENKINS_HOME (config, secrets, jobs), rotation automatique',
+        'Monitoring : health check HTTP, queue size, agents status, disk usage',
+        'Hardening : désactiver CLI remoting, CSRF enabled, agent security enabled',
+        'Audit trail : tracer toutes les actions utilisateurs et builds',
+        'Mises à jour : appliquer les security advisories Jenkins dans les 48h',
+        'LDAP/SSO : authentification centralisée, pas de comptes locaux'
       ]) },
 
 
   ],
 
   quizQuestions: [
-    // Artifactory
-    { id: 'q-art-01', courseId: 'artifactory', question: 'Quels sont les trois types de dépôts dans Artifactory ?',
-      options: JSON.stringify(['Local, Remote, Virtual', 'Public, Private, Shared', 'Source, Binary, Cache', 'Dev, Staging, Prod']),
-      correctAnswer: 0, explanation: 'Artifactory utilise trois types de dépôts : Local (stockage interne), Remote (proxy/cache de dépôts externes) et Virtual (agrégation de plusieurs dépôts en un point d\'entrée unique).' },
-    { id: 'q-art-02', courseId: 'artifactory', question: 'Quel est le rôle du Build Info dans Artifactory ?',
-      options: JSON.stringify(['Configurer les builds Jenkins', 'Tracer la relation entre code source, build et artefacts produits', 'Optimiser les temps de compilation', 'Gérer les versions de plugins']),
-      correctAnswer: 1, explanation: 'Le Build Info est un fichier JSON qui documente tout ce qu\'un build a produit et consommé : artefacts déployés, dépendances résolues, commit source, agent de build, etc.' },
-    { id: 'q-art-03', courseId: 'artifactory', question: 'Qu\'est-ce que AQL dans Artifactory ?',
-      options: JSON.stringify(['Un langage de programmation', 'Artifactory Query Language - un langage de requête pour chercher des artefacts', 'Un protocole de transfert de fichiers', 'Un format de métadonnées']),
-      correctAnswer: 1, explanation: 'AQL (Artifactory Query Language) est un langage de requête puissant qui permet de chercher des artefacts selon de multiples critères : nom, taille, propriétés, date, repo, etc.' },
+    // ==================== ARTIFACTORY QUIZ ====================
+    { id: 'quiz-art-01', courseId: 'artifactory', moduleId: 'art-01',
+      question: 'Quel est le rôle principal d\'Artifactory dans une chaîne CI/CD ?',
+      options: JSON.stringify(['Compiler le code source', 'Stocker et gérer les artefacts binaires de manière centralisée', 'Exécuter les tests unitaires', 'Déployer les applications en production']),
+      correctIndex: 1,
+      explanation: 'Artifactory est un gestionnaire de dépôts d\'artefacts universel. Il stocke et gère tous les binaires (JAR, Docker images, npm packages, etc.) générés pendant le cycle de développement.' },
 
-    // SonarQube
-    { id: 'q-sq-01', courseId: 'sonarqube', question: 'Quelle est la philosophie principale de SonarQube ?',
-      options: JSON.stringify(['Zero Bugs Policy', 'Clean as You Code', 'Test-Driven Development', 'Continuous Refactoring']),
-      correctAnswer: 1, explanation: 'Clean as You Code signifie qu\'on se concentre sur la qualité du nouveau code. On ne demande pas de corriger toute la dette technique existante d\'un coup, mais on s\'assure que tout nouveau code est propre.' },
-    { id: 'q-sq-02', courseId: 'sonarqube', question: 'Qu\'est-ce qu\'un Security Hotspot dans SonarQube ?',
-      options: JSON.stringify(['Un bug critique de sécurité', 'Une zone de code potentiellement vulnérable nécessitant une revue humaine', 'Un serveur mal configuré', 'Un test de pénétration automatisé']),
-      correctAnswer: 1, explanation: 'Un Security Hotspot est une zone de code qui est potentiellement vulnérable mais qui nécessite une revue humaine pour déterminer si c\'est réellement un problème (Safe, Fixed ou Vulnerable).' },
-    { id: 'q-sq-03', courseId: 'sonarqube', question: 'Que se passe-t-il quand un Quality Gate échoue ?',
-      options: JSON.stringify(['Le code est automatiquement corrigé', 'Le pipeline CI peut être bloqué et le merge refusé', 'SonarQube envoie un email d\'avertissement seulement', 'Rien, c\'est juste informatif']),
-      correctAnswer: 1, explanation: 'Quand un Quality Gate est FAILED, le pipeline CI/CD peut être configuré pour bloquer le déploiement (waitForQualityGate abortPipeline: true) et empêcher le merge de la PR.' },
-    { id: 'q-sq-04', courseId: 'sonarqube', question: 'Quel outil permet d\'avoir le feedback SonarQube directement dans l\'IDE ?',
-      options: JSON.stringify(['SonarScanner', 'SonarLint', 'SonarCloud', 'SonarAnalyzer']),
-      correctAnswer: 1, explanation: 'SonarLint est l\'extension IDE (VS Code, IntelliJ, Eclipse) qui analyse le code en temps réel et peut se synchroniser avec le serveur SonarQube via le Connected Mode.' },
+    { id: 'quiz-art-02', courseId: 'artifactory', moduleId: 'art-01',
+      question: 'Quelle est la différence entre un dépôt local, distant et virtuel dans Artifactory ?',
+      options: JSON.stringify(['Local stocke les artefacts internes, distant est un proxy-cache de dépôts externes, virtuel agrège les deux', 'Local est sur le serveur, distant est dans le cloud, virtuel est temporaire', 'Local est pour Maven, distant pour npm, virtuel pour Docker', 'Il n\'y a pas de différence, ce sont des synonymes']),
+      correctIndex: 0,
+      explanation: 'Un dépôt local héberge vos artefacts internes, un dépôt distant sert de proxy-cache pour les registres publics (Maven Central, npmjs), et un dépôt virtuel combine plusieurs dépôts sous une URL unique.' },
 
-    // DOORS
-    { id: 'q-doors-01', courseId: 'doors', question: 'Quel est le principal objectif d\'IBM DOORS ?',
-      options: JSON.stringify(['Gestion du code source', 'Gestion des exigences avec traçabilité', 'Tests automatisés', 'Déploiement continu']),
-      correctAnswer: 1, explanation: 'DOORS est un outil de gestion des exigences qui permet de capturer, tracer et gérer les exigences dans les projets complexes avec une traçabilité bidirectionnelle complète.' },
-    { id: 'q-doors-02', courseId: 'doors', question: 'Qu\'est-ce qu\'un lien "suspect" dans DOORS ?',
-      options: JSON.stringify(['Un lien créé par erreur', 'Un lien dont l\'objet source ou cible a été modifié depuis sa création', 'Un lien entre deux projets différents', 'Un lien sans permission d\'accès']),
-      correctAnswer: 1, explanation: 'Un lien devient suspect quand l\'objet source ou cible est modifié. Cela signale que la relation pourrait ne plus être valide et nécessite une vérification humaine.' },
-    { id: 'q-doors-03', courseId: 'doors', question: 'Quel langage de script est utilisé dans DOORS ?',
-      options: JSON.stringify(['Python', 'JavaScript', 'DXL (DOORS eXtension Language)', 'VBScript']),
-      correctAnswer: 2, explanation: 'DXL (DOORS eXtension Language) est un langage procédural inspiré du C qui permet d\'automatiser les opérations dans DOORS : export, audit, création de liens, rapports.' },
+    { id: 'quiz-art-03', courseId: 'artifactory', moduleId: 'art-01',
+      question: 'Quel langage est utilisé par AQL (Artifactory Query Language) pour rechercher des artefacts ?',
+      options: JSON.stringify(['SQL standard', 'Un DSL propriétaire avec syntaxe JSON-like pour requêter les métadonnées', 'GraphQL', 'XPath']),
+      correctIndex: 1,
+      explanation: 'AQL est un langage de requête propriétaire avec une syntaxe JSON-like permettant de rechercher des artefacts par leurs propriétés, métadonnées, dates, et statistiques d\'utilisation.' },
 
-    // ClearCase
-    { id: 'q-cc-01', courseId: 'clearcase', question: 'Quelle est la différence fondamentale entre ClearCase et Git ?',
-      options: JSON.stringify(['ClearCase est gratuit, Git est payant', 'ClearCase versionne par fichier, Git versionne par commit (snapshot)', 'Git est centralisé, ClearCase est distribué', 'ClearCase ne supporte pas les branches']),
-      correctAnswer: 1, explanation: 'ClearCase versionne chaque fichier indépendamment (file-level versioning), tandis que Git crée des snapshots atomiques du projet entier à chaque commit (project-level versioning).' },
-    { id: 'q-cc-02', courseId: 'clearcase', question: 'Qu\'est-ce qu\'une Config Spec dans ClearCase ?',
-      options: JSON.stringify(['Un fichier de configuration système', 'Un ensemble de règles qui déterminent quelle version de chaque fichier est visible dans une vue', 'Un script de build', 'Un rapport de configuration']),
-      correctAnswer: 1, explanation: 'La Config Spec est un ensemble de règles qui sélectionne quelle version de chaque fichier apparaît dans la vue. Elle peut cibler des branches, des labels, des dates ou des versions spécifiques.' },
-    { id: 'q-cc-03', courseId: 'clearcase', question: 'Dans UCM, quelle opération permet de pousser ses changements vers le stream d\'intégration ?',
-      options: JSON.stringify(['Push', 'Merge', 'Deliver', 'Commit']),
-      correctAnswer: 2, explanation: 'En UCM, l\'opération Deliver pousse les activités complétées d\'un stream de développement vers le stream d\'intégration. L\'inverse (récupérer les mises à jour) s\'appelle Rebase.' },
+    // ==================== SONARQUBE QUIZ ====================
+    { id: 'quiz-sq-01', courseId: 'sonarqube', moduleId: 'sq-01',
+      question: 'Quels sont les 3 types de problèmes détectés par SonarQube ?',
+      options: JSON.stringify(['Bugs, vulnérabilités et code smells', 'Erreurs de compilation, warnings et informations', 'Critiques, majeures et mineures', 'Syntaxe, logique et performance']),
+      correctIndex: 0,
+      explanation: 'SonarQube classe les problèmes en 3 catégories : Bugs (problèmes de fiabilité), Vulnérabilités (problèmes de sécurité), et Code Smells (problèmes de maintenabilité).' },
 
-    // Klocwork
-    { id: 'q-kw-01', courseId: 'klocwork', question: 'Qu\'est-ce que la Knowledge Base dans Klocwork ?',
-      options: JSON.stringify(['La documentation utilisateur', 'Un modèle sémantique permettant l\'analyse inter-procédurale entre fichiers', 'Une base de données de bugs connus', 'Un wiki interne']),
-      correctAnswer: 1, explanation: 'La Knowledge Base maintient les contrats de fonctions, le flux de données et le graphe d\'appels, permettant à Klocwork de détecter des bugs qui traversent les frontières de fichiers.' },
-    { id: 'q-kw-02', courseId: 'klocwork', question: 'Quel standard est obligatoire pour le logiciel automobile ?',
-      options: JSON.stringify(['OWASP Top 10', 'MISRA C:2012', 'PCI DSS', 'SOC 2']),
-      correctAnswer: 1, explanation: 'MISRA C:2012 est le standard de codage obligatoire dans l\'industrie automobile (ISO 26262). Klocwork vérifie automatiquement la conformité aux règles MISRA mandatory et required.' },
-    { id: 'q-kw-03', courseId: 'klocwork', question: 'Quelle est la commande pour capturer les informations de build avant l\'analyse Klocwork ?',
-      options: JSON.stringify(['kwbuild', 'kwinject', 'kwscan', 'kwcapture']),
-      correctAnswer: 1, explanation: 'kwinject intercepte les commandes de compilation (gcc, cl.exe, etc.) pour produire un fichier kwinject.out contenant toutes les informations nécessaires à l\'analyse statique.' },
+    { id: 'quiz-sq-02', courseId: 'sonarqube', moduleId: 'sq-01',
+      question: 'Qu\'est-ce qu\'un Quality Gate dans SonarQube ?',
+      options: JSON.stringify(['Un plugin de sécurité', 'Un ensemble de conditions qui déterminent si le code est prêt pour la production', 'Un rapport PDF généré automatiquement', 'Un outil de refactoring automatique']),
+      correctIndex: 1,
+      explanation: 'Un Quality Gate est un ensemble de conditions (couverture de code > 80%, 0 bugs critiques, etc.) qui détermine si le nouveau code est suffisamment bon pour être mergé ou déployé.' },
 
-    // Jenkins
-    { id: 'q-jen-01', courseId: 'jenkins', question: 'Quel type de job Jenkins est recommandé pour les projets modernes ?',
-      options: JSON.stringify(['Freestyle', 'Pipeline', 'Maven project', 'External Job']),
-      correctAnswer: 1, explanation: 'Le job Pipeline (avec un Jenkinsfile) est recommandé car il permet le Pipeline as Code : le workflow est versionné avec le code source, lisible, et reproductible.' },
-    { id: 'q-jen-02', courseId: 'jenkins', question: 'Pourquoi ne doit-on pas exécuter de builds sur le controller Jenkins ?',
-      options: JSON.stringify(['C\'est trop lent', 'Pour des raisons de sécurité et de stabilité du controller', 'Ce n\'est pas techniquement possible', 'Les plugins ne fonctionnent pas sur le controller']),
-      correctAnswer: 1, explanation: 'Exécuter des builds sur le controller expose les secrets Jenkins et peut déstabiliser le service. Les builds doivent toujours s\'exécuter sur des agents dédiés (permanent, Docker ou Kubernetes).' },
-    { id: 'q-jen-03', courseId: 'jenkins', question: 'Qu\'est-ce que JCasC (Jenkins Configuration as Code) ?',
-      options: JSON.stringify(['Un plugin de CI pour Java', 'Une approche pour gérer la configuration Jenkins en fichiers YAML versionnés', 'Un langage de programmation pour Jenkins', 'Un outil de test de configuration']),
-      correctAnswer: 1, explanation: 'JCasC permet de déclarer toute la configuration Jenkins (sécurité, nodes, credentials, plugins) dans un fichier YAML versionnable, rendant Jenkins reproductible et auditable.' },
-    { id: 'q-jen-04', courseId: 'jenkins', question: 'Quel est l\'avantage principal des agents Docker dans Jenkins ?',
-      options: JSON.stringify(['Ils sont plus rapides que les agents permanents', 'Ils offrent une isolation parfaite et un environnement reproductible pour chaque build', 'Ils ne nécessitent pas de licence', 'Ils permettent de builder sans connexion réseau']),
-      correctAnswer: 1, explanation: 'Les agents Docker créent un conteneur éphémère pour chaque build, garantissant une isolation parfaite (pas de pollution entre builds) et un environnement reproductible (même image = même résultat).' },
+    { id: 'quiz-sq-03', courseId: 'sonarqube', moduleId: 'sq-01',
+      question: 'Quel outil permet d\'analyser le code localement dans l\'IDE avec connexion au serveur SonarQube ?',
+      options: JSON.stringify(['SonarScanner', 'SonarLint en Connected Mode', 'SonarAnalyzer', 'SonarCloud']),
+      correctIndex: 1,
+      explanation: 'SonarLint est un plugin IDE qui, en Connected Mode, synchronise les règles et profils de qualité du serveur SonarQube pour fournir un feedback en temps réel au développeur.' },
+
+    // ==================== DOORS QUIZ ====================
+    { id: 'quiz-doors-01', courseId: 'doors', moduleId: 'doors-01',
+      question: 'Quel est l\'élément de base pour stocker les exigences dans DOORS ?',
+      options: JSON.stringify(['Un dossier', 'Un module formel contenant des objets', 'Un fichier Excel importé', 'Une base de données SQL']),
+      correctIndex: 1,
+      explanation: 'Dans DOORS, les exigences sont stockées dans des modules formels. Chaque module contient des objets (requirements) organisés hiérarchiquement avec des attributs et des liens.' },
+
+    { id: 'quiz-doors-02', courseId: 'doors', moduleId: 'doors-01',
+      question: 'Comment DOORS assure-t-il la traçabilité entre exigences ?',
+      options: JSON.stringify(['Par des fichiers de mapping externes', 'Par des liens (link modules) entre objets de modules différents', 'Par des tags de version', 'Par des commentaires dans le texte']),
+      correctIndex: 1,
+      explanation: 'DOORS utilise des Link Modules pour créer des liens typés entre objets de modules différents, permettant la traçabilité complète (exigences système → logiciel → tests).' },
+
+    { id: 'quiz-doors-03', courseId: 'doors', moduleId: 'doors-01',
+      question: 'Quel langage de script est intégré à DOORS pour l\'automatisation ?',
+      options: JSON.stringify(['Python', 'JavaScript', 'DXL (DOORS Extension Language)', 'Perl']),
+      correctIndex: 2,
+      explanation: 'DXL (DOORS Extension Language) est un langage de script C-like intégré à DOORS permettant d\'automatiser les exports, audits, génération de rapports et manipulations en masse.' },
+
+    // ==================== CLEARCASE QUIZ ====================
+    { id: 'quiz-cc-01', courseId: 'clearcase', moduleId: 'cc-01',
+      question: 'Qu\'est-ce qu\'un VOB dans ClearCase ?',
+      options: JSON.stringify(['Un type de branche', 'Une base de données versionnée stockant fichiers et répertoires', 'Un outil de merge', 'Un format de fichier de configuration']),
+      correctIndex: 1,
+      explanation: 'VOB (Versioned Object Base) est la base de données centrale de ClearCase qui stocke tous les fichiers et répertoires versionnés avec leur historique complet.' },
+
+    { id: 'quiz-cc-02', courseId: 'clearcase', moduleId: 'cc-01',
+      question: 'Quelle est la différence entre une vue dynamique et une vue snapshot ?',
+      options: JSON.stringify(['La vue dynamique accède aux fichiers en temps réel via le réseau (MVFS), la snapshot est une copie locale', 'La vue dynamique est plus rapide, la snapshot plus sécurisée', 'La vue dynamique est pour Windows, la snapshot pour Linux', 'Il n\'y a pas de différence']),
+      correctIndex: 0,
+      explanation: 'Une vue dynamique utilise le système de fichiers virtuel MVFS pour accéder aux fichiers en temps réel depuis le serveur. Une vue snapshot est une copie locale qu\'il faut mettre à jour manuellement.' },
+
+    { id: 'quiz-cc-03', courseId: 'clearcase', moduleId: 'cc-01',
+      question: 'Quel est le rôle d\'une Config Spec dans ClearCase ?',
+      options: JSON.stringify(['Configurer le serveur ClearCase', 'Définir les règles de sélection des versions visibles dans une vue', 'Spécifier les permissions utilisateur', 'Configurer les triggers de build']),
+      correctIndex: 1,
+      explanation: 'La Config Spec (Configuration Specification) définit les règles qui déterminent quelles versions des fichiers sont visibles dans une vue (par branche, label, date, etc.).' },
+
+    // ==================== KLOCWORK QUIZ ====================
+    { id: 'quiz-kw-01', courseId: 'klocwork', moduleId: 'kw-01',
+      question: 'Quel est le rôle de kwinject dans le workflow Klocwork ?',
+      options: JSON.stringify(['Injecter du code de test', 'Capturer les commandes de compilation pour créer un build specification', 'Installer les plugins Klocwork', 'Configurer les checkers d\'analyse']),
+      correctIndex: 1,
+      explanation: 'kwinject intercepte les commandes de compilation (gcc, make, etc.) pour savoir quels fichiers analyser et avec quelles options. Il génère un fichier buildspec (kwinject.out) utilisé par kwbuildproject.' },
+
+    { id: 'quiz-kw-02', courseId: 'klocwork', moduleId: 'kw-01',
+      question: 'Qu\'est-ce que la Knowledge Base dans Klocwork ?',
+      options: JSON.stringify(['La documentation en ligne', 'Une base centralisée stockant les décisions sur les issues (confirmé, faux positif, etc.)', 'Les règles de codage MISRA', 'Le cache d\'analyse locale']),
+      correctIndex: 1,
+      explanation: 'La Knowledge Base (KB) est la base de données centralisée qui stocke les décisions prises sur chaque issue : Confirmed (vrai défaut), Not a Problem (faux positif), Fix in Next Release, etc.' },
+
+    { id: 'quiz-kw-03', courseId: 'klocwork', moduleId: 'kw-01',
+      question: 'Quelle commande permet de lancer une analyse statique locale sans serveur Klocwork ?',
+      options: JSON.stringify(['kwbuildproject', 'kwadmin', 'kwcheck run', 'kwinject']),
+      correctIndex: 2,
+      explanation: 'kwcheck run lance une analyse locale (desktop analysis) rapide directement sur le poste du développeur, sans nécessiter de connexion au serveur Klocwork. Idéal pour le shift-left testing.' },
+
+    // ==================== JENKINS QUIZ ====================
+    { id: 'quiz-jen-01', courseId: 'jenkins', moduleId: 'jen-01',
+      question: 'Quelle est la différence principale entre un job Freestyle et un Pipeline dans Jenkins ?',
+      options: JSON.stringify(['Le Freestyle est plus rapide à exécuter', 'Le Pipeline est défini en code (Jenkinsfile) et permet des workflows multi-étapes complexes', 'Le Freestyle supporte plus de plugins', 'Le Pipeline ne peut pas utiliser Docker']),
+      correctIndex: 1,
+      explanation: 'Un Pipeline est défini en code (Jenkinsfile) versionné dans Git, permettant des workflows multi-étapes, parallélisation, conditions, et reproductibilité. Le Freestyle est configuré via l\'UI uniquement.' },
+
+    { id: 'quiz-jen-02', courseId: 'jenkins', moduleId: 'jen-01',
+      question: 'Pourquoi est-il recommandé de ne pas exécuter de builds sur le controller Jenkins ?',
+      options: JSON.stringify(['Pour des raisons de performance uniquement', 'Pour la sécurité (isolation) et la stabilité du controller qui gère l\'orchestration', 'Parce que le controller ne supporte pas les builds', 'Pour économiser des licences']),
+      correctIndex: 1,
+      explanation: 'Exécuter des builds sur le controller expose le serveur Jenkins à des risques de sécurité (code malveillant) et de stabilité (consommation de ressources). Le controller doit uniquement orchestrer.' },
+
+    { id: 'quiz-jen-03', courseId: 'jenkins', moduleId: 'jen-01',
+      question: 'Quel mécanisme Jenkins utilise-t-il pour gérer les secrets de manière sécurisée ?',
+      options: JSON.stringify(['Variables d\'environnement système', 'Le Credentials Store avec chiffrement et masquage dans les logs', 'Des fichiers .env dans le workspace', 'HashiCorp Vault uniquement']),
+      correctIndex: 1,
+      explanation: 'Le Credentials Store de Jenkins chiffre les secrets, les rend accessibles aux pipelines via credentials(), et les masque automatiquement dans les logs de console.' },
+
+    { id: 'quiz-jen-04', courseId: 'jenkins', moduleId: 'jen-01',
+      question: 'Qu\'est-ce que JCasC (Jenkins Configuration as Code) ?',
+      options: JSON.stringify(['Un outil de compilation Java', 'Un plugin permettant de définir toute la configuration Jenkins dans un fichier YAML versionnable', 'Un framework de test pour les pipelines', 'Un service cloud Jenkins']),
+      correctIndex: 1,
+      explanation: 'JCasC permet de définir toute la configuration Jenkins (sécurité, credentials, clouds, plugins) dans un fichier YAML. Cela rend la configuration reproductible, auditable et versionnée dans Git.' },
+
   ],
 };
