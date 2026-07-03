@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { db, schema } from '../db/index.js';
 import { eq } from 'drizzle-orm';
 import { requireAuth, JWT_SECRET } from '../middleware/auth.js';
+import { sendWelcomeEmail } from '../services/email.js';
 
 const router = Router();
 
@@ -50,6 +51,9 @@ router.post('/register', async (req, res) => {
     });
 
     const token = jwt.sign({ id, username, email, role: 'user' }, JWT_SECRET, { expiresIn: '7d' });
+
+    // Envoyer l'email de bienvenue (async, ne bloque pas la réponse)
+    sendWelcomeEmail(email, displayName || username).catch(() => {});
 
     res.status(201).json({
       success: true,

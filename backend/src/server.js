@@ -32,6 +32,7 @@ import glossaryRoutes from './routes/glossary.js';
 import exercisesRoutes from './routes/exercises.js';
 import profilesRoutes from './routes/profiles.js';
 import adminRoutes from './routes/admin.js';
+import emailsRoutes from './routes/emails.js';
 import rateLimit from './middleware/rateLimit.js';
 
 const app = express();
@@ -78,6 +79,7 @@ app.use('/api/glossary', glossaryRoutes);
 app.use('/api/exercises', exercisesRoutes);
 app.use('/api/users', profilesRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/emails', emailsRoutes);
 
 // Error handling
 app.use((err, req, res, next) => {
