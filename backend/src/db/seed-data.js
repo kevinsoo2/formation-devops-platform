@@ -42,6 +42,27 @@ export const seedData = {
       prerequisites: JSON.stringify(['Connaissances Linux de base', 'Familiarité avec Git', 'Notions de Docker recommandées']),
       objectives: JSON.stringify(['Installer Jenkins', 'Jobs Freestyle et Pipeline', 'Jenkinsfiles déclaratifs et scriptés', 'Agents distribués Docker et Kubernetes', 'Plugins et sécurité', 'Shared Libraries', 'JCasC et administration']),
     },
+    {
+      id: 'jira', title: 'Atlassian Jira', subtitle: 'Gestion de projet Agile',
+      description: 'Maîtrisez Jira pour la gestion de projet Agile. Créez et gérez des projets Scrum et Kanban, configurez des workflows, utilisez JQL et automatisez vos processus.',
+      icon: '📊', color: '#0052CC', duration: '10 heures', level: 'Débutant à Intermédiaire', category: 'Gestion de projet',
+      prerequisites: JSON.stringify(['Notions de méthodologies Agile (Scrum, Kanban)', 'Familiarité avec la gestion de projet', 'Navigateur web moderne']),
+      objectives: JSON.stringify(['Installer et configurer Jira Server/Data Center', 'Créer et gérer des projets Scrum et Kanban', 'Maîtriser les workflows et les transitions', 'Écrire des requêtes JQL avancées', 'Configurer les automation rules', 'Utiliser l\'API REST Jira']),
+    },
+    {
+      id: 'confluence', title: 'Atlassian Confluence', subtitle: 'Documentation collaborative',
+      description: 'Apprenez Confluence pour créer une base de connaissances collaborative. Espaces, pages, templates, macros et intégration avec l\'écosystème Atlassian.',
+      icon: '📝', color: '#172B4D', duration: '8 heures', level: 'Débutant', category: 'Documentation',
+      prerequisites: JSON.stringify(['Aucun prérequis technique spécifique', 'Familiarité avec un éditeur de texte', 'Navigateur web moderne']),
+      objectives: JSON.stringify(['Installer Confluence Server/Data Center', 'Créer et organiser des espaces et pages', 'Utiliser templates et blueprints', 'Maîtriser les macros avancées', 'Gérer permissions et restrictions', 'Utiliser l\'API REST Confluence']),
+    },
+    {
+      id: 'bitbucket', title: 'Atlassian Bitbucket', subtitle: 'Hébergement Git et CI/CD',
+      description: 'Maîtrisez Bitbucket pour l\'hébergement Git et le CI/CD intégré avec Pipelines. Gestion des repos, pull requests, branch permissions et intégration Jira.',
+      icon: '🔀', color: '#2684FF', duration: '12 heures', level: 'Intermédiaire', category: 'Gestion de code source',
+      prerequisites: JSON.stringify(['Maîtrise de Git (branches, merge, rebase)', 'Connaissances Linux de base', 'Notions de CI/CD']),
+      objectives: JSON.stringify(['Installer Bitbucket Server/Data Center sur Linux', 'Gérer repositories et branches', 'Configurer les pull requests et merge checks', 'Écrire des pipelines CI/CD (bitbucket-pipelines.yml)', 'Administrer permissions et hooks', 'Utiliser l\'API REST Bitbucket']),
+    },
   ],
 
   modules: [
@@ -9314,11 +9335,6133 @@ chmod +x /opt/jenkins/healthcheck.sh
         'LDAP/SSO : authentification centralisée, pas de comptes locaux'
       ]) },
 
+    // ==================== JIRA ====================
+    { id: 'jira-01', courseId: 'jira', title: 'Introduction complète à Jira', duration: '5h', orderIndex: 1,
+      theoryContent: `## Introduction complète à Jira
+
+### Présentation et historique
+
+**Jira** est la plateforme de gestion de projet et de suivi des tickets la plus utilisée au monde, développée par **Atlassian** depuis **2002**. Son nom vient du mot japonais "Gojira" (Godzilla). Plus de **250 000 organisations** dans le monde utilisent Jira, des startups aux entreprises du Fortune 500.
+
+Jira a évolué considérablement depuis sa création :
+- **2002** : Première version, simple bug tracker
+- **2005** : Introduction des plugins et de l'écosystème
+- **2007** : GreenHopper (devenu Jira Agile puis Jira Software)
+- **2010** : Support complet Scrum et Kanban
+- **2015** : Jira Cloud, nouvelle interface
+- **2017** : Jira Software, Jira Service Management (anciennement Service Desk)
+- **2020** : Next-gen projects (Team-managed projects)
+- **2024** : Jira avec Intelligence Artificielle intégrée
+
+### Concepts fondamentaux détaillés
+
+#### Projets
+Un projet Jira est un conteneur qui regroupe un ensemble de tickets. Chaque projet possède :
+- Une **clé unique** (ex: PROJ, DEV, OPS) - préfixe de tous les tickets
+- Un **type** : Software (Scrum/Kanban), Service Management, Business
+- Un **responsable** (Project Lead)
+- Des **schemes** associés (permissions, notifications, workflows, écrans)
+- Des **composants** pour catégoriser les tickets
+- Des **versions** pour planifier les releases
+
+#### Types de tickets (Issue Types)
+- **Epic** : Grande fonctionnalité ou initiative regroupant plusieurs stories (durée : semaines/mois)
+- **Story (User Story)** : Fonctionnalité du point de vue utilisateur ("En tant que... je veux... afin de...")
+- **Task** : Travail technique ou non fonctionnel à réaliser
+- **Bug** : Défaut à corriger dans le logiciel
+- **Sub-task** : Découpage technique d'une story ou task
+- **Spike** : Investigation technique avec timebox
+
+#### Workflows (Flux de travail)
+Un workflow définit le cycle de vie d'un ticket :
+- **Statuts** : états possibles (To Do, In Progress, In Review, Done)
+- **Transitions** : passages entre statuts (Start Work, Submit for Review, Approve)
+- **Conditions** : qui peut effectuer une transition
+- **Validators** : vérifications avant transition (champs obligatoires)
+- **Post-functions** : actions automatiques après transition (assignation, notification)
+
+#### Boards (Tableaux)
+- **Scrum Board** : organisé en sprints, avec backlog et sprint actif
+- **Kanban Board** : flux continu avec limites WIP (Work In Progress)
+- Colonnes mappées sur les statuts du workflow
+- Swimlanes pour regrouper les tickets (par epic, assignee, priority)
+- Quick filters pour filtrer l'affichage
+
+#### Sprints
+- Itérations de durée fixe (généralement 1-4 semaines)
+- Contiennent un ensemble de tickets sélectionnés depuis le backlog
+- Objectif de sprint (Sprint Goal)
+- Vélocité mesurée en story points ou nombre de tickets
+
+### Architecture de Jira
+
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────┐
+│                    JIRA DATA CENTER ARCHITECTURE                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│   ┌─────────────┐     ┌──────────────────────────────────┐      │
+│   │   Clients   │     │         Load Balancer            │      │
+│   │  (Browser)  │────▶│    (Nginx/HAProxy/F5)            │      │
+│   └─────────────┘     └──────────┬───────────────────────┘      │
+│                                   │                               │
+│                    ┌──────────────┼──────────────┐               │
+│                    ▼              ▼              ▼               │
+│            ┌────────────┐ ┌────────────┐ ┌────────────┐         │
+│            │  Jira Node │ │  Jira Node │ │  Jira Node │         │
+│            │     #1     │ │     #2     │ │     #3     │         │
+│            │  (Tomcat)  │ │  (Tomcat)  │ │  (Tomcat)  │         │
+│            │  Port 8080 │ │  Port 8080 │ │  Port 8080 │         │
+│            └─────┬──────┘ └──────┬─────┘ └──────┬─────┘         │
+│                  │               │              │                │
+│            ┌─────┴───────────────┴──────────────┴─────┐         │
+│            │        Shared Filesystem (NFS/EFS)        │         │
+│            │   /jira-shared (attachments, avatars...)  │         │
+│            └──────────────────────────────────────────-┘         │
+│                                                                   │
+│            ┌──────────────────────────────────────────┐          │
+│            │         PostgreSQL Database               │          │
+│            │    (Primary + Replica for DR)             │          │
+│            │    Port 5432 | Database: jiradb           │          │
+│            └──────────────────────────────────────────┘          │
+│                                                                   │
+│            ┌──────────────────────────────────────────┐          │
+│            │      Ehcache (Cluster Cache - RMI)       │          │
+│            │   Synchronisation entre les noeuds       │          │
+│            └──────────────────────────────────────────┘          │
+│                                                                   │
+└─────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+
+### Installation complète sur Linux
+
+#### Prérequis système
+
+\\\`\\\`\\\`bash
+# ============================================
+# PREREQUIS POUR JIRA SERVER/DATA CENTER
+# ============================================
+
+# Vérification du système
+cat /etc/os-release
+uname -a
+free -h                # Minimum 4 Go RAM (8 Go recommandé pour production)
+df -h                  # Minimum 10 Go disque (50 Go+ recommandé)
+nproc                  # Minimum 2 CPU (4+ recommandé)
+
+# Installation Java 17 (OpenJDK) - Ubuntu/Debian
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y openjdk-17-jdk wget curl unzip fontconfig
+java -version
+# openjdk version "17.0.x"
+
+# Installation Java 17 - CentOS/RHEL
+sudo yum install -y java-17-openjdk java-17-openjdk-devel wget curl unzip fontconfig
+java -version
+
+# Vérifier JAVA_HOME
+echo \\\${JAVA_HOME}
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+echo "export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> ~/.bashrc
+
+# Ports requis
+# 8080 - Interface web Jira (HTTP)
+# 8443 - Interface web Jira (HTTPS)
+# 40001 - Cluster communication (Data Center)
+# 40011 - Cluster cache (Data Center)
+\\\`\\\`\\\`
+
+#### Installation PostgreSQL 14+
+
+\\\`\\\`\\\`bash
+# ============================================
+# INSTALLATION POSTGRESQL - Ubuntu/Debian
+# ============================================
+
+# Ajouter le dépôt PostgreSQL officiel
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt \\\$(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt update
+sudo apt install -y postgresql-14
+
+# Démarrer PostgreSQL
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+sudo systemctl status postgresql
+
+# Créer l'utilisateur et la base de données Jira
+sudo -u postgres psql << 'EOSQL'
+CREATE USER jirauser WITH PASSWORD 'JiraSecurePass123!';
+CREATE DATABASE jiradb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0 OWNER jirauser;
+GRANT ALL PRIVILEGES ON DATABASE jiradb TO jirauser;
+\q
+EOSQL
+
+# Configurer l'authentification PostgreSQL
+sudo vim /etc/postgresql/14/main/pg_hba.conf
+# Ajouter la ligne suivante :
+# host    jiradb    jirauser    127.0.0.1/32    scram-sha-256
+
+# Configurer l'écoute réseau
+sudo vim /etc/postgresql/14/main/postgresql.conf
+# listen_addresses = 'localhost'
+# max_connections = 200
+
+# Redémarrer PostgreSQL
+sudo systemctl restart postgresql
+
+# Tester la connexion
+psql -h localhost -U jirauser -d jiradb -c "SELECT version();"
+
+# ============================================
+# INSTALLATION POSTGRESQL - CentOS/RHEL
+# ============================================
+
+sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+sudo dnf -qy module disable postgresql
+sudo dnf install -y postgresql14-server postgresql14
+sudo /usr/pgsql-14/bin/postgresql-14-setup initdb
+sudo systemctl start postgresql-14
+sudo systemctl enable postgresql-14
+
+# Même configuration utilisateur/database que ci-dessus
+sudo -u postgres /usr/pgsql-14/bin/psql << 'EOSQL'
+CREATE USER jirauser WITH PASSWORD 'JiraSecurePass123!';
+CREATE DATABASE jiradb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0 OWNER jirauser;
+GRANT ALL PRIVILEGES ON DATABASE jiradb TO jirauser;
+EOSQL
+\\\`\\\`\\\`
+
+
+#### Installation de Jira Server
+
+\\\`\\\`\\\`bash
+# ============================================
+# INSTALLATION JIRA SERVER - Méthode bin installer
+# ============================================
+
+# Créer l'utilisateur système pour Jira
+sudo useradd -r -m -U -d /opt/atlassian/jira -s /bin/bash jira
+
+# Télécharger l'installeur Jira (vérifier la dernière version sur atlassian.com)
+cd /tmp
+wget https://product-downloads.atlassian.com/software/jira/downloads/atlassian-jira-software-9.12.0-x64.bin
+chmod +x atlassian-jira-software-9.12.0-x64.bin
+
+# Lancer l'installation (mode non-interactif)
+sudo ./atlassian-jira-software-9.12.0-x64.bin -q \\\\
+  -varfile /tmp/response.varfile
+
+# Ou installation interactive
+sudo ./atlassian-jira-software-9.12.0-x64.bin
+
+# Répertoires importants après installation :
+# /opt/atlassian/jira/          - Application Jira
+# /var/atlassian/application-data/jira/  - Données (JIRA_HOME)
+# /opt/atlassian/jira/conf/     - Configuration Tomcat
+# /opt/atlassian/jira/bin/      - Scripts de démarrage
+
+# ============================================
+# CREATION DU SERVICE SYSTEMD
+# ============================================
+
+sudo cat > /etc/systemd/system/jira.service << 'EOF'
+[Unit]
+Description=Atlassian Jira Software
+After=network.target postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=forking
+User=jira
+Group=jira
+Environment=JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+Environment=JIRA_HOME=/var/atlassian/application-data/jira
+ExecStart=/opt/atlassian/jira/bin/start-jira.sh
+ExecStop=/opt/atlassian/jira/bin/stop-jira.sh
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=65536
+LimitNPROC=65536
+TimeoutStartSec=300
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable jira
+sudo systemctl start jira
+sudo systemctl status jira
+
+# Vérifier les logs de démarrage
+sudo tail -f /var/atlassian/application-data/jira/log/atlassian-jira.log
+# Attendre : "Jira is ready to serve"
+\\\`\\\`\\\`
+
+#### Configuration JVM (setenv.sh)
+
+\\\`\\\`\\\`bash
+# ============================================
+# TUNING JVM - /opt/atlassian/jira/bin/setenv.sh
+# ============================================
+
+sudo vim /opt/atlassian/jira/bin/setenv.sh
+
+# Configuration recommandée pour production (8 Go RAM serveur)
+JVM_MINIMUM_MEMORY="2048m"
+JVM_MAXIMUM_MEMORY="4096m"
+
+# Garbage Collector (G1GC recommandé)
+JVM_SUPPORT_RECOMMENDED_ARGS="-XX:+UseG1GC \\\\
+  -XX:MaxGCPauseMillis=200 \\\\
+  -XX:+ParallelRefProcEnabled \\\\
+  -XX:G1HeapRegionSize=32m \\\\
+  -XX:InitiatingHeapOccupancyPercent=70 \\\\
+  -XX:+DisableExplicitGC \\\\
+  -XX:+HeapDumpOnOutOfMemoryError \\\\
+  -XX:HeapDumpPath=/var/atlassian/application-data/jira/log/ \\\\
+  -Djava.awt.headless=true \\\\
+  -Datlassian.plugins.enable.wait=300"
+
+# Redémarrer après modification
+sudo systemctl restart jira
+\\\`\\\`\\\`
+
+#### Configuration Reverse Proxy Nginx
+
+\\\`\\\`\\\`bash
+# ============================================
+# CONFIGURATION NGINX REVERSE PROXY
+# ============================================
+
+sudo apt install -y nginx certbot python3-certbot-nginx
+
+sudo cat > /etc/nginx/sites-available/jira << 'EOF'
+upstream jira_backend {
+    server 127.0.0.1:8080;
+}
+
+server {
+    listen 80;
+    server_name jira.example.com;
+    return 301 https://\\\$host\\\$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name jira.example.com;
+
+    ssl_certificate /etc/letsencrypt/live/jira.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/jira.example.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    client_max_body_size 100m;
+    proxy_read_timeout 600s;
+
+    location / {
+        proxy_pass http://jira_backend;
+        proxy_set_header Host \\\$host;
+        proxy_set_header X-Real-IP \\\$remote_addr;
+        proxy_set_header X-Forwarded-For \\\$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-Port 443;
+    }
+}
+EOF
+
+sudo ln -s /etc/nginx/sites-available/jira /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl reload nginx
+
+# Configurer Jira pour le reverse proxy
+# Éditer /opt/atlassian/jira/conf/server.xml
+# Ajouter dans le Connector :
+# proxyName="jira.example.com" proxyPort="443" scheme="https" secure="true"
+\\\`\\\`\\\`
+
+
+#### Installation Docker Compose
+
+\\\`\\\`\\\`bash
+# ============================================
+# INSTALLATION DOCKER COMPOSE - Jira + PostgreSQL
+# ============================================
+
+mkdir -p /opt/jira-docker && cd /opt/jira-docker
+
+cat > docker-compose.yml << 'EOF'
+version: '3.8'
+services:
+  jira:
+    image: atlassian/jira-software:9.12
+    container_name: jira
+    ports:
+      - "8080:8080"
+    environment:
+      - ATL_JDBC_URL=jdbc:postgresql://db:5432/jiradb
+      - ATL_JDBC_USER=jirauser
+      - ATL_JDBC_PASSWORD=JiraSecurePass123!
+      - ATL_DB_DRIVER=org.postgresql.Driver
+      - ATL_DB_TYPE=postgres72
+      - JVM_MINIMUM_MEMORY=2048m
+      - JVM_MAXIMUM_MEMORY=4096m
+      - ATL_PROXY_NAME=jira.example.com
+      - ATL_PROXY_PORT=443
+      - ATL_TOMCAT_SCHEME=https
+      - ATL_TOMCAT_SECURE=true
+    volumes:
+      - jira-data:/var/atlassian/application-data/jira
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:14-alpine
+    container_name: jira-db
+    environment:
+      - POSTGRES_USER=jirauser
+      - POSTGRES_PASSWORD=JiraSecurePass123!
+      - POSTGRES_DB=jiradb
+      - POSTGRES_ENCODING=UNICODE
+      - POSTGRES_COLLATE=C
+      - POSTGRES_COLLATE_TYPE=C
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  jira-data:
+  postgres-data:
+EOF
+
+# Lancer les services
+docker-compose up -d
+
+# Vérifier les logs
+docker-compose logs -f jira
+
+# Commandes de gestion
+docker-compose ps
+docker-compose restart jira
+docker-compose down
+docker-compose down -v  # ATTENTION: supprime les volumes (données)
+\\\`\\\`\\\`
+
+### Fichiers de configuration importants
+
+\\\`\\\`\\\`bash
+# ============================================
+# dbconfig.xml - /var/atlassian/application-data/jira/dbconfig.xml
+# ============================================
+# Ce fichier est généré lors du setup wizard mais peut être modifié manuellement
+
+<?xml version="1.0" encoding="UTF-8"?>
+<jira-database-config>
+  <name>defaultDS</name>
+  <delegator-name>default</delegator-name>
+  <database-type>postgres72</database-type>
+  <schema-name>public</schema-name>
+  <jdbc-datasource>
+    <url>jdbc:postgresql://localhost:5432/jiradb</url>
+    <driver-class>org.postgresql.Driver</driver-class>
+    <username>jirauser</username>
+    <password>JiraSecurePass123!</password>
+    <pool-min-size>20</pool-min-size>
+    <pool-max-size>100</pool-max-size>
+    <pool-max-wait>30000</pool-max-wait>
+    <pool-max-idle>20</pool-max-idle>
+    <pool-remove-abandoned>true</pool-remove-abandoned>
+    <pool-remove-abandoned-timeout>300</pool-remove-abandoned-timeout>
+    <validation-query>select 1</validation-query>
+  </jdbc-datasource>
+</jira-database-config>
+
+# ============================================
+# server.xml - /opt/atlassian/jira/conf/server.xml
+# ============================================
+# Configuration du connecteur HTTP Tomcat
+
+<Connector port="8080"
+           maxThreads="200"
+           minSpareThreads="25"
+           connectionTimeout="20000"
+           enableLookups="false"
+           maxHttpHeaderSize="8192"
+           protocol="HTTP/1.1"
+           useBodyEncodingForURI="true"
+           redirectPort="8443"
+           acceptCount="100"
+           disableUploadTimeout="true"
+           bindOnInit="false"
+           proxyName="jira.example.com"
+           proxyPort="443"
+           scheme="https"
+           secure="true"/>
+\\\`\\\`\\\`
+
+### API REST Jira - Référence complète
+
+\\\`\\\`\\\`bash
+# ============================================
+# VARIABLE DE BASE POUR TOUTES LES COMMANDES API
+# ============================================
+JIRA_URL="https://jira.example.com"
+AUTH="admin:password"
+# Ou avec token : AUTH_HEADER="Authorization: Bearer YOUR_TOKEN"
+
+# ============================================
+# INFORMATION SYSTÈME
+# ============================================
+
+# Vérifier le statut du serveur
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/serverInfo" | python3 -m json.tool
+
+# Health check
+curl -s "\\\${JIRA_URL}/status"
+
+# Informations de licence
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/serverInfo" | python3 -m json.tool
+
+
+# ============================================
+# PROJETS - CRUD COMPLET
+# ============================================
+
+# Lister tous les projets
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/project" | python3 -m json.tool
+
+# Obtenir un projet spécifique
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/project/PROJ" | python3 -m json.tool
+
+# Créer un nouveau projet
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/project" \\\\
+  -d '{
+    "key": "NEWPROJ",
+    "name": "Nouveau Projet",
+    "projectTypeKey": "software",
+    "projectTemplateKey": "com.pyxis.greenhopper.jira:gh-scrum-template",
+    "description": "Description du projet",
+    "lead": "admin",
+    "assigneeType": "PROJECT_LEAD"
+  }'
+
+# Mettre à jour un projet
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/project/NEWPROJ" \\\\
+  -d '{
+    "name": "Projet Renommé",
+    "description": "Nouvelle description",
+    "lead": "nouveau.lead"
+  }'
+
+# Supprimer un projet (ATTENTION - irréversible)
+curl -s -u \\\${AUTH} -X DELETE "\\\${JIRA_URL}/rest/api/2/project/NEWPROJ"
+
+# Lister les composants d'un projet
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/project/PROJ/components"
+
+# Lister les versions d'un projet
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/project/PROJ/versions"
+
+# ============================================
+# TICKETS (ISSUES) - CRUD COMPLET
+# ============================================
+
+# Créer un ticket avec tous les champs
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/issue" \\\\
+  -d '{
+    "fields": {
+      "project": {"key": "PROJ"},
+      "issuetype": {"name": "Story"},
+      "summary": "En tant qu utilisateur je veux pouvoir me connecter",
+      "description": "Description détaillée de la story avec critères d acceptation",
+      "priority": {"name": "High"},
+      "assignee": {"name": "dev.user"},
+      "reporter": {"name": "product.owner"},
+      "labels": ["sprint-12", "auth"],
+      "components": [{"name": "Backend"}],
+      "fixVersions": [{"name": "1.2.0"}],
+      "customfield_10004": 5,
+      "customfield_10007": "PROJ-100"
+    }
+  }'
+
+# Lire un ticket avec tous les détails
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123" | python3 -m json.tool
+
+# Lire avec expansion spécifique
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123?expand=changelog,renderedFields,transitions"
+
+# Mettre à jour un ticket
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123" \\\\
+  -d '{
+    "fields": {
+      "summary": "Nouveau titre",
+      "description": "Nouvelle description",
+      "priority": {"name": "Critical"},
+      "assignee": {"name": "autre.dev"},
+      "labels": ["urgent", "sprint-12"]
+    }
+  }'
+
+# Supprimer un ticket
+curl -s -u \\\${AUTH} -X DELETE "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123"
+
+# Supprimer avec sous-tâches
+curl -s -u \\\${AUTH} -X DELETE "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123?deleteSubtasks=true"
+
+# Création en masse (Bulk create)
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/issue/bulk" \\\\
+  -d '{
+    "issueUpdates": [
+      {
+        "fields": {
+          "project": {"key": "PROJ"},
+          "issuetype": {"name": "Task"},
+          "summary": "Task 1"
+        }
+      },
+      {
+        "fields": {
+          "project": {"key": "PROJ"},
+          "issuetype": {"name": "Task"},
+          "summary": "Task 2"
+        }
+      }
+    ]
+  }'
+
+# ============================================
+# TRANSITIONS (Changements de statut)
+# ============================================
+
+# Obtenir les transitions disponibles pour un ticket
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123/transitions" | python3 -m json.tool
+
+# Effectuer une transition (ex: passer en "In Progress")
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123/transitions" \\\\
+  -d '{
+    "transition": {"id": "21"},
+    "fields": {
+      "assignee": {"name": "dev.user"}
+    },
+    "update": {
+      "comment": [{"add": {"body": "Je commence le travail sur ce ticket"}}]
+    }
+  }'
+
+# ============================================
+# COMMENTAIRES
+# ============================================
+
+# Ajouter un commentaire
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123/comment" \\\\
+  -d '{
+    "body": "Commentaire avec [lien|https://example.com] et mention [~username]",
+    "visibility": {
+      "type": "role",
+      "value": "Developers"
+    }
+  }'
+
+# Lister les commentaires
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123/comment"
+
+# ============================================
+# PIÈCES JOINTES (Attachments)
+# ============================================
+
+# Ajouter une pièce jointe
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "X-Atlassian-Token: no-check" \\\\
+  -F "file=@/path/to/screenshot.png" \\\\
+  "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123/attachments"
+
+# ============================================
+# LIENS ENTRE TICKETS
+# ============================================
+
+# Créer un lien entre deux tickets
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/issueLink" \\\\
+  -d '{
+    "type": {"name": "Blocks"},
+    "inwardIssue": {"key": "PROJ-123"},
+    "outwardIssue": {"key": "PROJ-456"},
+    "comment": {"body": "PROJ-123 bloque PROJ-456"}
+  }'
+
+# Types de liens disponibles
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/issueLinkType"
+
+# ============================================
+# WATCHERS (Observateurs)
+# ============================================
+
+# Ajouter un watcher
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123/watchers" \\\\
+  -d '"username"'
+
+# Lister les watchers
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123/watchers"
+
+# ============================================
+# RECHERCHE JQL VIA API
+# ============================================
+
+# Recherche avec JQL
+curl -s -u \\\${AUTH} -G \\\\
+  --data-urlencode "jql=project = PROJ AND status = 'In Progress' ORDER BY priority DESC" \\\\
+  --data-urlencode "maxResults=50" \\\\
+  --data-urlencode "fields=summary,status,assignee,priority" \\\\
+  "\\\${JIRA_URL}/rest/api/2/search"
+
+# ============================================
+# UTILISATEURS ET GROUPES
+# ============================================
+
+# Rechercher un utilisateur
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/user/search?username=john"
+
+# Créer un utilisateur
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/user" \\\\
+  -d '{
+    "name": "new.user",
+    "password": "TempPass123!",
+    "emailAddress": "new.user@example.com",
+    "displayName": "Nouveau Utilisateur"
+  }'
+
+# Ajouter un utilisateur à un groupe
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/group/user?groupname=jira-developers" \\\\
+  -d '{"name": "new.user"}'
+
+# Vérifier les permissions
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/mypermissions?projectKey=PROJ"
+\\\`\\\`\\\`
+
+### Troubleshooting courant
+
+| Problème | Cause | Solution |
+|----------|-------|----------|
+| OutOfMemoryError | JVM mal configurée | Augmenter Xmx dans setenv.sh |
+| Connection Pool Exhausted | Trop de connexions | Augmenter pool-max-size dans dbconfig.xml |
+| Slow startup | Index corrompu | Réindexer via Administration > Indexing |
+| 500 Internal Error | Plugin incompatible | Démarrer en safe mode, désactiver plugins |
+| Mail queue blocked | SMTP mal configuré | Vérifier outgoing mail dans admin |
+| Attachment upload fails | Taille max dépassée | Modifier attachment size dans General Config |
+| LDAP sync fails | Timeout réseau | Vérifier connectivité et augmenter timeout |
+| Cluster node offline | Cache desynchronisé | Redémarrer le noeud, vérifier réseau |
+
+`,
+      practiceContent: `## Travaux pratiques - Introduction à Jira
+
+### TP1 : Installation et configuration initiale
+
+1. Installer Jira via Docker Compose avec PostgreSQL
+2. Compléter le wizard de configuration initial
+3. Créer un projet Scrum "Formation DevOps" (clé: FORM)
+4. Configurer les types de tickets : Epic, Story, Task, Bug, Sub-task
+5. Créer les composants : Frontend, Backend, Infrastructure, Documentation
+
+### TP2 : Création et manipulation de tickets via API
+
+1. Créer une Epic "Module Authentication" via l'API REST
+2. Créer 3 Stories liées à l'Epic
+3. Créer des Sub-tasks pour chaque Story
+4. Ajouter des commentaires et pièces jointes
+5. Effectuer des transitions de workflow (To Do → In Progress → Done)
+6. Créer des liens entre tickets (blocks, is blocked by)
+
+### TP3 : Administration de base
+
+1. Créer des utilisateurs et groupes
+2. Configurer les permissions du projet
+3. Personnaliser le workflow (ajouter un statut "In Review")
+4. Tester la recherche JQL basique
+5. Configurer les notifications email
+
+### Questions de validation
+
+- Quelle est la différence entre une Story et une Task ?
+- Comment fonctionne le système de permissions par projet ?
+- Quels sont les champs obligatoires pour créer un ticket via API ?
+- Comment configurer un reverse proxy pour Jira ?
+- Quels paramètres JVM sont critiques pour la performance ?`,
+      keyPoints: JSON.stringify([
+        'Jira est utilisé par 250K+ organisations pour la gestion de projet Agile depuis 2002',
+        'Installation Linux complète : Java 17 + PostgreSQL 14 + bin installer + systemd service',
+        'Architecture Data Center : Load Balancer + Noeuds Jira + Shared FS + PostgreSQL + Cache',
+        'API REST /rest/api/2/ : CRUD complet projets, tickets, transitions, commentaires, liens',
+        'Configuration JVM critique : Xms/Xmx, G1GC, HeapDump, plugins wait timeout',
+        'Docker Compose recommandé pour labs : Jira + PostgreSQL avec volumes persistants',
+        'Fichiers clés : dbconfig.xml (BDD), server.xml (Tomcat), setenv.sh (JVM)',
+        'Troubleshooting : OutOfMemory, pool exhaustion, index corruption, plugin conflicts'
+      ]) },
+
+
+    { id: 'jira-02', courseId: 'jira', title: 'Gestion Agile avancée - Scrum, Kanban et JQL', duration: '5h', orderIndex: 2,
+      theoryContent: `## Gestion Agile avancée avec Jira - Scrum, Kanban et JQL
+
+### Scrum avec Jira - Guide complet
+
+#### Principes Scrum
+
+Scrum est un framework Agile itératif basé sur des **sprints** (itérations de durée fixe). Les trois piliers de Scrum sont :
+- **Transparence** : tout le travail est visible par tous
+- **Inspection** : vérification régulière de la progression
+- **Adaptation** : ajustement continu du plan
+
+#### Les rôles Scrum dans Jira
+- **Product Owner** : gère le backlog, priorise, définit les critères d'acceptation
+- **Scrum Master** : facilite les cérémonies, élimine les obstacles
+- **Development Team** : équipe auto-organisée (3-9 personnes) qui réalise le travail
+
+#### Les cérémonies Scrum
+
+**Sprint Planning** (début de sprint) :
+- Durée : 2h par semaine de sprint (ex: 4h pour un sprint de 2 semaines)
+- Le PO présente les items prioritaires du backlog
+- L'équipe estime et sélectionne les items pour le sprint
+- Définition du Sprint Goal
+- Découpage en tasks/sub-tasks
+
+**Daily Standup** (quotidien - 15 min max) :
+- Qu'ai-je fait hier ?
+- Que vais-je faire aujourd'hui ?
+- Y a-t-il des blocages ?
+- Mise à jour du board Jira
+
+**Sprint Review** (fin de sprint) :
+- Démonstration de l'incrément terminé
+- Feedback des stakeholders
+- Mise à jour du backlog
+
+**Sprint Retrospective** (fin de sprint, après review) :
+- Qu'est-ce qui a bien fonctionné ?
+- Qu'est-ce qui peut être amélioré ?
+- Actions d'amélioration pour le prochain sprint
+
+#### Les artefacts Scrum dans Jira
+- **Product Backlog** : toutes les Epics/Stories ordonnées par priorité
+- **Sprint Backlog** : items sélectionnés pour le sprint en cours + plan
+- **Increment** : somme de tous les items "Done" du sprint
+
+#### Configuration Scrum Board dans Jira
+
+\\\`\\\`\\\`bash
+# ============================================
+# API AGILE - BOARDS
+# ============================================
+
+JIRA_URL="https://jira.example.com"
+AUTH="admin:password"
+
+# Lister tous les boards
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/agile/1.0/board" | python3 -m json.tool
+
+# Obtenir un board spécifique
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/agile/1.0/board/1" | python3 -m json.tool
+
+# Créer un Scrum Board
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/agile/1.0/board" \\\\
+  -d '{
+    "name": "DevOps Scrum Board",
+    "type": "scrum",
+    "filterId": 10001
+  }'
+
+# Configuration du board (colonnes, swimlanes, quick filters)
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/agile/1.0/board/1/configuration"
+
+# ============================================
+# API AGILE - SPRINTS
+# ============================================
+
+# Lister les sprints d'un board
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/agile/1.0/board/1/sprint"
+
+# Obtenir le sprint actif
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/agile/1.0/board/1/sprint?state=active"
+
+# Créer un sprint
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/agile/1.0/sprint" \\\\
+  -d '{
+    "name": "Sprint 15",
+    "startDate": "2024-03-01T10:00:00.000+01:00",
+    "endDate": "2024-03-15T18:00:00.000+01:00",
+    "originBoardId": 1,
+    "goal": "Livrer le module authentification et les tests E2E"
+  }'
+
+# Démarrer un sprint (passer de future à active)
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/agile/1.0/sprint/15" \\\\
+  -d '{
+    "state": "active",
+    "startDate": "2024-03-01T10:00:00.000+01:00",
+    "endDate": "2024-03-15T18:00:00.000+01:00"
+  }'
+
+# Terminer (fermer) un sprint
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/agile/1.0/sprint/15" \\\\
+  -d '{
+    "state": "closed",
+    "completeDate": "2024-03-15T18:00:00.000+01:00"
+  }'
+
+# Déplacer des issues dans un sprint
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/agile/1.0/sprint/15/issue" \\\\
+  -d '{
+    "issues": ["PROJ-101", "PROJ-102", "PROJ-103", "PROJ-104"]
+  }'
+
+# Obtenir les issues d'un sprint
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/agile/1.0/sprint/15/issue?maxResults=100"
+
+# ============================================
+# API AGILE - EPICS
+# ============================================
+
+# Lister les epics d'un board
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/agile/1.0/board/1/epic"
+
+# Obtenir les issues d'une epic
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/agile/1.0/epic/PROJ-50/issue"
+
+# Déplacer des issues vers une epic
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/agile/1.0/epic/PROJ-50/issue" \\\\
+  -d '{"issues": ["PROJ-101", "PROJ-102"]}'
+
+# ============================================
+# API AGILE - BACKLOG
+# ============================================
+
+# Voir le backlog d'un board
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/agile/1.0/board/1/backlog"
+
+# Déplacer des issues vers le backlog (retirer du sprint)
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/agile/1.0/backlog/issue" \\\\
+  -d '{"issues": ["PROJ-105", "PROJ-106"]}'
+
+# Rank (réordonner) une issue
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/agile/1.0/issue/rank" \\\\
+  -d '{
+    "issues": ["PROJ-102"],
+    "rankBeforeIssue": "PROJ-101"
+  }'
+\\\`\\\`\\\`
+
+### Kanban avec Jira
+
+#### Principes Kanban
+
+Kanban est une méthode de flux continu basée sur la **visualisation du travail** et la **limitation du travail en cours** (WIP - Work In Progress).
+
+Principes clés :
+- **Visualiser le flux** : chaque étape du processus est une colonne
+- **Limiter le WIP** : max X items par colonne pour éviter la surcharge
+- **Gérer le flux** : mesurer et optimiser le Lead Time
+- **Expliciter les règles** : Definition of Done par colonne
+- **Boucles de feedback** : réunions régulières d'amélioration
+- **Amélioration continue** : expérimenter et mesurer
+
+#### Configuration Kanban dans Jira
+
+Colonnes typiques : Backlog → Selected → In Analysis → In Dev → Code Review → Testing → Done
+
+Limites WIP recommandées :
+- In Analysis : 2 items
+- In Dev : nombre de développeurs
+- Code Review : 3 items
+- Testing : 2 items
+
+#### Métriques Kanban
+
+- **Lead Time** : temps total depuis la demande jusqu'à la livraison
+- **Cycle Time** : temps depuis le début du travail jusqu'à la livraison
+- **Throughput** : nombre d'items livrés par unité de temps
+- **WIP** : nombre d'items en cours à un instant T
+- **Loi de Little** : Lead Time = WIP / Throughput
+
+### JQL (Jira Query Language) - Référence complète
+
+JQL est le langage de requête de Jira permettant de rechercher des tickets avec des critères précis. C'est un outil indispensable pour tout utilisateur avancé de Jira.
+
+
+#### Opérateurs JQL
+
+| Opérateur | Description | Exemple |
+|-----------|-------------|---------|
+| = | Égal | status = "In Progress" |
+| != | Différent | assignee != currentUser() |
+| > | Supérieur | created > "2024-01-01" |
+| < | Inférieur | priority < High |
+| >= | Supérieur ou égal | updated >= -7d |
+| <= | Inférieur ou égal | duedate <= endOfWeek() |
+| ~ | Contient (texte) | summary ~ "authentification" |
+| !~ | Ne contient pas | description !~ "obsolète" |
+| IN | Dans une liste | status IN ("To Do", "In Progress") |
+| NOT IN | Pas dans une liste | priority NOT IN (Low, Lowest) |
+| IS | Est (null check) | assignee IS EMPTY |
+| IS NOT | N'est pas | fixVersion IS NOT EMPTY |
+| WAS | Était (historique) | status WAS "In Progress" |
+| WAS IN | Était dans | status WAS IN ("In Progress", "In Review") |
+| WAS NOT | N'était pas | assignee WAS NOT "john" |
+| CHANGED | A changé | status CHANGED FROM "To Do" TO "In Progress" |
+
+#### Fonctions JQL
+
+\\\`\\\`\\\`
+# Fonctions utilisateur
+currentUser()            # L'utilisateur connecté
+membersOf("group")       # Membres d'un groupe
+
+# Fonctions de date
+now()                    # Moment actuel
+startOfDay()             # Début du jour (00:00)
+startOfWeek()            # Début de la semaine (lundi)
+startOfMonth()           # Premier jour du mois
+startOfYear()            # Premier jour de l'année
+endOfDay()               # Fin du jour (23:59)
+endOfWeek()              # Fin de la semaine (dimanche)
+endOfMonth()             # Dernier jour du mois
+endOfYear()              # Dernier jour de l'année
+# Avec offset : startOfDay(-1), startOfWeek(+1), endOfMonth(-2)
+
+# Fonctions de sprint
+openSprints()            # Sprints actifs
+closedSprints()          # Sprints terminés
+futureSprints()          # Sprints planifiés
+
+# Fonctions de version
+latestReleasedVersion()  # Dernière version publiée
+earliestUnreleasedVersion()  # Prochaine version
+
+# Fonctions de recherche
+issueHistory()           # Issues vues récemment
+votedIssues()            # Issues votées
+watchedIssues()          # Issues surveillées
+linkedIssues(KEY)        # Issues liées à KEY
+subtasksOf(KEY)          # Sous-tâches de KEY
+parentOf(KEY)            # Parent de KEY
+
+# Fonction de modification
+updatedBy("user", "date") # Modifié par user depuis date
+\\\`\\\`\\\`
+
+#### Champs JQL disponibles
+
+\\\`\\\`\\\`
+# Champs standards
+project            # Projet (clé ou nom)
+issuetype          # Type de ticket (Bug, Story, Task, Epic...)
+status             # Statut actuel
+statusCategory     # Catégorie de statut (To Do, In Progress, Done)
+priority           # Priorité (Highest, High, Medium, Low, Lowest)
+resolution         # Résolution (Unresolved, Done, Won't Do, Duplicate)
+assignee           # Personne assignée
+reporter           # Rapporteur
+creator            # Créateur
+summary            # Titre du ticket
+description        # Description
+comment            # Contenu des commentaires
+labels             # Labels/étiquettes
+component          # Composants
+fixVersion         # Version de correction
+affectedVersion    # Version affectée
+sprint             # Sprint
+"Epic Link"        # Epic parente
+"Story Points"     # Points de story
+created            # Date de création
+updated            # Date de dernière modification
+resolved           # Date de résolution
+due                # Date d'échéance (Due Date)
+duedate            # Alias de due
+originalEstimate   # Estimation originale
+remainingEstimate  # Estimation restante
+timeSpent          # Temps passé
+worklogDate        # Date de worklog
+worklogAuthor      # Auteur du worklog
+watcher            # Observateur
+voter              # Votant
+level              # Niveau de sécurité
+parent             # Ticket parent
+filter             # Filtre sauvegardé
+\\\`\\\`\\\`
+
+#### Exemples JQL complets (25+ requêtes essentielles)
+
+\\\`\\\`\\\`
+# === REQUÊTES DE BASE ===
+
+# Mes tickets en cours
+assignee = currentUser() AND status = "In Progress"
+
+# Tickets non assignés dans mon projet
+project = PROJ AND assignee IS EMPTY AND status != Done
+
+# Bugs critiques non résolus
+issuetype = Bug AND priority IN (Highest, High) AND resolution = Unresolved
+
+# Tickets créés cette semaine
+project = PROJ AND created >= startOfWeek()
+
+# Tickets mis à jour récemment
+updated >= -24h AND project = PROJ
+
+# === REQUÊTES SPRINT ===
+
+# Tickets du sprint actuel non terminés
+sprint IN openSprints() AND status != Done AND project = PROJ
+
+# Tickets ajoutés après le début du sprint (scope creep)
+sprint IN openSprints() AND created > sprintStartDate()
+
+# Tickets complétés dans le sprint
+sprint IN openSprints() AND status = Done
+
+# Travail restant dans le sprint
+sprint IN openSprints() AND status != Done ORDER BY priority DESC, created ASC
+
+# === REQUÊTES AVANCÉES ===
+
+# Tickets bloqués depuis plus de 3 jours
+status = "In Progress" AND status CHANGED TO "In Progress" BEFORE -3d
+
+# Tickets sans estimation
+project = PROJ AND issuetype = Story AND "Story Points" IS EMPTY AND sprint IN openSprints()
+
+# Tickets avec commentaires de l'équipe QA
+project = PROJ AND comment ~ "test" AND updatedBy("qa.lead")
+
+# Epics non terminées avec des stories en retard
+issuetype = Epic AND status != Done AND issueFunction IN hasSubtasks() 
+
+# Tickets déplacés entre sprints (instabilité du scope)
+project = PROJ AND sprint CHANGED
+
+# Tickets réouverts (possibles problèmes de qualité)
+status WAS Done AND status != Done
+
+# Tickets en attente de review depuis plus de 2 jours
+status = "In Review" AND status CHANGED TO "In Review" BEFORE -2d
+
+# Tickets avec pièces jointes
+project = PROJ AND attachments IS NOT EMPTY
+
+# Tickets liés à une version spécifique
+fixVersion = "2.0.0" AND status NOT IN (Done, Closed)
+
+# Tickets par composant avec tri
+component = Backend AND project = PROJ ORDER BY priority DESC, created ASC
+
+# Tickets créés par le PO non encore planifiés
+reporter = "product.owner" AND sprint IS EMPTY AND status = "To Do"
+
+# Requête complexe : bugs critiques non résolus dans la version courante
+project = PROJ AND issuetype = Bug AND priority >= High AND resolution = Unresolved AND fixVersion = earliestUnreleasedVersion(PROJ)
+
+# Tickets modifiés par moi cette semaine
+project = PROJ AND updatedBy(currentUser(), startOfWeek())
+
+# Sous-tâches d'une epic spécifique
+"Epic Link" = PROJ-100 AND issuetype IN subTaskIssueTypes()
+
+# Combinaison AND/OR avec parenthèses
+project = PROJ AND (priority = Critical OR (priority = High AND duedate < endOfWeek()))
+
+# Tickets avec worklog cette semaine
+worklogDate >= startOfWeek() AND worklogAuthor = currentUser()
+
+# Tickets dans plusieurs projets
+project IN (PROJ, DEV, OPS) AND status = "In Progress" AND assignee = currentUser()
+
+# Recherche full-text dans résumé et description
+project = PROJ AND (summary ~ "API REST" OR description ~ "API REST")
+
+# ORDER BY complexe
+project = PROJ AND status != Done ORDER BY priority DESC, duedate ASC, created ASC
+\\\`\\\`\\\`
+
+### Métriques et reporting Agile
+
+#### Velocity Chart (Graphique de vélocité)
+- Affiche les story points/tickets complétés vs engagés par sprint
+- Permet d'estimer la capacité de l'équipe pour les prochains sprints
+- Stabilisation attendue après 3-5 sprints
+
+#### Burndown Chart
+- Montre le travail restant dans le sprint (story points ou count)
+- Ligne idéale vs progression réelle
+- Alertes si l'équipe est en retard
+
+#### Burnup Chart
+- Montre le travail accompli et le scope total
+- Permet de visualiser les changements de scope
+- Projection de la date de complétion
+
+#### Cumulative Flow Diagram (CFD)
+- Visualise la quantité de travail dans chaque état au fil du temps
+- Les bandes doivent rester stables (pas d'élargissement = pas de goulot)
+- Lead Time = épaisseur horizontale totale
+- WIP = épaisseur verticale des bandes "en cours"
+
+#### Control Chart
+- Affiche le cycle time de chaque ticket
+- Permet d'identifier les outliers (tickets anormalement longs)
+- Moyenne mobile pour tendance
+
+### Dashboards et gadgets
+
+\\\`\\\`\\\`bash
+# Créer un filtre sauvegardé (requis pour les gadgets)
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/filter" \\\\
+  -d '{
+    "name": "Sprint actuel - En cours",
+    "jql": "sprint IN openSprints() AND status = \"In Progress\" AND project = PROJ",
+    "favourite": true
+  }'
+
+# Partager un filtre avec un groupe
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/filter/10001/permission" \\\\
+  -d '{
+    "type": "group",
+    "groupname": "jira-developers"
+  }'
+
+# S'abonner à un filtre (notification par email)
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/filter/10001/subscription" \\\\
+  -d '{
+    "group": {"name": "jira-developers"},
+    "cron": "0 0 8 * * ?"
+  }'
+\\\`\\\`\\\`
+
+Gadgets de dashboard essentiels :
+- **Filter Results** : liste de tickets depuis un filtre
+- **Pie Chart** : répartition par champ (assignee, priority, status)
+- **Two Dimensional Filter Statistics** : tableau croisé (type x status)
+- **Created vs Resolved** : tendance création vs résolution
+- **Sprint Burndown** : graphique burndown du sprint actif
+- **Sprint Health** : santé du sprint (scope change, velocity)
+- **Agile Wallboard** : vue simplifiée du board pour écran TV
+
+`,
+      practiceContent: `## Travaux pratiques - Scrum, Kanban et JQL
+
+### TP1 : Configuration Scrum complète
+
+1. Créer un board Scrum pour le projet FORM
+2. Configurer les colonnes : Backlog, Selected, In Progress, In Review, Testing, Done
+3. Créer un sprint "Sprint 1" (2 semaines)
+4. Créer une Epic "Module Utilisateurs" avec 5 Stories (estimées en story points)
+5. Planifier le sprint : déplacer les stories, définir le Sprint Goal
+6. Simuler le déroulement du sprint (transitions, commentaires)
+7. Fermer le sprint et analyser la vélocité
+
+### TP2 : Configuration Kanban
+
+1. Créer un board Kanban pour les tickets de support
+2. Configurer les limites WIP (Analysis: 2, Dev: 3, Review: 2, Test: 2)
+3. Ajouter des swimlanes par priorité
+4. Créer 10 tickets de types variés
+5. Simuler le flux et observer le CFD
+
+### TP3 : Maîtrise JQL
+
+Écrire les requêtes JQL pour :
+1. Tous les bugs non résolus du projet triés par priorité
+2. Les tickets assignés à l'équipe "developers" en cours depuis plus de 3 jours
+3. Les stories sans estimation dans le sprint actuel
+4. Les tickets créés cette semaine sans assignee
+5. Les tickets réouverts (status was Done AND status != Done)
+6. Complexe : bugs critiques OU tickets en retard (duedate < now())
+7. Créer un filtre, le sauvegarder et le partager
+
+### TP4 : Dashboard personnalisé
+
+1. Créer un dashboard "Sprint Overview"
+2. Ajouter les gadgets : Sprint Burndown, Filter Results, Pie Chart (par status)
+3. Configurer un filtre pour chaque gadget
+4. Partager le dashboard avec l'équipe
+
+### Questions de validation
+
+- Quelle est la différence entre Lead Time et Cycle Time ?
+- Comment fonctionne la fonction openSprints() dans JQL ?
+- Quels sont les opérateurs historiques (WAS, CHANGED) et quand les utiliser ?
+- Comment configurer les limites WIP et pourquoi sont-elles importantes ?
+- Quels sont les gadgets essentiels pour un dashboard Scrum ?`,
+      keyPoints: JSON.stringify([
+        'Scrum : sprints fixes, cérémonies (planning, daily, review, retro), rôles (PO, SM, Dev Team)',
+        'Kanban : flux continu, limites WIP, visualisation, métriques (Lead Time, Cycle Time, Throughput)',
+        'API Agile /rest/agile/1.0/ : CRUD boards, sprints (create/start/close), epics, backlog ranking',
+        'JQL opérateurs : =, !=, ~, IN, IS, WAS, CHANGED - fonctions : currentUser(), openSprints(), startOfDay()',
+        'JQL champs : project, status, priority, assignee, sprint, Epic Link, Story Points, created, updated',
+        'Métriques Agile : Velocity Chart, Burndown/Burnup, CFD (Cumulative Flow), Control Chart',
+        'Filtres JQL sauvegardés : base des dashboards, gadgets, abonnements email, board filters',
+        'Dashboard gadgets : Filter Results, Pie Chart, Sprint Burndown, Created vs Resolved, Wallboard'
+      ]) },
+
+
+    { id: 'jira-03', courseId: 'jira', title: 'Administration avancée et automatisation', duration: '5h', orderIndex: 3,
+      theoryContent: `## Administration avancée et automatisation Jira
+
+### Schemes (Schémas de configuration)
+
+Les schemes sont des modèles de configuration réutilisables qui s'appliquent aux projets. Ils permettent de standardiser la configuration entre plusieurs projets.
+
+#### Permission Scheme (Schéma de permissions)
+Définit QUI peut faire QUOI dans un projet :
+- **Browse Projects** : voir le projet et ses tickets
+- **Create Issues** : créer des tickets
+- **Edit Issues** : modifier des tickets
+- **Assign Issues** : assigner des tickets
+- **Resolve Issues** : résoudre des tickets
+- **Close Issues** : fermer des tickets
+- **Delete Issues** : supprimer des tickets
+- **Manage Sprints** : gérer les sprints
+- **Administer Projects** : administrer le projet
+
+Entités autorisables : utilisateur spécifique, groupe, rôle projet, reporter, assignee, lead
+
+#### Notification Scheme (Schéma de notifications)
+Définit QUI est notifié QUAND :
+- Issue Created → Reporter, Assignee, Watchers
+- Issue Updated → Reporter, Assignee, Watchers
+- Issue Assigned → Assignee
+- Issue Resolved → Reporter, Assignee
+- Comment Added → All Watchers
+- Issue Moved → Project Lead
+
+#### Workflow Scheme
+Associe chaque type de ticket à un workflow spécifique :
+- Bug → Bug Workflow (Triage → In Progress → In Test → Verified → Done)
+- Story → Story Workflow (To Do → In Progress → In Review → Done)
+- Epic → Epic Workflow (To Do → In Progress → Done)
+
+#### Issue Type Scheme
+Définit les types de tickets disponibles dans un projet :
+- Software : Epic, Story, Task, Bug, Sub-task
+- Service Management : Incident, Service Request, Problem, Change
+- Business : Task, Sub-task
+
+#### Screen Scheme
+Définit les écrans (champs affichés) pour chaque opération :
+- Create Screen : champs à la création (summary, description, priority, assignee)
+- Edit Screen : champs à l'édition (tous les champs)
+- View Screen : champs en lecture (tous les champs + informations système)
+
+#### Field Configuration Scheme
+Définit le comportement des champs par type de ticket :
+- Required / Optional
+- Hidden / Visible
+- Renderer (text, wiki, autocomplete)
+- Default value
+- Description (aide contextuelle)
+
+### Custom Fields (Champs personnalisés)
+
+\\\`\\\`\\\`bash
+# ============================================
+# GESTION DES CHAMPS PERSONNALISÉS VIA API
+# ============================================
+
+# Lister tous les champs (système + custom)
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/field" | python3 -m json.tool
+
+# Créer un champ personnalisé
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/field" \\\\
+  -d '{
+    "name": "Environnement cible",
+    "type": "com.atlassian.jira.plugin.system.customfieldtypes:select",
+    "searcherKey": "com.atlassian.jira.plugin.system.customfieldtypes:selectsearcher",
+    "description": "Environnement de déploiement cible"
+  }'
+
+# Types de champs personnalisés disponibles :
+# - textfield : champ texte court
+# - textarea : champ texte long
+# - select : liste déroulante (choix unique)
+# - multiselect : liste déroulante (choix multiples)
+# - radiobuttons : boutons radio
+# - multicheckboxes : cases à cocher
+# - datepicker : sélecteur de date
+# - datetime : date et heure
+# - float : nombre décimal
+# - userpicker : sélecteur d'utilisateur
+# - multiuserpicker : sélecteur multi-utilisateurs
+# - grouppicker : sélecteur de groupe
+# - cascadingselect : sélection en cascade
+# - labels : labels/étiquettes
+# - url : champ URL
+
+# Configurer les options d'un champ select
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/customField/10100/option" \\\\
+  -d '{
+    "options": [
+      {"value": "Development"},
+      {"value": "Staging"},
+      {"value": "Pre-production"},
+      {"value": "Production"}
+    ]
+  }'
+\\\`\\\`\\\`
+
+### Workflows avancés
+
+#### Structure d'un workflow
+
+\\\`\\\`\\\`
+┌──────────────────────────────────────────────────────────────────────┐
+│                    WORKFLOW AVANCÉ - Bug Lifecycle                     │
+├──────────────────────────────────────────────────────────────────────┤
+│                                                                        │
+│   ┌──────────┐  Create  ┌──────────┐  Start   ┌──────────────┐      │
+│   │   OPEN   │─────────▶│  TRIAGE  │─────────▶│ IN PROGRESS  │      │
+│   └──────────┘          └────┬─────┘          └──────┬───────┘      │
+│                               │                       │               │
+│                     Reject    │              Submit    │               │
+│                               ▼                       ▼               │
+│                        ┌───────────┐         ┌──────────────┐        │
+│                        │  WON'T DO │         │  IN REVIEW   │        │
+│                        └───────────┘         └──────┬───────┘        │
+│                                                      │                │
+│                                            Approve   │   Reject       │
+│                                              ┌───────┴────────┐      │
+│                                              ▼                ▼      │
+│                                     ┌──────────────┐  ┌────────────┐ │
+│                                     │  IN TESTING  │  │ IN PROGRESS│ │
+│                                     └──────┬───────┘  └────────────┘ │
+│                                             │                         │
+│                                    Pass     │     Fail                │
+│                                      ┌──────┴──────┐                 │
+│                                      ▼             ▼                 │
+│                               ┌──────────┐  ┌────────────┐          │
+│                               │   DONE   │  │ IN PROGRESS│          │
+│                               └──────────┘  └────────────┘          │
+│                                                                        │
+└──────────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+#### Conditions de transition
+- **Only Reporter** : seul le reporter peut effectuer la transition
+- **Only Assignee** : seul l'assignee peut effectuer la transition
+- **Permission Condition** : l'utilisateur doit avoir une permission spécifique
+- **Sub-Tasks Done** : toutes les sous-tâches doivent être terminées
+- **User Is In Group** : l'utilisateur doit appartenir à un groupe
+
+#### Validators de transition
+- **Permission Validator** : vérifier une permission
+- **Field Required** : un champ doit être rempli
+- **Regular Expression** : un champ doit matcher un pattern
+- **Previous Status** : le ticket doit venir d'un statut spécifique
+
+#### Post-functions de transition
+- **Assign to Lead** : assigner au lead du projet
+- **Assign to Reporter** : assigner au reporter
+- **Update Field** : mettre à jour un champ automatiquement
+- **Send Email** : envoyer un email de notification
+- **Trigger Webhook** : appeler une URL externe
+- **Fire Event** : déclencher un événement Jira
+
+### Automation Rules - Guide complet
+
+Les Automation Rules permettent d'automatiser des actions récurrentes dans Jira sans écrire de code.
+
+#### Types de triggers (déclencheurs)
+
+\\\`\\\`\\\`
+# Triggers basés sur les tickets
+- Issue created            # Quand un ticket est créé
+- Issue updated            # Quand un ticket est modifié (tout champ)
+- Issue transitioned       # Quand un ticket change de statut
+- Issue assigned           # Quand un ticket est assigné
+- Issue commented          # Quand un commentaire est ajouté
+- Field value changed      # Quand un champ spécifique change
+- Issue linked             # Quand un lien est créé
+- Attachment added         # Quand une PJ est ajoutée
+- Work logged              # Quand du temps est logué
+
+# Triggers basés sur le temps
+- Scheduled               # Exécution planifiée (cron)
+
+# Triggers externes
+- Incoming webhook        # Appel webhook entrant
+- Manual trigger          # Déclenchement manuel depuis un ticket
+
+# Triggers spéciaux
+- Sprint started          # Quand un sprint démarre
+- Sprint completed        # Quand un sprint est fermé
+- Version released        # Quand une version est publiée
+\\\`\\\`\\\`
+
+#### Types de conditions
+
+\\\`\\\`\\\`
+# Conditions JQL
+- JQL condition           # Le ticket matche une requête JQL
+
+# Conditions sur les champs
+- Issue fields condition  # Vérifier la valeur d'un champ
+- User condition          # Vérifier l'utilisateur qui a déclenché
+- Related issues condition# Vérifier les tickets liés/sous-tâches
+- Advanced compare        # Comparaison avancée entre champs
+
+# Conditions logiques
+- If/else block           # Branchement conditionnel
+- AND/OR conditions       # Combinaison de conditions
+\\\`\\\`\\\`
+
+#### Types d'actions
+
+\\\`\\\`\\\`
+# Actions sur le ticket courant
+- Transition issue       # Changer le statut
+- Edit issue fields      # Modifier des champs
+- Assign issue           # Assigner à un utilisateur
+- Add comment            # Ajouter un commentaire
+- Add labels             # Ajouter des labels
+- Log work               # Logger du temps
+- Link issues            # Créer un lien
+- Create sub-tasks       # Créer des sous-tâches
+
+# Actions de notification
+- Send email             # Envoyer un email
+- Send Slack message     # Poster dans Slack
+- Send MS Teams message  # Poster dans Teams
+- Send webhook           # Appeler une URL
+
+# Actions sur d'autres tickets
+- Create issue           # Créer un nouveau ticket
+- Edit linked issues     # Modifier les tickets liés
+- Transition linked      # Transitionner les tickets liés
+
+# Actions avancées
+- Lookup issues (JQL)    # Rechercher d'autres tickets
+- Create variable        # Créer une variable réutilisable
+- Branch / condition     # Logique conditionnelle
+\\\`\\\`\\\`
+
+
+#### Exemples d'automatisation concrets
+
+\\\`\\\`\\\`
+# ============================================
+# EXEMPLE 1 : Auto-assign bugs par composant
+# ============================================
+# Trigger : Issue created
+# Condition : issuetype = Bug
+# Action : IF component = "Backend" THEN assign to "backend.lead"
+#          IF component = "Frontend" THEN assign to "frontend.lead"
+#          IF component = "Infrastructure" THEN assign to "ops.lead"
+
+# ============================================
+# EXEMPLE 2 : Notification Slack quand bug critique
+# ============================================
+# Trigger : Issue created
+# Condition : issuetype = Bug AND priority IN (Critical, Highest)
+# Action : Send Slack message to #bugs-critiques
+#          Message: "Bug critique créé: {{issue.key}} - {{issue.summary}}"
+
+# ============================================
+# EXEMPLE 3 : Auto-close inactive tickets
+# ============================================
+# Trigger : Scheduled (every day at 08:00)
+# Condition : JQL = "status = 'Waiting for Info' AND updated < -14d"
+# Action : Transition to "Closed"
+#          Add comment: "Fermé automatiquement après 14 jours sans activité"
+
+# ============================================
+# EXEMPLE 4 : Sprint auto-management
+# ============================================
+# Trigger : Sprint completed
+# Condition : Issue status != Done
+# Action : Move to next sprint
+#          Add comment: "Reporté au sprint suivant automatiquement"
+
+# ============================================
+# EXEMPLE 5 : Cascade status to parent
+# ============================================
+# Trigger : Issue transitioned to "Done"
+# Condition : All sub-tasks are Done
+# Action : Transition parent to "Done"
+
+# ============================================
+# EXEMPLE 6 : Auto-create sub-tasks template
+# ============================================
+# Trigger : Issue created
+# Condition : issuetype = Story AND labels contains "standard-dev"
+# Action : Create sub-tasks:
+#          - "Code implementation"
+#          - "Unit tests"
+#          - "Code review"
+#          - "Documentation update"
+
+# ============================================
+# EXEMPLE 7 : SLA Warning
+# ============================================
+# Trigger : Scheduled (every hour)
+# Condition : JQL = "issuetype = Bug AND priority = Critical AND created < -4h AND status != Done"
+# Action : Send email to team lead
+#          Add comment: "SLA WARNING: Bug critique non résolu depuis 4h"
+
+# ============================================
+# EXEMPLE 8 : Release management
+# ============================================
+# Trigger : Version released
+# Condition : None
+# Action : Lookup issues with fixVersion = released version AND status != Done
+#          Transition matching issues: add comment "Version released without completion"
+#          Send email to project lead
+
+# ============================================
+# EXEMPLE 9 : PR merged - auto transition
+# ============================================
+# Trigger : Incoming webhook (from Bitbucket)
+# Condition : webhook data contains issue key
+# Action : Transition to "In Review" or "Done"
+#          Add comment: "Code merged via PR #{{webhook.pr_id}}"
+
+# ============================================
+# EXEMPLE 10 : Duplicate detection notification
+# ============================================
+# Trigger : Issue created
+# Condition : JQL lookup finds issues with similar summary (~ operator)
+# Action : Add comment: "Possible duplicates found: {{lookup.issues}}"
+#          Add label: "possible-duplicate"
+\\\`\\\`\\\`
+
+### Webhooks détaillés
+
+\\\`\\\`\\\`bash
+# ============================================
+# CRÉATION ET GESTION DES WEBHOOKS
+# ============================================
+
+# Lister les webhooks existants
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/webhooks/1.0/webhook" | python3 -m json.tool
+
+# Créer un webhook
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/webhooks/1.0/webhook" \\\\
+  -d '{
+    "name": "Jenkins Build Trigger",
+    "url": "https://jenkins.example.com/generic-webhook-trigger/invoke?token=SECRET",
+    "events": [
+      "jira:issue_created",
+      "jira:issue_updated",
+      "jira:issue_deleted",
+      "comment_created",
+      "comment_updated",
+      "issuelink_created",
+      "sprint_started",
+      "sprint_closed",
+      "board_created"
+    ],
+    "filters": {
+      "issue-related-events-section": "project = PROJ AND issuetype in (Bug, Story)"
+    },
+    "excludeBody": false
+  }'
+
+# Événements webhook disponibles :
+# - jira:issue_created
+# - jira:issue_updated
+# - jira:issue_deleted
+# - comment_created
+# - comment_updated
+# - comment_deleted
+# - issuelink_created
+# - issuelink_deleted
+# - worklog_created
+# - worklog_updated
+# - worklog_deleted
+# - sprint_created
+# - sprint_started
+# - sprint_closed
+# - sprint_deleted
+# - sprint_updated
+# - board_created
+# - board_updated
+# - board_deleted
+# - project_created
+# - project_updated
+# - project_deleted
+# - user_created
+# - user_updated
+# - user_deleted
+# - option_voting_changed
+# - option_watching_changed
+# - option_unassigned_issues_changed
+
+# Supprimer un webhook
+curl -s -u \\\${AUTH} -X DELETE "\\\${JIRA_URL}/rest/webhooks/1.0/webhook/1"
+\\\`\\\`\\\`
+
+### Intégration avec l'écosystème
+
+#### Jira + Bitbucket
+- Smart Commits (ex: PROJ-123 #comment Fixing bug #done #time 2h)
+- Development panel dans Jira (branches, commits, PRs)
+- Merge checks basés sur le statut Jira
+- Webhooks bidirectionnels
+
+#### Jira + Jenkins
+- Jira Steps plugin dans les Jenkinsfiles
+- Création/mise à jour de tickets depuis le pipeline
+- Build status affiché dans Jira
+- Déclenchement de builds via webhook Jira
+
+#### Jira + Confluence
+- Macro Jira dans les pages Confluence
+- Lien bidirectionnel ticket ↔ page
+- Release notes automatiques
+
+### Backup et restauration
+
+\\\`\\\`\\\`bash
+# ============================================
+# BACKUP JIRA
+# ============================================
+
+# Backup de la base de données PostgreSQL
+pg_dump -h localhost -U jirauser -d jiradb -F c -f /backup/jiradb_\\\$(date +%Y%m%d).dump
+
+# Backup du JIRA_HOME (attachments, plugins, config)
+tar -czf /backup/jira_home_\\\$(date +%Y%m%d).tar.gz /var/atlassian/application-data/jira/
+
+# Script de backup automatisé
+cat > /opt/scripts/jira-backup.sh << 'SCRIPT'
+#!/bin/bash
+BACKUP_DIR="/backup/jira"
+DATE=$(date +%Y%m%d_%H%M%S)
+mkdir -p \\\${BACKUP_DIR}
+
+# Backup database
+pg_dump -h localhost -U jirauser -d jiradb -F c -f \\\${BACKUP_DIR}/db_\\\${DATE}.dump
+
+# Backup home directory
+tar -czf \\\${BACKUP_DIR}/home_\\\${DATE}.tar.gz /var/atlassian/application-data/jira/
+
+# Retention : garder 7 jours
+find \\\${BACKUP_DIR} -name "*.dump" -mtime +7 -delete
+find \\\${BACKUP_DIR} -name "*.tar.gz" -mtime +7 -delete
+SCRIPT
+chmod +x /opt/scripts/jira-backup.sh
+
+# Cron pour backup quotidien à 2h du matin
+echo "0 2 * * * /opt/scripts/jira-backup.sh" | crontab -
+
+# ============================================
+# RESTAURATION JIRA
+# ============================================
+
+# Arrêter Jira
+sudo systemctl stop jira
+
+# Restaurer la base de données
+dropdb -h localhost -U postgres jiradb
+createdb -h localhost -U postgres -O jirauser -E UNICODE jiradb
+pg_restore -h localhost -U jirauser -d jiradb /backup/jiradb_20240301.dump
+
+# Restaurer le JIRA_HOME
+rm -rf /var/atlassian/application-data/jira/*
+tar -xzf /backup/jira_home_20240301.tar.gz -C /
+
+# Redémarrer Jira
+sudo systemctl start jira
+# Réindexer (Administration > Indexing > Full re-index)
+\\\`\\\`\\\`
+
+### Performance tuning
+
+\\\`\\\`\\\`bash
+# ============================================
+# OPTIMISATION PERFORMANCE
+# ============================================
+
+# JVM - Recommandations production
+JVM_MINIMUM_MEMORY="4096m"    # 50% de la RAM disponible
+JVM_MAXIMUM_MEMORY="4096m"    # Même valeur que min (éviter resize)
+
+# Base de données - PostgreSQL tuning
+# postgresql.conf optimisé pour Jira
+shared_buffers = 2GB                    # 25% de la RAM
+effective_cache_size = 6GB              # 75% de la RAM
+work_mem = 256MB
+maintenance_work_mem = 512MB
+max_connections = 200
+checkpoint_completion_target = 0.9
+wal_buffers = 64MB
+default_statistics_target = 100
+random_page_cost = 1.1                  # SSD
+effective_io_concurrency = 200          # SSD
+
+# Monitoring endpoints
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/api/2/serverInfo"
+curl -s "\\\${JIRA_URL}/status"
+
+# Vérifier les threads
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/scriptrunner/latest/custom/threadDump"
+
+# Index health
+# Administration > System > Indexing > Check index consistency
+\\\`\\\`\\\`
+
+### Gestion des plugins/apps
+
+\\\`\\\`\\\`bash
+# Lister les plugins installés
+curl -s -u \\\${AUTH} "\\\${JIRA_URL}/rest/plugins/1.0/" | python3 -m json.tool
+
+# Installer un plugin depuis le Marketplace
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/plugins/1.0/" \\\\
+  -d '{"pluginUri": "https://marketplace.atlassian.com/download/plugins/..."}'
+
+# Activer/Désactiver un plugin
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/plugins/1.0/plugin-key/modules/module-key" \\\\
+  -d '{"enabled": false}'
+
+# Plugins essentiels recommandés :
+# - ScriptRunner : scripts Groovy pour automatisation avancée
+# - Tempo Timesheets : suivi du temps avancé
+# - BigPicture : gestion de programme (multiple projets)
+# - Xray : gestion des tests intégrée
+# - Structure : hiérarchie et dépendances visuelles
+\\\`\\\`\\\`
+
+`,
+      practiceContent: `## Travaux pratiques - Administration avancée
+
+### TP1 : Configuration des schemes
+
+1. Créer un Permission Scheme personnalisé
+2. Configurer : qui peut créer, éditer, assigner, résoudre les tickets
+3. Créer un Notification Scheme (notifications par rôle)
+4. Associer les schemes au projet FORM
+
+### TP2 : Workflows avancés
+
+1. Créer un workflow "Bug Lifecycle" avec les statuts : Open, Triage, In Progress, In Review, In Testing, Done, Won't Do
+2. Configurer les transitions avec conditions (seul l'assignee peut progresser)
+3. Ajouter des validators (champ "Resolution" requis pour fermer)
+4. Configurer des post-functions (email au reporter quand résolu)
+
+### TP3 : Automation Rules
+
+1. Créer une règle : auto-assign bugs par composant
+2. Créer une règle : notification Slack pour bugs critiques
+3. Créer une règle : fermeture automatique des tickets inactifs (14 jours)
+4. Créer une règle : création automatique de sub-tasks pour les Stories
+5. Créer une règle : cascade du statut parent quand toutes les sub-tasks sont Done
+
+### TP4 : Webhooks et intégration
+
+1. Configurer un webhook vers un endpoint de test (webhook.site)
+2. Vérifier le payload JSON envoyé lors de la création d'un ticket
+3. Filtrer le webhook pour n'envoyer que les bugs du projet FORM
+4. Simuler l'intégration Jenkins : déclencher un build via webhook
+
+### TP5 : Backup et monitoring
+
+1. Écrire un script de backup complet (BDD + JIRA_HOME)
+2. Configurer un cron pour backup quotidien
+3. Tester la restauration sur une instance Docker de test
+4. Configurer les alertes de monitoring (health check)
+
+### Questions de validation
+
+- Quelle est la différence entre un Permission Scheme et un Security Scheme ?
+- Comment fonctionnent les post-functions dans un workflow ?
+- Quels sont les triggers disponibles pour les Automation Rules ?
+- Comment sécuriser les webhooks (token, IP whitelist) ?
+- Quel est le processus de restauration après un crash complet ?`,
+      keyPoints: JSON.stringify([
+        'Schemes : Permission, Notification, Workflow, Issue Type, Screen, Field Configuration - réutilisables entre projets',
+        'Custom Fields : 15+ types (text, select, multi, date, user, cascade) avec contextes et options configurables',
+        'Workflows avancés : conditions (qui), validators (vérifications), post-functions (automatisations)',
+        'Automation Rules : triggers (30+) + conditions (JQL, champs, utilisateur) + actions (transition, email, webhook)',
+        'Webhooks : 25+ événements (issue, comment, sprint, project) avec filtrage JQL et payloads JSON',
+        'Intégrations : Bitbucket (Smart Commits), Jenkins (build status), Confluence (macros bidirectionnelles)',
+        'Backup : pg_dump (BDD) + tar (JIRA_HOME) + script cron quotidien + rétention 7 jours',
+        'Performance : JVM G1GC tuning, PostgreSQL shared_buffers/work_mem, indexing, plugin management'
+      ]) },
+
+
+
+    // ==================== CONFLUENCE ====================
+    { id: 'conf-01', courseId: 'confluence', title: 'Introduction complète à Confluence', duration: '4h', orderIndex: 1,
+      theoryContent: `## Introduction complète à Confluence
+
+### Présentation et historique
+
+**Confluence** est la plateforme de documentation collaborative et de gestion des connaissances développée par **Atlassian** depuis **2004**. C'est le wiki d'entreprise le plus utilisé au monde, avec plus de **75 000 organisations** qui l'utilisent pour centraliser leur documentation technique, leurs processus et leurs décisions.
+
+Historique de Confluence :
+- **2004** : Première version, wiki d'entreprise simple
+- **2007** : Introduction des Spaces et de la hiérarchie de pages
+- **2011** : Éditeur WYSIWYG amélioré
+- **2014** : Blueprints et Templates avancés
+- **2016** : Confluence Cloud avec nouveau design
+- **2018** : Collaborative editing (édition simultanée)
+- **2020** : Analytics et insights
+- **2023** : Confluence Whiteboards et Databases
+- **2024** : Intelligence Artificielle intégrée (Atlassian Intelligence)
+
+### Concepts fondamentaux
+
+#### Spaces (Espaces)
+Un espace est un conteneur de haut niveau pour organiser le contenu :
+- **Space global** : visible par tous les utilisateurs autorisés (documentation projet, équipe, département)
+- **Space personnel** : espace privé d'un utilisateur (brouillons, notes personnelles)
+- **Space archivé** : espace conservé en lecture seule
+
+Chaque espace possède :
+- Une **clé unique** (ex: DEV, OPS, HR)
+- Une **page d'accueil** (Overview)
+- Une **sidebar** de navigation
+- Un **blog** intégré
+- Des **permissions** propres
+
+#### Pages
+- Organisation hiérarchique (arbre de pages parent/enfant)
+- Versioning automatique (chaque sauvegarde = nouvelle version)
+- Éditeur WYSIWYG riche avec macros
+- Format de stockage : XHTML (Storage Format)
+- Restrictions d'accès (view, edit) par page
+- Labels pour la catégorisation transverse
+
+#### Blogs
+- Articles chronologiques (date-stamped)
+- Utiles pour : annonces, rapports d'incident, newsletters, notes de réunion
+- Apparaissent dans le fil d'activité de l'espace
+
+#### Templates et Blueprints
+- **Template** : modèle de page réutilisable avec variables
+- **Blueprint** : template + workflow guidé (ex: meeting notes avec participants, action items)
+- Templates globaux (tous les espaces) ou par espace
+- Variables : @mentionDate, texte libre, liste, tableau pré-rempli
+
+#### Macros
+Blocs de contenu dynamique insérés dans les pages (80+ macros disponibles) :
+- Mise en page : section, column, panel, expand, div
+- Contenu : toc, children, include, excerpt, recently-updated
+- Intégration : jira, roadmap, status
+- Développement : code, noformat, anchor
+- Interactif : task-list, status badge, user mention
+
+### Architecture Confluence
+
+\\\`\\\`\\\`
+┌─────────────────────────────────────────────────────────────────────┐
+│              CONFLUENCE DATA CENTER ARCHITECTURE                      │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                       │
+│   ┌─────────────┐      ┌──────────────────────────────────┐         │
+│   │   Clients   │      │         Load Balancer             │         │
+│   │  (Browser)  │─────▶│      (Nginx/HAProxy)              │         │
+│   └─────────────┘      └──────────┬───────────────────────┘         │
+│                                    │                                  │
+│                     ┌──────────────┼──────────────┐                  │
+│                     ▼              ▼              ▼                  │
+│            ┌──────────────┐ ┌──────────────┐ ┌──────────────┐       │
+│            │  Confluence  │ │  Confluence  │ │  Confluence  │       │
+│            │   Node #1    │ │   Node #2    │ │   Node #3    │       │
+│            │  Port 8090   │ │  Port 8090   │ │  Port 8090   │       │
+│            │  Sync: 8091  │ │  Sync: 8091  │ │  Sync: 8091  │       │
+│            └──────┬───────┘ └──────┬───────┘ └──────┬───────┘       │
+│                   │                │                │                 │
+│            ┌──────┴────────────────┴────────────────┴──────┐        │
+│            │          Shared Filesystem (NFS/EFS)            │        │
+│            │  /confluence-shared (attachments, icons, etc)   │        │
+│            └────────────────────────────────────────────────┘        │
+│                                                                       │
+│            ┌────────────────────────────────────────────────┐        │
+│            │            PostgreSQL Database                   │        │
+│            │     Primary + Streaming Replica                 │        │
+│            │     Port 5432 | Database: confluencedb          │        │
+│            └────────────────────────────────────────────────┘        │
+│                                                                       │
+│            ┌────────────────────────────────────────────────┐        │
+│            │         Synchrony (Collaborative Editing)       │        │
+│            │         Port 8091 (WebSocket)                   │        │
+│            └────────────────────────────────────────────────┘        │
+│                                                                       │
+│            ┌────────────────────────────────────────────────┐        │
+│            │           Elasticsearch (Search)                │        │
+│            │           Port 9200/9300                        │        │
+│            └────────────────────────────────────────────────┘        │
+│                                                                       │
+└─────────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+### Installation complète sur Linux
+
+#### Prérequis système
+
+\\\`\\\`\\\`bash
+# ============================================
+# PREREQUIS CONFLUENCE SERVER/DATA CENTER
+# ============================================
+
+# Vérification système
+free -h                # Minimum 4 Go RAM (8 Go+ recommandé production)
+df -h                  # Minimum 10 Go disque
+nproc                  # Minimum 2 CPU
+
+# Installation Java 17 - Ubuntu/Debian
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y openjdk-17-jdk wget curl unzip
+
+# Installation Java 17 - CentOS/RHEL
+sudo yum install -y java-17-openjdk java-17-openjdk-devel wget curl unzip
+
+java -version
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+
+# Ports requis
+# 8090 - Interface web Confluence (HTTP)
+# 8091 - Synchrony (collaborative editing)
+# 5432 - PostgreSQL
+# 25   - SMTP (notifications email)
+\\\`\\\`\\\`
+
+#### Installation PostgreSQL
+
+\\\`\\\`\\\`bash
+# ============================================
+# BASE DE DONNÉES POSTGRESQL POUR CONFLUENCE
+# ============================================
+
+# Installation PostgreSQL 14 (Ubuntu)
+sudo apt install -y postgresql-14
+
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+
+# Créer utilisateur et base
+sudo -u postgres psql << 'EOSQL'
+CREATE USER confluenceuser WITH PASSWORD 'ConfluencePass123!';
+CREATE DATABASE confluencedb WITH ENCODING 'UNICODE' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0 OWNER confluenceuser;
+GRANT ALL PRIVILEGES ON DATABASE confluencedb TO confluenceuser;
+\q
+EOSQL
+
+# Configuration pg_hba.conf
+# host  confluencedb  confluenceuser  127.0.0.1/32  scram-sha-256
+
+sudo systemctl restart postgresql
+
+# Test de connexion
+psql -h localhost -U confluenceuser -d confluencedb -c "SELECT 1;"
+\\\`\\\`\\\`
+
+
+#### Installation Confluence Server
+
+\\\`\\\`\\\`bash
+# ============================================
+# INSTALLATION CONFLUENCE - Méthode bin installer
+# ============================================
+
+# Créer l'utilisateur système
+sudo useradd -r -m -U -d /opt/atlassian/confluence -s /bin/bash confluence
+
+# Télécharger l'installeur
+cd /tmp
+wget https://product-downloads.atlassian.com/software/confluence/downloads/atlassian-confluence-8.7.0-x64.bin
+chmod +x atlassian-confluence-8.7.0-x64.bin
+
+# Installation interactive
+sudo ./atlassian-confluence-8.7.0-x64.bin
+
+# Répertoires après installation :
+# /opt/atlassian/confluence/              - Application
+# /var/atlassian/application-data/confluence/  - CONFLUENCE_HOME (données)
+# /opt/atlassian/confluence/conf/         - Configuration Tomcat
+# /opt/atlassian/confluence/bin/          - Scripts
+
+# ============================================
+# SERVICE SYSTEMD
+# ============================================
+
+sudo cat > /etc/systemd/system/confluence.service << 'EOF'
+[Unit]
+Description=Atlassian Confluence
+After=network.target postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=forking
+User=confluence
+Group=confluence
+Environment=JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+Environment=CONFLUENCE_HOME=/var/atlassian/application-data/confluence
+ExecStart=/opt/atlassian/confluence/bin/start-confluence.sh
+ExecStop=/opt/atlassian/confluence/bin/stop-confluence.sh
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable confluence
+sudo systemctl start confluence
+sudo systemctl status confluence
+
+# Vérifier le démarrage
+sudo tail -f /var/atlassian/application-data/confluence/logs/atlassian-confluence.log
+# Attendre "Confluence is ready to serve"
+# Accéder à http://localhost:8090 pour le wizard de configuration
+\\\`\\\`\\\`
+
+#### Configuration JVM
+
+\\\`\\\`\\\`bash
+# ============================================
+# TUNING JVM - /opt/atlassian/confluence/bin/setenv.sh
+# ============================================
+
+# Configuration recommandée pour production
+CATALINA_OPTS="-Xms2048m -Xmx4096m"
+CATALINA_OPTS="\\\${CATALINA_OPTS} -XX:+UseG1GC"
+CATALINA_OPTS="\\\${CATALINA_OPTS} -XX:MaxGCPauseMillis=200"
+CATALINA_OPTS="\\\${CATALINA_OPTS} -XX:+ParallelRefProcEnabled"
+CATALINA_OPTS="\\\${CATALINA_OPTS} -XX:+DisableExplicitGC"
+CATALINA_OPTS="\\\${CATALINA_OPTS} -XX:+HeapDumpOnOutOfMemoryError"
+CATALINA_OPTS="\\\${CATALINA_OPTS} -XX:HeapDumpPath=/var/atlassian/application-data/confluence/logs/"
+CATALINA_OPTS="\\\${CATALINA_OPTS} -Djava.awt.headless=true"
+CATALINA_OPTS="\\\${CATALINA_OPTS} -Dsynchrony.memory.max=2g"
+\\\`\\\`\\\`
+
+#### Installation Docker Compose
+
+\\\`\\\`\\\`bash
+# ============================================
+# DOCKER COMPOSE - Confluence + PostgreSQL
+# ============================================
+
+mkdir -p /opt/confluence-docker && cd /opt/confluence-docker
+
+cat > docker-compose.yml << 'EOF'
+version: '3.8'
+services:
+  confluence:
+    image: atlassian/confluence:8.7
+    container_name: confluence
+    ports:
+      - "8090:8090"
+      - "8091:8091"
+    environment:
+      - ATL_JDBC_URL=jdbc:postgresql://db:5432/confluencedb
+      - ATL_JDBC_USER=confluenceuser
+      - ATL_JDBC_PASSWORD=ConfluencePass123!
+      - ATL_DB_TYPE=postgresql
+      - JVM_MINIMUM_MEMORY=2048m
+      - JVM_MAXIMUM_MEMORY=4096m
+      - ATL_PROXY_NAME=confluence.example.com
+      - ATL_PROXY_PORT=443
+      - ATL_TOMCAT_SCHEME=https
+      - ATL_TOMCAT_SECURE=true
+    volumes:
+      - confluence-data:/var/atlassian/application-data/confluence
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:14-alpine
+    container_name: confluence-db
+    environment:
+      - POSTGRES_USER=confluenceuser
+      - POSTGRES_PASSWORD=ConfluencePass123!
+      - POSTGRES_DB=confluencedb
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  confluence-data:
+  postgres-data:
+EOF
+
+docker-compose up -d
+docker-compose logs -f confluence
+\\\`\\\`\\\`
+
+#### Reverse Proxy Nginx
+
+\\\`\\\`\\\`bash
+# ============================================
+# NGINX REVERSE PROXY POUR CONFLUENCE
+# ============================================
+
+sudo cat > /etc/nginx/sites-available/confluence << 'EOF'
+upstream confluence_backend {
+    server 127.0.0.1:8090;
+}
+
+upstream synchrony_backend {
+    server 127.0.0.1:8091;
+}
+
+server {
+    listen 80;
+    server_name confluence.example.com;
+    return 301 https://\\\$host\\\$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name confluence.example.com;
+
+    ssl_certificate /etc/letsencrypt/live/confluence.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/confluence.example.com/privkey.pem;
+
+    client_max_body_size 200m;
+    proxy_read_timeout 600s;
+
+    location / {
+        proxy_pass http://confluence_backend;
+        proxy_set_header Host \\\$host;
+        proxy_set_header X-Real-IP \\\$remote_addr;
+        proxy_set_header X-Forwarded-For \\\$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+    }
+
+    location /synchrony {
+        proxy_pass http://synchrony_backend/synchrony;
+        proxy_set_header Host \\\$host;
+        proxy_set_header X-Real-IP \\\$remote_addr;
+        proxy_set_header X-Forwarded-For \\\$proxy_add_x_forwarded_for;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade \\\$http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+}
+EOF
+
+sudo ln -s /etc/nginx/sites-available/confluence /etc/nginx/sites-enabled/
+sudo nginx -t && sudo systemctl reload nginx
+\\\`\\\`\\\`
+
+### API REST Confluence - Référence complète
+
+\\\`\\\`\\\`bash
+# ============================================
+# VARIABLES DE BASE
+# ============================================
+CONF_URL="https://confluence.example.com"
+AUTH="admin:password"
+
+# ============================================
+# SPACES (ESPACES) - CRUD COMPLET
+# ============================================
+
+# Lister tous les espaces
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/space" | python3 -m json.tool
+
+# Lister avec filtres
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/space?type=global&limit=100"
+
+# Obtenir un espace spécifique avec détails
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/space/DEV?expand=description.plain,homepage"
+
+# Créer un espace global
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/space" \\\\
+  -d '{
+    "key": "DEVOPS",
+    "name": "DevOps Documentation",
+    "description": {
+      "plain": {"value": "Documentation technique de l equipe DevOps", "representation": "plain"}
+    },
+    "type": "global"
+  }'
+
+# Créer un espace personnel
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/space/_private" \\\\
+  -d '{
+    "key": "~username",
+    "name": "Notes personnelles"
+  }'
+
+# Mettre à jour un espace
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/space/DEVOPS" \\\\
+  -d '{
+    "name": "DevOps - Documentation Technique",
+    "description": {"plain": {"value": "Nouvelle description", "representation": "plain"}},
+    "homepage": {"id": "12345678"}
+  }'
+
+# Supprimer un espace (ATTENTION - irréversible)
+curl -s -u \\\${AUTH} -X DELETE "\\\${CONF_URL}/rest/api/space/DEVOPS"
+
+
+# ============================================
+# PAGES (CONTENU) - CRUD COMPLET
+# ============================================
+
+# Lister les pages d'un espace
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/content?spaceKey=DEVOPS&type=page&limit=50"
+
+# Obtenir une page avec tout son contenu
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/content/12345678?expand=body.storage,version,ancestors,children.page"
+
+# Créer une page
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/content" \\\\
+  -d '{
+    "type": "page",
+    "title": "Guide Installation Jenkins",
+    "space": {"key": "DEVOPS"},
+    "body": {
+      "storage": {
+        "value": "<h2>Installation</h2><p>Guide pas a pas pour installer Jenkins sur Ubuntu.</p><ac:structured-macro ac:name=\"code\"><ac:parameter ac:name=\"language\">bash</ac:parameter><ac:plain-text-body><![CDATA[sudo apt install jenkins]]></ac:plain-text-body></ac:structured-macro>",
+        "representation": "storage"
+      }
+    },
+    "ancestors": [{"id": "98765"}]
+  }'
+
+# Créer une page enfant (sous-page)
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/content" \\\\
+  -d '{
+    "type": "page",
+    "title": "Configuration avancée",
+    "space": {"key": "DEVOPS"},
+    "ancestors": [{"id": "12345678"}],
+    "body": {
+      "storage": {
+        "value": "<p>Contenu de la sous-page</p>",
+        "representation": "storage"
+      }
+    }
+  }'
+
+# Mettre à jour une page (IMPORTANT : incrémenter le numéro de version)
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/content/12345678" \\\\
+  -d '{
+    "version": {"number": 2},
+    "title": "Guide Installation Jenkins - Mise à jour",
+    "type": "page",
+    "body": {
+      "storage": {
+        "value": "<h2>Installation v2</h2><p>Guide mis a jour avec Docker.</p>",
+        "representation": "storage"
+      }
+    }
+  }'
+
+# Supprimer une page
+curl -s -u \\\${AUTH} -X DELETE "\\\${CONF_URL}/rest/api/content/12345678"
+
+# Déplacer une page (changer de parent)
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/content/12345678" \\\\
+  -d '{
+    "version": {"number": 3},
+    "title": "Guide Installation Jenkins",
+    "type": "page",
+    "ancestors": [{"id": "NEW_PARENT_ID"}]
+  }'
+
+# Copier une page
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/content/12345678/copy" \\\\
+  -d '{
+    "destination": {"type": "parent_page", "value": "DEST_PAGE_ID"},
+    "copyAttachments": true,
+    "copyLabels": true
+  }'
+
+# ============================================
+# ATTACHMENTS (PIÈCES JOINTES)
+# ============================================
+
+# Lister les attachments d'une page
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/content/12345678/child/attachment"
+
+# Uploader un attachment
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "X-Atlassian-Token: nocheck" \\\\
+  -F "file=@/path/to/document.pdf" \\\\
+  -F "comment=Version initiale du document" \\\\
+  "\\\${CONF_URL}/rest/api/content/12345678/child/attachment"
+
+# ============================================
+# COMMENTAIRES
+# ============================================
+
+# Ajouter un commentaire à une page
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/content" \\\\
+  -d '{
+    "type": "comment",
+    "container": {"id": "12345678", "type": "page"},
+    "body": {
+      "storage": {
+        "value": "<p>Commentaire sur cette page. <ac:link><ri:user ri:userkey=\"user123\"/></ac:link> peux-tu vérifier ?</p>",
+        "representation": "storage"
+      }
+    }
+  }'
+
+# ============================================
+# LABELS (ÉTIQUETTES)
+# ============================================
+
+# Obtenir les labels d'une page
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/content/12345678/label"
+
+# Ajouter des labels
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/content/12345678/label" \\\\
+  -d '[
+    {"prefix": "global", "name": "jenkins"},
+    {"prefix": "global", "name": "installation"},
+    {"prefix": "global", "name": "devops"}
+  ]'
+
+# Supprimer un label
+curl -s -u \\\${AUTH} -X DELETE "\\\${CONF_URL}/rest/api/content/12345678/label/jenkins"
+
+# ============================================
+# CQL (Confluence Query Language)
+# ============================================
+
+# Recherche avec CQL
+curl -s -u \\\${AUTH} -G \\\\
+  --data-urlencode "cql=space = DEVOPS AND type = page AND label = jenkins" \\\\
+  --data-urlencode "limit=25" \\\\
+  "\\\${CONF_URL}/rest/api/content/search"
+
+# Exemples CQL :
+# Toutes les pages d'un espace
+# cql=space = "DEVOPS" AND type = page
+
+# Pages modifiées récemment
+# cql=space = "DEVOPS" AND lastModified > now("-7d")
+
+# Pages avec un label spécifique
+# cql=label = "architecture" AND type = page
+
+# Pages créées par un utilisateur
+# cql=creator = "john.doe" AND type = page
+
+# Recherche full-text
+# cql=text ~ "kubernetes deployment" AND space = "DEVOPS"
+
+# Pages parentes d'un niveau
+# cql=ancestor = "12345678" AND type = page
+
+# Blog posts récents
+# cql=type = blogpost AND space = "DEVOPS" AND created > now("-30d")
+
+# ============================================
+# RESTRICTIONS (PERMISSIONS PAR PAGE)
+# ============================================
+
+# Obtenir les restrictions d'une page
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/content/12345678/restriction"
+
+# Ajouter une restriction de lecture
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/content/12345678/restriction" \\\\
+  -d '[{
+    "operation": "read",
+    "restrictions": {
+      "user": [{"type": "known", "username": "admin"}],
+      "group": [{"type": "group", "name": "confluence-admins"}]
+    }
+  }]'
+
+# ============================================
+# TEMPLATES
+# ============================================
+
+# Lister les templates d'un espace
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/template/page?spaceKey=DEVOPS"
+
+# Créer un template
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/template" \\\\
+  -d '{
+    "name": "Architecture Decision Record",
+    "templateType": "page",
+    "space": {"key": "DEVOPS"},
+    "body": {
+      "storage": {
+        "value": "<h2>Contexte</h2><p>Decrire le contexte...</p><h2>Decision</h2><p>La decision prise...</p><h2>Consequences</h2><p>Les impacts...</p>",
+        "representation": "storage"
+      }
+    }
+  }'
+
+# ============================================
+# GESTION UTILISATEURS
+# ============================================
+
+# Rechercher un utilisateur
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/user?username=john.doe"
+
+# Lister les groupes
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/group"
+
+# Membres d'un groupe
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/group/confluence-users/member"
+\\\`\\\`\\\`
+
+### Storage Format (Format XHTML)
+
+Le contenu des pages Confluence est stocké en XHTML avec des macros Atlassian. Voici les balises principales :
+
+\\\`\\\`\\\`
+Balises de base :
+<p>Paragraphe</p>
+<h1>Titre 1</h1> ... <h6>Titre 6</h6>
+<strong>Gras</strong>
+<em>Italique</em>
+<a href="url">Lien externe</a>
+<ul><li>Liste non ordonnée</li></ul>
+<ol><li>Liste ordonnée</li></ol>
+<table><tr><th>Header</th><td>Cell</td></tr></table>
+
+Liens internes :
+<ac:link><ri:page ri:content-title="Page Title"/></ac:link>
+<ac:link><ri:page ri:space-key="SPACE" ri:content-title="Title"/></ac:link>
+<ac:link><ri:user ri:userkey="userkey123"/></ac:link>
+
+Macros :
+<ac:structured-macro ac:name="code">
+  <ac:parameter ac:name="language">bash</ac:parameter>
+  <ac:plain-text-body><![CDATA[echo "Hello World"]]></ac:plain-text-body>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body><p>Information importante</p></ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="toc"/>
+
+<ac:structured-macro ac:name="children"/>
+
+<ac:structured-macro ac:name="jira">
+  <ac:parameter ac:name="jqlQuery">project = PROJ AND status != Done</ac:parameter>
+</ac:structured-macro>
+\\\`\\\`\\\`
+
+`,
+      practiceContent: `## Travaux pratiques - Introduction à Confluence
+
+### TP1 : Installation et configuration
+
+1. Installer Confluence via Docker Compose
+2. Compléter le wizard de configuration
+3. Créer un espace "DevOps Documentation" (clé: DEVOPS)
+4. Configurer la page d'accueil avec une description du projet
+
+### TP2 : Création de contenu via API
+
+1. Créer une hiérarchie de pages :
+   - Page racine "Infrastructure"
+     - Sous-page "Serveurs"
+     - Sous-page "Réseau"
+     - Sous-page "Monitoring"
+2. Ajouter du contenu avec macros (code, info, warning)
+3. Ajouter des labels à chaque page
+4. Uploader des attachments (diagrammes)
+
+### TP3 : Organisation et recherche
+
+1. Utiliser CQL pour rechercher toutes les pages avec le label "infrastructure"
+2. Créer un template "Procédure opérationnelle"
+3. Créer une page depuis le template
+4. Configurer des restrictions (page visible uniquement par le groupe "ops-team")
+
+### TP4 : Intégration Jira
+
+1. Créer une page avec la macro Jira (afficher les bugs ouverts)
+2. Lier une page Confluence à un ticket Jira
+3. Tester la recherche CQL cross-space
+
+### Questions de validation
+
+- Quelle est la différence entre un Space global et personnel ?
+- Comment fonctionne le versioning des pages ?
+- Qu est-ce que le Storage Format et pourquoi est-il important ?
+- Comment configurer le reverse proxy pour Synchrony (port 8091) ?
+- Quels sont les opérateurs CQL disponibles ?`,
+      keyPoints: JSON.stringify([
+        'Confluence est le wiki entreprise leader (75K+ orgs) pour documentation collaborative depuis 2004',
+        'Concepts clés : Spaces (global/personnel), Pages (hiérarchie versionnée), Blogs, Templates, Macros',
+        'Installation Linux : Java 17 + PostgreSQL + bin installer + systemd + Synchrony (port 8091)',
+        'API REST /rest/api/ : CRUD spaces, content (pages), attachments, labels, comments, restrictions',
+        'CQL (Confluence Query Language) : recherche par space, type, label, creator, text, lastModified',
+        'Storage Format XHTML : balises HTML + macros Atlassian (ac:structured-macro, ri:page, ri:user)',
+        'Docker Compose : Confluence + PostgreSQL + Synchrony pour édition collaborative temps réel',
+        'Reverse Proxy Nginx : configuration HTTP + WebSocket (Synchrony) avec SSL/TLS'
+      ]) },
+
+
+    { id: 'conf-02', courseId: 'confluence', title: 'Organisation avancée et collaboration', duration: '4h', orderIndex: 2,
+      theoryContent: `## Organisation avancée et collaboration dans Confluence
+
+### Stratégies d'organisation du contenu
+
+#### Pattern 1 : Organisation par équipe
+\\\`\\\`\\\`
+Espace: TEAM-BACKEND
+├── Page d'accueil (overview, liens rapides, équipe)
+├── Architecture
+│   ├── Diagrammes
+│   ├── ADR (Architecture Decision Records)
+│   └── Standards de code
+├── Guides
+│   ├── Onboarding nouveaux développeurs
+│   ├── Setup environnement local
+│   └── Procédures de déploiement
+├── Runbooks
+│   ├── Incidents courants
+│   └── Procédures de rollback
+└── Meeting Notes
+    ├── Daily standups
+    ├── Sprint reviews
+    └── Retrospectives
+\\\`\\\`\\\`
+
+#### Pattern 2 : Organisation par projet
+\\\`\\\`\\\`
+Espace: PROJ-ECOMMERCE
+├── Overview (vision, objectifs, timeline)
+├── Requirements
+│   ├── User Stories
+│   ├── Technical Requirements
+│   └── Non-Functional Requirements
+├── Design
+│   ├── UX/UI Mockups
+│   ├── API Specifications
+│   └── Database Schema
+├── Development
+│   ├── Setup Guide
+│   ├── API Documentation
+│   └── Troubleshooting
+├── Testing
+│   ├── Test Plans
+│   ├── Test Cases
+│   └── Bug Reports
+└── Releases
+    ├── Release Notes v1.0
+    ├── Release Notes v1.1
+    └── Deployment Checklist
+\\\`\\\`\\\`
+
+#### Pattern 3 : Organisation par domaine (Knowledge Base)
+\\\`\\\`\\\`
+Espace: KB-DEVOPS
+├── CI/CD
+│   ├── Jenkins
+│   ├── GitLab CI
+│   └── GitHub Actions
+├── Containers
+│   ├── Docker
+│   ├── Kubernetes
+│   └── Helm
+├── Cloud
+│   ├── AWS
+│   ├── Azure
+│   └── GCP
+├── Monitoring
+│   ├── Prometheus
+│   ├── Grafana
+│   └── ELK Stack
+└── Security
+    ├── OWASP
+    ├── Secrets Management
+    └── Network Security
+\\\`\\\`\\\`
+
+#### Best practices d'organisation
+- **Profondeur maximale** : 4-5 niveaux de hiérarchie max
+- **Nommage cohérent** : conventions de titre (préfixes, formats)
+- **Labels standardisés** : taxonomie définie à l'avance
+- **Templates obligatoires** : chaque type de contenu a son template
+- **Page d'accueil** : chaque espace a une overview avec liens rapides
+- **Archivage régulier** : déplacer le contenu obsolète dans un espace archive
+
+### Macros Confluence - Référence complète
+
+#### Macros de mise en page
+
+\\\`\\\`\\\`
+<!-- Section et colonnes (layout multi-colonnes) -->
+<ac:structured-macro ac:name="section">
+  <ac:rich-text-body>
+    <ac:structured-macro ac:name="column">
+      <ac:parameter ac:name="width">50%</ac:parameter>
+      <ac:rich-text-body><p>Colonne gauche</p></ac:rich-text-body>
+    </ac:structured-macro>
+    <ac:structured-macro ac:name="column">
+      <ac:parameter ac:name="width">50%</ac:parameter>
+      <ac:rich-text-body><p>Colonne droite</p></ac:rich-text-body>
+    </ac:structured-macro>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<!-- Panel (boîte avec titre et bordure) -->
+<ac:structured-macro ac:name="panel">
+  <ac:parameter ac:name="title">Important</ac:parameter>
+  <ac:parameter ac:name="borderStyle">solid</ac:parameter>
+  <ac:parameter ac:name="borderColor">#FF0000</ac:parameter>
+  <ac:rich-text-body><p>Contenu du panel</p></ac:rich-text-body>
+</ac:structured-macro>
+
+<!-- Expand (contenu dépliable) -->
+<ac:structured-macro ac:name="expand">
+  <ac:parameter ac:name="title">Cliquez pour voir les détails</ac:parameter>
+  <ac:rich-text-body><p>Contenu caché par défaut</p></ac:rich-text-body>
+</ac:structured-macro>
+
+<!-- Div (conteneur avec style CSS) -->
+<ac:structured-macro ac:name="div">
+  <ac:parameter ac:name="class">custom-class</ac:parameter>
+  <ac:rich-text-body><p>Contenu avec style</p></ac:rich-text-body>
+</ac:structured-macro>
+\\\`\\\`\\\`
+
+#### Macros de contenu
+
+\\\`\\\`\\\`
+<!-- Table des matières automatique -->
+<ac:structured-macro ac:name="toc">
+  <ac:parameter ac:name="maxLevel">3</ac:parameter>
+  <ac:parameter ac:name="minLevel">1</ac:parameter>
+  <ac:parameter ac:name="style">disc</ac:parameter>
+</ac:structured-macro>
+
+<!-- Afficher les pages enfants -->
+<ac:structured-macro ac:name="children">
+  <ac:parameter ac:name="all">true</ac:parameter>
+  <ac:parameter ac:name="depth">2</ac:parameter>
+  <ac:parameter ac:name="sort">title</ac:parameter>
+</ac:structured-macro>
+
+<!-- Arbre de pages (page-tree) -->
+<ac:structured-macro ac:name="pagetree">
+  <ac:parameter ac:name="root">@self</ac:parameter>
+  <ac:parameter ac:name="searchBox">true</ac:parameter>
+</ac:structured-macro>
+
+<!-- Inclure le contenu d'une autre page -->
+<ac:structured-macro ac:name="include">
+  <ac:parameter ac:name=""><ac:link><ri:page ri:content-title="Source Page"/></ac:link></ac:parameter>
+</ac:structured-macro>
+
+<!-- Excerpt (extrait réutilisable) -->
+<ac:structured-macro ac:name="excerpt">
+  <ac:parameter ac:name="name">resume-projet</ac:parameter>
+  <ac:rich-text-body><p>Cet extrait peut etre inclus dans d autres pages</p></ac:rich-text-body>
+</ac:structured-macro>
+
+<!-- Afficher l'extrait d'une autre page -->
+<ac:structured-macro ac:name="excerpt-include">
+  <ac:parameter ac:name=""><ac:link><ri:page ri:content-title="Source Page"/></ac:link></ac:parameter>
+  <ac:parameter ac:name="nopanel">true</ac:parameter>
+</ac:structured-macro>
+
+<!-- Pages récemment mises à jour -->
+<ac:structured-macro ac:name="recently-updated">
+  <ac:parameter ac:name="spaces">DEVOPS</ac:parameter>
+  <ac:parameter ac:name="max">10</ac:parameter>
+  <ac:parameter ac:name="types">page</ac:parameter>
+</ac:structured-macro>
+\\\`\\\`\\\`
+
+#### Macros d'intégration Jira
+
+\\\`\\\`\\\`
+<!-- Tableau de tickets Jira (JQL) -->
+<ac:structured-macro ac:name="jira">
+  <ac:parameter ac:name="jqlQuery">project = PROJ AND status != Done ORDER BY priority DESC</ac:parameter>
+  <ac:parameter ac:name="columns">key,summary,status,assignee,priority</ac:parameter>
+  <ac:parameter ac:name="maximumIssues">20</ac:parameter>
+</ac:structured-macro>
+
+<!-- Compteur de tickets -->
+<ac:structured-macro ac:name="jira">
+  <ac:parameter ac:name="jqlQuery">project = PROJ AND issuetype = Bug AND resolution = Unresolved</ac:parameter>
+  <ac:parameter ac:name="count">true</ac:parameter>
+</ac:structured-macro>
+
+<!-- Ticket unique (affichage inline) -->
+<ac:structured-macro ac:name="jira">
+  <ac:parameter ac:name="key">PROJ-123</ac:parameter>
+</ac:structured-macro>
+\\\`\\\`\\\`
+
+#### Macros de développement
+
+\\\`\\\`\\\`
+<!-- Bloc de code avec syntaxe highlighting -->
+<ac:structured-macro ac:name="code">
+  <ac:parameter ac:name="language">python</ac:parameter>
+  <ac:parameter ac:name="title">example.py</ac:parameter>
+  <ac:parameter ac:name="linenumbers">true</ac:parameter>
+  <ac:parameter ac:name="collapse">false</ac:parameter>
+  <ac:plain-text-body><![CDATA[
+def hello():
+    print("Hello World")
+    return True
+  ]]></ac:plain-text-body>
+</ac:structured-macro>
+
+<!-- Noformat (texte préformaté sans highlighting) -->
+<ac:structured-macro ac:name="noformat">
+  <ac:plain-text-body><![CDATA[
+Texte brut sans formatage
+  Indentation preservee
+    Pas de syntaxe highlighting
+  ]]></ac:plain-text-body>
+</ac:structured-macro>
+
+<!-- Ancre (point de navigation) -->
+<ac:structured-macro ac:name="anchor">
+  <ac:parameter ac:name="">section-importante</ac:parameter>
+</ac:structured-macro>
+
+<!-- Boîtes d'information -->
+<ac:structured-macro ac:name="info">
+  <ac:parameter ac:name="title">Information</ac:parameter>
+  <ac:rich-text-body><p>Message informatif</p></ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="tip">
+  <ac:parameter ac:name="title">Conseil</ac:parameter>
+  <ac:rich-text-body><p>Bonne pratique a suivre</p></ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="warning">
+  <ac:parameter ac:name="title">Attention</ac:parameter>
+  <ac:rich-text-body><p>Point de vigilance</p></ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="note">
+  <ac:parameter ac:name="title">Note</ac:parameter>
+  <ac:rich-text-body><p>Remarque importante</p></ac:rich-text-body>
+</ac:structured-macro>
+\\\`\\\`\\\`
+
+#### Macros interactives
+
+\\\`\\\`\\\`
+<!-- Liste de tâches -->
+<ac:task-list>
+  <ac:task>
+    <ac:task-id>1</ac:task-id>
+    <ac:task-status>incomplete</ac:task-status>
+    <ac:task-body>Tache a faire</ac:task-body>
+  </ac:task>
+  <ac:task>
+    <ac:task-id>2</ac:task-id>
+    <ac:task-status>complete</ac:task-status>
+    <ac:task-body>Tache terminee</ac:task-body>
+  </ac:task>
+</ac:task-list>
+
+<!-- Badge de statut -->
+<ac:structured-macro ac:name="status">
+  <ac:parameter ac:name="title">EN COURS</ac:parameter>
+  <ac:parameter ac:name="colour">Yellow</ac:parameter>
+</ac:structured-macro>
+
+<!-- Couleurs disponibles : Grey, Red, Yellow, Green, Blue -->
+
+<!-- Mention d'utilisateur -->
+<ac:link><ri:user ri:userkey="user123key"/></ac:link>
+
+<!-- Date -->
+<time datetime="2024-03-15"/>
+\\\`\\\`\\\`
+
+
+### Templates et Blueprints
+
+#### Templates intégrés (Built-in)
+- **Meeting Notes** : date, participants, discussion, action items, decisions
+- **Decision** : contexte, options, décision, conséquences, statut
+- **Retrospective** : went well, to improve, actions
+- **How-To Article** : prérequis, steps, résultat attendu, troubleshooting
+- **Troubleshooting Article** : symptômes, cause, solution, prévention
+- **Product Requirements** : objectifs, user stories, acceptance criteria, timeline
+- **Shared Links** : collection de liens avec descriptions
+
+#### Création de templates personnalisés via API
+
+\\\`\\\`\\\`bash
+# Créer un template "Runbook"
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/template" \\\\
+  -d '{
+    "name": "Runbook Operationnel",
+    "templateType": "page",
+    "space": {"key": "DEVOPS"},
+    "description": "Template pour les procedures operationnelles",
+    "body": {
+      "storage": {
+        "value": "<h2>Objectif</h2><p>Decrire l objectif de cette procedure...</p><ac:structured-macro ac:name=\"warning\"><ac:rich-text-body><p>Prerequis : liste des prerequis</p></ac:rich-text-body></ac:structured-macro><h2>Procedure</h2><ac:structured-macro ac:name=\"expand\"><ac:parameter ac:name=\"title\">Etape 1 - Preparation</ac:parameter><ac:rich-text-body><p>Details...</p></ac:rich-text-body></ac:structured-macro><ac:structured-macro ac:name=\"expand\"><ac:parameter ac:name=\"title\">Etape 2 - Execution</ac:parameter><ac:rich-text-body><p>Details...</p></ac:rich-text-body></ac:structured-macro><h2>Verification</h2><ac:task-list><ac:task><ac:task-id>1</ac:task-id><ac:task-status>incomplete</ac:task-status><ac:task-body>Verification 1</ac:task-body></ac:task></ac:task-list><h2>Rollback</h2><p>Procedure de retour arriere si necessaire...</p>",
+        "representation": "storage"
+      }
+    }
+  }'
+\\\`\\\`\\\`
+
+### Collaboration avancée
+
+#### Page watching et notifications
+- **Watch** : recevoir des notifications à chaque modification d'une page
+- **Space Watch** : surveiller toutes les modifications d'un espace
+- **Blog Watch** : être notifié des nouveaux blog posts
+- Granularité : modifications de contenu, commentaires, ou les deux
+- Notifications par email ou dans l'app (notifications bell)
+
+#### Inline comments et @mentions
+- Les commentaires inline sont attachés à un passage spécifique du texte
+- @mentions notifient l'utilisateur dans l'app et par email
+- Les commentaires peuvent être résolus (marqués comme traités)
+- Fil de discussion avec réponses
+
+#### Page comparison (diff)
+- Comparer n'importe quelles deux versions d'une page
+- Affichage des ajouts (vert) et suppressions (rouge)
+- Navigation entre les différences
+- Possibilité de restaurer une version antérieure
+
+#### Page history et revert
+\\\`\\\`\\\`bash
+# Obtenir l'historique des versions d'une page
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/content/12345678/history"
+
+# Obtenir une version spécifique
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/content/12345678?status=historical&version=3"
+
+# Restaurer une version antérieure
+# Il faut créer une nouvelle version avec le contenu de l'ancienne
+# 1. Lire le contenu de la version souhaitée
+# 2. Mettre à jour la page avec ce contenu (version +1)
+\\\`\\\`\\\`
+
+#### Édition collaborative (Synchrony)
+- Plusieurs utilisateurs peuvent éditer la même page simultanément
+- Curseurs colorés identifient chaque éditeur
+- Synchronisation en temps réel via WebSocket (port 8091)
+- Pas de conflits de version (merge automatique)
+- Historique des modifications individuelles
+
+### Intégration avec Jira (bidirectionnelle)
+
+#### Depuis Confluence vers Jira
+- **Macro Jira** : afficher des tickets via JQL (tableau, compteur, ticket unique)
+- **Création de ticket** : créer un ticket Jira depuis une page Confluence
+- **Application Links** : lien technique entre les instances
+
+#### Depuis Jira vers Confluence
+- **Confluence Tab** : onglet Confluence dans les tickets Jira
+- **Page links** : liens vers les pages pertinentes dans les tickets
+- **Remote links API** : créer des liens programmatiquement
+
+\\\`\\\`\\\`bash
+# Créer un lien Jira -> Confluence via API Jira
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${JIRA_URL}/rest/api/2/issue/PROJ-123/remotelink" \\\\
+  -d '{
+    "object": {
+      "url": "https://confluence.example.com/display/DEVOPS/Architecture",
+      "title": "Document Architecture",
+      "icon": {"url16x16": "https://confluence.example.com/favicon.ico"}
+    }
+  }'
+\\\`\\\`\\\`
+
+### Export et Import
+
+\\\`\\\`\\\`bash
+# ============================================
+# EXPORT DE CONTENU
+# ============================================
+
+# Export PDF d'une page
+curl -s -u \\\${AUTH} \\\\
+  "\\\${CONF_URL}/spaces/flyingpdf/pdfpageexport.action?pageId=12345678" \\\\
+  -o page_export.pdf
+
+# Export Word d'une page
+curl -s -u \\\${AUTH} \\\\
+  "\\\${CONF_URL}/exportword?pageId=12345678" \\\\
+  -o page_export.doc
+
+# Export HTML d'un espace complet
+# Administration > Space Tools > Content Tools > Export
+# Formats : HTML, XML, PDF
+
+# Export XML d'un espace (backup)
+curl -s -u \\\${AUTH} -X POST \\\\
+  "\\\${CONF_URL}/rest/api/space/DEVOPS/export" \\\\
+  -H "Content-Type: application/json" \\\\
+  -d '{"type": "xml"}'
+
+# ============================================
+# IMPORT DE CONTENU
+# ============================================
+
+# Import d'un espace XML
+# Administration > Space Tools > Import Space
+# Via API : POST /rest/api/content/import
+\\\`\\\`\\\`
+
+`,
+      practiceContent: `## Travaux pratiques - Organisation et collaboration
+
+### TP1 : Organisation par pattern
+
+1. Créer un espace "Knowledge Base DevOps" (KB-DEVOPS)
+2. Implémenter le pattern d'organisation par domaine :
+   - CI/CD (Jenkins, GitLab CI, GitHub Actions)
+   - Containers (Docker, Kubernetes, Helm)
+   - Monitoring (Prometheus, Grafana)
+3. Créer une page d'accueil avec la macro children et la macro toc
+4. Ajouter des labels cohérents (ci-cd, containers, monitoring, beginner, advanced)
+
+### TP2 : Macros avancées
+
+1. Créer une page avec layout multi-colonnes (section/column)
+2. Ajouter des panels colorés (info, warning, tip, note)
+3. Insérer un tableau Jira avec macro jira (JQL query)
+4. Créer un expand avec une procédure détaillée
+5. Utiliser le macro code avec plusieurs langages (bash, python, yaml)
+6. Ajouter un page-tree navigable
+
+### TP3 : Templates et réutilisabilité
+
+1. Créer un template "Architecture Decision Record" (ADR)
+2. Créer un template "Incident Post-Mortem"
+3. Utiliser les templates pour créer 3 pages
+4. Créer un excerpt dans une page et l'inclure dans une autre (excerpt-include)
+
+### TP4 : Collaboration
+
+1. Activer le watch sur une page
+2. Ajouter des inline comments sur une page d'un collègue
+3. Créer des tâches (task-list) avec assignation
+4. Comparer deux versions d'une page
+5. Utiliser des @mentions dans un commentaire
+
+### TP5 : Intégration Jira
+
+1. Créer une page "Sprint Dashboard" avec :
+   - Macro jira : tickets du sprint actuel
+   - Macro jira count : nombre de bugs ouverts
+   - Badge de statut du sprint (macro status)
+2. Lier la page à un ticket Jira via remote link
+
+### Questions de validation
+
+- Quel est le pattern d'organisation recommandé pour une équipe de 20 personnes ?
+- Comment fonctionne la macro excerpt/excerpt-include ?
+- Quelle est la différence entre include et excerpt-include ?
+- Comment Synchrony gère-t-il l'édition collaborative ?
+- Quels sont les macros les plus utiles pour une documentation technique ?`,
+      keyPoints: JSON.stringify([
+        'Organisation du contenu : 3 patterns (par équipe, par projet, par domaine) avec max 4-5 niveaux',
+        'Macros layout : section/column (multi-colonnes), panel (boîtes), expand (dépliable), div (CSS)',
+        'Macros contenu : toc (table des matières), children, page-tree, include, excerpt, recently-updated',
+        'Macros Jira : tableau JQL, compteur, ticket inline - intégration bidirectionnelle complète',
+        'Macros dev : code (25+ langages, numéros de ligne), noformat, info/tip/warning/note',
+        'Templates : built-in (meeting, decision, retro, how-to) + custom avec variables via API',
+        'Collaboration : watching, inline comments, @mentions, page comparison, concurrent editing (Synchrony)',
+        'Export : PDF, Word, HTML, XML par page ou espace complet - Import XML pour migration'
+      ]) },
+
+
+    { id: 'conf-03', courseId: 'confluence', title: 'Administration et API avancée', duration: '4h', orderIndex: 3,
+      theoryContent: `## Administration et API avancée Confluence
+
+### Modèle de permissions
+
+#### Permissions globales (Site Administration)
+- **System Administrator** : accès complet à la configuration
+- **Confluence Administrator** : gestion des espaces et utilisateurs
+- **Create Spaces** : peut créer de nouveaux espaces
+- **Personal Space** : peut créer un espace personnel
+- **Use Confluence** : accès de base à Confluence
+
+#### Permissions d'espace (Space Permissions)
+Chaque espace a ses propres permissions, par utilisateur ou par groupe :
+
+| Permission | Description |
+|-----------|-------------|
+| View Space | Voir l'espace et son contenu |
+| Add Pages | Créer de nouvelles pages |
+| Add Blog Posts | Créer des blog posts |
+| Add Comments | Ajouter des commentaires |
+| Add Attachments | Ajouter des pièces jointes |
+| Create/Delete Mail | Gérer le mail archiving |
+| Restrict Pages | Appliquer des restrictions sur les pages |
+| Delete Own Content | Supprimer son propre contenu |
+| Delete Others Content | Supprimer le contenu des autres |
+| Space Admin | Administrer l'espace |
+| Space Export | Exporter l'espace |
+
+#### Restrictions de pages
+- **View restriction** : seuls les utilisateurs/groupes listés peuvent voir la page
+- **Edit restriction** : seuls les utilisateurs/groupes listés peuvent éditer
+- Les restrictions sont héritées par les pages enfants
+- Un admin peut toujours lever les restrictions
+
+\\\`\\\`\\\`bash
+# ============================================
+# GESTION DES PERMISSIONS VIA API
+# ============================================
+
+CONF_URL="https://confluence.example.com"
+AUTH="admin:password"
+
+# Obtenir les permissions d'un espace
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/space/DEVOPS/permission"
+
+# Ajouter une permission d'espace à un groupe
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/space/DEVOPS/permission" \\\\
+  -d '{
+    "subjects": {
+      "group": {"results": [{"name": "confluence-users"}]}
+    },
+    "operation": {"key": "read", "target": "space"},
+    "anonymousAccess": false
+  }'
+
+# Ajouter une restriction de page (view)
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/content/12345678/restriction" \\\\
+  -d '[{
+    "operation": "read",
+    "restrictions": {
+      "user": [{"type": "known", "username": "admin"}, {"type": "known", "username": "team.lead"}],
+      "group": [{"type": "group", "name": "security-team"}]
+    }
+  }, {
+    "operation": "update",
+    "restrictions": {
+      "user": [{"type": "known", "username": "admin"}]
+    }
+  }]'
+
+# Supprimer toutes les restrictions d'une page
+curl -s -u \\\${AUTH} -X DELETE "\\\${CONF_URL}/rest/api/content/12345678/restriction"
+
+# Vérifier si un utilisateur a accès à une page
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/content/12345678/restriction/byOperation/read/user?userName=john.doe"
+\\\`\\\`\\\`
+
+### Gestion des utilisateurs et groupes
+
+\\\`\\\`\\\`bash
+# ============================================
+# UTILISATEURS ET GROUPES
+# ============================================
+
+# Lister les groupes
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/group?limit=100" | python3 -m json.tool
+
+# Créer un groupe
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/group" \\\\
+  -d '{"name": "devops-team"}'
+
+# Ajouter un utilisateur à un groupe
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/group/devops-team/member" \\\\
+  -d '{"name": "john.doe"}'
+
+# Retirer un utilisateur d'un groupe
+curl -s -u \\\${AUTH} -X DELETE \\\\
+  "\\\${CONF_URL}/rest/api/group/devops-team/member?name=john.doe"
+
+# Lister les membres d'un groupe
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/group/devops-team/member?limit=200"
+
+# Rechercher un utilisateur
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/user?username=john.doe&expand=status,personalSpace"
+
+# Désactiver un utilisateur
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${CONF_URL}/rest/api/admin/user/disable" \\\\
+  -d '{"username": "old.employee"}'
+\\\`\\\`\\\`
+
+### Gestion des espaces (Administration)
+
+\\\`\\\`\\\`bash
+# ============================================
+# ADMINISTRATION DES ESPACES
+# ============================================
+
+# Lister tous les espaces avec statistiques
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/space?limit=100&expand=description,metadata"
+
+# Archiver un espace (le rendre en lecture seule)
+# Pas d'API directe - utiliser les Space Settings dans l'UI
+# Ou via ScriptRunner : space.setStatus(SpaceStatus.ARCHIVED)
+
+# Export d'un espace en XML (pour backup ou migration)
+# POST /rest/api/longtask/space/DEVOPS/export
+# ou via Administration > Space Tools > Export Space
+
+# Import d'un espace XML
+# Via Administration > General Configuration > Import Spaces
+
+# Obtenir les statistiques d'un espace
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/space/DEVOPS/content?type=page&limit=0"
+# Le champ "size" donne le nombre total de pages
+\\\`\\\`\\\`
+
+### Backup et restauration
+
+\\\`\\\`\\\`bash
+# ============================================
+# BACKUP CONFLUENCE - COMPLET
+# ============================================
+
+# 1. Backup de la base de données PostgreSQL
+pg_dump -h localhost -U confluenceuser -d confluencedb -F c \\\\
+  -f /backup/confluence/db_\\\$(date +%Y%m%d_%H%M%S).dump
+
+# 2. Backup du CONFLUENCE_HOME (attachments, config, indices)
+tar -czf /backup/confluence/home_\\\$(date +%Y%m%d_%H%M%S).tar.gz \\\\
+  /var/atlassian/application-data/confluence/
+
+# 3. Backup du répertoire d'installation (optionnel mais recommandé)
+tar -czf /backup/confluence/install_\\\$(date +%Y%m%d_%H%M%S).tar.gz \\\\
+  /opt/atlassian/confluence/
+
+# ============================================
+# SCRIPT DE BACKUP AUTOMATISÉ
+# ============================================
+
+cat > /opt/scripts/confluence-backup.sh << 'SCRIPT'
+#!/bin/bash
+set -e
+
+BACKUP_DIR="/backup/confluence"
+DATE=$(date +%Y%m%d_%H%M%S)
+RETENTION_DAYS=7
+
+mkdir -p \\\${BACKUP_DIR}
+
+echo "[\\\${DATE}] Starting Confluence backup..."
+
+# Backup database
+echo "Backing up database..."
+pg_dump -h localhost -U confluenceuser -d confluencedb -F c \\
+  -f \\\${BACKUP_DIR}/db_\\\${DATE}.dump
+
+# Backup home directory (données, attachments)
+echo "Backing up CONFLUENCE_HOME..."
+tar -czf \\\${BACKUP_DIR}/home_\\\${DATE}.tar.gz \\
+  --exclude='*/temp/*' \\
+  --exclude='*/index/*' \\
+  /var/atlassian/application-data/confluence/
+
+# Vérification intégrité
+echo "Verifying backup integrity..."
+pg_restore --list \\\${BACKUP_DIR}/db_\\\${DATE}.dump > /dev/null 2>&1
+tar -tzf \\\${BACKUP_DIR}/home_\\\${DATE}.tar.gz > /dev/null 2>&1
+
+# Rétention
+echo "Cleaning old backups (> \\\${RETENTION_DAYS} days)..."
+find \\\${BACKUP_DIR} -name "db_*.dump" -mtime +\\\${RETENTION_DAYS} -delete
+find \\\${BACKUP_DIR} -name "home_*.tar.gz" -mtime +\\\${RETENTION_DAYS} -delete
+
+echo "[\\\${DATE}] Backup completed successfully!"
+echo "Database: \\\${BACKUP_DIR}/db_\\\${DATE}.dump"
+echo "Home: \\\${BACKUP_DIR}/home_\\\${DATE}.tar.gz"
+SCRIPT
+
+chmod +x /opt/scripts/confluence-backup.sh
+
+# Planification cron (tous les jours à 3h du matin)
+echo "0 3 * * * /opt/scripts/confluence-backup.sh >> /var/log/confluence-backup.log 2>&1" | crontab -
+
+# ============================================
+# RESTAURATION CONFLUENCE
+# ============================================
+
+# 1. Arrêter Confluence
+sudo systemctl stop confluence
+
+# 2. Restaurer la base de données
+sudo -u postgres dropdb confluencedb
+sudo -u postgres createdb -O confluenceuser -E UNICODE confluencedb
+pg_restore -h localhost -U confluenceuser -d confluencedb /backup/confluence/db_20240301.dump
+
+# 3. Restaurer le CONFLUENCE_HOME
+rm -rf /var/atlassian/application-data/confluence/*
+tar -xzf /backup/confluence/home_20240301.tar.gz -C /
+chown -R confluence:confluence /var/atlassian/application-data/confluence/
+
+# 4. Redémarrer et réindexer
+sudo systemctl start confluence
+# Administration > General Configuration > Content Indexing > Rebuild Index
+
+# ============================================
+# EXPORT/IMPORT PAR ESPACE (pour migration)
+# ============================================
+
+# Export XML d'un espace spécifique
+# UI: Space Settings > Content Tools > Export > XML
+# Inclut : pages, commentaires, attachments, permissions
+
+# Import XML d'un espace
+# UI: Administration > General Configuration > Backup and Restore > Import Space
+\\\`\\\`\\\`
+
+### Performance et maintenance
+
+\\\`\\\`\\\`bash
+# ============================================
+# JVM TUNING CONFLUENCE
+# ============================================
+
+# /opt/atlassian/confluence/bin/setenv.sh
+CATALINA_OPTS="-Xms4096m -Xmx4096m"                    # RAM allocation
+CATALINA_OPTS="\\\${CATALINA_OPTS} -XX:+UseG1GC"          # Garbage Collector
+CATALINA_OPTS="\\\${CATALINA_OPTS} -XX:MaxGCPauseMillis=200"
+CATALINA_OPTS="\\\${CATALINA_OPTS} -XX:+HeapDumpOnOutOfMemoryError"
+CATALINA_OPTS="\\\${CATALINA_OPTS} -XX:HeapDumpPath=/tmp/"
+CATALINA_OPTS="\\\${CATALINA_OPTS} -Dsynchrony.memory.max=2g"  # Synchrony memory
+
+# ============================================
+# POSTGRESQL MAINTENANCE
+# ============================================
+
+# Vacuum et analyse (maintenance régulière)
+sudo -u postgres psql -d confluencedb -c "VACUUM ANALYZE;"
+
+# Reindex (après erreurs ou performance dégradée)
+sudo -u postgres psql -d confluencedb -c "REINDEX DATABASE confluencedb;"
+
+# Vérifier la taille de la base
+sudo -u postgres psql -d confluencedb -c "
+  SELECT pg_size_pretty(pg_database_size('confluencedb')) as db_size;"
+
+# Top tables par taille
+sudo -u postgres psql -d confluencedb -c "
+  SELECT schemaname, tablename, 
+    pg_size_pretty(pg_total_relation_size(schemaname||'.'||tablename)) as size
+  FROM pg_tables 
+  WHERE schemaname = 'public' 
+  ORDER BY pg_total_relation_size(schemaname||'.'||tablename) DESC 
+  LIMIT 10;"
+
+# ============================================
+# CONTENT INDEX REBUILD
+# ============================================
+
+# Via API (déclencher la réindexation)
+curl -s -u \\\${AUTH} -X POST "\\\${CONF_URL}/rest/api/admin/reindex"
+
+# Vérifier le statut de la réindexation
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/admin/reindex"
+
+# ============================================
+# MONITORING ET HEALTH CHECKS
+# ============================================
+
+# Status général
+curl -s "\\\${CONF_URL}/status"
+
+# Health check (Data Center)
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/admin/cluster/nodes"
+
+# Informations système
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/settings/systemInfo"
+
+# JMX Monitoring (via Jolokia ou JMX direct)
+# Métriques importantes :
+# - java.lang:type=Memory (HeapMemoryUsage)
+# - java.lang:type=Threading (ThreadCount)
+# - Catalina:type=ThreadPool (currentThreadCount, currentThreadsBusy)
+
+# ============================================
+# CACHE MANAGEMENT
+# ============================================
+
+# Vider les caches (attention : impact performance temporaire)
+# Administration > General Configuration > Cache Management > Flush All Caches
+
+# Monitorer l'utilisation du cache
+# Administration > General Configuration > Cache Statistics
+\\\`\\\`\\\`
+
+### Opérations en masse (Bulk operations) via API
+
+\\\`\\\`\\\`bash
+# ============================================
+# SCRIPTS D'OPÉRATIONS EN MASSE
+# ============================================
+
+# Trouver les pages obsolètes (non modifiées depuis 1 an)
+curl -s -u \\\${AUTH} -G \\\\
+  --data-urlencode "cql=space = DEVOPS AND type = page AND lastModified < now('-365d')" \\\\
+  --data-urlencode "limit=100" \\\\
+  "\\\${CONF_URL}/rest/api/content/search" | python3 -m json.tool
+
+# Script : ajouter un label à toutes les pages d'un espace
+# (exemple en bash avec boucle)
+PAGES=\\\$(curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/content?spaceKey=DEVOPS&type=page&limit=500" \\\\
+  | python3 -c "import sys,json; [print(r['id']) for r in json.load(sys.stdin)['results']]")
+
+for PAGE_ID in \\\${PAGES}; do
+  curl -s -u \\\${AUTH} -X POST \\\\
+    -H "Content-Type: application/json" \\\\
+    "\\\${CONF_URL}/rest/api/content/\\\${PAGE_ID}/label" \\\\
+    -d '[{"prefix": "global", "name": "reviewed-2024"}]'
+  echo "Label added to page \\\${PAGE_ID}"
+done
+
+# Script : trouver les pages sans labels
+curl -s -u \\\${AUTH} -G \\\\
+  --data-urlencode "cql=space = DEVOPS AND type = page AND label IS NULL" \\\\
+  --data-urlencode "limit=100" \\\\
+  "\\\${CONF_URL}/rest/api/content/search"
+
+# Script : exporter toutes les pages en CSV
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/content?spaceKey=DEVOPS&type=page&limit=500&expand=version,history.lastUpdated" \\\\
+  | python3 -c "
+import sys, json
+data = json.load(sys.stdin)
+print('id,title,version,lastUpdated,createdBy')
+for p in data['results']:
+    print(f\\\"{p['id']},{p['title']},{p['version']['number']},{p['history']['lastUpdated']['when']},{p['history']['createdBy']['displayName']}\\\")
+"
+
+# Script : mise à jour en masse des permissions
+# Donner accès lecture à un nouveau groupe sur toutes les pages restreintes
+RESTRICTED_PAGES=\\\$(curl -s -u \\\${AUTH} -G \\\\
+  --data-urlencode "cql=space = DEVOPS AND type = page" \\\\
+  "\\\${CONF_URL}/rest/api/content/search?limit=500" \\\\
+  | python3 -c "import sys,json; [print(r['id']) for r in json.load(sys.stdin)['results']]")
+
+for PAGE_ID in \\\${RESTRICTED_PAGES}; do
+  # Vérifier si la page a des restrictions
+  HAS_RESTRICTIONS=\\\$(curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/content/\\\${PAGE_ID}/restriction" \\\\
+    | python3 -c "import sys,json; print(len(json.load(sys.stdin)['results'])>0)")
+  if [ "\\\${HAS_RESTRICTIONS}" = "True" ]; then
+    echo "Updating restrictions for page \\\${PAGE_ID}"
+    # Ajouter le groupe aux restrictions existantes
+  fi
+done
+\\\`\\\`\\\`
+
+### Audit et compliance
+
+\\\`\\\`\\\`bash
+# ============================================
+# AUDIT LOG
+# ============================================
+
+# Obtenir les événements d'audit
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/audit?limit=100&startDate=2024-01-01"
+
+# Types d'événements audités :
+# - Page viewed, created, updated, deleted
+# - Space created, deleted
+# - Permission changes
+# - User login, logout
+# - Plugin installed, disabled
+# - Configuration changes
+# - Export/Import operations
+
+# Filtrer les événements de sécurité
+curl -s -u \\\${AUTH} "\\\${CONF_URL}/rest/api/audit?category=security&limit=50"
+\\\`\\\`\\\`
+
+### Troubleshooting courant
+
+| Problème | Cause probable | Solution |
+|----------|---------------|----------|
+| OutOfMemoryError | JVM sous-dimensionnée | Augmenter Xmx dans setenv.sh |
+| Synchrony disconnected | Port 8091 bloqué | Vérifier firewall et proxy WebSocket |
+| Slow page rendering | Macros lourdes / index | Rebuild index, optimiser macros |
+| Attachment upload fails | Taille max config | Augmenter limite dans config |
+| Space export fails | Espace trop volumineux | Exporter par sections |
+| Plugin errors | Incompatibilité version | Mettre à jour ou désactiver le plugin |
+| Search not working | Index corrompu | Rebuild Content Index |
+| Mail notifications fail | SMTP mal configuré | Vérifier config mail dans admin |
+
+`,
+      practiceContent: `## Travaux pratiques - Administration avancée
+
+### TP1 : Permissions et sécurité
+
+1. Créer 3 groupes : devops-admins, devops-users, devops-readers
+2. Configurer les permissions de l'espace DEVOPS :
+   - devops-admins : toutes les permissions
+   - devops-users : view, add pages, add comments
+   - devops-readers : view only
+3. Appliquer des restrictions sur une page sensible (visible uniquement par admins)
+4. Vérifier via API que les restrictions fonctionnent correctement
+
+### TP2 : Backup et restauration
+
+1. Écrire un script de backup complet (BDD + CONFLUENCE_HOME)
+2. Configurer un cron pour backup quotidien à 3h
+3. Tester la restauration sur une instance Docker de test
+4. Documenter la procédure de restauration dans Confluence
+
+### TP3 : Opérations en masse
+
+1. Écrire un script pour trouver toutes les pages non modifiées depuis 6 mois
+2. Ajouter automatiquement un label "to-review" à ces pages
+3. Générer un rapport CSV de toutes les pages avec : titre, auteur, date de modification
+4. Écrire un script de migration de contenu entre deux espaces
+
+### TP4 : Performance et monitoring
+
+1. Configurer le monitoring avec les health checks API
+2. Vérifier la taille de la base de données et les tables les plus volumineuses
+3. Effectuer un VACUUM ANALYZE sur la base PostgreSQL
+4. Mesurer le temps de réponse de l'API et identifier les goulots
+
+### TP5 : Maintenance
+
+1. Déclencher une réindexation du contenu
+2. Vérifier le statut de la réindexation
+3. Exporter un espace en XML pour backup
+4. Simuler une restauration d'espace depuis le XML
+
+### Questions de validation
+
+- Quelle est la différence entre permissions d'espace et restrictions de page ?
+- Comment fonctionne l'héritage des restrictions sur les pages enfants ?
+- Quels éléments doivent être inclus dans un backup complet ?
+- Comment monitorer la santé d'une instance Confluence ?
+- Quels sont les cas d'utilisation des opérations en masse via API ?`,
+      keyPoints: JSON.stringify([
+        'Permissions 3 niveaux : globales (site), espace (group/user), page (restrictions view/edit héritées)',
+        'Gestion groupes API : CRUD groupes, ajout/retrait membres, désactivation utilisateurs',
+        'Backup complet : pg_dump (BDD) + tar (CONFLUENCE_HOME) + script cron + rétention + vérification intégrité',
+        'Restauration : stop service, restore DB (pg_restore), restore files, restart, rebuild index',
+        'Performance : JVM G1GC 4Go+, PostgreSQL vacuum/reindex, Synchrony memory, cache management',
+        'Opérations en masse : scripts bash + API pour labels bulk, pages obsolètes, migrations, rapports CSV',
+        'Monitoring : /status endpoint, cluster nodes, JMX metrics, cache statistics, audit log',
+        'Troubleshooting : OutOfMemory, Synchrony disconnect, index corruption, plugin conflicts, mail failures'
+      ]) },
+
+
+
+    // ==================== BITBUCKET ====================
+    { id: 'bb-01', courseId: 'bitbucket', title: 'Introduction complète à Bitbucket Server', duration: '5h', orderIndex: 1,
+      theoryContent: `## Introduction complète à Bitbucket Server/Data Center
+
+### Présentation et historique
+
+**Bitbucket** est la plateforme d'hébergement de code source Git développée par **Atlassian**. Anciennement appelé **Stash** (avant 2015), Bitbucket Server/Data Center est la version auto-hébergée destinée aux entreprises qui nécessitent un contrôle total sur leur infrastructure de gestion de code source.
+
+Historique de Bitbucket :
+- **2008** : Création de Bitbucket (initialement Mercurial)
+- **2010** : Rachat par Atlassian
+- **2011** : Support Git ajouté
+- **2012** : Stash (version serveur) lancé
+- **2015** : Stash renommé en Bitbucket Server
+- **2016** : Bitbucket Pipelines (CI/CD intégré - Cloud)
+- **2018** : Data Center (haute disponibilité, clustering)
+- **2020** : Smart Mirroring pour équipes géographiquement distribuées
+- **2022** : Amélioration Code Insights et Security features
+- **2024** : Bitbucket Data Center avec mesh architecture
+
+### Concepts fondamentaux
+
+#### Projects (Projets)
+- Conteneur de haut niveau regroupant des repositories
+- Permissions héritables par tous les repos du projet
+- Clé unique (ex: PROJ, OPS, INFRA)
+- Catégorisation et organisation du code source
+
+#### Repositories (Dépôts)
+- Dépôts Git complets hébergés sur le serveur
+- Clone via SSH (port 7999) ou HTTPS (port 7990)
+- Branches, tags, et historique complet
+- Hooks (pre-receive, post-receive)
+- LFS (Large File Storage) supporté
+
+#### Pull Requests (Demandes de fusion)
+- Workflow de code review structuré
+- Reviewers obligatoires ou optionnels
+- Discussions et commentaires inline sur le diff
+- Tasks (checklists) dans les PR
+- Merge checks (build status, approvals, no open tasks)
+- Merge strategies (merge commit, squash, fast-forward, rebase)
+
+#### Branches et modèle de branchement
+- Branch model configurable (Git Flow, GitHub Flow, trunk-based)
+- Branch permissions (protection contre force push, deletion)
+- Default branch configurable
+- Automatic branch cleanup
+
+#### Forks
+- Copie complète d'un repository dans un autre projet
+- Workflow fork → develop → PR back to original
+- Synchronisation avec le repository upstream
+
+### Architecture Bitbucket Data Center
+
+\\\`\\\`\\\`
+┌──────────────────────────────────────────────────────────────────────────┐
+│                  BITBUCKET DATA CENTER ARCHITECTURE                        │
+├──────────────────────────────────────────────────────────────────────────┤
+│                                                                            │
+│   ┌─────────────┐      ┌───────────────────────────────────────┐         │
+│   │ Git Clients │      │         Load Balancer                  │         │
+│   │ (SSH/HTTPS) │─────▶│   (HAProxy/Nginx/F5/AWS ALB)          │         │
+│   └─────────────┘      └────────────┬──────────────────────────┘         │
+│                                      │                                    │
+│                      ┌───────────────┼───────────────┐                   │
+│                      ▼               ▼               ▼                   │
+│              ┌──────────────┐ ┌──────────────┐ ┌──────────────┐          │
+│              │  Bitbucket   │ │  Bitbucket   │ │  Bitbucket   │          │
+│              │   Node #1    │ │   Node #2    │ │   Node #3    │          │
+│              │  HTTP: 7990  │ │  HTTP: 7990  │ │  HTTP: 7990  │          │
+│              │  SSH:  7999  │ │  SSH:  7999  │ │  SSH:  7999  │          │
+│              │  Hazel: 5701 │ │  Hazel: 5701 │ │  Hazel: 5701 │          │
+│              └──────┬───────┘ └──────┬───────┘ └──────┬───────┘          │
+│                     │                │                │                    │
+│              ┌──────┴────────────────┴────────────────┴──────┐           │
+│              │       Shared Filesystem (NFS/EFS/GlusterFS)    │           │
+│              │   /bitbucket-shared (repos, plugins, data)     │           │
+│              └────────────────────────────────────────────────┘           │
+│                                                                            │
+│              ┌────────────────────────────────────────────────┐           │
+│              │            PostgreSQL Database                   │           │
+│              │    (Primary + Streaming Replica)                 │           │
+│              │    Port 5432 | Database: bitbucketdb             │           │
+│              └────────────────────────────────────────────────┘           │
+│                                                                            │
+│              ┌────────────────────────────────────────────────┐           │
+│              │         Elasticsearch (Code Search)             │           │
+│              │         Port 9200 | Index: bitbucket            │           │
+│              └────────────────────────────────────────────────┘           │
+│                                                                            │
+│   ┌──────────────────────────────────────────────────────────────┐       │
+│   │              Smart Mirror (Optional - for remote teams)       │       │
+│   │   ┌──────────────┐                                           │       │
+│   │   │  Mirror Node │  Read-only clone for geographically       │       │
+│   │   │  (Paris/NYC) │  distributed teams (reduces latency)      │       │
+│   │   └──────────────┘                                           │       │
+│   └──────────────────────────────────────────────────────────────┘       │
+│                                                                            │
+└──────────────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+### Installation complète sur Linux
+
+#### Prérequis système
+
+\\\`\\\`\\\`bash
+# ============================================
+# PREREQUIS BITBUCKET SERVER/DATA CENTER
+# ============================================
+
+# Vérification système
+free -h                # Minimum 4 Go RAM (8 Go+ production)
+df -h                  # Minimum 20 Go disque (stockage repos dépendant)
+nproc                  # Minimum 2 CPU (4+ recommandé)
+git --version          # Git 2.x requis (2.39+ recommandé)
+
+# Installation Git récent - Ubuntu/Debian
+sudo add-apt-repository ppa:git-core/ppa -y
+sudo apt update
+sudo apt install -y git
+git --version          # Doit être 2.39+
+
+# Installation Git récent - CentOS/RHEL
+sudo yum install -y https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm
+sudo yum install -y git
+git --version
+
+# Installation Java 17
+# Ubuntu/Debian
+sudo apt install -y openjdk-17-jdk wget curl unzip
+
+# CentOS/RHEL
+sudo yum install -y java-17-openjdk java-17-openjdk-devel wget curl unzip
+
+java -version
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+
+# Ports requis
+# 7990 - Interface web HTTP
+# 7999 - SSH pour Git operations
+# 5432 - PostgreSQL
+# 5701 - Hazelcast (cluster Data Center)
+# 9200 - Elasticsearch (code search)
+\\\`\\\`\\\`
+
+#### Installation PostgreSQL
+
+\\\`\\\`\\\`bash
+# ============================================
+# BASE DE DONNÉES POSTGRESQL POUR BITBUCKET
+# ============================================
+
+# Installation PostgreSQL 14
+sudo apt install -y postgresql-14
+
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+
+# Créer utilisateur et base
+sudo -u postgres psql << 'EOSQL'
+CREATE USER bitbucketuser WITH PASSWORD 'BitbucketPass123!';
+CREATE DATABASE bitbucketdb WITH ENCODING 'UTF8' LC_COLLATE 'C' LC_CTYPE 'C' TEMPLATE template0 OWNER bitbucketuser;
+GRANT ALL PRIVILEGES ON DATABASE bitbucketdb TO bitbucketuser;
+\q
+EOSQL
+
+# Configuration pg_hba.conf
+# host  bitbucketdb  bitbucketuser  127.0.0.1/32  scram-sha-256
+
+sudo systemctl restart postgresql
+psql -h localhost -U bitbucketuser -d bitbucketdb -c "SELECT version();"
+\\\`\\\`\\\`
+
+
+#### Installation Bitbucket Server
+
+\\\`\\\`\\\`bash
+# ============================================
+# INSTALLATION BITBUCKET SERVER
+# ============================================
+
+# Créer l'utilisateur système
+sudo useradd -r -m -U -d /opt/atlassian/bitbucket -s /bin/bash bitbucket
+
+# Télécharger l'installeur
+cd /tmp
+wget https://product-downloads.atlassian.com/software/stash/downloads/atlassian-bitbucket-8.16.0-x64.bin
+chmod +x atlassian-bitbucket-8.16.0-x64.bin
+
+# Installation interactive
+sudo ./atlassian-bitbucket-8.16.0-x64.bin
+
+# Répertoires après installation :
+# /opt/atlassian/bitbucket/          - Application
+# /var/atlassian/application-data/bitbucket/  - BITBUCKET_HOME (données, repos)
+# /opt/atlassian/bitbucket/bin/      - Scripts
+# /var/atlassian/application-data/bitbucket/shared/  - Repos Git
+
+# ============================================
+# SERVICE SYSTEMD
+# ============================================
+
+sudo cat > /etc/systemd/system/bitbucket.service << 'EOF'
+[Unit]
+Description=Atlassian Bitbucket Server
+After=network.target postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=forking
+User=bitbucket
+Group=bitbucket
+Environment=JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+Environment=BITBUCKET_HOME=/var/atlassian/application-data/bitbucket
+ExecStart=/opt/atlassian/bitbucket/bin/start-bitbucket.sh
+ExecStop=/opt/atlassian/bitbucket/bin/stop-bitbucket.sh
+Restart=on-failure
+RestartSec=10
+LimitNOFILE=65536
+LimitNPROC=65536
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable bitbucket
+sudo systemctl start bitbucket
+sudo systemctl status bitbucket
+
+# Vérifier les logs
+sudo tail -f /var/atlassian/application-data/bitbucket/log/atlassian-bitbucket.log
+# Attendre : "Bitbucket Server is ready"
+# Accéder à http://localhost:7990 pour le wizard
+\\\`\\\`\\\`
+
+#### Configuration SSH
+
+\\\`\\\`\\\`bash
+# ============================================
+# CONFIGURATION SSH POUR GIT
+# ============================================
+
+# Bitbucket utilise son propre serveur SSH (port 7999 par défaut)
+# La configuration se fait via BITBUCKET_HOME/shared/bitbucket.properties
+
+# Configurer le port SSH
+echo "plugin.ssh.port=7999" >> /var/atlassian/application-data/bitbucket/shared/bitbucket.properties
+echo "plugin.ssh.baseurl=ssh://git@bitbucket.example.com:7999" >> /var/atlassian/application-data/bitbucket/shared/bitbucket.properties
+
+# Générer une clé SSH (côté client)
+ssh-keygen -t ed25519 -C "dev@example.com" -f ~/.ssh/bitbucket_ed25519
+eval "\\\$(ssh-agent -s)"
+ssh-add ~/.ssh/bitbucket_ed25519
+
+# Configurer le SSH client (~/.ssh/config)
+cat >> ~/.ssh/config << 'EOF'
+Host bitbucket.example.com
+  HostName bitbucket.example.com
+  Port 7999
+  User git
+  IdentityFile ~/.ssh/bitbucket_ed25519
+  IdentitiesOnly yes
+EOF
+
+# Ajouter la clé publique dans Bitbucket
+# UI: Account > SSH Keys > Add Key
+# Ou via API :
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/ssh/1.0/keys" \\\\
+  -d "{
+    \"text\": \"\\\$(cat ~/.ssh/bitbucket_ed25519.pub)\"
+  }"
+
+# Tester la connexion SSH
+ssh -T git@bitbucket.example.com -p 7999
+# Réponse attendue : "authenticated via ssh key"
+\\\`\\\`\\\`
+
+#### Configuration Docker Compose
+
+\\\`\\\`\\\`bash
+# ============================================
+# DOCKER COMPOSE - Bitbucket + PostgreSQL + Elasticsearch
+# ============================================
+
+mkdir -p /opt/bitbucket-docker && cd /opt/bitbucket-docker
+
+cat > docker-compose.yml << 'EOF'
+version: '3.8'
+services:
+  bitbucket:
+    image: atlassian/bitbucket:8.16
+    container_name: bitbucket
+    ports:
+      - "7990:7990"
+      - "7999:7999"
+    environment:
+      - JDBC_URL=jdbc:postgresql://db:5432/bitbucketdb
+      - JDBC_USER=bitbucketuser
+      - JDBC_PASSWORD=BitbucketPass123!
+      - JDBC_DRIVER=org.postgresql.Driver
+      - JVM_MINIMUM_MEMORY=2048m
+      - JVM_MAXIMUM_MEMORY=4096m
+      - ELASTICSEARCH_ENABLED=false
+      - SERVER_PROXY_NAME=bitbucket.example.com
+      - SERVER_PROXY_PORT=443
+      - SERVER_SCHEME=https
+      - SERVER_SECURE=true
+    volumes:
+      - bitbucket-data:/var/atlassian/application-data/bitbucket
+    depends_on:
+      - db
+      - elasticsearch
+    restart: unless-stopped
+
+  db:
+    image: postgres:14-alpine
+    container_name: bitbucket-db
+    environment:
+      - POSTGRES_USER=bitbucketuser
+      - POSTGRES_PASSWORD=BitbucketPass123!
+      - POSTGRES_DB=bitbucketdb
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.15
+    container_name: bitbucket-search
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+    restart: unless-stopped
+
+volumes:
+  bitbucket-data:
+  postgres-data:
+  es-data:
+EOF
+
+docker-compose up -d
+docker-compose logs -f bitbucket
+\\\`\\\`\\\`
+
+#### Reverse Proxy Nginx
+
+\\\`\\\`\\\`bash
+# ============================================
+# NGINX REVERSE PROXY POUR BITBUCKET
+# ============================================
+
+sudo cat > /etc/nginx/sites-available/bitbucket << 'EOF'
+upstream bitbucket_backend {
+    server 127.0.0.1:7990;
+}
+
+server {
+    listen 80;
+    server_name bitbucket.example.com;
+    return 301 https://\\\$host\\\$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name bitbucket.example.com;
+
+    ssl_certificate /etc/letsencrypt/live/bitbucket.example.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/bitbucket.example.com/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    client_max_body_size 500m;
+    proxy_read_timeout 3600s;
+    proxy_connect_timeout 60s;
+
+    location / {
+        proxy_pass http://bitbucket_backend;
+        proxy_set_header Host \\\$host;
+        proxy_set_header X-Real-IP \\\$remote_addr;
+        proxy_set_header X-Forwarded-For \\\$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-Port 443;
+        proxy_buffering off;
+    }
+}
+EOF
+
+sudo ln -s /etc/nginx/sites-available/bitbucket /etc/nginx/sites-enabled/
+sudo nginx -t && sudo systemctl reload nginx
+
+# Note : Le SSH (port 7999) n'est PAS proxifié par Nginx
+# Il doit être accessible directement (NAT/forwarding si nécessaire)
+\\\`\\\`\\\`
+
+### API REST Bitbucket - Référence complète
+
+\\\`\\\`\\\`bash
+# ============================================
+# VARIABLES DE BASE
+# ============================================
+BB_URL="https://bitbucket.example.com"
+AUTH="admin:password"
+
+# ============================================
+# PROJETS - CRUD
+# ============================================
+
+# Lister tous les projets
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects?limit=100" | python3 -m json.tool
+
+# Obtenir un projet spécifique
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ" | python3 -m json.tool
+
+# Créer un projet
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects" \\\\
+  -d '{
+    "key": "DEVOPS",
+    "name": "DevOps Platform",
+    "description": "Repositories pour l infrastructure DevOps"
+  }'
+
+# Mettre à jour un projet
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/DEVOPS" \\\\
+  -d '{
+    "name": "DevOps Platform - Updated",
+    "description": "Nouvelle description du projet"
+  }'
+
+# Supprimer un projet (ATTENTION)
+curl -s -u \\\${AUTH} -X DELETE "\\\${BB_URL}/rest/api/1.0/projects/DEVOPS"
+
+
+# ============================================
+# REPOSITORIES - CRUD
+# ============================================
+
+# Lister les repos d'un projet
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos?limit=50"
+
+# Obtenir un repo spécifique
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app"
+
+# Créer un repository
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos" \\\\
+  -d '{
+    "name": "my-new-service",
+    "scmId": "git",
+    "forkable": true,
+    "description": "Microservice de gestion des utilisateurs",
+    "defaultBranch": "main"
+  }'
+
+# Mettre à jour un repo
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-new-service" \\\\
+  -d '{
+    "description": "Description mise à jour",
+    "forkable": false
+  }'
+
+# Supprimer un repository
+curl -s -u \\\${AUTH} -X DELETE "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-new-service"
+
+# Forker un repository
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/fork" \\\\
+  -d '{
+    "slug": "my-app-fork",
+    "project": {"key": "~username"}
+  }'
+
+# ============================================
+# GIT CLONE (SSH et HTTPS)
+# ============================================
+
+# Clone via SSH (recommandé)
+git clone ssh://git@bitbucket.example.com:7999/PROJ/my-app.git
+
+# Clone via HTTPS
+git clone https://bitbucket.example.com/scm/PROJ/my-app.git
+
+# Clone avec profondeur limitée (shallow clone)
+git clone --depth 1 ssh://git@bitbucket.example.com:7999/PROJ/my-app.git
+
+# ============================================
+# BRANCHES - API
+# ============================================
+
+# Lister les branches
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/branches?limit=100"
+
+# Obtenir la branche par défaut
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/default-branch"
+
+# Changer la branche par défaut
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/default-branch" \\\\
+  -d '{"id": "refs/heads/main"}'
+
+# Créer une branche
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/branches" \\\\
+  -d '{
+    "name": "feature/user-auth",
+    "startPoint": "refs/heads/main"
+  }'
+
+# Supprimer une branche
+curl -s -u \\\${AUTH} -X DELETE \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/branches" \\\\
+  -d '{"name": "refs/heads/feature/user-auth", "dryRun": false}'
+
+# ============================================
+# COMMITS ET DIFFS
+# ============================================
+
+# Lister les commits
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/commits?limit=25"
+
+# Obtenir un commit spécifique
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/commits/abc123def"
+
+# Obtenir le diff d'un commit
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/commits/abc123def/diff"
+
+# Diff entre deux branches
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/diff?from=main&to=feature/auth"
+
+# ============================================
+# PULL REQUESTS - LIFECYCLE COMPLET
+# ============================================
+
+# Lister les PR (ouvertes par défaut)
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/pull-requests?state=OPEN"
+
+# Lister les PR merged
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/pull-requests?state=MERGED&limit=50"
+
+# Créer une Pull Request
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/pull-requests" \\\\
+  -d '{
+    "title": "feat: Implement user authentication module",
+    "description": "## Changes\\n- Add JWT authentication\\n- Add login/logout endpoints\\n- Add middleware for protected routes\\n\\n## Testing\\n- Unit tests added (95% coverage)\\n- Integration tests with test DB\\n\\nJira: PROJ-123",
+    "state": "OPEN",
+    "open": true,
+    "closed": false,
+    "fromRef": {
+      "id": "refs/heads/feature/user-auth",
+      "repository": {"slug": "my-app", "project": {"key": "PROJ"}}
+    },
+    "toRef": {
+      "id": "refs/heads/main",
+      "repository": {"slug": "my-app", "project": {"key": "PROJ"}}
+    },
+    "reviewers": [
+      {"user": {"name": "senior.dev"}},
+      {"user": {"name": "tech.lead"}}
+    ]
+  }'
+
+# Mettre à jour une PR (titre, description, reviewers)
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/pull-requests/1" \\\\
+  -d '{
+    "version": 0,
+    "title": "feat: Updated title",
+    "description": "Updated description",
+    "reviewers": [
+      {"user": {"name": "senior.dev"}},
+      {"user": {"name": "tech.lead"}},
+      {"user": {"name": "qa.engineer"}}
+    ]
+  }'
+
+# Approuver une PR
+curl -s -u \\\${AUTH} -X POST \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/pull-requests/1/approve"
+
+# Retirer son approbation
+curl -s -u \\\${AUTH} -X DELETE \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/pull-requests/1/approve"
+
+# Décliner (rejeter) une PR
+curl -s -u \\\${AUTH} -X POST \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/pull-requests/1/decline" \\\\
+  -H "Content-Type: application/json" \\\\
+  -d '{"version": 1}'
+
+# Merger une PR
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/pull-requests/1/merge" \\\\
+  -d '{"version": 1}'
+
+# Ajouter un commentaire sur une PR
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/pull-requests/1/comments" \\\\
+  -d '{
+    "text": "Excellent travail ! Juste une remarque sur la gestion des erreurs ligne 42."
+  }'
+
+# Ajouter un commentaire inline (sur une ligne de code)
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/pull-requests/1/comments" \\\\
+  -d '{
+    "text": "Cette variable devrait être const au lieu de let",
+    "anchor": {
+      "path": "src/auth/middleware.js",
+      "line": 42,
+      "lineType": "ADDED",
+      "fileType": "TO"
+    }
+  }'
+
+# Créer une task (checklist item) sur une PR
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/pull-requests/1/blocker-comments" \\\\
+  -d '{"text": "Ajouter des tests pour le cas erreur 401"}'
+
+# ============================================
+# BRANCH PERMISSIONS
+# ============================================
+
+# Ajouter une restriction de branche (pull-request-only)
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/branch-permissions/2.0/projects/PROJ/repos/my-app/restrictions" \\\\
+  -d '{
+    "type": "pull-request-only",
+    "matcher": {
+      "id": "refs/heads/main",
+      "type": {"id": "BRANCH"}
+    }
+  }'
+
+# Empêcher le force push
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/branch-permissions/2.0/projects/PROJ/repos/my-app/restrictions" \\\\
+  -d '{
+    "type": "no-force-push",
+    "matcher": {
+      "id": "refs/heads/main",
+      "type": {"id": "BRANCH"}
+    }
+  }'
+
+# Empêcher la suppression de branche
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/branch-permissions/2.0/projects/PROJ/repos/my-app/restrictions" \\\\
+  -d '{
+    "type": "no-deletes",
+    "matcher": {
+      "id": "refs/heads/main",
+      "type": {"id": "BRANCH"}
+    }
+  }'
+
+# Protection par pattern (toutes les branches release/*)
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/branch-permissions/2.0/projects/PROJ/repos/my-app/restrictions" \\\\
+  -d '{
+    "type": "pull-request-only",
+    "matcher": {
+      "id": "release/**",
+      "type": {"id": "PATTERN"}
+    }
+  }'
+
+# ============================================
+# WEBHOOKS
+# ============================================
+
+# Créer un webhook
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/webhooks" \\\\
+  -d '{
+    "name": "Jenkins CI Trigger",
+    "url": "https://jenkins.example.com/generic-webhook-trigger/invoke?token=SECRET",
+    "active": true,
+    "events": [
+      "repo:refs_changed",
+      "pr:opened",
+      "pr:merged",
+      "pr:declined",
+      "pr:comment:added"
+    ]
+  }'
+
+# Événements webhook disponibles :
+# repo:refs_changed       - Push (branches/tags modifiés)
+# repo:modified           - Repo settings modified
+# repo:forked             - Repo forked
+# repo:comment:added      - Comment on commit
+# pr:opened               - PR opened
+# pr:modified             - PR modified (title, description)
+# pr:reviewer:updated     - Reviewers changed
+# pr:reviewer:approved    - PR approved
+# pr:reviewer:unapproved  - Approval removed
+# pr:reviewer:needs_work  - Marked as needs work
+# pr:merged               - PR merged
+# pr:declined             - PR declined
+# pr:deleted              - PR deleted
+# pr:comment:added        - Comment on PR
+# pr:comment:edited       - Comment edited
+# pr:comment:deleted      - Comment deleted
+
+# ============================================
+# PERMISSIONS UTILISATEURS
+# ============================================
+
+# Permissions au niveau projet
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/permissions/users?name=john.doe&permission=PROJECT_WRITE"
+
+# Permissions au niveau repo
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/permissions/users?name=john.doe&permission=REPO_ADMIN"
+
+# Niveaux de permissions :
+# PROJECT_READ  - Lire les repos du projet
+# PROJECT_WRITE - Push dans les repos du projet
+# PROJECT_ADMIN - Administrer le projet
+# REPO_READ     - Lire un repo spécifique
+# REPO_WRITE    - Push dans un repo spécifique
+# REPO_ADMIN    - Administrer un repo spécifique
+
+# Permissions par groupe
+curl -s -u \\\${AUTH} -X PUT \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/permissions/groups?name=developers&permission=PROJECT_WRITE"
+
+# ============================================
+# SSH KEYS MANAGEMENT
+# ============================================
+
+# Lister les clés SSH d'un utilisateur
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/ssh/1.0/keys?user=john.doe"
+
+# Ajouter une clé SSH (access key) au repo (deploy key)
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/keys/1.0/projects/PROJ/repos/my-app/ssh" \\\\
+  -d '{
+    "key": {"text": "ssh-ed25519 AAAAC3... deploy@ci-server"},
+    "permission": "REPO_READ"
+  }'
+\\\`\\\`\\\`
+
+### Smart Commits
+
+Smart Commits permettent de piloter Jira directement depuis les messages de commit Git :
+
+\\\`\\\`\\\`
+# Syntaxe complète :
+# ISSUE_KEY #command parameter
+
+# Ajouter un commentaire
+PROJ-123 #comment Correction du bug d'authentification, le token est maintenant validé côté serveur
+
+# Logger du temps
+PROJ-123 #time 2h30m Implémentation de la validation JWT
+
+# Transition (changer le statut)
+PROJ-123 #in-progress
+PROJ-123 #done
+PROJ-123 #in-review
+
+# Combinaison multiple
+PROJ-123 #comment Implémentation terminée #time 4h #done
+
+# Multiple tickets dans un même commit
+PROJ-123 PROJ-124 #comment Refactoring commun #time 1h30m
+
+# Exemple réel de commit message
+git commit -m "feat(auth): implement JWT validation
+
+PROJ-123 #comment Added JWT token validation middleware with expiry check
+PROJ-123 #time 3h
+PROJ-123 #in-review"
+\\\`\\\`\\\`
+
+### Conventions de nommage des branches
+
+\\\`\\\`\\\`
+# Modèle recommandé :
+# <type>/<ticket>-<description-courte>
+
+# Types :
+feature/    - Nouvelle fonctionnalité
+bugfix/     - Correction de bug
+hotfix/     - Correction urgente en production
+release/    - Préparation de release
+chore/      - Maintenance, refactoring
+docs/       - Documentation
+
+# Exemples :
+feature/PROJ-123-user-authentication
+bugfix/PROJ-456-fix-login-timeout
+hotfix/PROJ-789-critical-security-patch
+release/2.1.0
+chore/PROJ-101-update-dependencies
+docs/PROJ-202-api-documentation
+\\\`\\\`\\\`
+
+`,
+      practiceContent: `## Travaux pratiques - Introduction à Bitbucket
+
+### TP1 : Installation et configuration
+
+1. Installer Bitbucket via Docker Compose (avec PostgreSQL et Elasticsearch)
+2. Compléter le wizard de configuration
+3. Configurer SSH (générer clé, ajouter dans Bitbucket, tester connexion)
+4. Créer un projet "Formation DevOps" (clé: FORM)
+
+### TP2 : Gestion des repositories
+
+1. Créer un repository "my-app" dans le projet FORM
+2. Cloner via SSH et via HTTPS
+3. Créer des branches (feature/auth, feature/api, bugfix/login)
+4. Pousser du code et vérifier via l'interface web
+5. Configurer la branche par défaut à "main"
+
+### TP3 : Pull Requests workflow
+
+1. Créer une PR depuis feature/auth vers main
+2. Ajouter des reviewers
+3. Ajouter des commentaires inline sur le code
+4. Créer des tasks (points à corriger)
+5. Approuver et merger la PR
+
+### TP4 : Sécurisation
+
+1. Configurer les branch permissions :
+   - main : pull-request-only, no-force-push, no-deletes
+   - release/* : pull-request-only
+2. Configurer les permissions du projet (groupes)
+3. Ajouter un webhook vers un endpoint de test
+4. Tester les Smart Commits avec Jira
+
+### TP5 : API operations
+
+1. Lister tous les repos d'un projet via API
+2. Créer un repo via API
+3. Créer une branche via API
+4. Créer et merger une PR entièrement via API
+
+### Questions de validation
+
+- Quelle est la différence entre les ports 7990 et 7999 ?
+- Comment fonctionnent les branch permissions par pattern ?
+- Quels sont les événements webhook les plus importants pour CI/CD ?
+- Comment configurer un deploy key (access key) pour un pipeline CI ?
+- Quelle est la syntaxe complète des Smart Commits ?`,
+      keyPoints: JSON.stringify([
+        'Bitbucket Server/DC (ex-Stash) : hébergement Git entreprise avec PR, hooks, permissions et Code Search',
+        'Installation Linux : Java 17 + Git 2.x + PostgreSQL + Elasticsearch + bin installer + systemd',
+        'Architecture DC : Load Balancer + Nodes (7990 HTTP, 7999 SSH) + NFS + PostgreSQL + Elasticsearch + Smart Mirror',
+        'API REST /rest/api/1.0/ : CRUD projets, repos, branches, commits, pull requests lifecycle complet',
+        'Pull Requests : create, approve, decline, merge, comments inline, tasks, reviewers management',
+        'Branch Permissions : pull-request-only, no-force-push, no-deletes, pattern-based (release/**)',
+        'Smart Commits : PROJ-123 #comment text #time 2h30m #done - pilotage Jira depuis Git',
+        'Webhooks : repo:refs_changed, pr:opened/merged/declined - intégration CI/CD et notifications'
+      ]) },
+
+
+    { id: 'bb-02', courseId: 'bitbucket', title: 'Pipelines CI/CD et intégration Jenkins', duration: '5h', orderIndex: 2,
+      theoryContent: `## Pipelines CI/CD et intégration Jenkins
+
+### Bitbucket Pipelines (Cloud) - Référence complète
+
+Bitbucket Pipelines est le service CI/CD intégré à Bitbucket Cloud. Il permet d'exécuter des builds, tests et déploiements directement depuis le repository, configuré via un fichier YAML.
+
+#### Structure du fichier bitbucket-pipelines.yml
+
+\\\`\\\`\\\`yaml
+# ============================================
+# STRUCTURE COMPLÈTE bitbucket-pipelines.yml
+# ============================================
+
+# Image Docker par défaut pour tous les steps
+image: node:18-alpine
+
+# Définitions réutilisables
+definitions:
+  # Caches personnalisés
+  caches:
+    npm-cache: ~/.npm
+    pip-cache: ~/.cache/pip
+    maven-cache: ~/.m2/repository
+    gradle-cache: ~/.gradle/caches
+    docker-cache: /var/lib/docker
+
+  # Services (containers additionnels)
+  services:
+    postgres:
+      image: postgres:14-alpine
+      variables:
+        POSTGRES_DB: testdb
+        POSTGRES_USER: testuser
+        POSTGRES_PASSWORD: testpass
+    redis:
+      image: redis:7-alpine
+    elasticsearch:
+      image: elasticsearch:7.17.15
+      variables:
+        discovery.type: single-node
+        ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+    mysql:
+      image: mysql:8.0
+      variables:
+        MYSQL_DATABASE: testdb
+        MYSQL_ROOT_PASSWORD: rootpass
+    docker:
+      memory: 2048
+
+  # Steps réutilisables (YAML anchors)
+  steps:
+    - step: &lint-step
+        name: "Lint"
+        caches:
+          - npm-cache
+        script:
+          - npm ci
+          - npm run lint
+    - step: &test-step
+        name: "Test"
+        caches:
+          - npm-cache
+        script:
+          - npm ci
+          - npm run test:coverage
+        artifacts:
+          - coverage/**
+
+# ============================================
+# PIPELINES PAR TYPE DE DÉCLENCHEUR
+# ============================================
+
+pipelines:
+  # Pipeline par défaut (toutes les branches sans config spécifique)
+  default:
+    - step: *lint-step
+    - step: *test-step
+
+  # Pipelines par branche
+  branches:
+    main:
+      - step: *lint-step
+      - step: *test-step
+      - step:
+          name: "Build & Push Docker"
+          services:
+            - docker
+          caches:
+            - docker-cache
+          script:
+            - docker build -t myapp:latest .
+            - docker tag myapp:latest registry.example.com/myapp:latest
+            - echo \\\${DOCKER_PASSWORD} | docker login -u \\\${DOCKER_USERNAME} --password-stdin registry.example.com
+            - docker push registry.example.com/myapp:latest
+      - step:
+          name: "Deploy to Production"
+          deployment: production
+          trigger: manual
+          script:
+            - pipe: atlassian/ssh-run:0.7.1
+              variables:
+                SSH_USER: deploy
+                SERVER: prod.example.com
+                COMMAND: "cd /app && docker-compose pull && docker-compose up -d"
+
+    develop:
+      - step: *lint-step
+      - step: *test-step
+      - step:
+          name: "Deploy to Staging"
+          deployment: staging
+          script:
+            - pipe: atlassian/ssh-run:0.7.1
+              variables:
+                SSH_USER: deploy
+                SERVER: staging.example.com
+                COMMAND: "cd /app && docker-compose pull && docker-compose up -d"
+
+    'release/**':
+      - step: *lint-step
+      - step: *test-step
+      - step:
+          name: "Build Release"
+          script:
+            - npm run build
+            - npm pack
+          artifacts:
+            - "*.tgz"
+
+    'feature/**':
+      - step: *lint-step
+      - step: *test-step
+
+  # Pipelines pour les tags
+  tags:
+    'v*':
+      - step:
+          name: "Build & Publish Release"
+          script:
+            - npm ci
+            - npm run build
+            - npm publish --tag latest
+
+  # Pipelines pour les Pull Requests
+  pull-requests:
+    '**':
+      - step: *lint-step
+      - step: *test-step
+      - step:
+          name: "SonarQube Analysis"
+          script:
+            - pipe: sonarsource/sonarqube-scan:2.0.1
+              variables:
+                SONAR_HOST_URL: \\\${SONAR_URL}
+                SONAR_TOKEN: \\\${SONAR_TOKEN}
+
+  # Pipelines custom (déclenchement manuel)
+  custom:
+    deploy-to-production:
+      - step:
+          name: "Manual Deploy to Production"
+          deployment: production
+          script:
+            - echo "Deploying to production..."
+            - pipe: atlassian/ssh-run:0.7.1
+              variables:
+                SSH_USER: deploy
+                SERVER: prod.example.com
+                COMMAND: "cd /app && ./deploy.sh"
+
+    database-migration:
+      - step:
+          name: "Run Database Migration"
+          script:
+            - npm run db:migrate
+\\\`\\\`\\\`
+
+#### Steps en parallèle
+
+\\\`\\\`\\\`yaml
+# ============================================
+# PARALLEL STEPS (exécution simultanée)
+# ============================================
+
+pipelines:
+  default:
+    - parallel:
+        - step:
+            name: "Lint"
+            script:
+              - npm ci
+              - npm run lint
+        - step:
+            name: "Unit Tests"
+            script:
+              - npm ci
+              - npm run test:unit
+        - step:
+            name: "Integration Tests"
+            services:
+              - postgres
+            script:
+              - npm ci
+              - npm run test:integration
+    - step:
+        name: "Build"
+        script:
+          - npm ci
+          - npm run build
+        artifacts:
+          - dist/**
+\\\`\\\`\\\`
+
+#### Conditions (Monorepo support)
+
+\\\`\\\`\\\`yaml
+# ============================================
+# CONDITIONS - Monorepo (exécution conditionnelle)
+# ============================================
+
+pipelines:
+  default:
+    - step:
+        name: "Backend Tests"
+        condition:
+          changesets:
+            includePaths:
+              - "backend/**"
+              - "shared/**"
+        script:
+          - cd backend
+          - npm ci
+          - npm run test
+    - step:
+        name: "Frontend Tests"
+        condition:
+          changesets:
+            includePaths:
+              - "frontend/**"
+              - "shared/**"
+        script:
+          - cd frontend
+          - npm ci
+          - npm run test
+    - step:
+        name: "Infrastructure"
+        condition:
+          changesets:
+            includePaths:
+              - "terraform/**"
+              - "k8s/**"
+        script:
+          - cd terraform
+          - terraform plan
+\\\`\\\`\\\`
+
+#### Variables et deployments
+
+\\\`\\\`\\\`yaml
+# ============================================
+# VARIABLES PRÉDÉFINIES BITBUCKET
+# ============================================
+
+# Variables système (automatiques) :
+# BITBUCKET_BUILD_NUMBER      - Numéro de build incrémental
+# BITBUCKET_COMMIT            - SHA du commit
+# BITBUCKET_BRANCH            - Nom de la branche
+# BITBUCKET_TAG               - Nom du tag (si déclenché par tag)
+# BITBUCKET_PR_ID             - Numéro de la PR
+# BITBUCKET_PR_DESTINATION_BRANCH - Branche cible de la PR
+# BITBUCKET_REPO_SLUG         - Nom du repo (slug)
+# BITBUCKET_REPO_FULL_NAME    - owner/repo
+# BITBUCKET_WORKSPACE         - Nom du workspace
+# BITBUCKET_CLONE_DIR         - Répertoire de travail
+# BITBUCKET_STEP_UUID         - UUID unique du step
+# BITBUCKET_PIPELINE_UUID     - UUID unique du pipeline
+# BITBUCKET_DEPLOYMENT_ENVIRONMENT - Nom du deployment
+
+# Variables personnalisées (à définir dans les settings) :
+# - Repository variables (scope: repo)
+# - Deployment variables (scope: environnement spécifique)
+# - Workspace variables (scope: tous les repos)
+# - Secured variables (masquées dans les logs)
+\\\`\\\`\\\`
+
+#### Déploiements (Deployments)
+
+\\\`\\\`\\\`yaml
+# ============================================
+# DEPLOYMENTS - Environnements
+# ============================================
+
+# Les environnements de déploiement sont :
+# - test (pas de restrictions)
+# - staging (pas de restrictions par défaut)
+# - production (confirmation manuelle recommandée)
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: "Deploy to Test"
+          deployment: test
+          script:
+            - echo "Deploying to test environment"
+      - step:
+          name: "Deploy to Staging"
+          deployment: staging
+          script:
+            - echo "Deploying to staging environment"
+      - step:
+          name: "Deploy to Production"
+          deployment: production
+          trigger: manual  # Require manual approval
+          script:
+            - echo "Deploying to production environment"
+\\\`\\\`\\\`
+
+
+#### Caches et Artifacts
+
+\\\`\\\`\\\`yaml
+# ============================================
+# CACHES (accélération des builds)
+# ============================================
+
+# Caches built-in :
+# - node        (~/.npm et node_modules)
+# - pip         (~/.cache/pip)
+# - maven       (~/.m2/repository)
+# - gradle      (~/.gradle/caches)
+# - composer    (~/.composer/cache)
+# - dotnetcore  (~/.nuget/packages)
+# - docker      (/var/lib/docker)
+# - sbt         (~/.sbt et ~/.ivy2/cache)
+
+# Artifacts (fichiers passés entre steps) :
+pipelines:
+  default:
+    - step:
+        name: "Build"
+        script:
+          - npm ci
+          - npm run build
+        artifacts:
+          - dist/**
+          - coverage/**
+          - "*.tgz"
+    - step:
+        name: "Deploy"
+        script:
+          # Les artifacts du step précédent sont automatiquement disponibles
+          - ls dist/
+          - ./deploy.sh dist/
+\\\`\\\`\\\`
+
+#### Services (containers additionnels)
+
+\\\`\\\`\\\`yaml
+# ============================================
+# SERVICES - Containers pour tests
+# ============================================
+
+definitions:
+  services:
+    postgres:
+      image: postgres:14
+      variables:
+        POSTGRES_DB: testdb
+        POSTGRES_USER: test
+        POSTGRES_PASSWORD: test
+      memory: 1024
+    
+    redis:
+      image: redis:7-alpine
+      memory: 512
+    
+    mongodb:
+      image: mongo:6
+      memory: 1024
+    
+    custom-service:
+      image: my-registry.com/my-service:latest
+      variables:
+        CONFIG_KEY: value
+      memory: 2048
+
+pipelines:
+  default:
+    - step:
+        name: "Integration Tests"
+        services:
+          - postgres
+          - redis
+        script:
+          # Les services sont accessibles via localhost
+          - export DATABASE_URL="postgresql://test:test@localhost:5432/testdb"
+          - export REDIS_URL="redis://localhost:6379"
+          - npm ci
+          - npm run test:integration
+\\\`\\\`\\\`
+
+#### Pipes (intégrations pré-configurées)
+
+\\\`\\\`\\\`yaml
+# ============================================
+# PIPES - Intégrations populaires
+# ============================================
+
+# SSH deploy
+- pipe: atlassian/ssh-run:0.7.1
+  variables:
+    SSH_USER: deploy
+    SERVER: prod.example.com
+    COMMAND: "cd /app && docker-compose up -d"
+
+# AWS S3 Deploy
+- pipe: atlassian/aws-s3-deploy:1.1.0
+  variables:
+    AWS_ACCESS_KEY_ID: \\\${AWS_ACCESS_KEY_ID}
+    AWS_SECRET_ACCESS_KEY: \\\${AWS_SECRET_ACCESS_KEY}
+    AWS_DEFAULT_REGION: eu-west-1
+    S3_BUCKET: my-website-bucket
+    LOCAL_PATH: dist/
+
+# Slack notification
+- pipe: atlassian/slack-notify:2.0.0
+  variables:
+    WEBHOOK_URL: \\\${SLACK_WEBHOOK_URL}
+    MESSAGE: "Build #\\\${BITBUCKET_BUILD_NUMBER} deployed to production!"
+
+# Docker Build and Push
+- pipe: atlassian/docker-compose-run:1.0.0
+  variables:
+    DOCKER_COMPOSE_FILE: docker-compose.test.yml
+    DOCKER_COMPOSE_COMMAND: up --exit-code-from tests
+
+# SonarQube Scan
+- pipe: sonarsource/sonarqube-scan:2.0.1
+  variables:
+    SONAR_HOST_URL: \\\${SONAR_URL}
+    SONAR_TOKEN: \\\${SONAR_TOKEN}
+
+# Kubernetes Deploy
+- pipe: atlassian/kubectl-run:3.0.0
+  variables:
+    KUBE_CONFIG: \\\${KUBE_CONFIG}
+    KUBECTL_COMMAND: "apply -f k8s/deployment.yaml"
+
+# Terraform
+- pipe: atlassian/terraform-plan:1.0.0
+  variables:
+    WORKING_DIR: terraform/
+\\\`\\\`\\\`
+
+#### Configuration de taille (Size)
+
+\\\`\\\`\\\`yaml
+# ============================================
+# SIZE - Ressources allouées aux steps
+# ============================================
+
+# Tailles disponibles :
+# 1x (default) : 4 GB RAM, build minutes x1
+# 2x           : 8 GB RAM, build minutes x2
+# 4x           : 16 GB RAM, build minutes x4
+# 8x           : 32 GB RAM, build minutes x8
+
+pipelines:
+  default:
+    - step:
+        name: "Heavy Build"
+        size: 2x  # 8 GB RAM pour builds gourmands
+        script:
+          - npm ci
+          - npm run build
+    - step:
+        name: "Docker Build"
+        size: 4x  # 16 GB pour build Docker multi-stage
+        services:
+          - docker
+        script:
+          - docker build -t myapp:latest .
+\\\`\\\`\\\`
+
+### Exemples complets de pipelines
+
+\\\`\\\`\\\`yaml
+# ============================================
+# EXEMPLE 1 : Node.js (Lint + Test + Build + Deploy)
+# ============================================
+
+image: node:18
+
+definitions:
+  caches:
+    npm: ~/.npm
+  services:
+    postgres:
+      image: postgres:14
+      variables:
+        POSTGRES_DB: testdb
+        POSTGRES_USER: test
+        POSTGRES_PASSWORD: test
+
+pipelines:
+  branches:
+    main:
+      - parallel:
+          - step:
+              name: "ESLint + Prettier"
+              caches: [npm]
+              script:
+                - npm ci
+                - npm run lint
+                - npm run format:check
+          - step:
+              name: "Unit Tests"
+              caches: [npm]
+              script:
+                - npm ci
+                - npm run test:unit -- --coverage
+              artifacts:
+                - coverage/**
+          - step:
+              name: "Integration Tests"
+              caches: [npm]
+              services: [postgres]
+              script:
+                - npm ci
+                - npm run test:integration
+      - step:
+          name: "Build"
+          caches: [npm]
+          script:
+            - npm ci
+            - npm run build
+          artifacts:
+            - dist/**
+      - step:
+          name: "Deploy Production"
+          deployment: production
+          trigger: manual
+          script:
+            - pipe: atlassian/ssh-run:0.7.1
+              variables:
+                SSH_USER: deploy
+                SERVER: prod.example.com
+                COMMAND: "cd /app && git pull && npm ci --production && pm2 restart all"
+
+# ============================================
+# EXEMPLE 2 : Java/Maven (Build + Test + Sonar + Docker + Deploy)
+# ============================================
+
+image: maven:3.9-eclipse-temurin-17
+
+definitions:
+  caches:
+    maven: ~/.m2/repository
+  services:
+    docker:
+      memory: 2048
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: "Build & Test"
+          caches: [maven]
+          script:
+            - mvn clean verify -B
+          artifacts:
+            - target/*.jar
+            - target/surefire-reports/**
+      - step:
+          name: "SonarQube Analysis"
+          caches: [maven]
+          script:
+            - mvn sonar:sonar -Dsonar.host.url=\\\${SONAR_URL} -Dsonar.login=\\\${SONAR_TOKEN}
+      - step:
+          name: "Docker Build & Push"
+          size: 2x
+          services: [docker]
+          script:
+            - docker build -t \\\${DOCKER_REGISTRY}/myapp:\\\${BITBUCKET_COMMIT:0:7} .
+            - docker tag \\\${DOCKER_REGISTRY}/myapp:\\\${BITBUCKET_COMMIT:0:7} \\\${DOCKER_REGISTRY}/myapp:latest
+            - echo \\\${DOCKER_PASSWORD} | docker login -u \\\${DOCKER_USERNAME} --password-stdin \\\${DOCKER_REGISTRY}
+            - docker push \\\${DOCKER_REGISTRY}/myapp:\\\${BITBUCKET_COMMIT:0:7}
+            - docker push \\\${DOCKER_REGISTRY}/myapp:latest
+      - step:
+          name: "Deploy to K8s"
+          deployment: production
+          trigger: manual
+          script:
+            - pipe: atlassian/kubectl-run:3.0.0
+              variables:
+                KUBE_CONFIG: \\\${KUBE_CONFIG}
+                KUBECTL_COMMAND: "set image deployment/myapp myapp=\\\${DOCKER_REGISTRY}/myapp:\\\${BITBUCKET_COMMIT:0:7}"
+
+# ============================================
+# EXEMPLE 3 : Monorepo avec conditions
+# ============================================
+
+image: node:18
+
+pipelines:
+  default:
+    - parallel:
+        - step:
+            name: "Backend Tests"
+            condition:
+              changesets:
+                includePaths: ["backend/**", "shared/**"]
+            script:
+              - cd backend && npm ci && npm test
+        - step:
+            name: "Frontend Tests"
+            condition:
+              changesets:
+                includePaths: ["frontend/**", "shared/**"]
+            script:
+              - cd frontend && npm ci && npm test
+        - step:
+            name: "Terraform Plan"
+            condition:
+              changesets:
+                includePaths: ["infra/**"]
+            image: hashicorp/terraform:1.6
+            script:
+              - cd infra && terraform init && terraform plan
+\\\`\\\`\\\`
+
+### Bitbucket Data Center + Jenkins - Intégration complète
+
+\\\`\\\`\\\`bash
+# ============================================
+# INTÉGRATION BITBUCKET SERVER + JENKINS
+# ============================================
+
+# 1. Configurer le webhook dans Bitbucket pour déclencher Jenkins
+
+# Webhook URL pour Jenkins Generic Webhook Trigger Plugin :
+# https://jenkins.example.com/generic-webhook-trigger/invoke?token=MY_SECRET_TOKEN
+
+# Créer le webhook dans Bitbucket
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/webhooks" \\\\
+  -d '{
+    "name": "Jenkins Multibranch Trigger",
+    "url": "https://jenkins.example.com/generic-webhook-trigger/invoke?token=bitbucket-trigger",
+    "active": true,
+    "events": ["repo:refs_changed", "pr:opened", "pr:merged"]
+  }'
+
+# 2. Configuration Jenkinsfile pour Multibranch Pipeline
+# Le Jenkinsfile dans le repo sera automatiquement détecté
+
+# 3. Reporter le build status à Bitbucket depuis Jenkins
+# Dans le Jenkinsfile :
+# - Utiliser le plugin "Bitbucket Build Status Notifier"
+# - Ou via API REST :
+
+# Reporter un build "in progress"
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/build-status/1.0/commits/COMMIT_SHA" \\\\
+  -d '{
+    "state": "INPROGRESS",
+    "key": "jenkins-build-123",
+    "name": "Jenkins Build #123",
+    "url": "https://jenkins.example.com/job/my-app/123/",
+    "description": "Build in progress..."
+  }'
+
+# Reporter un build "success"
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/build-status/1.0/commits/COMMIT_SHA" \\\\
+  -d '{
+    "state": "SUCCESSFUL",
+    "key": "jenkins-build-123",
+    "name": "Jenkins Build #123",
+    "url": "https://jenkins.example.com/job/my-app/123/",
+    "description": "Build passed - all tests green"
+  }'
+
+# Reporter un build "failed"
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/build-status/1.0/commits/COMMIT_SHA" \\\\
+  -d '{
+    "state": "FAILED",
+    "key": "jenkins-build-123",
+    "name": "Jenkins Build #123",
+    "url": "https://jenkins.example.com/job/my-app/123/",
+    "description": "Build failed - 3 tests failing"
+  }'
+
+# 4. Merge Check basé sur le build status
+# Configuration dans Bitbucket :
+# Repository Settings > Merge Checks > Required builds
+# Exiger que le build soit "SUCCESSFUL" avant de pouvoir merger
+
+# 5. Configuration Multibranch Pipeline Jenkins (via Job DSL ou UI)
+# Source : Bitbucket Server
+# Credentials : Personal Access Token ou SSH key
+# Behaviors : Discover branches, Discover PRs
+# Build Configuration : by Jenkinsfile
+# Webhook trigger : Generic Webhook Trigger ou Bitbucket Branch Source plugin
+\\\`\\\`\\\`
+
+### Self-hosted Runners (Bitbucket Cloud)
+
+\\\`\\\`\\\`bash
+# ============================================
+# RUNNERS SELF-HOSTED (Bitbucket Cloud)
+# ============================================
+
+# Les runners permettent d'exécuter les pipelines sur votre propre infrastructure
+# Utile pour : accès réseau interne, performances, exigences de sécurité
+
+# Installation d'un runner Linux
+# 1. Obtenir le token d'enregistrement dans Workspace Settings > Runners
+
+# 2. Installer Docker sur le serveur runner
+sudo apt install -y docker.io
+sudo systemctl enable docker && sudo systemctl start docker
+
+# 3. Lancer le runner
+docker run -d --name bitbucket-runner \\\\
+  -e ACCOUNT_UUID="{workspace-uuid}" \\\\
+  -e RUNNER_UUID="{runner-uuid}" \\\\
+  -e OAUTH_CLIENT_ID="client-id" \\\\
+  -e OAUTH_CLIENT_SECRET="client-secret" \\\\
+  -e WORKING_DIRECTORY="/tmp/runner" \\\\
+  -v /tmp/runner/docker:/var/run/docker.sock \\\\
+  -v /var/run/docker.sock:/var/run/docker.sock \\\\
+  --restart unless-stopped \\\\
+  docker-public.packages.atlassian.com/sox/atlassian/bitbucket-pipelines-runner
+
+# Utiliser le runner dans bitbucket-pipelines.yml
+# pipelines:
+#   default:
+#     - step:
+#         runs-on:
+#           - self.hosted
+#           - linux
+#         script:
+#           - echo "Running on self-hosted runner"
+\\\`\\\`\\\`
+
+`,
+      practiceContent: `## Travaux pratiques - Pipelines CI/CD
+
+### TP1 : Premier pipeline Bitbucket
+
+1. Créer un projet Node.js simple (express API)
+2. Écrire un bitbucket-pipelines.yml avec :
+   - Step lint (eslint)
+   - Step test (jest avec coverage)
+   - Step build (npm run build)
+3. Pousser et vérifier l'exécution du pipeline
+
+### TP2 : Pipeline avancé avec services
+
+1. Ajouter PostgreSQL comme service
+2. Écrire des tests d'intégration qui utilisent la base
+3. Configurer les artifacts pour passer le coverage entre steps
+4. Ajouter des steps parallèles (lint + unit test + integration test)
+
+### TP3 : Pipeline Docker complet
+
+1. Écrire un Dockerfile multi-stage pour l'application
+2. Configurer le pipeline pour :
+   - Build l'image Docker
+   - Push vers un registry
+   - Deploy avec SSH
+3. Utiliser les variables sécurisées pour les credentials
+4. Ajouter un step de déploiement manuel (production)
+
+### TP4 : Intégration Jenkins + Bitbucket
+
+1. Configurer un webhook Bitbucket vers Jenkins
+2. Créer un Multibranch Pipeline dans Jenkins
+3. Reporter le build status vers Bitbucket via API
+4. Configurer un merge check basé sur le build status
+5. Tester le workflow complet : push → build → report → merge
+
+### TP5 : Monorepo pipeline
+
+1. Structurer un repo en monorepo (backend/ + frontend/ + infra/)
+2. Configurer des conditions changesets pour chaque composant
+3. Vérifier que seuls les steps pertinents s'exécutent lors d'un changement
+
+### Questions de validation
+
+- Quelle est la différence entre default, branches, tags et pull-requests pipelines ?
+- Comment fonctionnent les artifacts entre les steps ?
+- Quels sont les avantages des runners self-hosted ?
+- Comment reporter le build status de Jenkins vers Bitbucket ?
+- Comment configurer un merge check basé sur le build status ?`,
+      keyPoints: JSON.stringify([
+        'bitbucket-pipelines.yml : image, definitions (caches/services/steps), pipelines (default/branches/tags/PR/custom)',
+        'Steps : parallel execution, conditions (changesets monorepo), artifacts, services (postgres/redis/docker)',
+        'Deployments : test/staging/production avec trigger manual, variables par environnement',
+        'Variables : repository/deployment/workspace + secured (masquées) + prédéfinies (BITBUCKET_COMMIT, BRANCH...)',
+        'Pipes : intégrations pré-packagées (ssh-run, aws-s3-deploy, slack-notify, kubectl-run, sonarqube-scan)',
+        'Size : 1x (4GB), 2x (8GB), 4x (16GB), 8x (32GB) - adapter aux besoins de build',
+        'Jenkins integration : webhook trigger + Multibranch Pipeline + build-status API reporting + merge checks',
+        'Runners self-hosted : exécution sur infrastructure propre pour accès réseau interne et performance'
+      ]) },
+
+
+    { id: 'bb-03', courseId: 'bitbucket', title: 'Administration avancée et workflows Git', duration: '5h', orderIndex: 3,
+      theoryContent: `## Administration avancée et workflows Git
+
+### Système de Hooks
+
+Les hooks Git permettent d'exécuter des actions automatiques à certains moments du cycle Git (push, commit, merge).
+
+#### Pre-receive hooks (côté serveur)
+S'exécutent avant d'accepter un push. Peuvent rejeter le push si les conditions ne sont pas remplies.
+
+\\\`\\\`\\\`bash
+# ============================================
+# PRE-RECEIVE HOOKS - Exemples
+# ============================================
+
+# Hook : Validation du format des messages de commit
+# Fichier : pre-receive-hook-commit-message.sh
+#!/bin/bash
+while read oldrev newrev refname; do
+  # Ignorer les suppressions de branche
+  if [ "\\\${newrev}" = "0000000000000000000000000000000000000000" ]; then
+    continue
+  fi
+  
+  # Vérifier chaque commit
+  for commit in \\\$(git rev-list \\\${oldrev}..\\\${newrev}); do
+    msg=\\\$(git log --format=%s -1 \\\${commit})
+    
+    # Format requis : type(scope): description
+    # Exemple : feat(auth): add JWT validation
+    if ! echo "\\\${msg}" | grep -qE "^(feat|fix|docs|style|refactor|test|chore|ci|perf)(\(.+\))?: .{10,}"; then
+      echo "ERROR: Commit message does not match conventional commits format"
+      echo "  Commit: \\\${commit:0:8}"
+      echo "  Message: \\\${msg}"
+      echo "  Required format: type(scope): description (min 10 chars)"
+      echo "  Types: feat, fix, docs, style, refactor, test, chore, ci, perf"
+      exit 1
+    fi
+  done
+done
+
+# Hook : Vérification de la taille des fichiers
+#!/bin/bash
+MAX_FILE_SIZE=10485760  # 10 MB
+while read oldrev newrev refname; do
+  if [ "\\\${newrev}" = "0000000000000000000000000000000000000000" ]; then
+    continue
+  fi
+  
+  for commit in \\\$(git rev-list \\\${oldrev}..\\\${newrev}); do
+    # Lister les fichiers modifiés dans ce commit
+    for file in \\\$(git diff-tree --no-commit-id --name-only -r \\\${commit}); do
+      size=\\\$(git cat-file -s \\\${newrev}:\\\${file} 2>/dev/null || echo 0)
+      if [ "\\\${size}" -gt "\\\${MAX_FILE_SIZE}" ]; then
+        echo "ERROR: File \\\${file} (\\\${size} bytes) exceeds maximum size limit (10 MB)"
+        echo "  Consider using Git LFS for large files"
+        exit 1
+      fi
+    done
+  done
+done
+
+# Hook : Validation du nom de branche
+#!/bin/bash
+while read oldrev newrev refname; do
+  branch=\\\$(echo "\\\${refname}" | sed 's|refs/heads/||')
+  
+  # Pattern autorisé : main, develop, feature/*, bugfix/*, hotfix/*, release/*
+  if ! echo "\\\${branch}" | grep -qE "^(main|develop|feature/.+|bugfix/.+|hotfix/.+|release/.+|chore/.+)$"; then
+    echo "ERROR: Branch name '\\\${branch}' does not match the naming convention"
+    echo "  Allowed patterns: main, develop, feature/*, bugfix/*, hotfix/*, release/*, chore/*"
+    exit 1
+  fi
+done
+
+# Hook : Empêcher le push de secrets
+#!/bin/bash
+PATTERNS=(
+  "AKIA[0-9A-Z]{16}"          # AWS Access Key
+  "-----BEGIN.*PRIVATE KEY"    # Private keys
+  "password\\s*=\\s*['\"].+['\"]"  # Hardcoded passwords
+  "['\"]sk_live_[a-zA-Z0-9]+"  # Stripe keys
+)
+
+while read oldrev newrev refname; do
+  for commit in \\\$(git rev-list \\\${oldrev}..\\\${newrev}); do
+    diff=\\\$(git diff-tree -p \\\${commit})
+    for pattern in "\\\${PATTERNS[@]}"; do
+      if echo "\\\${diff}" | grep -qE "\\\${pattern}"; then
+        echo "ERROR: Potential secret detected in commit \\\${commit:0:8}"
+        echo "  Pattern: \\\${pattern}"
+        echo "  Please remove secrets and use environment variables"
+        exit 1
+      fi
+    done
+  done
+done
+\\\`\\\`\\\`
+
+#### Post-receive hooks
+S'exécutent après un push réussi. Ne peuvent pas rejeter le push mais peuvent déclencher des actions.
+
+\\\`\\\`\\\`bash
+# ============================================
+# POST-RECEIVE HOOKS - Exemples
+# ============================================
+
+# Hook : Notification Slack après push
+#!/bin/bash
+while read oldrev newrev refname; do
+  branch=\\\$(echo "\\\${refname}" | sed 's|refs/heads/||')
+  author=\\\$(git log --format='%an' -1 \\\${newrev})
+  message=\\\$(git log --format='%s' -1 \\\${newrev})
+  
+  curl -s -X POST "\\\${SLACK_WEBHOOK_URL}" \\
+    -H "Content-Type: application/json" \\
+    -d "{
+      \"text\": \"Push to \\\${branch} by \\\${author}: \\\${message}\",
+      \"channel\": \"#dev-notifications\"
+    }"
+done
+
+# Hook : Déclenchement de déploiement automatique
+#!/bin/bash
+while read oldrev newrev refname; do
+  branch=\\\$(echo "\\\${refname}" | sed 's|refs/heads/||')
+  
+  if [ "\\\${branch}" = "main" ]; then
+    # Déclencher le pipeline de déploiement
+    curl -s -X POST "https://jenkins.example.com/job/deploy-prod/build" \\
+      -H "Authorization: Bearer \\\${JENKINS_TOKEN}"
+  elif [ "\\\${branch}" = "develop" ]; then
+    curl -s -X POST "https://jenkins.example.com/job/deploy-staging/build" \\
+      -H "Authorization: Bearer \\\${JENKINS_TOKEN}"
+  fi
+done
+\\\`\\\`\\\`
+
+#### Hooks intégrés Bitbucket (configurables via UI/API)
+- **Reject Force Push** : empêcher git push --force
+- **Reject Branch Deletion** : empêcher la suppression de branches
+- **Require Pull Request** : interdire le push direct
+- **Required Builds** : exiger un build vert avant merge
+- **Required Approvals** : exiger N approbations avant merge
+- **Merge Commit Message** : template de message de merge
+
+### Branch Model et stratégies
+
+#### Git Flow
+
+\\\`\\\`\\\`
+┌────────────────────────────────────────────────────────────────┐
+│                         GIT FLOW                                │
+├────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  main (production)                                               │
+│  ─────●─────────────────────────●────────────●──────▶           │
+│       │                         ↑            ↑                   │
+│       │    hotfix/critical-fix  │            │                   │
+│       └──────●──────●───────────┘            │                   │
+│                                              │                   │
+│  develop                                     │                   │
+│  ─────●──●──●──●──●──●──●──●──●──●──●──────●──▶                │
+│       │     ↑  │     ↑     ↑  │   ↑                            │
+│       │     │  │     │     │  │   │                             │
+│       │  feature/   │  feature/│   │                             │
+│       │  user-auth  │  payment │   │                             │
+│       └──●──●──●────┘  ●──●───┘   │                             │
+│                                    │                             │
+│              release/2.0           │                             │
+│              ●──●──●───────────────┘                             │
+│                                                                  │
+└────────────────────────────────────────────────────────────────┘
+
+Branches :
+- main       : production stable, chaque commit = release
+- develop    : intégration, base pour les features
+- feature/*  : nouvelles fonctionnalités (depuis develop, merge vers develop)
+- release/*  : préparation release (depuis develop, merge vers main + develop)
+- hotfix/*   : corrections urgentes (depuis main, merge vers main + develop)
+\\\`\\\`\\\`
+
+#### GitHub Flow (simplifié)
+
+\\\`\\\`\\\`
+┌────────────────────────────────────────────────────────────────┐
+│                       GITHUB FLOW                               │
+├────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  main (always deployable)                                        │
+│  ─────●──────●──────────────●──────────●──────────●─────▶      │
+│       │      ↑              ↑          ↑          ↑             │
+│       │      │              │          │          │             │
+│       │   feature/auth   feature/api   │       bugfix/x        │
+│       └──●──●──●───────┘ ●──●──●──────┘   ●──●──┘             │
+│          PR+Review        PR+Review         PR+Review           │
+│                                                                  │
+└────────────────────────────────────────────────────────────────┘
+
+Principes :
+- main est TOUJOURS déployable
+- Créer une branche depuis main pour chaque changement
+- PR + code review obligatoire
+- Merger dans main = déployer
+- Pas de branche develop séparée
+\\\`\\\`\\\`
+
+#### Trunk-based Development
+
+\\\`\\\`\\\`
+┌────────────────────────────────────────────────────────────────┐
+│                  TRUNK-BASED DEVELOPMENT                         │
+├────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  main (trunk)                                                    │
+│  ─────●──●──●──●──●──●──●──●──●──●──●──●──●──●──●─────▶      │
+│       │  ↑  │  ↑     │  ↑                                      │
+│       │  │  │  │     │  │                                       │
+│       └●─┘  └●─┘     └●─┘                                      │
+│     short-lived feature branches (< 2 days)                     │
+│                                                                  │
+│  Principes :                                                     │
+│  - Commits fréquents dans main (trunk)                          │
+│  - Feature branches ultra-courtes (heures, pas jours)           │
+│  - Feature flags pour cacher le code incomplet                  │
+│  - CI/CD rapide et fiable                                       │
+│  - Pair programming remplace parfois la code review             │
+│                                                                  │
+└────────────────────────────────────────────────────────────────┘
+\\\`\\\`\\\`
+
+#### Configuration du Branch Model dans Bitbucket
+
+\\\`\\\`\\\`bash
+# ============================================
+# CONFIGURATION BRANCH MODEL VIA API
+# ============================================
+
+# Configurer le modèle de branches du repository
+curl -s -u \\\${AUTH} -X PUT \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/branch-utils/1.0/projects/PROJ/repos/my-app/branchmodel/configuration" \\\\
+  -d '{
+    "development": {"refId": "refs/heads/develop", "useDefault": false},
+    "production": {"refId": "refs/heads/main", "useDefault": false},
+    "types": [
+      {"id": "FEATURE", "displayName": "Feature", "prefix": "feature/", "enabled": true},
+      {"id": "BUGFIX", "displayName": "Bugfix", "prefix": "bugfix/", "enabled": true},
+      {"id": "HOTFIX", "displayName": "Hotfix", "prefix": "hotfix/", "enabled": true},
+      {"id": "RELEASE", "displayName": "Release", "prefix": "release/", "enabled": true}
+    ]
+  }'
+\\\`\\\`\\\`
+
+### Pull Request Workflows avancés
+
+#### Merge Checks (conditions de merge)
+
+\\\`\\\`\\\`bash
+# ============================================
+# MERGE CHECKS CONFIGURATION
+# ============================================
+
+# Configurer le nombre minimum d'approbations
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/settings/merge-checks" \\\\
+  -d '{
+    "required-approvals": {"count": 2},
+    "required-all-approvers-merge": false,
+    "required-builds": {"count": 1},
+    "no-incomplete-tasks": true
+  }'
+
+# Merge checks disponibles :
+# - Minimum approvals (2+ reviewers must approve)
+# - All reviewers must approve
+# - No changes requested (no "needs work" status)
+# - Required successful builds (1+ builds green)
+# - No incomplete tasks (all PR tasks must be resolved)
+# - Branch up-to-date (PR branch must include latest target changes)
+\\\`\\\`\\\`
+
+#### Default Reviewers
+
+\\\`\\\`\\\`bash
+# Configurer des reviewers par défaut
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/default-reviewers/1.0/projects/PROJ/repos/my-app/condition" \\\\
+  -d '{
+    "sourceMatcher": {
+      "id": "feature/**",
+      "type": {"id": "PATTERN"}
+    },
+    "targetMatcher": {
+      "id": "main",
+      "type": {"id": "BRANCH"}
+    },
+    "reviewers": [
+      {"name": "tech.lead"},
+      {"name": "senior.dev"}
+    ],
+    "requiredApprovals": 1
+  }'
+
+# Reviewer par pattern : toutes les PR vers main doivent avoir le tech lead
+# Pattern source: ** (toutes les branches)
+# Pattern target: main
+# Reviewer: tech.lead (obligatoire)
+\\\`\\\`\\\`
+
+
+### Merge Strategies (Stratégies de fusion)
+
+#### Merge Commit (par défaut)
+
+\\\`\\\`\\\`
+# Crée un commit de merge préservant l'historique complet
+# Quand utiliser : quand l'historique de la branche a de la valeur
+#
+# Avant :
+# main:    A---B---C
+#                   \\
+# feature:           D---E---F
+#
+# Après merge commit :
+# main:    A---B---C---------G (merge commit)
+#                   \\       /
+# feature:           D---E---F
+
+git merge --no-ff feature/auth
+\\\`\\\`\\\`
+
+#### Squash Merge
+
+\\\`\\\`\\\`
+# Combine tous les commits de la branche en un seul commit
+# Quand utiliser : quand les commits intermédiaires sont du bruit (WIP, fix typo)
+#
+# Avant :
+# main:    A---B---C
+#                   \\
+# feature:           D---E---F
+#
+# Après squash :
+# main:    A---B---C---G (single commit with all changes from D+E+F)
+
+git merge --squash feature/auth
+git commit -m "feat(auth): implement JWT authentication"
+\\\`\\\`\\\`
+
+#### Fast-Forward Only
+
+\\\`\\\`\\\`
+# Avance simplement le pointeur de branche (historique linéaire)
+# Quand utiliser : quand vous voulez un historique parfaitement linéaire
+# Condition : la branche feature doit être à jour avec main
+#
+# Avant (feature basée sur C, main est à C) :
+# main:    A---B---C
+#                   \\
+# feature:           D---E---F
+#
+# Après fast-forward :
+# main:    A---B---C---D---E---F
+#
+# Note : échoue si main a avancé depuis la création de la branche
+
+git merge --ff-only feature/auth
+\\\`\\\`\\\`
+
+#### Rebase + Merge
+
+\\\`\\\`\\\`
+# Rebase la branche sur la cible avant de merger (fast-forward)
+# Quand utiliser : historique linéaire propre tout en préservant les commits
+#
+# Avant :
+# main:    A---B---C---X---Y
+#                   \\
+# feature:           D---E---F
+#
+# Après rebase :
+# main:    A---B---C---X---Y
+#                            \\
+# feature:                    D'--E'--F' (commits rejoués)
+#
+# Puis fast-forward merge :
+# main:    A---B---C---X---Y---D'--E'--F'
+
+git rebase main feature/auth
+git checkout main
+git merge --ff-only feature/auth
+\\\`\\\`\\\`
+
+#### Configuration dans Bitbucket
+
+\\\`\\\`\\\`bash
+# Configurer la stratégie de merge par défaut
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/settings/merge-strategies" \\\\
+  -d '{
+    "defaultStrategy": {"id": "squash"},
+    "strategies": [
+      {"id": "merge-commit", "enabled": true},
+      {"id": "squash", "enabled": true},
+      {"id": "fast-forward-only", "enabled": true},
+      {"id": "rebase-no-ff", "enabled": true}
+    ]
+  }'
+\\\`\\\`\\\`
+
+### Permissions et sécurité avancées
+
+\\\`\\\`\\\`bash
+# ============================================
+# PERMISSIONS COMPLÈTES
+# ============================================
+
+# Hiérarchie des permissions :
+# Global > Project > Repository > Branch
+
+# Permissions projet (par groupe)
+curl -s -u \\\${AUTH} -X PUT \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/permissions/groups?name=developers&permission=PROJECT_WRITE"
+
+curl -s -u \\\${AUTH} -X PUT \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/permissions/groups?name=qa-team&permission=PROJECT_READ"
+
+curl -s -u \\\${AUTH} -X PUT \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/permissions/groups?name=lead-devs&permission=PROJECT_ADMIN"
+
+# Permissions repository (fine-grained)
+curl -s -u \\\${AUTH} -X PUT \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/sensitive-config/permissions/groups?name=ops-team&permission=REPO_ADMIN"
+
+# Lister les permissions d'un repository
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/permissions/groups"
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/permissions/users"
+
+# Branch permissions avec exemptions
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/branch-permissions/2.0/projects/PROJ/repos/my-app/restrictions" \\\\
+  -d '{
+    "type": "pull-request-only",
+    "matcher": {
+      "id": "main",
+      "type": {"id": "BRANCH"}
+    },
+    "users": [],
+    "groups": ["release-managers"]
+  }'
+# Note: les users/groups listés sont EXEMPTÉS de la restriction
+
+# Access Keys (Deploy Keys) - clé SSH pour CI/CD
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/keys/1.0/projects/PROJ/repos/my-app/ssh" \\\\
+  -d '{
+    "key": {"text": "ssh-ed25519 AAAAC3... jenkins@ci-server"},
+    "permission": "REPO_READ",
+    "label": "Jenkins CI - Read Only"
+  }'
+
+# Personal Access Tokens (alternative aux mots de passe)
+# Créer via UI : Account Settings > Personal Access Tokens
+# Permissions : PROJECT_READ, REPO_WRITE, etc.
+# Utilisation :
+curl -H "Authorization: Bearer PERSONAL_ACCESS_TOKEN" \\\\
+  "\\\${BB_URL}/rest/api/1.0/projects"
+\\\`\\\`\\\`
+
+### Intégration avec Jira
+
+\\\`\\\`\\\`bash
+# ============================================
+# INTÉGRATION BITBUCKET + JIRA
+# ============================================
+
+# 1. Application Links (configuration dans Administration)
+# Administration > Application Links > Add link to Jira
+# URL: https://jira.example.com
+# Type: OAuth / Two-way
+
+# 2. Smart Commits (activés automatiquement avec App Link)
+# Format : ISSUE-KEY #command param
+git commit -m "feat(auth): implement login flow
+
+PROJ-123 #comment Implemented JWT login with refresh tokens
+PROJ-123 #time 4h
+PROJ-123 #in-review"
+
+# 3. Development panel dans Jira
+# Automatiquement alimenté via App Link :
+# - Branches associées au ticket
+# - Commits référençant le ticket
+# - Pull Requests liées
+# - Build status
+
+# 4. Automation : auto-transition sur PR merge
+# Configuration dans Jira Automation Rules :
+# Trigger: Incoming webhook (from Bitbucket, event: pr:merged)
+# Condition: Issue key found in PR title or branch name
+# Action: Transition issue to "Done"
+
+# Webhook payload example (pr:merged) :
+# {
+#   "eventKey": "pr:merged",
+#   "pullRequest": {
+#     "title": "PROJ-123: Implement user auth",
+#     "fromRef": {"displayId": "feature/PROJ-123-auth"},
+#     "toRef": {"displayId": "main"}
+#   }
+# }
+
+# 5. Branch creation depuis Jira
+# Dans le ticket Jira, cliquer "Create Branch"
+# Crée automatiquement : feature/PROJ-123-issue-summary
+\\\`\\\`\\\`
+
+### Administration et maintenance
+
+\\\`\\\`\\\`bash
+# ============================================
+# MAINTENANCE DES REPOSITORIES
+# ============================================
+
+# Git Garbage Collection (nettoyage des objets orphelins)
+# Déclencher manuellement via API
+curl -s -u \\\${AUTH} -X POST \\\\
+  "\\\${BB_URL}/rest/git/1.0/admin/projects/PROJ/repos/my-app/gc"
+
+# Vérification d'intégrité (fsck)
+cd /var/atlassian/application-data/bitbucket/shared/data/repositories/1
+git fsck --full --strict
+
+# Taille du repository
+du -sh /var/atlassian/application-data/bitbucket/shared/data/repositories/1
+
+# ============================================
+# BACKUP STRATEGIES
+# ============================================
+
+# Méthode 1 : git clone --mirror (recommandé pour les repos)
+mkdir -p /backup/bitbucket/repos
+for repo_path in /var/atlassian/application-data/bitbucket/shared/data/repositories/*; do
+  repo_id=\\\$(basename \\\${repo_path})
+  git clone --mirror \\\${repo_path} /backup/bitbucket/repos/\\\${repo_id}.git
+done
+
+# Méthode 2 : Backup base de données
+pg_dump -h localhost -U bitbucketuser -d bitbucketdb -F c \\\\
+  -f /backup/bitbucket/db_\\\$(date +%Y%m%d).dump
+
+# Méthode 3 : Backup complet (BDD + repos + config)
+cat > /opt/scripts/bitbucket-backup.sh << 'SCRIPT'
+#!/bin/bash
+set -e
+DATE=$(date +%Y%m%d_%H%M%S)
+BACKUP_DIR="/backup/bitbucket/\\\${DATE}"
+mkdir -p \\\${BACKUP_DIR}
+
+echo "Backing up database..."
+pg_dump -h localhost -U bitbucketuser -d bitbucketdb -F c -f \\\${BACKUP_DIR}/db.dump
+
+echo "Backing up BITBUCKET_HOME..."
+tar -czf \\\${BACKUP_DIR}/home.tar.gz \\
+  --exclude='*/caches/*' \\
+  --exclude='*/tmp/*' \\
+  --exclude='*/log/*' \\
+  /var/atlassian/application-data/bitbucket/
+
+echo "Backup complete: \\\${BACKUP_DIR}"
+
+# Retention 14 jours
+find /backup/bitbucket/ -maxdepth 1 -type d -mtime +14 -exec rm -rf {} +
+SCRIPT
+chmod +x /opt/scripts/bitbucket-backup.sh
+echo "0 2 * * * /opt/scripts/bitbucket-backup.sh" | crontab -
+
+# ============================================
+# GIT LFS (Large File Storage)
+# ============================================
+
+# Activer LFS sur le serveur (configuration globale)
+# Administration > Git LFS > Enable
+
+# Configuration côté client
+git lfs install
+
+# Tracker les fichiers volumineux
+git lfs track "*.psd"
+git lfs track "*.zip"
+git lfs track "*.bin"
+git lfs track "assets/**/*.png"
+cat .gitattributes
+
+# Vérifier les fichiers LFS
+git lfs ls-files
+
+# Migration de fichiers existants vers LFS
+git lfs migrate import --include="*.jar" --everything
+
+# ============================================
+# REPOSITORY MIRRORING
+# ============================================
+
+# Configurer un miroir (lecture seule) vers GitHub
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/mirroring/1.0/repos/1/mirror" \\\\
+  -d '{
+    "mirrorUrl": "https://github.com/org/repo-mirror.git",
+    "username": "github-bot",
+    "password": "token"
+  }'
+
+# Synchronisation manuelle
+curl -s -u \\\${AUTH} -X POST \\\\
+  "\\\${BB_URL}/rest/mirroring/1.0/repos/1/mirror/sync"
+
+# ============================================
+# USER MANAGEMENT ET SSO/LDAP
+# ============================================
+
+# Lister les utilisateurs
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/admin/users?limit=100"
+
+# Créer un utilisateur
+curl -s -u \\\${AUTH} -X POST \\\\
+  -H "Content-Type: application/json" \\\\
+  "\\\${BB_URL}/rest/api/1.0/admin/users?name=new.user&password=TempPass123!&displayName=New+User&emailAddress=new@example.com"
+
+# Configuration LDAP/Active Directory
+# Administration > User Directories > Add Directory
+# Type: Microsoft Active Directory / OpenLDAP
+# URL: ldap://ldap.example.com:389
+# Base DN: dc=example,dc=com
+# User Filter: (&(objectClass=user)(sAMAccountName={0}))
+# Group Filter: (&(objectClass=group)(member={0}))
+
+# ============================================
+# PERFORMANCE MONITORING
+# ============================================
+
+# JVM tuning (setenv.sh)
+JVM_MINIMUM_MEMORY="2048m"
+JVM_MAXIMUM_MEMORY="4096m"
+JVM_SUPPORT_RECOMMENDED_ARGS="-XX:+UseG1GC -XX:MaxGCPauseMillis=200"
+
+# Health check endpoints
+curl -s "\\\${BB_URL}/status"
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/admin/cluster"
+
+# Repository statistics
+curl -s -u \\\${AUTH} "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos/my-app/statistics"
+
+# ============================================
+# DISASTER RECOVERY
+# ============================================
+
+# Plan de DR pour Bitbucket :
+# 1. Backup quotidien automatisé (BDD + repos)
+# 2. Réplication PostgreSQL (streaming replica)
+# 3. Stockage des repos sur NFS/EFS avec snapshot
+# 4. Script de restauration testé mensuellement
+# 5. RTO (Recovery Time Objective) : 1h
+# 6. RPO (Recovery Point Objective) : 1h (dernier backup)
+
+# Procédure de restauration :
+# 1. Provisioner nouveau serveur (même specs)
+# 2. Installer Bitbucket (même version !)
+# 3. Restaurer BDD (pg_restore)
+# 4. Restaurer BITBUCKET_HOME (tar -xzf)
+# 5. Vérifier les permissions fichiers
+# 6. Démarrer et vérifier
+# 7. Tester le clone d'un repo
+# 8. Mettre à jour DNS/Load Balancer
+\\\`\\\`\\\`
+
+### Migration depuis/vers d'autres plateformes
+
+\\\`\\\`\\\`bash
+# ============================================
+# MIGRATION VERS/DEPUIS BITBUCKET
+# ============================================
+
+# Migration depuis GitHub vers Bitbucket
+# 1. Clone mirror depuis GitHub
+git clone --mirror https://github.com/org/repo.git
+cd repo.git
+
+# 2. Push vers Bitbucket
+git remote add bitbucket ssh://git@bitbucket.example.com:7999/PROJ/repo.git
+git push --mirror bitbucket
+
+# Migration depuis GitLab vers Bitbucket
+git clone --mirror https://gitlab.example.com/group/repo.git
+cd repo.git
+git remote add bitbucket ssh://git@bitbucket.example.com:7999/PROJ/repo.git
+git push --mirror bitbucket
+
+# Migration depuis SVN vers Git/Bitbucket
+# 1. Créer le fichier authors
+svn log --xml svn://svn.example.com/repo | grep author | sort -u > authors-transform.txt
+# Format : svnuser = Git Name <email@example.com>
+
+# 2. Clone SVN vers Git
+git svn clone svn://svn.example.com/repo \\\\
+  --authors-file=authors-transform.txt \\\\
+  --stdlayout \\\\
+  --no-metadata \\\\
+  migrated-repo
+
+# 3. Nettoyer et push vers Bitbucket
+cd migrated-repo
+git remote add origin ssh://git@bitbucket.example.com:7999/PROJ/migrated-repo.git
+git push --all origin
+git push --tags origin
+
+# Migration massive (multiple repos)
+# Utiliser l'outil Atlassian "Bitbucket Server Migration"
+# Ou script bash :
+REPOS=("repo1" "repo2" "repo3")
+for repo in "\\\${REPOS[@]}"; do
+  git clone --mirror "https://github.com/org/\\\${repo}.git" "/tmp/\\\${repo}.git"
+  
+  # Créer le repo dans Bitbucket via API
+  curl -s -u \\\${AUTH} -X POST \\\\
+    -H "Content-Type: application/json" \\\\
+    "\\\${BB_URL}/rest/api/1.0/projects/PROJ/repos" \\\\
+    -d "{\"name\": \"\\\${repo}\", \"scmId\": \"git\"}"
+  
+  # Push mirror
+  cd "/tmp/\\\${repo}.git"
+  git remote add bitbucket "ssh://git@bitbucket.example.com:7999/PROJ/\\\${repo}.git"
+  git push --mirror bitbucket
+  cd /tmp
+  
+  echo "Migrated: \\\${repo}"
+done
+\\\`\\\`\\\`
+
+`,
+      practiceContent: `## Travaux pratiques - Administration avancée
+
+### TP1 : Hooks et validation
+
+1. Créer un pre-receive hook pour valider les messages de commit (Conventional Commits)
+2. Créer un hook pour empêcher les fichiers > 5 MB
+3. Créer un post-receive hook pour notifier Slack
+4. Configurer les hooks intégrés : no-force-push sur main, required-builds
+
+### TP2 : Branch Model et Merge Strategy
+
+1. Configurer Git Flow sur le repository
+2. Créer les branches : main, develop
+3. Créer une feature branch, faire des commits, et merger via PR
+4. Configurer la stratégie par défaut : squash pour features, merge-commit pour releases
+5. Tester fast-forward-only et voir quand il échoue
+
+### TP3 : Merge Checks et Reviews
+
+1. Configurer les merge checks :
+   - 2 approbations minimum
+   - Build successful requis
+   - No incomplete tasks
+2. Configurer des default reviewers (tech lead pour toutes les PR vers main)
+3. Tester le workflow complet : PR → review → approve → merge
+4. Configurer un auto-merge quand toutes les conditions sont remplies
+
+### TP4 : Sécurité et permissions
+
+1. Configurer les permissions par groupe :
+   - developers : PROJECT_WRITE
+   - qa-team : PROJECT_READ
+   - devops : PROJECT_ADMIN
+2. Configurer les branch permissions avec exemptions
+3. Créer un access key (deploy key) pour le CI
+4. Créer un Personal Access Token et tester l'API
+
+### TP5 : Maintenance et backup
+
+1. Écrire un script de backup complet (BDD + repos)
+2. Configurer Git LFS pour les fichiers binaires
+3. Effectuer un git gc sur un repository
+4. Tester une migration depuis GitHub (clone mirror + push)
+5. Documenter la procédure de Disaster Recovery
+
+### Questions de validation
+
+- Quelle est la différence entre pre-receive et post-receive hooks ?
+- Quand utiliser squash vs merge commit vs fast-forward ?
+- Comment configurer des default reviewers par pattern de branche ?
+- Quelle est la procédure de Disaster Recovery pour Bitbucket ?
+- Comment migrer un repository depuis SVN vers Bitbucket ?`,
+      keyPoints: JSON.stringify([
+        'Hooks : pre-receive (validation commit msg, file size, branch naming, secrets) et post-receive (notifications, deploy)',
+        'Branch Models : Git Flow (main/develop/feature/release/hotfix), GitHub Flow (main+features), Trunk-based (short-lived)',
+        'Pull Request Merge Checks : required approvals, green builds, no tasks, up-to-date branch, default reviewers',
+        'Merge Strategies : merge commit (historique), squash (clean), fast-forward (linéaire), rebase+merge (replay)',
+        'Permissions : Global > Project > Repository > Branch avec exemptions par groupe/utilisateur',
+        'Jira Integration : Smart Commits, Development Panel, auto-transition on merge, branch creation depuis Jira',
+        'Maintenance : git gc, backup (pg_dump + mirror clone), LFS pour gros fichiers, mirroring, DR plan',
+        'Migration : git clone --mirror + push depuis GitHub/GitLab/SVN avec authors-transform et bulk scripts'
+      ]) },
+
+
 
   ],
 
   quizQuestions: [
-    // ==================== ARTIFACTORY QUIZ ====================
     { id: 'quiz-art-01', courseId: 'artifactory', moduleId: 'art-01',
       question: 'Quel est le rôle principal d\'Artifactory dans une chaîne CI/CD ?',
       options: JSON.stringify(['Compiler le code source', 'Stocker et gérer les artefacts binaires de manière centralisée', 'Exécuter les tests unitaires', 'Déployer les applications en production']),
@@ -9437,6 +15580,63 @@ chmod +x /opt/jenkins/healthcheck.sh
       options: JSON.stringify(['Un outil de compilation Java', 'Un plugin permettant de définir toute la configuration Jenkins dans un fichier YAML versionnable', 'Un framework de test pour les pipelines', 'Un service cloud Jenkins']),
       correctIndex: 1,
       explanation: 'JCasC permet de définir toute la configuration Jenkins (sécurité, credentials, clouds, plugins) dans un fichier YAML. Cela rend la configuration reproductible, auditable et versionnée dans Git.' },
+    // ==================== JIRA QUIZ ====================
+    { id: 'quiz-jira-01', courseId: 'jira', moduleId: 'jira-01',
+      question: 'Quel langage de requête Jira permet de rechercher des issues de manière avancée ?',
+      options: JSON.stringify(['SQL standard', 'JQL (Jira Query Language)', 'GraphQL', 'CQL (Confluence Query Language)']),
+      correctIndex: 1,
+      explanation: 'JQL (Jira Query Language) est le langage de requête intégré à Jira permettant de rechercher des issues avec des critères avancés : project, status, assignee, sprint, priority, dates, texte libre, etc.' },
+
+    { id: 'quiz-jira-02', courseId: 'jira', moduleId: 'jira-01',
+      question: 'Quelle est la différence principale entre un board Scrum et un board Kanban dans Jira ?',
+      options: JSON.stringify(['Le board Scrum est plus rapide à configurer', 'Le Scrum utilise des sprints itératifs tandis que le Kanban gère un flux continu avec WIP limits', 'Le Kanban ne supporte pas les sous-tâches', 'Il n\'y a aucune différence fonctionnelle']),
+      correctIndex: 1,
+      explanation: 'Le board Scrum organise le travail en sprints itératifs avec planning, velocity et burndown. Le board Kanban gère un flux continu avec des limites WIP et optimise le lead time et cycle time.' },
+
+    { id: 'quiz-jira-03', courseId: 'jira', moduleId: 'jira-01',
+      question: 'Quelle API REST permet de gérer les sprints et boards Agile dans Jira ?',
+      options: JSON.stringify(['/rest/api/2/sprint', '/rest/agile/1.0/ (boards, sprints, backlog)', '/rest/greenhopper/1.0/sprint', '/rest/scrum/latest/sprint']),
+      correctIndex: 1,
+      explanation: 'L\'API Agile (/rest/agile/1.0/) est l\'API officielle pour les boards, sprints, backlogs et epics. Elle remplace l\'ancienne API Greenhopper et expose tous les endpoints Agile.' },
+
+    // ==================== CONFLUENCE QUIZ ====================
+    { id: 'quiz-conf-01', courseId: 'confluence', moduleId: 'conf-01',
+      question: 'Comment est structuré le contenu dans Confluence ?',
+      options: JSON.stringify(['Fichiers et dossiers comme un système de fichiers', 'Espaces (Spaces) contenant des pages hiérarchiques avec labels et restrictions', 'Bases de données relationnelles avec tables', 'Wikis indépendants sans hiérarchie']),
+      correctIndex: 1,
+      explanation: 'Confluence organise le contenu en Spaces contenant des pages hiérarchiques (parent/enfant). Les labels catégorisent transversalement, les restrictions gèrent les permissions par page, et les macros enrichissent le contenu.' },
+
+    { id: 'quiz-conf-02', courseId: 'confluence', moduleId: 'conf-01',
+      question: 'Quelle macro Confluence permet d\'afficher des issues Jira directement dans une page ?',
+      options: JSON.stringify(['La macro {code}', 'La macro {jira} avec une requête JQL', 'La macro {include}', 'La macro {status}']),
+      correctIndex: 1,
+      explanation: 'La macro {jira} insère une requête JQL dans une page Confluence pour afficher dynamiquement une liste d\'issues Jira avec colonnes configurables (key, summary, status, assignee).' },
+
+    { id: 'quiz-conf-03', courseId: 'confluence', moduleId: 'conf-01',
+      question: 'Quel langage de recherche est utilisé dans l\'API Confluence ?',
+      options: JSON.stringify(['JQL (Jira Query Language)', 'SQL standard', 'CQL (Confluence Query Language)', 'Lucene Query Syntax directe']),
+      correctIndex: 2,
+      explanation: 'CQL (Confluence Query Language) est le langage de recherche de Confluence. Il permet de chercher par space, type, label, title, creator, lastModified, ancestor et texte.' },
+
+    // ==================== BITBUCKET QUIZ ====================
+    { id: 'quiz-bb-01', courseId: 'bitbucket', moduleId: 'bb-01',
+      question: 'Quel fichier configure les pipelines CI/CD intégrés dans Bitbucket Cloud ?',
+      options: JSON.stringify(['.gitlab-ci.yml', 'Jenkinsfile', 'bitbucket-pipelines.yml à la racine du repo', '.github/workflows/ci.yml']),
+      correctIndex: 2,
+      explanation: 'bitbucket-pipelines.yml est le fichier de configuration CI/CD de Bitbucket Pipelines. Placé à la racine du repo, il définit les steps (conteneurs Docker), caches, services, artifacts et déploiements.' },
+
+    { id: 'quiz-bb-02', courseId: 'bitbucket', moduleId: 'bb-01',
+      question: 'Comment fonctionnent les Smart Commits pour l\'intégration Jira dans Bitbucket ?',
+      options: JSON.stringify(['Via un plugin séparé à installer', 'En incluant la clé Jira et des commandes (#comment, #time, #done) dans le message de commit', 'En configurant un webhook manuel vers Jira', 'Les Smart Commits ne sont pas supportés dans Bitbucket']),
+      correctIndex: 1,
+      explanation: 'Les Smart Commits mettent à jour Jira depuis les messages de commit Git. Format : PROJ-123 #comment Mon commentaire #time 2h #done. Ajoute commentaire, log temps et transition l\'issue automatiquement.' },
+
+    { id: 'quiz-bb-03', courseId: 'bitbucket', moduleId: 'bb-01',
+      question: 'Quelle restriction de branche Bitbucket empêche le push direct et force les Pull Requests ?',
+      options: JSON.stringify(['no-deletes', 'read-only', 'pull-request-only', 'fast-forward-only']),
+      correctIndex: 2,
+      explanation: 'La restriction "pull-request-only" empêche tout push direct sur la branche protégée. Les modifications ne peuvent être intégrées que via une Pull Request approuvée et validée par les merge checks.' },
+
 
   ],
 };
