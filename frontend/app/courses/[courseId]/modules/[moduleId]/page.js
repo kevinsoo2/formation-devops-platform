@@ -51,6 +51,20 @@ export default function ModulePage() {
         if (courseData.data) setCourse(courseData.data);
         if (modulesData.data) setAllModules(modulesData.data);
 
+        // Update recently viewed with actual names
+        if (modData.data && courseData.data) {
+          try {
+            const saved = JSON.parse(localStorage.getItem('recently-viewed-modules') || '[]');
+            const updated = saved.map(item => {
+              if (item.courseId === courseId && item.moduleId === moduleId) {
+                return { ...item, moduleTitle: modData.data.title, courseName: courseData.data.title };
+              }
+              return item;
+            });
+            localStorage.setItem('recently-viewed-modules', JSON.stringify(updated));
+          } catch (e) {}
+        }
+
         // Exercises
         const exRes = await fetch(`${API_URL}/api/exercises/${moduleId}`);
         const exData = await exRes.json();
@@ -78,6 +92,16 @@ export default function ModulePage() {
     }
     load();
     startTime.current = Date.now();
+
+    // Track recently viewed module
+    if (courseId && moduleId) {
+      try {
+        const saved = JSON.parse(localStorage.getItem('recently-viewed-modules') || '[]');
+        const filtered = saved.filter(item => !(item.courseId === courseId && item.moduleId === moduleId));
+        filtered.unshift({ courseId, moduleId, viewedAt: new Date().toISOString(), moduleTitle: '', courseName: '' });
+        localStorage.setItem('recently-viewed-modules', JSON.stringify(filtered.slice(0, 10)));
+      } catch (e) {}
+    }
 
     // Track study time on unmount
     return () => {
@@ -177,6 +201,10 @@ export default function ModulePage() {
   if (loading) return <div className="text-center py-20 text-gray-400">Chargement...</div>;
   if (!mod) return <div className="text-center py-20"><h2>Module non trouvé</h2></div>;
 
+  // Estimate reading time based on content length
+  const contentLength = (mod.theoryContent?.length || 0) + (mod.practiceContent?.length || 0);
+  const readingTimeMin = Math.max(1, Math.round(contentLength / 1000 * 2));
+
   const renderContent = (text) => {
     return text
       .replace(/```(\w+)?\n?([\s\S]*?)```/g, '<pre class="bg-dark border border-border rounded-lg p-4 my-4 overflow-x-auto text-sm"><code>$2</code></pre>')
@@ -223,7 +251,10 @@ export default function ModulePage() {
         </div>
         <div className="flex-1">
           <h1 className="text-2xl font-bold">{mod.title}</h1>
-          <span className="text-gray-500 text-sm">⏱ {mod.duration}</span>
+          <div className="flex gap-3 text-gray-500 text-sm">
+            <span>⏱ {mod.duration}</span>
+            <span>📖 ~{readingTimeMin} min de lecture</span>
+          </div>
         </div>
         {/* Favorite button */}
         {user && (
@@ -316,14 +347,33 @@ export default function ModulePage() {
         )}
       </div>
 
-      {/* Module navigation */}
-      <div className="flex justify-between mt-6">
+      {/* Module navigation (prev/next) */}
+      <div className="flex justify-between items-center mt-8 pt-6 border-t border-border">
         {prevModule ? (
-          <Link href={`/courses/${courseId}/modules/${prevModule.id}`} className="text-sm text-gray-400 hover:text-purple-400">← {prevModule.title}</Link>
+          <Link href={`/courses/${courseId}/modules/${prevModule.id}`} className="flex items-center gap-2 px-4 py-3 rounded-lg bg-surface border border-border hover:border-purple-500 transition-all max-w-[45%]">
+            <span className="text-purple-400">←</span>
+            <div className="text-left overflow-hidden">
+              <p className="text-xs text-gray-500">Module précédent</p>
+              <p className="text-sm font-medium truncate">{prevModule.title}</p>
+            </div>
+          </Link>
         ) : <span />}
         {nextModule ? (
-          <Link href={`/courses/${courseId}/modules/${nextModule.id}`} className="text-sm text-gray-400 hover:text-purple-400">{nextModule.title} →</Link>
-        ) : <span />}
+          <Link href={`/courses/${courseId}/modules/${nextModule.id}`} className="flex items-center gap-2 px-4 py-3 rounded-lg bg-surface border border-border hover:border-purple-500 transition-all max-w-[45%]">
+            <div className="text-right overflow-hidden">
+              <p className="text-xs text-gray-500">Module suivant</p>
+              <p className="text-sm font-medium truncate">{nextModule.title}</p>
+            </div>
+            <span className="text-purple-400">→</span>
+          </Link>
+        ) : (
+          <Link href={`/courses/${courseId}/quiz`} className="flex items-center gap-2 px-4 py-3 rounded-lg bg-purple-500/10 border border-purple-500/30 hover:bg-purple-500/20 transition-all">
+            <div className="text-right">
+              <p className="text-xs text-gray-500">Cours terminé !</p>
+              <p className="text-sm font-medium text-purple-400">Passer le quiz →</p>
+            </div>
+          </Link>
+        )}
       </div>
 
       {/* Personal Notes */}

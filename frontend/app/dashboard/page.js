@@ -19,6 +19,7 @@ export default function DashboardPage() {
   const [userChallenges, setUserChallenges] = useState([]);
   const [studyTime, setStudyTime] = useState({ totalSeconds: 0, weekly: [] });
   const [notifications, setNotifications] = useState([]);
+  const [recentlyViewed, setRecentlyViewed] = useState([]);
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
@@ -79,6 +80,14 @@ export default function DashboardPage() {
     loadData();
   }, [user, API_URL]);
 
+  // Load recently viewed from localStorage
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('recently-viewed-modules');
+      if (saved) setRecentlyViewed(JSON.parse(saved).slice(0, 3));
+    } catch (e) {}
+  }, []);
+
   if (loading) return <div className="text-center py-20 text-gray-400">Chargement...</div>;
 
   const getProgressPercent = (courseId) => {
@@ -90,6 +99,41 @@ export default function DashboardPage() {
   const totalModulesCompleted = Object.values(progress).reduce((acc, p) => acc + (p.completedModules?.length || 0), 0);
   const totalQuizPassed = Object.values(progress).reduce((acc, p) => acc + (p.quizScores?.filter(q => q.passed)?.length || 0), 0);
   const unreadNotifs = notifications.filter(n => !n.read);
+
+  function downloadProgressReport() {
+    const lines = [];
+    lines.push('=== Rapport de Progression DevOps Academy ===');
+    lines.push(`Date: ${new Date().toLocaleDateString('fr-FR')}`);
+    lines.push('');
+    if (user) {
+      lines.push(`Utilisateur: ${user.displayName} (@${user.username})`);
+      lines.push(`Niveau: ${user.level} | XP: ${user.xp}`);
+      lines.push(`Streak actuel: ${streak.current_streak || streak.currentStreak || 0} jours`);
+      lines.push('');
+    }
+    lines.push('--- Progression des cours ---');
+    courses.forEach(c => {
+      const pct = getProgressPercent(c.id);
+      lines.push(`${c.icon} ${c.title}: ${pct}%`);
+    });
+    lines.push('');
+    lines.push(`Modules terminés: ${totalModulesCompleted}`);
+    lines.push(`Quiz réussis: ${totalQuizPassed}`);
+    lines.push(`Badges obtenus: ${badges.length}/${allBadges.filter(b => !b.hidden).length}`);
+    lines.push('');
+    lines.push('--- Badges ---');
+    badges.forEach(b => lines.push(`  ${b.icon} ${b.name}`));
+    lines.push('');
+    lines.push('=== Fin du rapport ===');
+
+    const blob = new Blob([lines.join('\n')], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `rapport-progression-${new Date().toISOString().split('T')[0]}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
@@ -138,7 +182,28 @@ export default function DashboardPage() {
             <div className="h-2 bg-border rounded-full overflow-hidden">
               <div className="h-full bg-gradient-to-r from-purple-500 to-purple-700 rounded-full transition-all" style={{ width: `${((user.xp % 500) / 500) * 100}%` }} />
             </div>
+            <div className="mt-3">
+              <button onClick={downloadProgressReport} className="text-sm px-4 py-2 rounded-lg bg-purple-500/10 border border-purple-500/30 text-purple-400 hover:bg-purple-500/20 transition-all">
+                📥 Télécharger le rapport de progression
+              </button>
+            </div>
           </div>
+
+          {/* Continue learning (recently viewed) */}
+          {recentlyViewed.length > 0 && (
+            <div className="card mb-8">
+              <h2 className="text-lg font-bold mb-4">📖 Continuer l&apos;apprentissage</h2>
+              <div className="grid md:grid-cols-3 gap-3">
+                {recentlyViewed.map((item, i) => (
+                  <Link key={i} href={`/courses/${item.courseId}/modules/${item.moduleId}`} className="p-4 rounded-lg border border-border bg-surface hover:border-purple-500 transition-all">
+                    <p className="text-xs text-purple-400 mb-1">{item.courseName}</p>
+                    <p className="text-sm font-medium">{item.moduleTitle}</p>
+                    <p className="text-xs text-gray-500 mt-1">{item.viewedAt ? new Date(item.viewedAt).toLocaleDateString('fr-FR') : ''}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Heatmap + Study time */}
           <div className="grid md:grid-cols-2 gap-4 mb-8">

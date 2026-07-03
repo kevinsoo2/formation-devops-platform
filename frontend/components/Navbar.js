@@ -32,6 +32,7 @@ export default function Navbar() {
     { href: '/', label: t('nav.home') },
     { href: '/courses', label: t('nav.courses') },
     { href: '/dashboard', label: t('nav.dashboard') },
+    { href: '/flashcards', label: '🃏 Flashcards' },
     { href: '/leaderboard', label: t('nav.leaderboard') },
     { href: '/glossary', label: t('nav.glossary') },
     { href: '/forum', label: t('nav.forum') },

@@ -10,6 +10,7 @@ export default function CourseDetailPage() {
   const { user } = useAuth();
   const [course, setCourse] = useState(null);
   const [modules, setModules] = useState([]);
+  const [courses, setCourses] = useState([]);
   const [progress, setProgress] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -19,14 +20,17 @@ export default function CourseDetailPage() {
   useEffect(() => {
     async function load() {
       try {
-        const [courseRes, modulesRes] = await Promise.all([
+        const [courseRes, modulesRes, allCoursesRes] = await Promise.all([
           fetch(`${API_URL}/api/courses/${courseId}`),
           fetch(`${API_URL}/api/modules/${courseId}`),
+          fetch(`${API_URL}/api/courses`),
         ]);
         const courseData = await courseRes.json();
         const modulesData = await modulesRes.json();
+        const allCoursesData = await allCoursesRes.json();
         if (courseData.data) setCourse(courseData.data);
         if (modulesData.data) setModules(modulesData.data);
+        if (allCoursesData.data) setCourses(allCoursesData.data);
 
         // Fetch progress if user logged in
         if (user) {
@@ -129,6 +133,59 @@ export default function CourseDetailPage() {
         </div>
       )}
 
+      {/* Prerequisites */}
+      {course.prerequisites && course.prerequisites.length > 0 && course.prerequisites[0] !== '' && (
+        <section className="mb-8">
+          <h2 className="text-xl font-bold mb-4">🔗 Prérequis</h2>
+          <div className="card">
+            <p className="text-sm text-gray-400 mb-3">Il est recommandé de suivre ces formations avant de commencer :</p>
+            <div className="flex flex-wrap gap-2">
+              {course.prerequisites.map((prereq, i) => {
+                const prereqCourse = courses.find(c => c.id === prereq || c.title.toLowerCase().includes(prereq.toLowerCase()));
+                return prereqCourse ? (
+                  <Link key={i} href={`/courses/${prereqCourse.id}`} className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-purple-500/10 border border-purple-500/30 hover:bg-purple-500/20 transition-all text-sm text-purple-400">
+                    <span>{prereqCourse.icon}</span> {prereqCourse.title}
+                  </Link>
+                ) : (
+                  <span key={i} className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-surface border border-border text-sm text-gray-400">
+                    📋 {prereq}
+                  </span>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Recommended order */}
+      {courses.length > 1 && (
+        <section className="mb-8">
+          <h2 className="text-xl font-bold mb-4">📐 Ordre recommandé</h2>
+          <div className="card">
+            <p className="text-sm text-gray-400 mb-3">Pour un apprentissage optimal, suivez cet ordre :</p>
+            <div className="flex flex-wrap gap-2 items-center">
+              {courses.filter(c => c.level === 'Débutant').map((c, i) => (
+                <Link key={c.id} href={`/courses/${c.id}`} className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs ${c.id === courseId ? 'bg-purple-500/20 border border-purple-500 text-purple-300' : 'bg-surface border border-border text-gray-400 hover:border-purple-500'}`}>
+                  {c.icon} {c.title}
+                </Link>
+              ))}
+              {courses.filter(c => c.level === 'Intermédiaire').length > 0 && <span className="text-gray-600 text-xs">→</span>}
+              {courses.filter(c => c.level === 'Intermédiaire').map((c, i) => (
+                <Link key={c.id} href={`/courses/${c.id}`} className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs ${c.id === courseId ? 'bg-purple-500/20 border border-purple-500 text-purple-300' : 'bg-surface border border-border text-gray-400 hover:border-purple-500'}`}>
+                  {c.icon} {c.title}
+                </Link>
+              ))}
+              {courses.filter(c => c.level === 'Avancé').length > 0 && <span className="text-gray-600 text-xs">→</span>}
+              {courses.filter(c => c.level === 'Avancé').map((c, i) => (
+                <Link key={c.id} href={`/courses/${c.id}`} className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs ${c.id === courseId ? 'bg-purple-500/20 border border-purple-500 text-purple-300' : 'bg-surface border border-border text-gray-400 hover:border-purple-500'}`}>
+                  {c.icon} {c.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Objectifs */}
       <section className="mb-8">
         <h2 className="text-xl font-bold mb-4">Objectifs</h2>
@@ -147,6 +204,7 @@ export default function CourseDetailPage() {
         <div className="space-y-3">
           {modules.map((mod, i) => {
             const isCompleted = completedModules.includes(mod.id);
+            const modReadingTime = Math.max(1, Math.round(((mod.theoryContent?.length || 0) + (mod.practiceContent?.length || 0)) / 1000 * 2));
             return (
               <Link key={mod.id} href={`/courses/${courseId}/modules/${mod.id}`} className="card flex items-center gap-4 hover:border-purple-500">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 ${isCompleted ? 'bg-green-500 text-white' : 'bg-surface'}`}>
@@ -154,7 +212,10 @@ export default function CourseDetailPage() {
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold">{mod.title}</h3>
-                  <span className="text-xs text-gray-500">⏱ {mod.duration}</span>
+                  <div className="flex gap-3 text-xs text-gray-500">
+                    <span>⏱ {mod.duration}</span>
+                    <span>📖 ~{modReadingTime} min</span>
+                  </div>
                 </div>
                 <span className={`text-sm ${isCompleted ? 'text-green-400' : 'text-purple-400'}`}>
                   {isCompleted ? 'Terminé ✓' : 'Commencer →'}

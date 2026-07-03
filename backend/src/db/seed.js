@@ -1,5 +1,6 @@
 import { db, schema } from './index.js';
 import { seedData } from './seed-data.js';
+import { glossaryData } from './glossary-data.js';
 import { sql } from 'drizzle-orm';
 
 async function seed() {
@@ -76,59 +77,7 @@ async function seed() {
   }
   console.log(`  ✅ ${badgesData.length} badges`);
 
-  // Seed glossary
-  const glossaryData = [
-    { id: 'ci', term: 'CI (Continuous Integration)', definition: 'Pratique consistant à intégrer fréquemment le code dans un dépôt partagé, avec vérification automatique par build et tests.', relatedCourseId: 'jenkins' },
-    { id: 'cd', term: 'CD (Continuous Delivery)', definition: 'Extension de la CI qui automatise le déploiement du code en production ou environnement de staging.', relatedCourseId: 'jenkins' },
-    { id: 'pipeline', term: 'Pipeline', definition: 'Enchaînement automatisé d\'étapes (build, test, deploy) dans un processus CI/CD.', relatedCourseId: 'jenkins' },
-    { id: 'container', term: 'Container', definition: 'Unité standard de logiciel qui empaquète le code et ses dépendances pour une exécution fiable et reproductible.', relatedCourseId: 'docker' },
-    { id: 'dockerfile', term: 'Dockerfile', definition: 'Fichier texte contenant les instructions pour construire une image Docker.', relatedCourseId: 'docker' },
-    { id: 'image', term: 'Image Docker', definition: 'Template en lecture seule contenant les instructions pour créer un container Docker.', relatedCourseId: 'docker' },
-    { id: 'pod', term: 'Pod', definition: 'Plus petite unité déployable dans Kubernetes, contenant un ou plusieurs containers.', relatedCourseId: 'kubernetes' },
-    { id: 'deployment', term: 'Deployment', definition: 'Ressource Kubernetes qui gère un ensemble de Pods répliqués et leur mise à jour.', relatedCourseId: 'kubernetes' },
-    { id: 'service-k8s', term: 'Service (K8s)', definition: 'Abstraction Kubernetes qui expose un ensemble de Pods comme service réseau.', relatedCourseId: 'kubernetes' },
-    { id: 'iac', term: 'IaC (Infrastructure as Code)', definition: 'Gestion de l\'infrastructure via des fichiers de configuration plutôt que manuellement.', relatedCourseId: 'terraform' },
-    { id: 'terraform-state', term: 'Terraform State', definition: 'Fichier qui enregistre l\'état actuel de l\'infrastructure gérée par Terraform.', relatedCourseId: 'terraform' },
-    { id: 'playbook', term: 'Playbook (Ansible)', definition: 'Fichier YAML décrivant l\'état désiré d\'un système et les tâches pour y parvenir.', relatedCourseId: 'ansible' },
-    { id: 'artifact', term: 'Artifact', definition: 'Fichier binaire produit par un build (JAR, WAR, Docker image, npm package).', relatedCourseId: 'artifactory' },
-    { id: 'repository-art', term: 'Repository (Artifactory)', definition: 'Espace de stockage organisé pour les artifacts binaires.', relatedCourseId: 'artifactory' },
-    { id: 'sonar-gate', term: 'Quality Gate', definition: 'Ensemble de conditions de qualité qu\'un projet doit satisfaire pour être considéré comme prêt.', relatedCourseId: 'sonarqube' },
-    { id: 'technical-debt', term: 'Dette technique', definition: 'Coût implicite d\'un travail supplémentaire causé par des choix de solutions rapides au lieu de meilleures approches.', relatedCourseId: 'sonarqube' },
-    { id: 'scm', term: 'SCM (Source Control Management)', definition: 'Système de gestion du code source permettant le suivi des modifications.', relatedCourseId: 'git-avance' },
-    { id: 'webhook', term: 'Webhook', definition: 'Mécanisme de callback HTTP automatique déclenché par un événement.', relatedCourseId: 'jenkins' },
-    { id: 'runner', term: 'Runner (GitLab CI)', definition: 'Agent qui exécute les jobs définis dans le pipeline CI/CD GitLab.', relatedCourseId: 'gitlab-ci' },
-    { id: 'yaml', term: 'YAML', definition: 'Format de sérialisation de données lisible par l\'humain, utilisé pour les fichiers de configuration.', relatedCourseId: null },
-    { id: 'devops', term: 'DevOps', definition: 'Culture et pratiques combinant développement logiciel et opérations IT pour raccourcir le cycle de développement.', relatedCourseId: null },
-    { id: 'microservices', term: 'Microservices', definition: 'Architecture où l\'application est composée de petits services indépendants communiquant via APIs.', relatedCourseId: 'docker' },
-    { id: 'orchestration', term: 'Orchestration', definition: 'Gestion automatisée de containers, incluant déploiement, scaling et networking.', relatedCourseId: 'kubernetes' },
-    { id: 'helm', term: 'Helm', definition: 'Gestionnaire de paquets pour Kubernetes permettant de définir et installer des applications.', relatedCourseId: 'kubernetes' },
-    { id: 'ingress', term: 'Ingress', definition: 'Ressource Kubernetes gérant l\'accès externe aux services dans un cluster.', relatedCourseId: 'kubernetes' },
-    { id: 'namespace', term: 'Namespace', definition: 'Mécanisme de partitionnement des ressources dans un cluster Kubernetes.', relatedCourseId: 'kubernetes' },
-    { id: 'git-rebase', term: 'Rebase (Git)', definition: 'Opération Git qui réapplique des commits sur une nouvelle base, créant un historique linéaire.', relatedCourseId: 'git-avance' },
-    { id: 'git-cherry-pick', term: 'Cherry-pick (Git)', definition: 'Appliquer un commit spécifique d\'une branche sur une autre.', relatedCourseId: 'git-avance' },
-    { id: 'docker-compose', term: 'Docker Compose', definition: 'Outil pour définir et exécuter des applications multi-containers avec un fichier YAML.', relatedCourseId: 'docker' },
-    { id: 'volume', term: 'Volume (Docker)', definition: 'Mécanisme de persistance des données pour les containers Docker.', relatedCourseId: 'docker' },
-    { id: 'registry', term: 'Registry', definition: 'Service de stockage et distribution d\'images Docker (Docker Hub, Harbor, ECR).', relatedCourseId: 'docker' },
-    { id: 'hcl', term: 'HCL (HashiCorp Configuration Language)', definition: 'Langage déclaratif de HashiCorp utilisé par Terraform pour décrire l\'infrastructure.', relatedCourseId: 'terraform' },
-    { id: 'provider-tf', term: 'Provider (Terraform)', definition: 'Plugin Terraform qui interagit avec un service cloud ou API spécifique.', relatedCourseId: 'terraform' },
-    { id: 'inventory', term: 'Inventory (Ansible)', definition: 'Fichier listant les hôtes et groupes d\'hôtes gérés par Ansible.', relatedCourseId: 'ansible' },
-    { id: 'role-ansible', term: 'Role (Ansible)', definition: 'Unité réutilisable de contenu Ansible (tâches, handlers, variables, templates).', relatedCourseId: 'ansible' },
-    { id: 'sast', term: 'SAST', definition: 'Static Application Security Testing - analyse de sécurité du code source sans l\'exécuter.', relatedCourseId: 'sonarqube' },
-    { id: 'code-smell', term: 'Code Smell', definition: 'Indication dans le code source d\'un problème potentiel de design ou de qualité.', relatedCourseId: 'sonarqube' },
-    { id: 'jenkins-agent', term: 'Jenkins Agent', definition: 'Machine qui exécute les tâches d\'un pipeline Jenkins, dirigée par le controller.', relatedCourseId: 'jenkins' },
-    { id: 'jenkinsfile', term: 'Jenkinsfile', definition: 'Fichier Groovy décrivant un pipeline Jenkins as Code.', relatedCourseId: 'jenkins' },
-    { id: 'blue-green', term: 'Blue-Green Deployment', definition: 'Stratégie de déploiement utilisant deux environnements identiques pour zéro-downtime.', relatedCourseId: null },
-    { id: 'canary', term: 'Canary Deployment', definition: 'Déploiement progressif où une nouvelle version est exposée à un petit pourcentage d\'utilisateurs.', relatedCourseId: null },
-    { id: 'monitoring', term: 'Monitoring', definition: 'Surveillance continue des systèmes pour détecter et résoudre les problèmes.', relatedCourseId: null },
-    { id: 'sre', term: 'SRE (Site Reliability Engineering)', definition: 'Discipline appliquant les pratiques d\'ingénierie logicielle aux opérations IT.', relatedCourseId: null },
-    { id: 'gitops', term: 'GitOps', definition: 'Paradigme opérationnel utilisant Git comme source unique de vérité pour l\'infrastructure.', relatedCourseId: 'git-avance' },
-    { id: 'load-balancer', term: 'Load Balancer', definition: 'Composant réseau distribuant le trafic entre plusieurs serveurs.', relatedCourseId: null },
-    { id: 'dns', term: 'DNS', definition: 'Système traduisant les noms de domaine en adresses IP.', relatedCourseId: null },
-    { id: 'ssl-tls', term: 'SSL/TLS', definition: 'Protocoles cryptographiques sécurisant les communications réseau.', relatedCourseId: null },
-    { id: 'twelve-factor', term: '12-Factor App', definition: 'Méthodologie pour construire des applications SaaS modernes, portables et scalables.', relatedCourseId: 'docker' },
-    { id: 'idempotence', term: 'Idempotence', definition: 'Propriété d\'une opération qui produit le même résultat qu\'elle soit exécutée une ou plusieurs fois.', relatedCourseId: 'ansible' },
-    { id: 'immutable-infra', term: 'Infrastructure Immuable', definition: 'Approche où les serveurs ne sont jamais modifiés après déploiement mais remplacés.', relatedCourseId: 'terraform' },
-  ];
+  // Seed glossary (200+ terms imported from glossary-data.js)
 
   for (const g of glossaryData) {
     await db.run(sql`INSERT OR IGNORE INTO glossary (id, term, definition, related_course_id) VALUES (${g.id}, ${g.term}, ${g.definition}, ${g.relatedCourseId})`);
