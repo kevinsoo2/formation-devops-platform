@@ -42,6 +42,34 @@ export const v3Courses = [
     prerequisites: JSON.stringify(['Maîtrise des bases Git (commit, branch, merge)', 'Expérience avec branches et merge requests', 'Ligne de commande Linux/Unix']),
     objectives: JSON.stringify(['Maîtriser le rebase interactif', 'Utiliser cherry-pick et bisect efficacement', 'Configurer des hooks Git automatisés', 'Gérer les sous-modules et subtrees', 'Choisir la bonne stratégie de branching', 'Maintenir de grands dépôts Git']),
   },
+  {
+    id: 'prometheus', title: 'Prometheus', subtitle: 'Monitoring et alerting',
+    description: 'Maîtrisez Prometheus pour monitorer vos infrastructures et applications. Métriques, PromQL, alertes et intégration avec Grafana.',
+    icon: '🔥', color: '#E6522C', duration: '10 heures', level: 'Intermédiaire', category: 'Monitoring',
+    prerequisites: JSON.stringify(['Connaissances Linux', 'Notions de conteneurisation Docker', 'Familiarité avec les métriques système']),
+    objectives: JSON.stringify(['Installer et configurer Prometheus', 'Comprendre les types de métriques', 'Écrire des requêtes PromQL', 'Configurer des règles d\'alerting', 'Instrumenter une application', 'Intégrer avec AlertManager']),
+  },
+  {
+    id: 'grafana', title: 'Grafana', subtitle: 'Dashboards et visualisation',
+    description: 'Apprenez Grafana pour créer des dashboards professionnels. Panels, variables, alertes et sources de données multiples.',
+    icon: '📊', color: '#F46800', duration: '8 heures', level: 'Débutant à Intermédiaire', category: 'Monitoring',
+    prerequisites: JSON.stringify(['Notions de monitoring', 'Connaissances Prometheus recommandées', 'Familiarité avec les métriques']),
+    objectives: JSON.stringify(['Installer et configurer Grafana', 'Créer des dashboards professionnels', 'Utiliser les variables et templates', 'Configurer les alertes Grafana', 'Connecter plusieurs datasources', 'Partager et exporter des dashboards']),
+  },
+  {
+    id: 'helm', title: 'Helm', subtitle: 'Gestionnaire de packages Kubernetes',
+    description: 'Maîtrisez Helm pour déployer et gérer vos applications Kubernetes. Charts, values, releases et repositories.',
+    icon: '⎈', color: '#0F1689', duration: '8 heures', level: 'Intermédiaire', category: 'Orchestration',
+    prerequisites: JSON.stringify(['Maîtrise de Kubernetes', 'Connaissances YAML', 'Familiarité avec les déploiements K8s']),
+    objectives: JSON.stringify(['Comprendre l\'architecture Helm', 'Utiliser des charts existants', 'Créer des charts personnalisés', 'Gérer les values et templates', 'Administrer les releases', 'Configurer des repositories privés']),
+  },
+  {
+    id: 'argocd', title: 'ArgoCD', subtitle: 'GitOps et déploiement continu',
+    description: 'Découvrez ArgoCD pour implémenter le GitOps. Synchronisation automatique, applications, et déploiement déclaratif sur Kubernetes.',
+    icon: '🐙', color: '#EF7B4D', duration: '8 heures', level: 'Intermédiaire à Avancé', category: 'CI/CD',
+    prerequisites: JSON.stringify(['Maîtrise de Kubernetes', 'Connaissances Git avancées', 'Familiarité avec Helm']),
+    objectives: JSON.stringify(['Installer et configurer ArgoCD', 'Comprendre les principes GitOps', 'Créer et gérer des Applications', 'Configurer la synchronisation automatique', 'Gérer les environnements multiples', 'Implémenter des stratégies de rollback']),
+  },
 ];
 
 
@@ -13239,6 +13267,947 @@ git add . && git commit -m "chore: add .env to gitignore"
       'Monorepos : Turborepo ou Nx pour la gestion des builds et tests affectés',
       'Maintenance : git gc, fsck, repack, commit-graph pour la performance',
       'Shallow/partial clone et sparse checkout optimisent le travail sur les grands repos'
+    ]),
+  },
+  // ============================================================
+  // PROMETHEUS - Module 1
+  // ============================================================
+  {
+    id: 'prometheus-01',
+    courseId: 'prometheus',
+    title: 'Introduction et architecture Prometheus',
+    duration: '5h',
+    orderIndex: 1,
+    theoryContent: `# Introduction à Prometheus
+
+## 1. Qu'est-ce que Prometheus ?
+
+Prometheus est un système de monitoring et d'alerting open-source développé initialement par SoundCloud en 2012, puis devenu un projet de la Cloud Native Computing Foundation (CNCF) en 2016.
+
+### Architecture
+
+Prometheus utilise un modèle de **pull** : il interroge activement les cibles (targets) pour récupérer les métriques. C'est l'inverse du modèle push utilisé par d'autres outils comme Graphite.
+
+**Composants principaux :**
+- **Prometheus Server** : collecte et stocke les métriques en TSDB (Time Series Database)
+- **Exporters** : exposent les métriques d'applications tierces (node_exporter, mysqld_exporter)
+- **Pushgateway** : pour les jobs batch qui ne peuvent pas être scrapés
+- **AlertManager** : gère les alertes (déduplication, groupage, silencing, routing)
+- **PromQL** : langage de requêtes pour interroger les données
+
+### Types de métriques
+
+Prometheus supporte 4 types de métriques :
+- **Counter** : valeur qui ne fait qu'augmenter (requêtes totales, erreurs)
+- **Gauge** : valeur qui peut monter et descendre (température, mémoire)
+- **Histogram** : distribue les observations dans des buckets (latence)
+- **Summary** : similaire au histogram avec calcul de quantiles côté client
+
+### Configuration
+
+Le fichier \`prometheus.yml\` définit :
+- Les **scrape_configs** : quelles cibles interroger et à quelle fréquence
+- Les **rule_files** : règles d'alerting et d'enregistrement
+- Les **alerting** configs : connexion à AlertManager
+
+\`\`\`yaml
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'node'
+    static_configs:
+      - targets: ['node-exporter:9100']
+\`\`\`
+
+### PromQL - Bases
+
+PromQL permet de requêter les time series :
+
+\`\`\`promql
+# Requête simple
+http_requests_total
+
+# Filtrage par label
+http_requests_total{method="GET", status="200"}
+
+# Taux sur 5 minutes
+rate(http_requests_total[5m])
+
+# Agrégation
+sum(rate(http_requests_total[5m])) by (method)
+\`\`\`
+
+### Installation avec Docker
+
+\`\`\`bash
+docker run -d --name prometheus -p 9090:9090 -v ./prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+\`\`\``,
+    practiceContent: `# Exercice pratique : Installation de Prometheus
+
+## Objectif
+Installer Prometheus avec Docker et configurer le monitoring d'un node_exporter.
+
+## Étapes
+
+1. Créer un fichier \`docker-compose.yml\` :
+\`\`\`yaml
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+  node-exporter:
+    image: prom/node-exporter
+    ports:
+      - "9100:9100"
+\`\`\`
+
+2. Accédez à http://localhost:9090 et testez une requête PromQL :
+   \`up\` → affiche l'état des targets
+   \`node_cpu_seconds_total\` → métriques CPU`,
+    keyPoints: JSON.stringify([
+      'Prometheus utilise un modèle pull pour collecter les métriques',
+      '4 types de métriques : Counter, Gauge, Histogram, Summary',
+      'PromQL est le langage de requêtes pour interroger les time series',
+      'Les exporters exposent les métriques d\'applications tierces',
+      'AlertManager gère la notification et le routage des alertes',
+      'La configuration se fait via prometheus.yml',
+      'rate() calcule le taux de changement par seconde',
+      'Le stockage TSDB est optimisé pour les données temporelles'
+    ]),
+  },
+  // PROMETHEUS - Module 2
+  {
+    id: 'prometheus-02',
+    courseId: 'prometheus',
+    title: 'Alerting et bonnes pratiques',
+    duration: '5h',
+    orderIndex: 2,
+    theoryContent: `# Alerting avec Prometheus
+
+## 1. Règles d'alerte
+
+Les alertes Prometheus sont définies dans des fichiers de règles YAML. Elles évaluent des expressions PromQL et déclenchent quand la condition est vraie pendant une durée définie.
+
+\`\`\`yaml
+groups:
+  - name: example
+    rules:
+      - alert: HighRequestLatency
+        expr: http_request_duration_seconds{quantile="0.5"} > 1
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High request latency on {{ $labels.instance }}"
+\`\`\`
+
+### Cycle de vie d'une alerte
+1. **Inactive** : condition non remplie
+2. **Pending** : condition remplie, attente de la durée \`for\`
+3. **Firing** : condition confirmée, alerte envoyée à AlertManager
+
+## 2. AlertManager
+
+AlertManager reçoit les alertes de Prometheus et gère :
+- **Groupage** : regroupe les alertes similaires
+- **Inhibition** : supprime certaines alertes si d'autres sont actives
+- **Silencing** : mute temporairement des alertes
+- **Routing** : envoie vers différents receivers (email, Slack, PagerDuty)
+
+\`\`\`yaml
+route:
+  receiver: 'slack-notifications'
+  group_by: ['alertname', 'cluster']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 3h
+
+receivers:
+  - name: 'slack-notifications'
+    slack_configs:
+      - channel: '#alerts'
+        send_resolved: true
+\`\`\`
+
+## 3. Recording rules
+
+Les recording rules précalculent des expressions coûteuses :
+
+\`\`\`yaml
+groups:
+  - name: recording
+    rules:
+      - record: job:http_requests:rate5m
+        expr: sum(rate(http_requests_total[5m])) by (job)
+\`\`\`
+
+## 4. Bonnes pratiques
+
+- Nommer les métriques : \`<namespace>_<name>_<unit>\`
+- Utiliser des labels pour la dimensionnalité
+- Éviter la cardinalité élevée (trop de valeurs de labels)
+- Préférer rate() à irate() pour les alertes
+- Définir des SLO (Service Level Objectives) mesurables`,
+    practiceContent: `# Exercice : Créer des alertes
+
+## Objectif
+Configurer une règle d'alerte quand un service est down.
+
+\`\`\`yaml
+groups:
+  - name: service_alerts
+    rules:
+      - alert: ServiceDown
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Service {{ $labels.job }} is down"
+\`\`\`
+
+Testez en arrêtant un exporter et vérifiez dans l'interface Prometheus > Alerts.`,
+    keyPoints: JSON.stringify([
+      'Les alertes utilisent des expressions PromQL avec une durée for',
+      'AlertManager gère groupage, inhibition, silencing et routing',
+      'Les recording rules précalculent des requêtes complexes',
+      'Le cycle : Inactive → Pending → Firing',
+      'Nommer les métriques avec le pattern namespace_name_unit',
+      'Éviter la haute cardinalité dans les labels',
+      'Définir des SLO mesurables avec Prometheus',
+      'Utiliser rate() plutôt que irate() pour les alertes'
+    ]),
+  },
+
+  // ============================================================
+  // GRAFANA - Module 1
+  // ============================================================
+  {
+    id: 'grafana-01',
+    courseId: 'grafana',
+    title: 'Introduction et dashboards Grafana',
+    duration: '4h',
+    orderIndex: 1,
+    theoryContent: `# Introduction à Grafana
+
+## 1. Qu'est-ce que Grafana ?
+
+Grafana est une plateforme open-source de visualisation et d'analytics. Elle permet de créer des dashboards interactifs à partir de multiples sources de données (Prometheus, InfluxDB, Elasticsearch, PostgreSQL, etc.).
+
+### Concepts clés
+
+- **Dashboard** : page contenant plusieurs panels
+- **Panel** : un graphique ou une visualisation individuelle
+- **Data Source** : connexion à une base de données ou API
+- **Variables** : paramètres dynamiques pour filtrer les données
+- **Alerting** : système d'alertes intégré
+
+### Types de panels
+
+Grafana propose de nombreux types de visualisation :
+- **Time series** : graphiques temporels (le plus courant)
+- **Stat** : valeur unique avec options de couleur
+- **Gauge** : jauge circulaire
+- **Bar chart** : graphiques à barres
+- **Table** : données tabulaires
+- **Heatmap** : carte de chaleur
+- **Logs** : affichage de logs
+
+### Installation
+
+\`\`\`bash
+docker run -d --name grafana -p 3000:3000 grafana/grafana
+\`\`\`
+
+Accès par défaut : http://localhost:3000 (admin/admin)
+
+### Ajouter une Data Source
+
+1. Configuration → Data Sources → Add data source
+2. Sélectionner Prometheus
+3. URL : http://prometheus:9090
+4. Cliquer sur "Save & Test"
+
+### Créer un Dashboard
+
+\`\`\`
+1. + → New Dashboard → Add a new panel
+2. Sélectionner la data source
+3. Écrire la requête PromQL
+4. Choisir le type de visualisation
+5. Configurer les options (axes, légendes, seuils)
+6. Save dashboard
+\`\`\`
+
+### Variables de dashboard
+
+Les variables rendent les dashboards dynamiques :
+
+\`\`\`
+Name: instance
+Type: Query
+Data source: Prometheus
+Query: label_values(up, instance)
+\`\`\`
+
+Utilisation dans les panels : \`$instance\``,
+    practiceContent: `# Exercice : Créer un dashboard Grafana
+
+## Objectif
+Créer un dashboard avec des métriques système.
+
+## Étapes
+
+1. Lancez Grafana avec Docker
+2. Ajoutez Prometheus comme data source
+3. Créez un dashboard avec 4 panels :
+   - CPU usage : \`100 - (avg(rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)\`
+   - Mémoire : \`node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes\`
+   - Disk : \`node_filesystem_avail_bytes\`
+   - Network : \`rate(node_network_receive_bytes_total[5m])\`
+
+4. Ajoutez une variable \`instance\` pour filtrer`,
+    keyPoints: JSON.stringify([
+      'Grafana visualise les données de multiples data sources',
+      'Un dashboard contient des panels avec différentes visualisations',
+      'Les variables permettent de rendre les dashboards dynamiques',
+      'Time series est le type de panel le plus utilisé',
+      'Les data sources supportées incluent Prometheus, InfluxDB, Elasticsearch',
+      'Les alertes Grafana permettent de notifier sur des seuils',
+      'Les dashboards peuvent être exportés/importés en JSON',
+      'grafana.com/dashboards propose des dashboards communautaires'
+    ]),
+  },
+  // GRAFANA - Module 2
+  {
+    id: 'grafana-02',
+    courseId: 'grafana',
+    title: 'Panels avancés et alertes',
+    duration: '4h',
+    orderIndex: 2,
+    theoryContent: `# Grafana avancé : Panels et Alertes
+
+## 1. Panels avancés
+
+### Transformations
+
+Les transformations permettent de manipuler les données avant l'affichage :
+- **Reduce** : agrège les valeurs (min, max, mean, last)
+- **Filter** : filtre les séries par nom ou valeur
+- **Join** : combine des requêtes
+- **Organize fields** : renomme et réordonne les colonnes
+
+### Overrides
+
+Les overrides permettent de personnaliser l'affichage par série :
+- Couleur spécifique par série
+- Axe Y secondaire pour certaines métriques
+- Style de ligne différent (pointillés, barres)
+
+### Annotations
+
+Les annotations marquent des événements sur les graphiques :
+- Déploiements
+- Incidents
+- Changements de configuration
+
+\`\`\`
+Dashboard settings → Annotations → Add annotation query
+Data source: Prometheus
+Requête: changes(deploy_timestamp[1h])
+\`\`\`
+
+## 2. Alerting Grafana
+
+### Création d'alertes
+
+1. Éditez un panel → onglet "Alert"
+2. Définir la condition (ex: valeur > seuil)
+3. Configurer le "Evaluate every" et "For"
+4. Ajouter les notification channels
+
+### Contact Points
+
+- Email
+- Slack
+- PagerDuty
+- Webhook
+- Microsoft Teams
+
+### Silence et Mute Timings
+
+\`\`\`
+Alerting → Silences → Create silence
+Matchers: alertname = HighCPU
+Duration: 2h
+Comment: Maintenance planifiée
+\`\`\`
+
+## 3. Provisioning
+
+Grafana peut être configuré via des fichiers YAML :
+
+\`\`\`yaml
+# provisioning/datasources/prometheus.yml
+apiVersion: 1
+datasources:
+  - name: Prometheus
+    type: prometheus
+    url: http://prometheus:9090
+    isDefault: true
+\`\`\`
+
+Cela permet l'infrastructure as code pour vos dashboards.`,
+    practiceContent: `# Exercice : Alertes et annotations
+
+## Objectif
+Configurer une alerte sur l'utilisation CPU.
+
+1. Créez un panel avec la requête CPU
+2. Ajoutez une alerte : CPU > 80% pendant 5 minutes
+3. Configurez un contact point (webhook ou email)
+4. Ajoutez une annotation pour marquer le test
+5. Testez en générant de la charge : \`stress --cpu 4 --timeout 60\``,
+    keyPoints: JSON.stringify([
+      'Les transformations manipulent les données avant affichage',
+      'Les overrides personnalisent chaque série individuellement',
+      'Les annotations marquent des événements temporels sur les graphiques',
+      'Le système d\'alerting Grafana supporte de nombreux contact points',
+      'Le provisioning automatise la configuration via fichiers YAML',
+      'Les silences permettent de muter temporairement des alertes',
+      'Les dashboards as code facilitent le versionnement',
+      'Les variables de type interval s\'adaptent au zoom du graphique'
+    ]),
+  },
+  // ============================================================
+  // HELM - Module 1
+  // ============================================================
+  {
+    id: 'helm-01',
+    courseId: 'helm',
+    title: 'Introduction aux Charts Helm',
+    duration: '4h',
+    orderIndex: 1,
+    theoryContent: `# Introduction à Helm
+
+## 1. Qu'est-ce que Helm ?
+
+Helm est le gestionnaire de packages pour Kubernetes. Il permet de définir, installer et mettre à jour des applications Kubernetes complexes de manière reproductible.
+
+### Concepts fondamentaux
+
+- **Chart** : un package Helm contenant les templates K8s
+- **Release** : une instance installée d'un chart
+- **Values** : les paramètres de configuration d'un chart
+- **Repository** : un dépôt de charts Helm
+
+### Architecture d'un Chart
+
+\`\`\`
+mychart/
+├── Chart.yaml        # Métadonnées du chart
+├── values.yaml       # Valeurs par défaut
+├── templates/        # Templates Kubernetes
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   ├── ingress.yaml
+│   ├── _helpers.tpl  # Fonctions réutilisables
+│   └── NOTES.txt     # Message post-install
+├── charts/           # Dépendances
+└── .helmignore
+\`\`\`
+
+### Commandes essentielles
+
+\`\`\`bash
+# Installer un chart
+helm install my-release bitnami/nginx
+
+# Lister les releases
+helm list
+
+# Mettre à jour
+helm upgrade my-release bitnami/nginx --set replicaCount=3
+
+# Supprimer
+helm uninstall my-release
+
+# Créer un nouveau chart
+helm create mychart
+\`\`\`
+
+### Templates et Values
+
+Le fichier \`values.yaml\` définit les valeurs par défaut :
+
+\`\`\`yaml
+replicaCount: 2
+image:
+  repository: nginx
+  tag: "1.24"
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 80
+\`\`\`
+
+Utilisation dans les templates :
+
+\`\`\`yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-app
+spec:
+  replicas: {{ .Values.replicaCount }}
+  template:
+    spec:
+      containers:
+        - name: app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+\`\`\`
+
+### Fonctions de template
+
+Helm utilise le moteur Go template avec des fonctions Sprig :
+- \`{{ include "mychart.fullname" . }}\` : inclut un template
+- \`{{ .Values.name | default "app" }}\` : valeur par défaut
+- \`{{ toYaml .Values.resources | nindent 12 }}\` : indentation YAML`,
+    practiceContent: `# Exercice : Créer un Chart Helm
+
+## Objectif
+Créer un chart Helm pour déployer une application web.
+
+\`\`\`bash
+# 1. Créer le chart
+helm create webapp
+
+# 2. Modifier values.yaml
+# Changer l'image, les resources, etc.
+
+# 3. Installer
+helm install my-webapp ./webapp
+
+# 4. Vérifier
+kubectl get pods
+helm status my-webapp
+
+# 5. Modifier et upgrader
+helm upgrade my-webapp ./webapp --set replicaCount=3
+\`\`\``,
+    keyPoints: JSON.stringify([
+      'Helm est le gestionnaire de packages pour Kubernetes',
+      'Un Chart est un package contenant des templates K8s',
+      'Une Release est une instance installée d\'un chart',
+      'values.yaml contient les paramètres de configuration par défaut',
+      'Les templates utilisent le moteur Go template avec Sprig',
+      'helm install/upgrade/uninstall gèrent le cycle de vie',
+      'Les repositories Helm partagent les charts (bitnami, etc.)',
+      'helm create génère la structure d\'un nouveau chart'
+    ]),
+  },
+  // HELM - Module 2
+  {
+    id: 'helm-02',
+    courseId: 'helm',
+    title: 'Helm avancé : releases et repositories',
+    duration: '4h',
+    orderIndex: 2,
+    theoryContent: `# Helm avancé
+
+## 1. Gestion des Releases
+
+### Historique et rollback
+
+\`\`\`bash
+# Voir l'historique
+helm history my-release
+
+# Rollback à une version précédente
+helm rollback my-release 1
+
+# Dry-run pour tester
+helm upgrade --dry-run --debug my-release ./mychart
+\`\`\`
+
+### Hooks
+
+Les hooks exécutent des actions à des moments précis :
+- \`pre-install\` : avant l'installation
+- \`post-install\` : après l'installation
+- \`pre-upgrade\` : avant la mise à jour
+- \`pre-delete\` : avant la suppression
+
+\`\`\`yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "{{ .Release.Name }}-db-migrate"
+  annotations:
+    "helm.sh/hook": pre-upgrade
+    "helm.sh/hook-weight": "1"
+spec:
+  template:
+    spec:
+      containers:
+        - name: migrate
+          image: myapp:latest
+          command: ["./migrate.sh"]
+      restartPolicy: Never
+\`\`\`
+
+## 2. Dépendances
+
+Le fichier \`Chart.yaml\` gère les dépendances :
+
+\`\`\`yaml
+dependencies:
+  - name: postgresql
+    version: "12.x.x"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: postgresql.enabled
+\`\`\`
+
+\`\`\`bash
+helm dependency update ./mychart
+helm dependency build ./mychart
+\`\`\`
+
+## 3. Repositories
+
+\`\`\`bash
+# Ajouter un repo
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+# Chercher un chart
+helm search repo nginx
+
+# Créer un repo privé avec ChartMuseum
+docker run -d -p 8080:8080 chartmuseum/chartmuseum
+
+# Packager un chart
+helm package ./mychart
+\`\`\`
+
+## 4. Tests Helm
+
+\`\`\`yaml
+# templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ .Release.Name }}-test"
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: test
+      image: busybox
+      command: ['wget', '-qO-', 'http://{{ .Release.Name }}:{{ .Values.service.port }}']
+  restartPolicy: Never
+\`\`\`
+
+\`\`\`bash
+helm test my-release
+\`\`\``,
+    practiceContent: `# Exercice : Gérer les releases
+
+## Objectif
+Pratiquer le cycle de vie complet d'une release Helm.
+
+\`\`\`bash
+# 1. Installer une release
+helm install webapp ./mychart -f production-values.yaml
+
+# 2. Upgrader avec de nouvelles values
+helm upgrade webapp ./mychart --set image.tag=v2.0
+
+# 3. Voir l'historique
+helm history webapp
+
+# 4. Simuler un problème et rollback
+helm rollback webapp 1
+
+# 5. Exécuter les tests
+helm test webapp
+\`\`\``,
+    keyPoints: JSON.stringify([
+      'helm history et rollback permettent de revenir en arrière',
+      'Les hooks exécutent des actions pré/post installation ou upgrade',
+      'Les dépendances sont gérées dans Chart.yaml',
+      'helm dependency update télécharge les charts dépendants',
+      'Les repositories privés se créent avec ChartMuseum ou OCI',
+      'helm package crée une archive .tgz du chart',
+      'Les tests Helm valident le bon fonctionnement post-déploiement',
+      'Le dry-run permet de visualiser les manifestes sans les appliquer'
+    ]),
+  },
+  // ============================================================
+  // ARGOCD - Module 1
+  // ============================================================
+  {
+    id: 'argocd-01',
+    courseId: 'argocd',
+    title: 'Introduction au GitOps avec ArgoCD',
+    duration: '4h',
+    orderIndex: 1,
+    theoryContent: `# Introduction à ArgoCD
+
+## 1. Principes du GitOps
+
+Le GitOps est une approche où Git est la source de vérité pour l'infrastructure et les applications. Les principes :
+
+- **Déclaratif** : l'état désiré est décrit dans Git
+- **Versionné** : tout changement passe par un commit Git
+- **Automatique** : la réconciliation est automatique
+- **Auditable** : l'historique Git sert d'audit trail
+
+### ArgoCD dans l'écosystème
+
+ArgoCD est un contrôleur GitOps pour Kubernetes. Il surveille un repository Git et s'assure que l'état du cluster correspond à ce qui est déclaré dans le repo.
+
+## 2. Architecture ArgoCD
+
+\`\`\`
+Git Repository ──→ ArgoCD Server ──→ Kubernetes Cluster
+                      │
+                Application Controller
+                Repo Server
+                API Server
+                UI / CLI
+\`\`\`
+
+**Composants :**
+- **API Server** : expose l'API REST et le gRPC
+- **Repository Server** : clone et génère les manifestes
+- **Application Controller** : surveille les apps et réconcilie
+- **UI** : interface web de gestion
+- **CLI** : outil en ligne de commande (argocd)
+
+## 3. Installation
+
+\`\`\`bash
+# Installation dans un namespace dédié
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# Accès à l'UI
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+# Récupérer le mot de passe admin
+argocd admin initial-password -n argocd
+\`\`\`
+
+## 4. Créer une Application
+
+\`\`\`yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/org/repo.git
+    targetRevision: HEAD
+    path: k8s/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: production
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+\`\`\`
+
+### Sync Policies
+
+- **Manual** : synchronisation à la demande
+- **Automated** : sync automatique quand Git change
+- **Self-heal** : corrige les dérives (modifications manuelles)
+- **Prune** : supprime les ressources non dans Git`,
+    practiceContent: `# Exercice : Déployer avec ArgoCD
+
+## Objectif
+Installer ArgoCD et déployer une application depuis Git.
+
+\`\`\`bash
+# 1. Installer ArgoCD (minikube ou kind)
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+# 2. Accéder à l'UI
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+# 3. Se connecter avec argocd CLI
+argocd login localhost:8080
+
+# 4. Créer une application
+argocd app create guestbook --repo https://github.com/argoproj/argocd-example-apps.git --path guestbook --dest-server https://kubernetes.default.svc --dest-namespace default
+
+# 5. Synchroniser
+argocd app sync guestbook
+\`\`\``,
+    keyPoints: JSON.stringify([
+      'GitOps utilise Git comme source de vérité pour l\'infrastructure',
+      'ArgoCD réconcilie automatiquement l\'état du cluster avec Git',
+      'L\'Application Controller surveille et synchronise les apps',
+      'Self-heal corrige les dérives par rapport à l\'état Git',
+      'Prune supprime les ressources qui ne sont plus dans Git',
+      'argocd CLI et l\'UI permettent de gérer les applications',
+      'La sync policy définit si la réconciliation est auto ou manuelle',
+      'ArgoCD supporte Helm, Kustomize, plain YAML et Jsonnet'
+    ]),
+  },
+  // ARGOCD - Module 2
+  {
+    id: 'argocd-02',
+    courseId: 'argocd',
+    title: 'ArgoCD avancé : multi-environnements et sync',
+    duration: '4h',
+    orderIndex: 2,
+    theoryContent: `# ArgoCD avancé
+
+## 1. Multi-environnements
+
+### Structure recommandée du repo
+
+\`\`\`
+gitops-repo/
+├── base/
+│   ├── deployment.yaml
+│   ├── service.yaml
+│   └── kustomization.yaml
+├── overlays/
+│   ├── dev/
+│   │   └── kustomization.yaml
+│   ├── staging/
+│   │   └── kustomization.yaml
+│   └── production/
+│       └── kustomization.yaml
+\`\`\`
+
+### App of Apps pattern
+
+Un pattern pour gérer plusieurs applications :
+
+\`\`\`yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apps
+spec:
+  source:
+    repoURL: https://github.com/org/gitops.git
+    path: apps/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
+\`\`\`
+
+Le dossier \`apps/\` contient les manifestes Application de chaque service.
+
+## 2. Sync Waves et Hooks
+
+Les sync waves contrôlent l'ordre de déploiement :
+
+\`\`\`yaml
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+\`\`\`
+
+Ordre : wave -1 → wave 0 → wave 1 → wave 2 ...
+
+### Resource Hooks
+
+\`\`\`yaml
+metadata:
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+\`\`\`
+
+Types : PreSync, Sync, PostSync, SyncFail
+
+## 3. ApplicationSets
+
+Générer automatiquement des Applications :
+
+\`\`\`yaml
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: cluster-apps
+spec:
+  generators:
+    - list:
+        elements:
+          - cluster: dev
+            url: https://dev.k8s.local
+          - cluster: prod
+            url: https://prod.k8s.local
+  template:
+    metadata:
+      name: '{{cluster}}-app'
+    spec:
+      source:
+        repoURL: https://github.com/org/repo.git
+        path: 'overlays/{{cluster}}'
+      destination:
+        server: '{{url}}'
+\`\`\`
+
+## 4. RBAC et Projects
+
+Les Projects ArgoCD limitent l'accès :
+
+\`\`\`yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: team-frontend
+spec:
+  sourceRepos:
+    - 'https://github.com/org/frontend-*'
+  destinations:
+    - namespace: 'frontend-*'
+      server: https://kubernetes.default.svc
+  roles:
+    - name: developer
+      policies:
+        - p, proj:team-frontend:developer, applications, sync, team-frontend/*, allow
+\`\`\``,
+    practiceContent: `# Exercice : Multi-environnements
+
+## Objectif
+Configurer ArgoCD pour gérer dev et production.
+
+1. Créer un repo avec la structure Kustomize (base + overlays)
+2. Créer deux Applications ArgoCD (dev et prod)
+3. Configurer la sync automatique pour dev uniquement
+4. Tester un déploiement : modifier l'image dans Git
+5. Vérifier que dev se synchronise et prod attend une validation manuelle`,
+    keyPoints: JSON.stringify([
+      'Kustomize overlays permettent de gérer les différences entre envs',
+      'App of Apps pattern déploie plusieurs applications via une seule',
+      'Sync waves contrôlent l\'ordre de déploiement des ressources',
+      'Les hooks PreSync/PostSync exécutent des actions avant/après sync',
+      'ApplicationSets génèrent dynamiquement des Applications',
+      'Les Projects limitent les repos sources et destinations autorisées',
+      'Le RBAC ArgoCD contrôle qui peut sync quelles applications',
+      'La promotion entre envs se fait par merge/PR dans le repo Git'
     ]),
   },
 ];

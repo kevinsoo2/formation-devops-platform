@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import { Providers } from '../components/Providers';
 import KeyboardShortcuts from '../components/KeyboardShortcuts';
 import ScrollProgress from '../components/ScrollProgress';
+import ErrorBoundary from '../components/ErrorBoundary';
 
 export const metadata = {
   title: 'DevOps Academy - Formation Outils',
@@ -48,7 +49,7 @@ export default function RootLayout({ children }) {
           <ScrollProgress />
           <KeyboardShortcuts />
           <Navbar />
-          <main className="flex-1 pt-[70px] animate-fade-in">{children}</main>
+          <main className="flex-1 pt-[70px] animate-fade-in"><ErrorBoundary>{children}</ErrorBoundary></main>
           <Footer />
         </Providers>
         <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js')});}` }} />

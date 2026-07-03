@@ -396,3 +396,59 @@ html.dark .user-highlight {
     grid-template-columns: 1fr 1fr !important;
   }
 }
+
+
+/* V5: Responsive improvements - mobile first */
+@media (max-width: 640px) {
+  h1 { font-size: 1.75rem !important; }
+  h2 { font-size: 1.5rem !important; }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .navbar-container .max-w-7xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    border-radius: 0.75rem;
+  }
+
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:text-6xl { font-size: 3.75rem; }
+}
+
+/* Hamburger menu improvements on mobile */
+@media (max-width: 768px) {
+  .navbar-container [class*="absolute top-[70px]"] {
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Cards full width on mobile */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .grid.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}

@@ -6,6 +6,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLang } from '../contexts/LanguageContext';
 import XPLevelBar from './XPLevelBar';
+import Logo from './Logo';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -38,14 +39,15 @@ export default function Navbar() {
     { href: '/leaderboard', label: t('nav.leaderboard') },
     { href: '/glossary', label: t('nav.glossary') },
     { href: '/forum', label: t('nav.forum') },
+    { href: '/projects', label: '🛠️ Projets' },
   ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-md border-b border-border h-[70px] navbar-container" role="navigation" aria-label="Navigation principale">
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 text-xl font-bold" aria-label="DevOps Academy - Accueil">
-          <span className="text-2xl">&#9881;</span>
-          <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
+        <Link href="/" className="flex items-center gap-2 text-xl font-bold" aria-label="DevOps Academy - Accueil">
+          <Logo size={32} />
+          <span className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent hidden sm:inline">
             DevOps Academy
           </span>
         </Link>

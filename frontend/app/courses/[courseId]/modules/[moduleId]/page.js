@@ -259,10 +259,10 @@ export default function ModulePage() {
 
       {/* Video embed */}
       {mod.videoUrl && (
-        <div className="mb-6 aspect-video rounded-lg overflow-hidden border border-border">
+        <div className="mb-6 relative w-full" style={{ paddingBottom: '56.25%' }}>
           <iframe
-            src={mod.videoUrl.replace('watch?v=', 'embed/')}
-            className="w-full h-full"
+            src={mod.videoUrl.includes('youtube.com/watch') ? mod.videoUrl.replace('watch?v=', 'embed/') : mod.videoUrl.includes('youtu.be/') ? `https://www.youtube.com/embed/${mod.videoUrl.split('youtu.be/')[1].split('?')[0]}` : mod.videoUrl}
+            className="absolute inset-0 w-full h-full rounded-lg border border-border"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             title="Vidéo du module"

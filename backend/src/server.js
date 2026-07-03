@@ -32,6 +32,7 @@ import glossaryRoutes from './routes/glossary.js';
 import exercisesRoutes from './routes/exercises.js';
 import profilesRoutes from './routes/profiles.js';
 import adminRoutes from './routes/admin.js';
+import rateLimit from './middleware/rateLimit.js';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -44,6 +45,9 @@ app.use(cors({
 }));
 app.use(morgan('combined'));
 app.use(express.json());
+
+// Rate limiting
+app.use(rateLimit);
 
 // Health check
 app.get('/health', (req, res) => {
