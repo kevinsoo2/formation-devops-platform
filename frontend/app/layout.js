@@ -5,6 +5,9 @@ import { Providers } from '../components/Providers';
 import KeyboardShortcuts from '../components/KeyboardShortcuts';
 import ScrollProgress from '../components/ScrollProgress';
 import ErrorBoundary from '../components/ErrorBoundary';
+import Chatbot from '../components/Chatbot';
+import LoadingScreen from '../components/LoadingScreen';
+import EasterEgg from '../components/EasterEgg';
 
 export const metadata = {
   title: 'DevOps Academy - Formation Outils',
@@ -46,11 +49,14 @@ export default function RootLayout({ children }) {
       </head>
       <body className="min-h-screen flex flex-col">
         <Providers>
+          <LoadingScreen />
           <ScrollProgress />
           <KeyboardShortcuts />
+          <EasterEgg />
           <Navbar />
           <main className="flex-1 pt-[70px] animate-fade-in"><ErrorBoundary>{children}</ErrorBoundary></main>
           <Footer />
+          <Chatbot />
         </Providers>
         <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js')});}` }} />
       </body>
