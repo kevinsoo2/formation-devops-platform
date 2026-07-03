@@ -1,7 +1,6 @@
+'use client';
 import Link from 'next/link';
-
-export const dynamic = 'force-static';
-export const dynamicParams = false;
+import { useParams } from 'next/navigation';
 
 const cheatsheetData = {
   docker: {
@@ -196,20 +195,9 @@ const cheatsheetData = {
   },
 };
 
-export function generateStaticParams() {
-  return Object.keys(cheatsheetData).map(tool => ({ tool }));
-}
-
-export function generateMetadata({ params }) {
-  const data = cheatsheetData[params.tool];
-  return {
-    title: data ? `Cheat Sheet ${data.title} - DevOps Academy` : 'Cheat Sheet',
-    description: data ? `Aide-mémoire des commandes essentielles ${data.title}` : '',
-  };
-}
-
-export default function CheatsheetToolPage({ params }) {
-  const data = cheatsheetData[params.tool];
+export default function CheatsheetToolPage() {
+  const { tool } = useParams();
+  const data = cheatsheetData[tool];
 
   if (!data) {
     return (
