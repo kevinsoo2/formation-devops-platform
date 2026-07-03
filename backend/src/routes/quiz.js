@@ -24,6 +24,66 @@ async function addXP(userId, amount) {
   return null;
 }
 
+// GET /api/quiz/daily - Question du jour (deterministic based on date)
+router.get('/daily', async (req, res) => {
+  try {
+    const questions = await db.select().from(schema.quizQuestions);
+    if (questions.length === 0) return res.status(404).json({ success: false, message: 'Aucune question disponible' });
+
+    // Deterministic selection based on date
+    const today = new Date();
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
+    const index = dayOfYear % questions.length;
+    const q = questions[index];
+
+    res.json({
+      success: true,
+      data: {
+        id: q.id,
+        question: q.question,
+        options: JSON.parse(q.options),
+        courseId: q.courseId,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+// POST /api/quiz/daily/submit - Soumettre la réponse du quiz du jour
+router.post('/daily/submit', async (req, res) => {
+  try {
+    const questions = await db.select().from(schema.quizQuestions);
+    if (questions.length === 0) return res.status(404).json({ success: false, message: 'Aucune question' });
+
+    const today = new Date();
+    const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 86400000);
+    const index = dayOfYear % questions.length;
+    const q = questions[index];
+
+    const { answer, userId } = req.body;
+    const correct = answer === q.correctIndex;
+
+    let xpAwarded = 0;
+    if (correct && userId) {
+      xpAwarded = 50;
+      await addXP(userId, xpAwarded);
+    }
+
+    res.json({
+      success: true,
+      data: {
+        correct,
+        correctIndex: q.correctIndex,
+        explanation: q.explanation,
+        xpAwarded,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
 // GET /api/quiz/:courseId - Questions du quiz (sans réponses)
 router.get('/:courseId', async (req, res) => {
   try {

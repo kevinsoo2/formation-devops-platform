@@ -3,14 +3,31 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Providers } from '../components/Providers';
 import KeyboardShortcuts from '../components/KeyboardShortcuts';
+import ScrollProgress from '../components/ScrollProgress';
 
 export const metadata = {
   title: 'DevOps Academy - Formation Outils',
-  description: 'Plateforme de formation DevOps - Docker, Kubernetes, Terraform, Ansible, Jenkins, GitLab CI',
+  description: 'Plateforme de formation DevOps - Docker, Kubernetes, Terraform, Ansible, Jenkins, GitLab CI. Gagnez des XP, débloquez des badges et grimpez dans le classement !',
   manifest: '/manifest.json',
   themeColor: '#a855f7',
   appleWebApp: { capable: true, statusBarStyle: 'default', title: 'DevOps Academy' },
   viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
+  openGraph: {
+    title: 'DevOps Academy - Formation Outils DevOps',
+    description: 'Plateforme de formation complète : Docker, Kubernetes, Terraform, Ansible, Jenkins, GitLab CI. 15 formations, quiz interactifs, XP et badges.',
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: 'DevOps Academy',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DevOps Academy - Formation DevOps',
+    description: 'Maîtrisez les outils DevOps avec des formations interactives. Quiz, XP, badges et classement.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -23,9 +40,10 @@ export default function RootLayout({ children }) {
       </head>
       <body className="min-h-screen flex flex-col">
         <Providers>
+          <ScrollProgress />
           <KeyboardShortcuts />
           <Navbar />
-          <main className="flex-1 pt-[70px]">{children}</main>
+          <main className="flex-1 pt-[70px] animate-fade-in">{children}</main>
           <Footer />
         </Providers>
         <script dangerouslySetInnerHTML={{ __html: `if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js')});}` }} />

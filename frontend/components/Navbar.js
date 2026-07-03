@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useAuth } from '../contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLang } from '../contexts/LanguageContext';
+import XPLevelBar from './XPLevelBar';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -33,13 +34,14 @@ export default function Navbar() {
     { href: '/courses', label: t('nav.courses') },
     { href: '/dashboard', label: t('nav.dashboard') },
     { href: '/flashcards', label: '🃏 Flashcards' },
+    { href: '/cheatsheets', label: '📋 Cheat Sheets' },
     { href: '/leaderboard', label: t('nav.leaderboard') },
     { href: '/glossary', label: t('nav.glossary') },
     { href: '/forum', label: t('nav.forum') },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-md border-b border-border h-[70px]" role="navigation" aria-label="Navigation principale">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-md border-b border-border h-[70px] navbar-container" role="navigation" aria-label="Navigation principale">
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 text-xl font-bold" aria-label="DevOps Academy - Accueil">
           <span className="text-2xl">&#9881;</span>
@@ -72,6 +74,13 @@ export default function Navbar() {
               <span className="text-sm font-bold text-orange-400 flex items-center gap-1" title={`Streak: ${streak} jours`}>
                 🔥 {streak}
               </span>
+            )}
+
+            {/* XP Level */}
+            {user && (
+              <div className="hidden md:block">
+                <XPLevelBar />
+              </div>
             )}
 
             {/* Notifications */}
@@ -118,6 +127,7 @@ export default function Navbar() {
                         <Link href="/dashboard" onClick={() => setUserMenu(false)} className="block px-4 py-3 text-sm hover:bg-purple-500/10" role="menuitem">📊 {t('nav.dashboard')}</Link>
                         <Link href={`/profile/${user.id}`} onClick={() => setUserMenu(false)} className="block px-4 py-3 text-sm hover:bg-purple-500/10" role="menuitem">👤 {t('common.profile')}</Link>
                         <Link href="/favorites" onClick={() => setUserMenu(false)} className="block px-4 py-3 text-sm hover:bg-purple-500/10" role="menuitem">❤️ {t('nav.favorites')}</Link>
+                        <Link href="/settings" onClick={() => setUserMenu(false)} className="block px-4 py-3 text-sm hover:bg-purple-500/10" role="menuitem">⚙️ Paramètres</Link>
                         {user.role === 'admin' && <Link href="/admin" onClick={() => setUserMenu(false)} className="block px-4 py-3 text-sm hover:bg-purple-500/10" role="menuitem">⚙️ Admin</Link>}
                         <hr className="border-border" />
                         <button onClick={() => { logout(); setUserMenu(false); }} className="block w-full text-left px-4 py-3 text-sm text-red-400 hover:bg-red-500/10" role="menuitem">🚪 {t('auth.logout')}</button>

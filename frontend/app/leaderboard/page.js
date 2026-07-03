@@ -4,43 +4,64 @@ import { useAuth } from '../../contexts/AuthContext';
 
 export default function LeaderboardPage() {
   const [leaderboard, setLeaderboard] = useState([]);
+  const [weeklyLeaderboard, setWeeklyLeaderboard] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [tab, setTab] = useState('global');
   const { user } = useAuth();
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
   useEffect(() => {
-    fetch(`${API_URL}/api/leaderboard`)
-      .then(r => r.json())
-      .then(data => {
-        if (data.success) setLeaderboard(data.data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    Promise.all([
+      fetch(`${API_URL}/api/leaderboard`).then(r => r.json()),
+      fetch(`${API_URL}/api/leaderboard/weekly`).then(r => r.json()).catch(() => ({ data: [] })),
+    ]).then(([globalData, weeklyData]) => {
+      if (globalData.success) setLeaderboard(globalData.data);
+      if (weeklyData.success) setWeeklyLeaderboard(weeklyData.data || []);
+      setLoading(false);
+    }).catch(() => setLoading(false));
   }, [API_URL]);
 
   if (loading) return <div className="text-center py-20 text-gray-400">Chargement...</div>;
 
+  const activeLeaderboard = tab === 'global' ? leaderboard : weeklyLeaderboard;
+
   return (
-    <div className="max-w-4xl mx-auto px-6 py-12">
+    <div className="max-w-4xl mx-auto px-6 py-12 animate-fade-in">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-extrabold mb-2">🏆 Classement</h1>
         <p className="text-gray-400">Les meilleurs apprenants de la communauté</p>
       </div>
 
-      {leaderboard.length === 0 ? (
+      {/* Tabs */}
+      <div className="flex justify-center gap-2 mb-8">
+        <button
+          onClick={() => setTab('global')}
+          className={`px-5 py-2 rounded-lg font-medium text-sm transition-all ${tab === 'global' ? 'bg-purple-500/10 text-purple-400 border border-purple-500/30' : 'text-gray-400 hover:text-purple-400'}`}
+        >
+          🌍 Global
+        </button>
+        <button
+          onClick={() => setTab('weekly')}
+          className={`px-5 py-2 rounded-lg font-medium text-sm transition-all ${tab === 'weekly' ? 'bg-purple-500/10 text-purple-400 border border-purple-500/30' : 'text-gray-400 hover:text-purple-400'}`}
+        >
+          📅 Cette semaine
+        </button>
+      </div>
+
+      {activeLeaderboard.length === 0 ? (
         <div className="card text-center py-12">
           <span className="text-4xl block mb-4">👥</span>
-          <h3 className="text-lg font-bold mb-2">Aucun participant</h3>
-          <p className="text-gray-400">Inscrivez-vous et commencez à apprendre pour apparaître ici !</p>
+          <h3 className="text-lg font-bold mb-2">{tab === 'weekly' ? 'Aucune activité cette semaine' : 'Aucun participant'}</h3>
+          <p className="text-gray-400">{tab === 'weekly' ? 'Les scores se réinitialisent chaque lundi.' : 'Inscrivez-vous et commencez à apprendre pour apparaître ici !'}</p>
         </div>
       ) : (
         <div className="space-y-3">
           {/* Top 3 podium */}
-          {leaderboard.length >= 3 && (
+          {activeLeaderboard.length >= 3 && (
             <div className="grid grid-cols-3 gap-4 mb-8">
               {[1, 0, 2].map(idx => {
-                const entry = leaderboard[idx];
+                const entry = activeLeaderboard[idx];
                 if (!entry) return null;
                 const medals = ['🥇', '🥈', '🥉'];
                 const sizes = ['scale-110', 'scale-100', 'scale-100'];
@@ -75,7 +96,7 @@ export default function LeaderboardPage() {
                 </tr>
               </thead>
               <tbody>
-                {leaderboard.map(entry => (
+              {activeLeaderboard.map(entry => (
                   <tr key={entry.id} className={`border-b border-border/50 hover:bg-purple-500/5 transition-all ${user?.id === entry.id ? 'bg-purple-500/10' : ''}`}>
                     <td className="px-4 py-3">
                       <span className={`font-bold ${entry.rank <= 3 ? 'text-purple-400' : 'text-gray-500'}`}>

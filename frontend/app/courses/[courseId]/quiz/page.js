@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useAuth } from '../../../../contexts/AuthContext';
+import Confetti from '../../../../components/Confetti';
+import Toast from '../../../../components/Toast';
 
 export default function QuizPage() {
   const { courseId } = useParams();
@@ -13,6 +15,8 @@ export default function QuizPage() {
   const [selected, setSelected] = useState(null);
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [toastMsg, setToastMsg] = useState(null);
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
@@ -40,6 +44,10 @@ export default function QuizPage() {
       });
       const data = await res.json();
       setResults(data.data);
+      if (data.data?.passed) {
+        setShowConfetti(true);
+        setToastMsg(`Quiz réussi ! +${data.data.xpAwarded || 0} XP`);
+      }
       if (user) refreshUser();
     }
   };
@@ -50,6 +58,8 @@ export default function QuizPage() {
   if (results) {
     return (
       <div className="max-w-3xl mx-auto px-6 py-12 text-center">
+        <Confetti trigger={showConfetti} />
+        <Toast message={toastMsg} type="success" show={!!toastMsg} onClose={() => setToastMsg(null)} />
         <div className="text-5xl mb-4">{results.passed ? '🎉' : '📚'}</div>
         <h1 className="text-2xl font-bold mb-2">{results.passed ? 'Félicitations !' : 'Continuez vos efforts !'}</h1>
         <p className="text-gray-400 mb-4">{results.passed ? 'Quiz réussi !' : 'Révisez et réessayez.'}</p>

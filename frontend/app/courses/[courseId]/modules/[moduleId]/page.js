@@ -7,6 +7,9 @@ import TerminalSimulator from '../../../../../components/TerminalSimulator';
 import CodeEditor from '../../../../../components/CodeEditor';
 import Breadcrumbs from '../../../../../components/Breadcrumbs';
 import Confetti from '../../../../../components/Confetti';
+import FocusMode from '../../../../../components/FocusMode';
+import TextHighlighter from '../../../../../components/TextHighlighter';
+import Toast from '../../../../../components/Toast';
 
 export default function ModulePage() {
   const { courseId, moduleId } = useParams();
@@ -33,6 +36,14 @@ export default function ModulePage() {
   const [exercises, setExercises] = useState([]);
   const [exerciseAnswers, setExerciseAnswers] = useState({});
   const [exerciseResults, setExerciseResults] = useState({});
+  // Mini quiz
+  const [miniQuizQuestions, setMiniQuizQuestions] = useState([]);
+  const [miniQuizAnswers, setMiniQuizAnswers] = useState({});
+  const [miniQuizResults, setMiniQuizResults] = useState({});
+  // Summary panel
+  const [showSummary, setShowSummary] = useState(false);
+  // Toast
+  const [toastMsg, setToastMsg] = useState(null);
   // Study time tracking
   const startTime = useRef(Date.now());
 
@@ -69,6 +80,16 @@ export default function ModulePage() {
         const exRes = await fetch(`${API_URL}/api/exercises/${moduleId}`);
         const exData = await exRes.json();
         if (exData.data) setExercises(exData.data);
+
+        // Mini quiz questions for this module
+        try {
+          const mqRes = await fetch(`${API_URL}/api/quiz/${courseId}`);
+          const mqData = await mqRes.json();
+          if (mqData.data) {
+            const moduleQuestions = mqData.data.filter(q => q.moduleId === moduleId).slice(0, 2);
+            setMiniQuizQuestions(moduleQuestions);
+          }
+        } catch (e) {}
 
         if (user) {
           const progRes = await fetch(`${API_URL}/api/progress/${user.id}`);
@@ -141,6 +162,7 @@ export default function ModulePage() {
       if (data.success) {
         setCompleted(true);
         setShowConfetti(true);
+        setToastMsg(data.xpAwarded ? `Module terminé ! +${data.xpAwarded} XP` : 'Module terminé !');
         if (data.xpAwarded) { setXpNotif(`+${data.xpAwarded} XP !`); setTimeout(() => setXpNotif(null), 3000); }
         // Record streak & activity
         fetch(`${API_URL}/api/streaks/${user.id}`, { method: 'POST' }).catch(() => {});
@@ -207,6 +229,7 @@ export default function ModulePage() {
 
   const renderContent = (text) => {
     return text
+      .replace(/```mermaid\n?([\s\S]*?)```/g, '<div class="mermaid-block"><pre>$1</pre></div>')
       .replace(/```(\w+)?\n?([\s\S]*?)```/g, '<pre class="bg-dark border border-border rounded-lg p-4 my-4 overflow-x-auto text-sm"><code>$2</code></pre>')
       .replace(/`([^`]+)`/g, '<code class="bg-purple-500/10 text-purple-400 px-1.5 py-0.5 rounded text-sm">$1</code>')
       .replace(/### (.*)/g, '<h3 class="text-lg font-semibold text-purple-400 mt-6 mb-2">$1</h3>')
@@ -225,6 +248,8 @@ export default function ModulePage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-8">
       <Confetti trigger={showConfetti} />
+      <Toast message={toastMsg} type="xp" show={!!toastMsg} onClose={() => setToastMsg(null)} />
+      <FocusMode />
       
       <Breadcrumbs items={[
         { label: 'Accueil', href: '/' },
@@ -265,6 +290,37 @@ export default function ModulePage() {
         {xpNotif && <span className="animate-bounce bg-gradient-to-r from-purple-500 to-purple-700 text-white px-3 py-1 rounded-full text-sm font-bold">{xpNotif}</span>}
       </div>
 
+      {/* Toolbar: Highlight + Summary */}
+      <div className="flex items-center gap-3 mb-4 no-print">
+        <TextHighlighter moduleId={moduleId} />
+        <button
+          onClick={() => setShowSummary(!showSummary)}
+          className="px-3 py-1.5 rounded-lg text-xs font-medium bg-surface border border-border text-gray-400 hover:text-purple-400 hover:border-purple-500/50 transition-all"
+        >
+          📝 Résumer ce module
+        </button>
+      </div>
+
+      {/* Summary Panel */}
+      {showSummary && (
+        <div className="card mb-6 border-purple-500/30 bg-purple-500/5">
+          <h3 className="text-sm font-bold text-purple-400 mb-3">📝 Résumé du module</h3>
+          {mod.keyPoints?.length > 0 && (
+            <div className="mb-3">
+              <p className="text-xs text-gray-500 mb-2 font-semibold">Points clés :</p>
+              <ul className="space-y-1">
+                {mod.keyPoints.map((point, i) => (
+                  <li key={i} className="text-sm text-gray-300 flex items-start gap-2">
+                    <span className="text-purple-400">•</span>{point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <button onClick={() => setShowSummary(false)} className="text-xs text-gray-500 hover:text-purple-400 mt-2">Fermer ✕</button>
+        </div>
+      )}
+
       {/* Complete button */}
       {user && (
         <div className="mb-6">
@@ -291,7 +347,50 @@ export default function ModulePage() {
 
       {/* Content */}
       <div className="card min-h-[400px]">
-        {tab === 'theory' && <div dangerouslySetInnerHTML={{ __html: renderContent(mod.theoryContent) }} />}
+        {tab === 'theory' && (
+          <div className="module-content">
+            <div dangerouslySetInnerHTML={{ __html: renderContent(mod.theoryContent) }} />
+            {/* Inline mini-quiz */}
+            {miniQuizQuestions.length > 0 && (
+              <div className="mt-8 pt-6 border-t border-border">
+                <h3 className="text-lg font-semibold text-purple-400 mb-4">🧠 Vérifiez votre compréhension</h3>
+                <div className="space-y-4">
+                  {miniQuizQuestions.map((q, qi) => (
+                    <div key={q.id} className="p-4 rounded-lg border border-border bg-surface">
+                      <p className="text-sm font-medium mb-3">{q.question}</p>
+                      <div className="space-y-2">
+                        {q.options?.map((opt, i) => (
+                          <button
+                            key={i}
+                            onClick={() => {
+                              setMiniQuizAnswers({ ...miniQuizAnswers, [q.id]: i });
+                              setMiniQuizResults({ ...miniQuizResults, [q.id]: i === q.correctIndex });
+                            }}
+                            disabled={miniQuizAnswers[q.id] !== undefined}
+                            className={`w-full text-left p-2 rounded-lg text-sm border transition-all ${
+                              miniQuizAnswers[q.id] === i
+                                ? miniQuizResults[q.id] ? 'border-green-500 bg-green-500/10' : 'border-red-500 bg-red-500/10'
+                                : miniQuizAnswers[q.id] !== undefined && i === q.correctIndex
+                                  ? 'border-green-500 bg-green-500/10'
+                                  : 'border-border hover:border-purple-500/50 disabled:opacity-60'
+                            }`}
+                          >
+                            {opt}
+                          </button>
+                        ))}
+                      </div>
+                      {miniQuizAnswers[q.id] !== undefined && (
+                        <p className={`mt-2 text-xs ${miniQuizResults[q.id] ? 'text-green-400' : 'text-red-400'}`}>
+                          {miniQuizResults[q.id] ? '✓ Correct !' : '✗ Incorrect'}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
         {tab === 'practice' && (
           <div>
             <div dangerouslySetInnerHTML={{ __html: renderContent(mod.practiceContent) }} />

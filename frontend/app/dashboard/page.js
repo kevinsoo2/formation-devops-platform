@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useAuth } from '../../contexts/AuthContext';
 import ActivityHeatmap from '../../components/ActivityHeatmap';
 import StudyTimeChart from '../../components/StudyTimeChart';
+import DailyQuiz from '../../components/DailyQuiz';
 
 export default function DashboardPage() {
   const { user, token } = useAuth();
@@ -187,6 +188,11 @@ export default function DashboardPage() {
                 📥 Télécharger le rapport de progression
               </button>
             </div>
+          </div>
+
+          {/* Daily Quiz */}
+          <div className="mb-8">
+            <DailyQuiz />
           </div>
 
           {/* Continue learning (recently viewed) */}
