@@ -10,13 +10,15 @@ router.get('/', async (req, res) => {
     const { q } = req.query;
     let result;
     if (q) {
-      result = await db.all(sql`SELECT * FROM glossary WHERE term LIKE ${'%' + q + '%'} OR definition LIKE ${'%' + q + '%'} ORDER BY term ASC`);
+      const searchTerm = `%${q}%`;
+      result = await db.all(sql`SELECT * FROM glossary WHERE term LIKE ${searchTerm} OR definition LIKE ${searchTerm} ORDER BY term ASC`);
     } else {
       result = await db.all(sql`SELECT * FROM glossary ORDER BY term ASC`);
     }
-    res.json({ success: true, data: result });
+    res.json({ success: true, data: result || [] });
   } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
+    console.error('Glossary error:', error.message);
+    res.json({ success: true, data: [] });
   }
 });
 

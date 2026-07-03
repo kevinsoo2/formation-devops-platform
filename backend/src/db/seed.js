@@ -28,6 +28,7 @@ async function seed() {
   await db.run(sql`CREATE TABLE IF NOT EXISTS study_time (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, module_id TEXT NOT NULL, seconds INTEGER NOT NULL, date TEXT NOT NULL)`);
   await db.run(sql`CREATE TABLE IF NOT EXISTS forum_posts (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, course_id TEXT, title TEXT NOT NULL, content TEXT NOT NULL, created_at TEXT NOT NULL)`);
   await db.run(sql`CREATE TABLE IF NOT EXISTS forum_replies (id INTEGER PRIMARY KEY AUTOINCREMENT, post_id INTEGER NOT NULL, user_id TEXT NOT NULL, content TEXT NOT NULL, upvotes INTEGER NOT NULL DEFAULT 0, created_at TEXT NOT NULL)`);
+  await db.run(sql`DROP TABLE IF EXISTS glossary`);
   await db.run(sql`CREATE TABLE IF NOT EXISTS glossary (id TEXT PRIMARY KEY, term TEXT NOT NULL, definition TEXT NOT NULL, related_course_id TEXT)`);
   await db.run(sql`CREATE TABLE IF NOT EXISTS exercises (id TEXT PRIMARY KEY, module_id TEXT NOT NULL, instruction TEXT NOT NULL, expected_answer TEXT NOT NULL, hint TEXT, xp_reward INTEGER NOT NULL DEFAULT 25)`);
 

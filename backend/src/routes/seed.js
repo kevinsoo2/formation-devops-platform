@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { db, schema } from '../db/index.js';
 import { seedData } from '../db/seed-data.js';
+import { glossaryData } from '../db/glossary-data.js';
 import { sql } from 'drizzle-orm';
 
 const router = Router();
@@ -59,8 +60,15 @@ router.get('/:secret', async (req, res) => {
       await db.insert(schema.badges).values(badge).onConflictDoNothing();
     }
 
+    // Seed glossary (244 termes)
+    await db.run(sql`DROP TABLE IF EXISTS glossary`);
+    await db.run(sql`CREATE TABLE IF NOT EXISTS glossary (id TEXT PRIMARY KEY, term TEXT NOT NULL, definition TEXT NOT NULL, related_course_id TEXT)`);
+    for (const g of glossaryData) {
+      await db.run(sql`INSERT OR IGNORE INTO glossary (id, term, definition, related_course_id) VALUES (${g.id}, ${g.term}, ${g.definition}, ${g.relatedCourseId})`);
+    }
+
     res.json({ success: true, message: 'Base de données v2 initialisée !', counts: {
-      courses: seedData.courses.length, modules: seedData.modules.length, quizQuestions: seedData.quizQuestions.length, badges: badgesData.length
+      courses: seedData.courses.length, modules: seedData.modules.length, quizQuestions: seedData.quizQuestions.length, badges: badgesData.length, glossary: glossaryData.length
     }});
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
