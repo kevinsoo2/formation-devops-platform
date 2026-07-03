@@ -2,9 +2,11 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { useAuth } from '../../../../contexts/AuthContext';
 
 export default function QuizPage() {
   const { courseId } = useParams();
+  const { user, refreshUser } = useAuth();
   const [questions, setQuestions] = useState([]);
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -30,14 +32,15 @@ export default function QuizPage() {
     if (current < questions.length - 1) {
       setCurrent(current + 1);
     } else {
-      // Submit
+      // Submit with userId if logged in
       const res = await fetch(`${API_URL}/api/quiz/${courseId}/submit`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ answers: newAnswers }),
+        body: JSON.stringify({ answers: newAnswers, userId: user?.id }),
       });
       const data = await res.json();
       setResults(data.data);
+      if (user) refreshUser();
     }
   };
 
@@ -49,8 +52,30 @@ export default function QuizPage() {
       <div className="max-w-3xl mx-auto px-6 py-12 text-center">
         <div className="text-5xl mb-4">{results.passed ? '🎉' : '📚'}</div>
         <h1 className="text-2xl font-bold mb-2">{results.passed ? 'Félicitations !' : 'Continuez vos efforts !'}</h1>
-        <p className="text-gray-400 mb-8">{results.passed ? 'Quiz réussi !' : 'Révisez et réessayez.'}</p>
-        
+        <p className="text-gray-400 mb-4">{results.passed ? 'Quiz réussi !' : 'Révisez et réessayez.'}</p>
+
+        {/* XP earned */}
+        {results.xpAwarded > 0 && (
+          <div className="inline-block mb-4 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30">
+            <span className="text-purple-400 font-bold">+{results.xpAwarded} XP gagné !</span>
+          </div>
+        )}
+
+        {/* New badges */}
+        {results.newBadges?.length > 0 && (
+          <div className="mb-6">
+            <p className="text-sm text-gray-400 mb-2">Nouveaux badges débloqués :</p>
+            <div className="flex justify-center gap-3">
+              {results.newBadges.map(badge => (
+                <div key={badge.id} className="px-3 py-2 rounded-lg bg-purple-500/10 border border-purple-500/30">
+                  <span className="text-xl">{badge.icon}</span>
+                  <span className="text-sm ml-1 text-purple-400">{badge.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="inline-block relative w-36 h-36 mb-8">
           <svg viewBox="0 0 100 100" className="-rotate-90">
             <circle cx="50" cy="50" r="45" fill="none" stroke="#2a2a4a" strokeWidth="8" />
@@ -85,7 +110,7 @@ export default function QuizPage() {
   return (
     <div className="max-w-3xl mx-auto px-6 py-12">
       <Link href={`/courses/${courseId}`} className="text-gray-500 hover:text-purple-400 text-sm mb-6 inline-block">&larr; Retour</Link>
-      
+
       <div className="flex items-center gap-4 mb-8">
         <div className="flex-1 h-1.5 bg-border rounded-full overflow-hidden">
           <div className="h-full bg-gradient-to-r from-purple-500 to-purple-700 rounded-full transition-all" style={{ width: `${((current + 1) / questions.length) * 100}%` }} />
@@ -102,7 +127,7 @@ export default function QuizPage() {
                 selected === i ? 'border-purple-500 bg-purple-500/10' : 'border-border hover:border-purple-500/50'
               }`}>
               <span className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 ${
-                selected === i ? 'bg-purple-500 text-white' : 'bg-dark'
+                selected === i ? 'bg-purple-500 text-white' : 'bg-surface'
               }`}>{String.fromCharCode(65 + i)}</span>
               <span className="text-sm">{opt}</span>
             </button>

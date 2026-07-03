@@ -15,10 +15,11 @@ export default function HomePage() {
           </h1>
           <p className="text-lg text-gray-400 mb-8 max-w-xl mx-auto">
             Plateforme de formation complète : Artifactory, SonarQube, IBM DOORS, IBM ClearCase, Klocwork et Jenkins.
+            Gagnez des XP, débloquez des badges et grimpez dans le classement !
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <Link href="/courses" className="btn-primary">Commencer les formations</Link>
-            <Link href="/dashboard" className="btn-secondary">Mon tableau de bord</Link>
+            <Link href="/register" className="btn-secondary">Créer un compte</Link>
           </div>
         </div>
       </section>
@@ -26,7 +27,7 @@ export default function HomePage() {
       {/* Stats */}
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[{ v: '6', l: 'Formations' }, { v: '20+', l: 'Modules' }, { v: '50+', l: 'Exercices' }, { v: '20+', l: 'Questions Quiz' }].map((s, i) => (
+          {[{ v: '6', l: 'Formations' }, { v: '20+', l: 'Modules' }, { v: '6', l: 'Badges à débloquer' }, { v: '∞', l: 'XP à gagner' }].map((s, i) => (
             <div key={i} className="card text-center">
               <span className="text-3xl font-extrabold bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">{s.v}</span>
               <span className="block text-sm text-gray-500 mt-2">{s.l}</span>
@@ -42,10 +43,10 @@ export default function HomePage() {
           {[
             { icon: '📚', title: 'Contenu structuré', desc: 'Formations en modules progressifs avec théorie et pratique.' },
             { icon: '🎓', title: 'Quiz interactifs', desc: 'Validez vos connaissances avec scoring et explications.' },
-            { icon: '📊', title: 'Suivi de progression', desc: 'Tableau de bord personnalisé avec métriques.' },
-            { icon: '⚙️', title: 'Exercices pratiques', desc: 'TPs guidés avec commandes réelles.' },
-            { icon: '☁️', title: 'Cloud Native', desc: 'Déployé sur Vercel + Render + Turso.' },
-            { icon: '🔧', title: 'Multi-outils', desc: '6 outils essentiels en un seul endroit.' },
+            { icon: '⚡', title: 'Système XP & Niveaux', desc: 'Gagnez des points et montez en niveau à chaque module.' },
+            { icon: '🏆', title: 'Badges & Classement', desc: 'Débloquez des badges et rivalisez avec la communauté.' },
+            { icon: '🎓', title: 'Certificats', desc: 'Obtenez un certificat de réussite pour chaque formation.' },
+            { icon: '💬', title: 'Communauté', desc: 'Commentez et échangez avec les autres apprenants.' },
           ].map((f, i) => (
             <div key={i} className="card hover:border-purple-500 transition-all">
               <span className="text-3xl block mb-3">{f.icon}</span>
@@ -59,8 +60,11 @@ export default function HomePage() {
       {/* CTA */}
       <section className="text-center py-20 px-6">
         <h2 className="text-2xl font-bold mb-4">Prêt à commencer ?</h2>
-        <p className="text-gray-400 mb-8">Explorez nos 6 formations et montez en compétences.</p>
-        <Link href="/courses" className="btn-primary text-lg px-8 py-4">Voir toutes les formations</Link>
+        <p className="text-gray-400 mb-8">Explorez nos formations, gagnez des XP et montez en compétences.</p>
+        <div className="flex gap-4 justify-center flex-wrap">
+          <Link href="/courses" className="btn-primary text-lg px-8 py-4">Voir toutes les formations</Link>
+          <Link href="/leaderboard" className="btn-secondary text-lg px-8 py-4">🏆 Classement</Link>
+        </div>
       </section>
     </div>
   );

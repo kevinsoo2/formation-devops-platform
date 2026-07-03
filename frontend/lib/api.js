@@ -89,3 +89,70 @@ export async function fetchProgress(userId) {
     return {};
   }
 }
+
+export async function fetchLeaderboard() {
+  try {
+    const res = await fetch(`${API_URL}/api/leaderboard`, { cache: 'no-store' });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.data;
+  } catch (e) {
+    return [];
+  }
+}
+
+export async function searchContent(query) {
+  try {
+    const res = await fetch(`${API_URL}/api/search?q=${encodeURIComponent(query)}`, { cache: 'no-store' });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.data;
+  } catch (e) {
+    return null;
+  }
+}
+
+export async function fetchComments(moduleId) {
+  try {
+    const res = await fetch(`${API_URL}/api/comments/${moduleId}`, { cache: 'no-store' });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.data;
+  } catch (e) {
+    return [];
+  }
+}
+
+export async function postComment(moduleId, content, token) {
+  const res = await fetch(`${API_URL}/api/comments/${moduleId}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify({ content }),
+  });
+  return res.json();
+}
+
+export async function fetchBadges() {
+  try {
+    const res = await fetch(`${API_URL}/api/badges`, { cache: 'no-store' });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.data;
+  } catch (e) {
+    return [];
+  }
+}
+
+export async function fetchUserBadges(userId) {
+  try {
+    const res = await fetch(`${API_URL}/api/badges/user/${userId}`, { cache: 'no-store' });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.data;
+  } catch (e) {
+    return [];
+  }
+}

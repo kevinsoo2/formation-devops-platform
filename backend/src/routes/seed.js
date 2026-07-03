@@ -5,6 +5,15 @@ import { sql } from 'drizzle-orm';
 
 const router = Router();
 
+const badgesData = [
+  { id: 'premier-pas', name: 'Premier pas', description: 'Compléter votre premier module', icon: '🎯', condition: 'first_module_completed' },
+  { id: 'studieux', name: 'Studieux', description: 'Compléter 5 modules', icon: '📚', condition: '5_modules_completed' },
+  { id: 'expert', name: 'Expert', description: 'Compléter tous les modules d\'un cours', icon: '🏆', condition: 'all_modules_one_course' },
+  { id: 'quiz-master', name: 'Quiz Master', description: 'Réussir 3 quiz', icon: '🧠', condition: '3_quizzes_passed' },
+  { id: 'perfectionniste', name: 'Perfectionniste', description: 'Obtenir 100% à un quiz', icon: '💎', condition: 'perfect_quiz_score' },
+  { id: 'polyvalent', name: 'Polyvalent', description: 'Commencer 3 cours différents', icon: '🌟', condition: '3_courses_started' },
+];
+
 // GET /api/seed/:secret - Initialiser via navigateur (collez l'URL)
 router.get('/:secret', async (req, res) => {
   if (process.env.SEED_SECRET && req.params.secret !== process.env.SEED_SECRET) {
@@ -20,6 +29,12 @@ router.get('/:secret', async (req, res) => {
     await db.run(sql`CREATE TABLE IF NOT EXISTS quiz_questions (id TEXT PRIMARY KEY, course_id TEXT NOT NULL, module_id TEXT, question TEXT NOT NULL, options TEXT NOT NULL, correct_index INTEGER NOT NULL, explanation TEXT NOT NULL)`);
     await db.run(sql`CREATE TABLE IF NOT EXISTS user_progress (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, course_id TEXT NOT NULL, module_id TEXT NOT NULL, completed_at TEXT NOT NULL DEFAULT (datetime('now')))`);
     await db.run(sql`CREATE TABLE IF NOT EXISTS quiz_scores (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, course_id TEXT NOT NULL, score REAL NOT NULL, total_questions INTEGER NOT NULL, correct_answers INTEGER NOT NULL, passed INTEGER NOT NULL, completed_at TEXT NOT NULL DEFAULT (datetime('now')))`);
+
+    // v2 tables
+    await db.run(sql`CREATE TABLE IF NOT EXISTS users (id TEXT PRIMARY KEY, username TEXT NOT NULL UNIQUE, email TEXT NOT NULL UNIQUE, password_hash TEXT NOT NULL, display_name TEXT NOT NULL, avatar TEXT, xp INTEGER NOT NULL DEFAULT 0, level INTEGER NOT NULL DEFAULT 1, created_at TEXT NOT NULL DEFAULT (datetime('now')))`);
+    await db.run(sql`CREATE TABLE IF NOT EXISTS badges (id TEXT PRIMARY KEY, name TEXT NOT NULL, description TEXT NOT NULL, icon TEXT NOT NULL, condition TEXT NOT NULL)`);
+    await db.run(sql`CREATE TABLE IF NOT EXISTS user_badges (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, badge_id TEXT NOT NULL, earned_at TEXT NOT NULL DEFAULT (datetime('now')))`);
+    await db.run(sql`CREATE TABLE IF NOT EXISTS comments (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, module_id TEXT NOT NULL, content TEXT NOT NULL, created_at TEXT NOT NULL DEFAULT (datetime('now')))`);
 
     for (const course of seedData.courses) {
       await db.insert(schema.courses).values(course).onConflictDoNothing();
@@ -38,8 +53,14 @@ router.get('/:secret', async (req, res) => {
         explanation: q.explanation,
       }).onConflictDoNothing();
     }
-    res.json({ success: true, message: 'Base de données initialisée !', counts: {
-      courses: seedData.courses.length, modules: seedData.modules.length, quizQuestions: seedData.quizQuestions.length
+
+    // Seed badges
+    for (const badge of badgesData) {
+      await db.insert(schema.badges).values(badge).onConflictDoNothing();
+    }
+
+    res.json({ success: true, message: 'Base de données v2 initialisée !', counts: {
+      courses: seedData.courses.length, modules: seedData.modules.length, quizQuestions: seedData.quizQuestions.length, badges: badgesData.length
     }});
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
@@ -53,6 +74,12 @@ router.post('/', async (req, res) => {
     if (process.env.SEED_SECRET && secret !== process.env.SEED_SECRET) {
       return res.status(401).json({ success: false, message: 'Non autorisé' });
     }
+
+    // Create v2 tables
+    await db.run(sql`CREATE TABLE IF NOT EXISTS users (id TEXT PRIMARY KEY, username TEXT NOT NULL UNIQUE, email TEXT NOT NULL UNIQUE, password_hash TEXT NOT NULL, display_name TEXT NOT NULL, avatar TEXT, xp INTEGER NOT NULL DEFAULT 0, level INTEGER NOT NULL DEFAULT 1, created_at TEXT NOT NULL DEFAULT (datetime('now')))`);
+    await db.run(sql`CREATE TABLE IF NOT EXISTS badges (id TEXT PRIMARY KEY, name TEXT NOT NULL, description TEXT NOT NULL, icon TEXT NOT NULL, condition TEXT NOT NULL)`);
+    await db.run(sql`CREATE TABLE IF NOT EXISTS user_badges (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, badge_id TEXT NOT NULL, earned_at TEXT NOT NULL DEFAULT (datetime('now')))`);
+    await db.run(sql`CREATE TABLE IF NOT EXISTS comments (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, module_id TEXT NOT NULL, content TEXT NOT NULL, created_at TEXT NOT NULL DEFAULT (datetime('now')))`);
 
     // Insert courses
     for (const course of seedData.courses) {
@@ -69,10 +96,16 @@ router.post('/', async (req, res) => {
       await db.insert(schema.quizQuestions).values(q).onConflictDoNothing();
     }
 
-    res.json({ success: true, message: 'Base de données initialisée avec succès', counts: {
+    // Insert badges
+    for (const badge of badgesData) {
+      await db.insert(schema.badges).values(badge).onConflictDoNothing();
+    }
+
+    res.json({ success: true, message: 'Base de données v2 initialisée avec succès', counts: {
       courses: seedData.courses.length,
       modules: seedData.modules.length,
-      quizQuestions: seedData.quizQuestions.length
+      quizQuestions: seedData.quizQuestions.length,
+      badges: badgesData.length,
     }});
   } catch (error) {
     console.error('Seed error:', error);

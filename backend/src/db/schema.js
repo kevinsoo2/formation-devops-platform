@@ -59,3 +59,42 @@ export const quizScores = sqliteTable('quiz_scores', {
   passed: integer('passed').notNull(), // 0 or 1
   completedAt: text('completed_at').notNull().$defaultFn(() => new Date().toISOString()),
 });
+
+// Table des utilisateurs
+export const users = sqliteTable('users', {
+  id: text('id').primaryKey(),
+  username: text('username').notNull().unique(),
+  email: text('email').notNull().unique(),
+  passwordHash: text('password_hash').notNull(),
+  displayName: text('display_name').notNull(),
+  avatar: text('avatar'), // first letter placeholder
+  xp: integer('xp').notNull().default(0),
+  level: integer('level').notNull().default(1),
+  createdAt: text('created_at').notNull().$defaultFn(() => new Date().toISOString()),
+});
+
+// Table des badges
+export const badges = sqliteTable('badges', {
+  id: text('id').primaryKey(),
+  name: text('name').notNull(),
+  description: text('description').notNull(),
+  icon: text('icon').notNull(),
+  condition: text('condition').notNull(), // JSON description of condition
+});
+
+// Table des badges utilisateur
+export const userBadges = sqliteTable('user_badges', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  userId: text('user_id').notNull().references(() => users.id),
+  badgeId: text('badge_id').notNull().references(() => badges.id),
+  earnedAt: text('earned_at').notNull().$defaultFn(() => new Date().toISOString()),
+});
+
+// Table des commentaires
+export const comments = sqliteTable('comments', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  userId: text('user_id').notNull().references(() => users.id),
+  moduleId: text('module_id').notNull().references(() => modules.id),
+  content: text('content').notNull(),
+  createdAt: text('created_at').notNull().$defaultFn(() => new Date().toISOString()),
+});
