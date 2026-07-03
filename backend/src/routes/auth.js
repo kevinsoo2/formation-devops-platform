@@ -153,4 +153,191 @@ router.get('/me', requireAuth, async (req, res) => {
   }
 });
 
+// POST /api/auth/google - OAuth Google login
+router.post('/google', async (req, res) => {
+  try {
+    const { token } = req.body;
+    if (!token) {
+      return res.status(400).json({ success: false, message: 'Token Google requis' });
+    }
+
+    // Verify token with Google
+    const googleRes = await fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${token}`);
+    const payload = await googleRes.json();
+
+    if (!payload.email) {
+      return res.status(401).json({ success: false, message: 'Token Google invalide' });
+    }
+
+    const { email, name, picture } = payload;
+
+    // Check if user exists
+    const [existingUser] = await db.select().from(schema.users)
+      .where(eq(schema.users.email, email));
+
+    if (existingUser) {
+      // Login existing user
+      const jwtToken = jwt.sign(
+        { id: existingUser.id, username: existingUser.username, email: existingUser.email, role: existingUser.role || 'user' },
+        JWT_SECRET,
+        { expiresIn: '7d' }
+      );
+      return res.json({
+        success: true,
+        data: {
+          token: jwtToken,
+          user: {
+            id: existingUser.id,
+            username: existingUser.username,
+            email: existingUser.email,
+            displayName: existingUser.displayName,
+            avatar: existingUser.avatar,
+            xp: existingUser.xp,
+            level: existingUser.level,
+            role: existingUser.role || 'user',
+          }
+        }
+      });
+    }
+
+    // Create new user
+    const id = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const username = email.split('@')[0] + '_' + Math.random().toString(36).substr(2, 4);
+    const displayName = name || email.split('@')[0];
+    const avatar = picture || displayName.charAt(0).toUpperCase();
+
+    await db.insert(schema.users).values({
+      id,
+      username,
+      email,
+      passwordHash: 'oauth_google',
+      displayName,
+      avatar,
+      xp: 0,
+      level: 1,
+      role: 'user',
+    });
+
+    const jwtToken = jwt.sign({ id, username, email, role: 'user' }, JWT_SECRET, { expiresIn: '7d' });
+
+    res.status(201).json({
+      success: true,
+      data: {
+        token: jwtToken,
+        user: { id, username, email, displayName, avatar, xp: 0, level: 1, role: 'user' }
+      }
+    });
+  } catch (error) {
+    console.error('Google OAuth error:', error);
+    res.status(500).json({ success: false, message: 'Erreur lors de la connexion Google' });
+  }
+});
+
+// POST /api/auth/github - OAuth GitHub login
+router.post('/github', async (req, res) => {
+  try {
+    const { code } = req.body;
+    if (!code) {
+      return res.status(400).json({ success: false, message: 'Code GitHub requis' });
+    }
+
+    // Exchange code for access token
+    const tokenRes = await fetch('https://github.com/login/oauth/access_token', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        client_id: process.env.GITHUB_CLIENT_ID,
+        client_secret: process.env.GITHUB_CLIENT_SECRET,
+        code
+      })
+    });
+    const tokenData = await tokenRes.json();
+
+    if (!tokenData.access_token) {
+      return res.status(401).json({ success: false, message: 'Code GitHub invalide ou expiré' });
+    }
+
+    // Get user info
+    const userRes = await fetch('https://api.github.com/user', {
+      headers: { Authorization: `Bearer ${tokenData.access_token}`, 'User-Agent': 'DevOps-Academy' }
+    });
+    const githubUser = await userRes.json();
+
+    // Get user email if not public
+    let email = githubUser.email;
+    if (!email) {
+      const emailsRes = await fetch('https://api.github.com/user/emails', {
+        headers: { Authorization: `Bearer ${tokenData.access_token}`, 'User-Agent': 'DevOps-Academy' }
+      });
+      const emails = await emailsRes.json();
+      const primaryEmail = emails.find(e => e.primary) || emails[0];
+      email = primaryEmail ? primaryEmail.email : null;
+    }
+
+    if (!email) {
+      return res.status(400).json({ success: false, message: 'Impossible de récupérer l\'email GitHub' });
+    }
+
+    // Check if user exists
+    const [existingUser] = await db.select().from(schema.users)
+      .where(eq(schema.users.email, email));
+
+    if (existingUser) {
+      // Login existing user
+      const jwtToken = jwt.sign(
+        { id: existingUser.id, username: existingUser.username, email: existingUser.email, role: existingUser.role || 'user' },
+        JWT_SECRET,
+        { expiresIn: '7d' }
+      );
+      return res.json({
+        success: true,
+        data: {
+          token: jwtToken,
+          user: {
+            id: existingUser.id,
+            username: existingUser.username,
+            email: existingUser.email,
+            displayName: existingUser.displayName,
+            avatar: existingUser.avatar,
+            xp: existingUser.xp,
+            level: existingUser.level,
+            role: existingUser.role || 'user',
+          }
+        }
+      });
+    }
+
+    // Create new user
+    const id = `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const username = githubUser.login || email.split('@')[0] + '_' + Math.random().toString(36).substr(2, 4);
+    const displayName = githubUser.name || githubUser.login || email.split('@')[0];
+    const avatar = githubUser.avatar_url || displayName.charAt(0).toUpperCase();
+
+    await db.insert(schema.users).values({
+      id,
+      username,
+      email,
+      passwordHash: 'oauth_github',
+      displayName,
+      avatar,
+      xp: 0,
+      level: 1,
+      role: 'user',
+    });
+
+    const jwtToken = jwt.sign({ id, username, email, role: 'user' }, JWT_SECRET, { expiresIn: '7d' });
+
+    res.status(201).json({
+      success: true,
+      data: {
+        token: jwtToken,
+        user: { id, username, email, displayName, avatar, xp: 0, level: 1, role: 'user' }
+      }
+    });
+  } catch (error) {
+    console.error('GitHub OAuth error:', error);
+    res.status(500).json({ success: false, message: 'Erreur lors de la connexion GitHub' });
+  }
+});
+
 export default router;
