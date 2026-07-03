@@ -6,6 +6,7 @@ export default function CourseCard({ course, index, progress = 0 }) {
       href={`/courses/${course.id}`}
       className="card group"
       style={{ animationDelay: `${index * 0.1}s`, borderTopColor: course.color }}
+      aria-label={`${course.title} - ${course.subtitle}`}
     >
       <div className="flex justify-between items-center mb-4">
         <span className="text-3xl">{course.icon}</span>

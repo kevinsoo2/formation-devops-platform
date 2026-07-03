@@ -46,15 +46,16 @@ router.post('/register', async (req, res) => {
       avatar,
       xp: 0,
       level: 1,
+      role: 'user',
     });
 
-    const token = jwt.sign({ id, username, email }, JWT_SECRET, { expiresIn: '7d' });
+    const token = jwt.sign({ id, username, email, role: 'user' }, JWT_SECRET, { expiresIn: '7d' });
 
     res.status(201).json({
       success: true,
       data: {
         token,
-        user: { id, username, email, displayName: displayName || username, avatar, xp: 0, level: 1 }
+        user: { id, username, email, displayName: displayName || username, avatar, xp: 0, level: 1, role: 'user' }
       }
     });
   } catch (error) {
@@ -84,7 +85,7 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ success: false, message: 'Identifiants invalides' });
     }
 
-    const token = jwt.sign({ id: user.id, username: user.username, email: user.email }, JWT_SECRET, { expiresIn: '7d' });
+    const token = jwt.sign({ id: user.id, username: user.username, email: user.email, role: user.role || 'user' }, JWT_SECRET, { expiresIn: '7d' });
 
     res.json({
       success: true,
@@ -98,6 +99,7 @@ router.post('/login', async (req, res) => {
           avatar: user.avatar,
           xp: user.xp,
           level: user.level,
+          role: user.role || 'user',
         }
       }
     });
@@ -137,6 +139,7 @@ router.get('/me', requireAuth, async (req, res) => {
         avatar: user.avatar,
         xp: user.xp,
         level: user.level,
+        role: user.role || 'user',
         badges: badgesData,
         createdAt: user.createdAt,
       }

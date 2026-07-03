@@ -1,4 +1,6 @@
-export const seedData = {
+import { v3Courses, v3Modules } from './seed-data-v3.js';
+
+const _seedData = {
   courses: [
     {
       id: 'artifactory', title: 'JFrog Artifactory', subtitle: 'Gestionnaire de dépôts universels',
@@ -15639,4 +15641,11 @@ done
 
 
   ],
+};
+
+// Merge v3 data
+export const seedData = {
+  courses: [..._seedData.courses, ...v3Courses],
+  modules: [..._seedData.modules, ...v3Modules],
+  quizQuestions: _seedData.quizQuestions,
 };

@@ -1,8 +1,9 @@
 import { Router } from 'express';
 import { db, schema } from '../db/index.js';
-import { eq, and } from 'drizzle-orm';
+import { eq, and, sql } from 'drizzle-orm';
 import { optionalAuth } from '../middleware/auth.js';
 import { checkAndAwardBadges } from './badges.js';
+import { createNotification } from './notifications.js';
 
 const router = Router();
 
@@ -23,6 +24,36 @@ async function addXP(userId, amount) {
     console.error('addXP error:', e);
   }
   return null;
+}
+
+// Helper: record streak and activity
+async function recordActivity(userId) {
+  try {
+    const today = new Date().toISOString().split('T')[0];
+    // Activity log
+    const existing = await db.all(sql`SELECT * FROM activity_log WHERE user_id = ${userId} AND date = ${today}`);
+    if (existing.length > 0) {
+      await db.run(sql`UPDATE activity_log SET activity_count = activity_count + 1 WHERE user_id = ${userId} AND date = ${today}`);
+    } else {
+      await db.run(sql`INSERT INTO activity_log (user_id, date, activity_count) VALUES (${userId}, ${today}, 1)`);
+    }
+    // Streak
+    const streakResult = await db.all(sql`SELECT * FROM streaks WHERE user_id = ${userId}`);
+    if (streakResult.length === 0) {
+      await db.run(sql`INSERT INTO streaks (user_id, current_streak, longest_streak, last_activity_date) VALUES (${userId}, 1, 1, ${today})`);
+    } else {
+      const streak = streakResult[0];
+      if (streak.last_activity_date !== today) {
+        const yesterday = new Date(); yesterday.setDate(yesterday.getDate() - 1);
+        const yesterdayStr = yesterday.toISOString().split('T')[0];
+        let newStreak = streak.last_activity_date === yesterdayStr ? streak.current_streak + 1 : 1;
+        const newLongest = Math.max(streak.longest_streak, newStreak);
+        await db.run(sql`UPDATE streaks SET current_streak = ${newStreak}, longest_streak = ${newLongest}, last_activity_date = ${today} WHERE user_id = ${userId}`);
+      }
+    }
+  } catch (e) {
+    console.error('recordActivity error:', e);
+  }
 }
 
 // GET /api/progress/:userId - Progression d'un utilisateur
@@ -75,8 +106,16 @@ router.post('/:userId/complete', async (req, res) => {
       // Award XP (+50 for module completion) if user exists in users table
       const xpResult = await addXP(req.params.userId, 50);
 
+      // Record activity & streak
+      await recordActivity(req.params.userId);
+
       // Check badges
       const newBadges = await checkAndAwardBadges(req.params.userId);
+
+      // Notifications for new badges
+      for (const badge of newBadges) {
+        await createNotification(req.params.userId, `🏅 Badge débloqué: ${badge.icon} ${badge.name}`, 'badge');
+      }
 
       return res.json({
         success: true,

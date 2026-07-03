@@ -98,3 +98,88 @@ html.light .bg-surface {
 html.light .text-white {
   color: #1a202c;
 }
+
+
+/* V3: Confetti animation */
+@keyframes confetti-fall {
+  0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.animate-confetti {
+  animation: confetti-fall 3s ease-in forwards;
+}
+
+/* V3: Page transitions */
+main {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* V3: Skeleton pulse */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+/* V3: High contrast mode */
+html.high-contrast {
+  --bg-dark: #000000;
+  --bg-card: #111111;
+  --border: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --bg-surface: #1a1a1a;
+}
+
+html.high-contrast body {
+  background: #000;
+  color: #fff;
+}
+
+html.high-contrast .card {
+  border-width: 2px;
+}
+
+html.high-contrast a, html.high-contrast button {
+  outline-offset: 2px;
+}
+
+html.high-contrast a:focus, html.high-contrast button:focus {
+  outline: 3px solid #a855f7;
+}
+
+/* V3: OpenDyslexic font */
+html.dyslexic-font body,
+html.dyslexic-font body * {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', cursive, sans-serif !important;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+  line-height: 1.8;
+}
+
+/* V3: Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid #a855f7;
+  outline-offset: 2px;
+}
+
+/* V3: Skip to main content */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #a855f7;
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 0;
+}

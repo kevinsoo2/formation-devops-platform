@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useAuth } from '../../../contexts/AuthContext';
+import Breadcrumbs from '../../../components/Breadcrumbs';
 
 export default function CourseDetailPage() {
   const { courseId } = useParams();
@@ -11,6 +12,7 @@ export default function CourseDetailPage() {
   const [modules, setModules] = useState([]);
   const [progress, setProgress] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
@@ -33,6 +35,10 @@ export default function CourseDetailPage() {
           if (progData.data && progData.data[courseId]) {
             setProgress(progData.data[courseId]);
           }
+          // Check favorites
+          const favRes = await fetch(`${API_URL}/api/favorites/${user.id}`);
+          const favData = await favRes.json();
+          if (favData.data?.some(f => f.course_id === courseId && !f.module_id)) setIsFavorite(true);
         }
       } catch (e) {
         console.error(e);
@@ -62,16 +68,33 @@ export default function CourseDetailPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-8">
-      <Link href="/courses" className="text-gray-500 hover:text-purple-400 text-sm mb-6 inline-block">&larr; Retour aux formations</Link>
+      <Breadcrumbs items={[{ label: 'Accueil', href: '/' }, { label: 'Formations', href: '/courses' }, { label: course?.title || courseId }]} />
 
       {/* Header */}
       <div className="card mb-8" style={{ borderTopColor: course.color, borderTopWidth: '3px' }}>
         <div className="flex items-center gap-4 mb-4">
           <span className="text-5xl">{course.icon}</span>
-          <div>
+          <div className="flex-1">
             <h1 className="text-2xl font-bold">{course.title}</h1>
             <p className="text-purple-400 font-medium">{course.subtitle}</p>
           </div>
+          {user && (
+            <button
+              onClick={async () => {
+                if (isFavorite) {
+                  await fetch(`${API_URL}/api/favorites/${user.id}`, { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ courseId }) });
+                  setIsFavorite(false);
+                } else {
+                  await fetch(`${API_URL}/api/favorites/${user.id}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ courseId }) });
+                  setIsFavorite(true);
+                }
+              }}
+              className={`text-2xl transition-transform hover:scale-110 ${isFavorite ? 'text-red-500' : 'text-gray-600'}`}
+              aria-label={isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'}
+            >
+              {isFavorite ? '❤️' : '🤍'}
+            </button>
+          )}
         </div>
         <p className="text-gray-400 mb-4">{course.description}</p>
         <div className="flex gap-3 flex-wrap">

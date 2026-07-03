@@ -13,6 +13,19 @@ import searchRoutes from './routes/search.js';
 import leaderboardRoutes from './routes/leaderboard.js';
 import commentsRoutes from './routes/comments.js';
 import badgesRoutes from './routes/badges.js';
+// V3 routes
+import streaksRoutes from './routes/streaks.js';
+import activityRoutes from './routes/activity.js';
+import notesRoutes from './routes/notes.js';
+import favoritesRoutes from './routes/favorites.js';
+import challengesRoutes from './routes/challenges.js';
+import notificationsRoutes from './routes/notifications.js';
+import studytimeRoutes from './routes/studytime.js';
+import forumRoutes from './routes/forum.js';
+import glossaryRoutes from './routes/glossary.js';
+import exercisesRoutes from './routes/exercises.js';
+import profilesRoutes from './routes/profiles.js';
+import adminRoutes from './routes/admin.js';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -28,7 +41,7 @@ app.use(express.json());
 
 // Health check
 app.get('/health', (req, res) => {
-  res.json({ status: 'healthy', timestamp: new Date().toISOString(), env: process.env.NODE_ENV || 'development', version: '2.0.0' });
+  res.json({ status: 'healthy', timestamp: new Date().toISOString(), env: process.env.NODE_ENV || 'development', version: '3.0.0' });
 });
 
 // API Routes
@@ -42,6 +55,19 @@ app.use('/api/leaderboard', leaderboardRoutes);
 app.use('/api/comments', commentsRoutes);
 app.use('/api/badges', badgesRoutes);
 app.use('/api/seed', seedRoutes);
+// V3 routes
+app.use('/api/streaks', streaksRoutes);
+app.use('/api/activity', activityRoutes);
+app.use('/api/notes', notesRoutes);
+app.use('/api/favorites', favoritesRoutes);
+app.use('/api/challenges', challengesRoutes);
+app.use('/api/notifications', notificationsRoutes);
+app.use('/api/studytime', studytimeRoutes);
+app.use('/api/forum', forumRoutes);
+app.use('/api/glossary', glossaryRoutes);
+app.use('/api/exercises', exercisesRoutes);
+app.use('/api/users', profilesRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Error handling
 app.use((err, req, res, next) => {
@@ -50,7 +76,7 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Formation DevOps API v2 running on port ${PORT}`);
+  console.log(`Formation DevOps API v3 running on port ${PORT}`);
 });
 
 export default app;

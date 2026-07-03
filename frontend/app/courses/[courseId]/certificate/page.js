@@ -72,9 +72,20 @@ export default function CertificatePage() {
     <div className="max-w-4xl mx-auto px-6 py-8">
       <div className="flex justify-between items-center mb-6">
         <Link href={`/courses/${courseId}`} className="text-gray-500 hover:text-purple-400 text-sm">&larr; Retour au cours</Link>
-        <button onClick={() => window.print()} className="btn-primary text-sm !px-4 !py-2">
-          🖨️ Imprimer / PDF
-        </button>
+        <div className="flex gap-3">
+          <a
+            href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}&title=${encodeURIComponent(`J'ai obtenu le certificat ${course?.title} sur DevOps Academy !`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#0077B5] text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+            aria-label="Partager sur LinkedIn"
+          >
+            🔗 Partager sur LinkedIn
+          </a>
+          <button onClick={() => window.print()} className="btn-primary text-sm !px-4 !py-2">
+            🖨️ Imprimer / PDF
+          </button>
+        </div>
       </div>
 
       {/* Printable Certificate */}
