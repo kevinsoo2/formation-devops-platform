@@ -1,5 +1,8 @@
 import Link from 'next/link';
 
+export const dynamic = 'force-static';
+export const dynamicParams = false;
+
 const cheatsheetData = {
   docker: {
     title: 'Docker',

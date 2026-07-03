@@ -9,9 +9,7 @@ export const metadata = {
   title: 'DevOps Academy - Formation Outils',
   description: 'Plateforme de formation DevOps - Docker, Kubernetes, Terraform, Ansible, Jenkins, GitLab CI. Gagnez des XP, débloquez des badges et grimpez dans le classement !',
   manifest: '/manifest.json',
-  themeColor: '#a855f7',
   appleWebApp: { capable: true, statusBarStyle: 'default', title: 'DevOps Academy' },
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   openGraph: {
     title: 'DevOps Academy - Formation Outils DevOps',
     description: 'Plateforme de formation complète : Docker, Kubernetes, Terraform, Ansible, Jenkins, GitLab CI. 15 formations, quiz interactifs, XP et badges.',
@@ -28,6 +26,13 @@ export const metadata = {
     index: true,
     follow: true,
   },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#a855f7',
 };
 
 export default function RootLayout({ children }) {
