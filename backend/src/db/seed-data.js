@@ -1,6 +1,7 @@
 import { v3Courses, v3Modules } from './seed-data-v3.js';
 import { extraModules } from './seed-data-extra.js';
 import { extraModules2 } from './seed-data-extra2.js';
+import { extraModules3 } from './seed-data-extra3.js';
 
 const _seedData = {
   courses: [
@@ -15648,7 +15649,7 @@ done
 // Merge v3 data
 export const seedData = {
   courses: [..._seedData.courses, ...v3Courses],
-  modules: [..._seedData.modules, ...v3Modules, ...extraModules, ...extraModules2],
+  modules: [..._seedData.modules, ...v3Modules, ...extraModules, ...extraModules2, ...extraModules3],
   quizQuestions: [
     ..._seedData.quizQuestions,
     // ==================== DOCKER QUIZ ====================
