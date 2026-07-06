@@ -116,8 +116,12 @@ export default function Navbar() {
                 {user ? (
                   <div className="relative">
                     <button onClick={() => setUserMenu(!userMenu)} className="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-purple-500/10 transition-all" aria-expanded={userMenu} aria-label="Menu utilisateur">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 flex items-center justify-center text-white text-sm font-bold">
-                        {user.avatar || user.username?.charAt(0).toUpperCase()}
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-purple-700 flex items-center justify-center text-white text-sm font-bold overflow-hidden">
+                        {user.avatar && user.avatar.startsWith('http') ? (
+                          <img src={user.avatar} alt={user.displayName} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                        ) : (
+                          user.avatar || user.username?.charAt(0).toUpperCase()
+                        )}
                       </div>
                       <div className="hidden md:block text-left">
                         <span className="text-sm font-medium block leading-tight">{user.displayName}</span>
