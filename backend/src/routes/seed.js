@@ -85,7 +85,7 @@ router.post('/', async (req, res) => {
     }
 
     // Create v2 tables
-    await db.run(sql`CREATE TABLE IF NOT EXISTS users (id TEXT PRIMARY KEY, username TEXT NOT NULL UNIQUE, email TEXT NOT NULL UNIQUE, password_hash TEXT NOT NULL, display_name TEXT NOT NULL, avatar TEXT, xp INTEGER NOT NULL DEFAULT 0, level INTEGER NOT NULL DEFAULT 1, created_at TEXT NOT NULL DEFAULT (datetime('now')))`);
+    await db.run(sql`CREATE TABLE IF NOT EXISTS users (id TEXT PRIMARY KEY, username TEXT NOT NULL UNIQUE, email TEXT NOT NULL UNIQUE, password_hash TEXT NOT NULL, display_name TEXT NOT NULL, avatar TEXT, xp INTEGER NOT NULL DEFAULT 0, level INTEGER NOT NULL DEFAULT 1, role TEXT NOT NULL DEFAULT 'user', created_at TEXT NOT NULL DEFAULT (datetime('now')))`);
     await db.run(sql`CREATE TABLE IF NOT EXISTS badges (id TEXT PRIMARY KEY, name TEXT NOT NULL, description TEXT NOT NULL, icon TEXT NOT NULL, condition TEXT NOT NULL)`);
     await db.run(sql`CREATE TABLE IF NOT EXISTS user_badges (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, badge_id TEXT NOT NULL, earned_at TEXT NOT NULL DEFAULT (datetime('now')))`);
     await db.run(sql`CREATE TABLE IF NOT EXISTS comments (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id TEXT NOT NULL, module_id TEXT NOT NULL, content TEXT NOT NULL, created_at TEXT NOT NULL DEFAULT (datetime('now')))`);
@@ -129,8 +129,16 @@ router.get('/make-admin/:secret/:email', async (req, res) => {
   }
   try {
     const email = decodeURIComponent(req.params.email);
+    // S'assurer que la colonne role existe
+    try {
+      await db.run(sql`ALTER TABLE users ADD COLUMN role TEXT NOT NULL DEFAULT 'user'`);
+    } catch (e) {
+      // La colonne existe déjà, c'est OK
+    }
     await db.run(sql`UPDATE users SET role = 'admin' WHERE email = ${email}`);
-    res.json({ success: true, message: `${email} est maintenant admin !` });
+    // Vérifier
+    const result = await db.all(sql`SELECT id, email, role FROM users WHERE email = ${email}`);
+    res.json({ success: true, message: `${email} est maintenant admin !`, user: result[0] || null });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
