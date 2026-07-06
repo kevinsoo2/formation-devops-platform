@@ -122,4 +122,18 @@ router.post('/', async (req, res) => {
   }
 });
 
+// GET /api/seed/make-admin/:secret/:email - Promouvoir un utilisateur en admin
+router.get('/make-admin/:secret/:email', async (req, res) => {
+  if (process.env.SEED_SECRET && req.params.secret !== process.env.SEED_SECRET) {
+    return res.status(401).json({ success: false, message: 'Non autorisé' });
+  }
+  try {
+    const email = decodeURIComponent(req.params.email);
+    await db.run(sql`UPDATE users SET role = 'admin' WHERE email = ${email}`);
+    res.json({ success: true, message: `${email} est maintenant admin !` });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
 export default router;
